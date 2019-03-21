@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\GameSetting\AppSetting.cpp">
+			<Filter>src\GameSetting</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Scene\Entry.cpp">
+			<Filter>src\Scene</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Scene\MusicSelect.cpp">
+			<Filter>src\Scene</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Scene\EntryScene.cpp">
+			<Filter>src\Scene</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\GameSetting">
+			<UniqueIdentifier>{7F66C457-0EF6-E094-E4A9-8BE4}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\Scene">
+			<UniqueIdentifier>{A02AE993-DEC1-492D-B45F-C2B2}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\GameSetting\AppSetting.h">
+			<Filter>src\GameSetting</Filter>
+		</ClInclude>
+		<ClInclude Include="src\configuration.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Scene\EntryScene.h">
+			<Filter>src\Scene</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Scene\Entry.hpp">
+			<Filter>src\Scene</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Scene\MusicSelect.h">
+			<Filter>src\Scene</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
+</Project>
