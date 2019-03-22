@@ -8,7 +8,6 @@ ofSoundPlayer player;
 void ofApp::setup(){
     player.setMultiPlay(true);
     player.load("Rooftop.mp3");
-    player.load("Rooftop.mp3");
 }
 
 //--------------------------------------------------------------
