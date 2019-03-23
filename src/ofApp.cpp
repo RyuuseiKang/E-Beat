@@ -1,4 +1,5 @@
 #include "ofApp.h"
+#include "Scene/EntryScene.h"
 
 using namespace std;
 bool keys[256];
@@ -8,6 +9,8 @@ ofSoundPlayer player;
 void ofApp::setup(){
     player.setMultiPlay(true);
     player.load("Rooftop.mp3");
+
+
 }
 
 //--------------------------------------------------------------
@@ -15,31 +18,39 @@ void ofApp::update(){
     if(keys['q'])
         player.play();
     
-    if(keys['r'])
+    if(keys['a'])
         player.setPositionMS(player.getPositionMS() - 2);
     
-    if(keys['t'])
+    if(keys['d'])
         player.setPositionMS(player.getPositionMS() + 2);
     
+	if (keys['w']) 
+		player.setVolume(player.getVolume() + 0.005f);
+
+	if (keys['s']) 
+		player.setVolume(player.getVolume() - 0.005f);
+
     if(keys['e'])
         player.setPaused(player.isPlaying());
     
-    if(keys['f'])
+    if(keys['r'])
         player.setPaused(false);
     
-    cout << "music Position : " << player.getPositionMS() << endl;
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+	
     ofDrawBitmapStringHighlight("isPlaying : " + to_string(player.isPlaying()), 20, 20);
     ofDrawBitmapStringHighlight("POSITION : " + to_string(player.getPositionMS()), 20, 40);
+	ofDrawBitmapStringHighlight("VOLUME : " + to_string(player.getVolume()), 20, 60);
     
-    if(keys['r'])
-        ofDrawBitmapStringHighlight("<<", 20, 60);
+    if(keys['a'])
+        ofDrawBitmapStringHighlight("<<", 20, 80);
     
-    if(keys['t'])
-        ofDrawBitmapStringHighlight(">>", 20, 60);
+    if(keys['d'])
+        ofDrawBitmapStringHighlight(">>", 20, 80);
 }
 
 //--------------------------------------------------------------

@@ -44,6 +44,9 @@
     <ClInclude Include="src\Scene\MusicSelect.h">
       <Filter>src\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

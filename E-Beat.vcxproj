@@ -187,6 +187,7 @@
     <ClCompile Include="src\Scene\EntryScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\GameSetting\AppSetting.h" />
     <ClInclude Include="src\configuration.h" />
