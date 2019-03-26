@@ -12,9 +12,12 @@
 
 class MusicSelect {
 public:
-	MusicSelect::MusicSelect();
-	MusicSelect::~MusicSelect();
+	MusicSelect();
+	~MusicSelect();
 
+    void update(bool keys[256]);
+    void draw();
+    
 private:
 
 };

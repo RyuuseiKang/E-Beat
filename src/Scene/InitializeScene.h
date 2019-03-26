@@ -18,7 +18,7 @@ public:
     InitializeScene();
     ~InitializeScene();
     
-	void update();
+	void update(bool keys[256]);
 	void draw();
 private:
     

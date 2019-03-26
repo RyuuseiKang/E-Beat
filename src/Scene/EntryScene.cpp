@@ -14,3 +14,11 @@ EntryScene::EntryScene(){
 EntryScene::~EntryScene(){
         
 }
+
+void EntryScene::update(bool keys[256]){
+    
+}
+
+void EntryScene::draw(){
+    
+}

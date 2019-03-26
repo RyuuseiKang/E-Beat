@@ -15,3 +15,11 @@ MusicSelect::MusicSelect() {
 MusicSelect::~MusicSelect() {
 
 }
+
+void MusicSelect::update(bool keys[256]) {
+    
+}
+
+void MusicSelect::draw(){
+    
+}

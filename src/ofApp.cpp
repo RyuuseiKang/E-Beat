@@ -8,6 +8,7 @@ ofSoundPlayer player;
 // Scenes
 InitializeScene *initializeScene;
 EntryScene *entryScene;
+MusicSelect *musicSelect;
 
 Scene scene;
 
@@ -18,7 +19,7 @@ void ofApp::setup(){
     
 	initializeScene = new InitializeScene;
     entryScene = new EntryScene();
-    // musicSelect = new MusicSelect();
+    musicSelect = new MusicSelect();
 
 	scene = INITIALIZE;
 }
@@ -28,13 +29,15 @@ void ofApp::update(){
     
 	switch (scene) {
 	case INITIALIZE:
-		initializeScene->update();
+		initializeScene->update(keys);
 		break;
 
 	case ENTRY:
+        entryScene->update(keys);
 		break;
 
 	case MUSIC_SELECT:
+        musicSelect->update(keys);
 		break;
 
 	case INGAME:
@@ -77,9 +80,11 @@ void ofApp::draw(){
 		break;
 
 	case ENTRY:
+        entryScene->draw();
 		break;
 
 	case MUSIC_SELECT:
+        musicSelect->draw();
 		break;
 
 	case INGAME:

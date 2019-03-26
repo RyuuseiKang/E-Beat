@@ -6,3 +6,11 @@
 //
 
 #include "AppSetting.h"
+
+AppSetting::AppSetting(){
+    
+}
+
+AppSetting::~AppSetting(){
+    
+}

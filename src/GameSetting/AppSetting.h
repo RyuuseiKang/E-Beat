@@ -10,4 +10,14 @@
 
 #include <iostream>
 
+class AppSetting{
+public:
+    AppSetting();
+    ~AppSetting();
+    
+private:
+    // 여기에 게임 설정들 읽어올 것
+    
+};
+
 #endif /* __APP_SETTING_H_ */

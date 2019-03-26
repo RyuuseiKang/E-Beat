@@ -15,6 +15,8 @@ public:
 	EntryScene();
 	~EntryScene();
 
+    void update(bool keys[256]);
+    void draw();
 private:
 
 
