@@ -7,4 +7,11 @@
 #include "Scene/MusicSelect.h"
 #include "Scene/InitializeScene.h"
 
+enum Scene {
+	INITIALIZE,
+	ENTRY,
+	MUSIC_SELECT,
+	INGAME
+};
+
 #endif /* __SCENE_H_ */

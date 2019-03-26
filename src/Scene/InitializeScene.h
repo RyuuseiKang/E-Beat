@@ -9,6 +9,7 @@
 #define __INITIALIZE_SCENE_H_
 
 #include <iostream>
+#include "../ofApp.h"
 
 #endif /* __INITIALIZE_SCENE_H_ */
 
@@ -17,6 +18,8 @@ public:
     InitializeScene();
     ~InitializeScene();
     
+	void update();
+	void draw();
 private:
     
 };

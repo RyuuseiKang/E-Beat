@@ -7,14 +7,10 @@
 
 #include "EntryScene.h"
 
-class EntryScene{
-    
-    EntryScene(){
+EntryScene::EntryScene(){
        
-    }
-    
-    ~EntryScene(){
-        
-    }
 }
-
+    
+EntryScene::~EntryScene(){
+        
+}

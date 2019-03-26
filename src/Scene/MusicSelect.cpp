@@ -6,3 +6,12 @@
 //
 
 #include "MusicSelect.h"
+
+MusicSelect::MusicSelect() {
+
+
+}
+
+MusicSelect::~MusicSelect() {
+
+}
