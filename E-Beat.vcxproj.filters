@@ -16,6 +16,9 @@
     <ClCompile Include="src\Scene\EntryScene.cpp">
       <Filter>src\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\InitializeScene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -44,7 +47,10 @@
     <ClInclude Include="src\Scene\MusicSelect.h">
       <Filter>src\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
+    <ClInclude Include="src\Scene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\InitializeScene.h">
       <Filter>src\Scene</Filter>
     </ClInclude>
   </ItemGroup>

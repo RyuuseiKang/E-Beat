@@ -11,3 +11,12 @@
 #include <iostream>
 
 #endif /* __MUSIC_SELECT_H_ */
+
+class MusicSelect{
+public:
+	MusicSelect::MusicSelect();
+	MusicSelect::~MusicSelect();
+
+private:
+
+};

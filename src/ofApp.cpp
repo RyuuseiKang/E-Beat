@@ -8,21 +8,20 @@ ofSoundPlayer player;
 // Scenes
 InitializeScene *initializeScene;
 EntryScene *entryScene;
-MusicSelect *musicSelect;
+//MusicSelect *musicSelect;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     player.setMultiPlay(true);
     player.load("Rooftop.mp3");
     
-    initializeScene = new InitializeScene();
+	initializeScene = new InitializeScene;
     entryScene = new EntryScene();
-    musicSelect = new MusicSelect();
+    // musicSelect = new MusicSelect();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
     
     if(keys['q'])
         player.play();
