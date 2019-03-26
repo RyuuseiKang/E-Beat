@@ -15,3 +15,10 @@ InitializeScene::~InitializeScene(){
         
 }
 
+void InitializeScene::update() {
+	
+}
+
+void InitializeScene::draw() {
+	ofDrawBitmapStringHighlight("Initialize Scene", 20, 20);
+}

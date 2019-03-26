@@ -8,7 +8,8 @@ ofSoundPlayer player;
 // Scenes
 InitializeScene *initializeScene;
 EntryScene *entryScene;
-//MusicSelect *musicSelect;
+
+Scene scene;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -18,11 +19,31 @@ void ofApp::setup(){
 	initializeScene = new InitializeScene;
     entryScene = new EntryScene();
     // musicSelect = new MusicSelect();
+
+	scene = INITIALIZE;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
+	switch (scene) {
+	case INITIALIZE:
+		initializeScene->update();
+		break;
+
+	case ENTRY:
+		break;
+
+	case MUSIC_SELECT:
+		break;
+
+	case INGAME:
+		break;
+
+	default:
+		break;
+	}
+
     if(keys['q'])
         player.play();
     
@@ -50,9 +71,27 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	
-    ofDrawBitmapStringHighlight("isPlaying : " + to_string(player.isPlaying()), 20, 20);
-    ofDrawBitmapStringHighlight("POSITION : " + to_string(player.getPositionMS()), 20, 40);
-	ofDrawBitmapStringHighlight("VOLUME : " + to_string(player.getVolume()), 20, 60);
+	switch (scene) {
+	case INITIALIZE:
+		initializeScene->draw();
+		break;
+
+	case ENTRY:
+		break;
+
+	case MUSIC_SELECT:
+		break;
+
+	case INGAME:
+		break;
+
+	default:
+		break;
+	}
+
+    // ofDrawBitmapStringHighlight("isPlaying : " + to_string(player.isPlaying()), 20, 20);
+    // ofDrawBitmapStringHighlight("POSITION : " + to_string(player.getPositionMS()), 20, 40);
+	// ofDrawBitmapStringHighlight("VOLUME : " + to_string(player.getVolume()), 20, 60);
     
     if(keys['a'])
         ofDrawBitmapStringHighlight("<<", 20, 80);

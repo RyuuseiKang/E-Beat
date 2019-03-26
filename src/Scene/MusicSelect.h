@@ -10,9 +10,7 @@
 
 #include <iostream>
 
-#endif /* __MUSIC_SELECT_H_ */
-
-class MusicSelect{
+class MusicSelect {
 public:
 	MusicSelect::MusicSelect();
 	MusicSelect::~MusicSelect();
@@ -20,3 +18,5 @@ public:
 private:
 
 };
+
+#endif /* __MUSIC_SELECT_H_ */
