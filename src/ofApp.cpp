@@ -1,18 +1,29 @@
 #include "ofApp.h"
-#include "Scene/EntryScene.h"
+#include "Scene.h"
 
 using namespace std;
 bool keys[256];
 ofSoundPlayer player;
 
+// Scenes
+InitializeScene *initializeScene;
+EntryScene *entryScene;
+MusicSelect *musicSelect;
+
 //--------------------------------------------------------------
 void ofApp::setup(){
     player.setMultiPlay(true);
     player.load("Rooftop.mp3");
+    
+    initializeScene = new InitializeScene();
+    entryScene = new EntryScene();
+    musicSelect = new MusicSelect();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    
+    
     if(keys['q'])
         player.play();
     
@@ -23,10 +34,10 @@ void ofApp::update(){
         player.setPositionMS(player.getPositionMS() + 2);
     
 	if (keys['w']) 
-		player.setVolume(player.getVolume() + 0.005f);
+		player.setVolume(player.getVolume() + 0.0005f);
 
 	if (keys['s']) 
-		player.setVolume(player.getVolume() - 0.005f);
+		player.setVolume(player.getVolume() - 0.0005f);
 
     if(keys['e'])
         player.setPaused(player.isPlaying());
@@ -53,7 +64,6 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    cout << "KeyPressed : " << key << endl;
     keys[key] = true;
 }
 

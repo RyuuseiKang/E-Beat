@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E3BDB22B0C5DF7176B163A2 /* MusicSelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD54D4BF1F59B6D27C9674F /* MusicSelect.cpp */; };
+		230A1A822249E755000618B9 /* InitializeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 230A1A802249E755000618B9 /* InitializeScene.cpp */; };
 		D58EFCF04EFBF4FF04E62658 /* EntryScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 765D0954F911177049AC8799 /* EntryScene.cpp */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
@@ -28,6 +29,9 @@
 
 /* Begin PBXFileReference section */
 		0189F5DDCF0CE77E226954FF /* MusicSelect.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = MusicSelect.h; path = src/Scene/MusicSelect.h; sourceTree = SOURCE_ROOT; };
+		230A1A7F2249E5F8000618B9 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		230A1A802249E755000618B9 /* InitializeScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InitializeScene.cpp; path = Scene/InitializeScene.cpp; sourceTree = "<group>"; };
+		230A1A812249E755000618B9 /* InitializeScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InitializeScene.h; path = Scene/InitializeScene.h; sourceTree = "<group>"; };
 		32B12372021459C7677B0AFF /* EntryScene.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = EntryScene.h; path = src/Scene/EntryScene.h; sourceTree = SOURCE_ROOT; };
 		4CB1E6C3B6AAA8D2DE79F143 /* configuration.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = configuration.h; path = src/configuration.h; sourceTree = SOURCE_ROOT; };
 		765D0954F911177049AC8799 /* EntryScene.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = EntryScene.cpp; path = src/Scene/EntryScene.cpp; sourceTree = SOURCE_ROOT; };
@@ -242,6 +246,8 @@
 				CFD54D4BF1F59B6D27C9674F /* MusicSelect.cpp */,
 				765D0954F911177049AC8799 /* EntryScene.cpp */,
 				0189F5DDCF0CE77E226954FF /* MusicSelect.h */,
+				230A1A802249E755000618B9 /* InitializeScene.cpp */,
+				230A1A812249E755000618B9 /* InitializeScene.h */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -554,6 +560,7 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				230A1A7F2249E5F8000618B9 /* Scene.h */,
 				F05D9A8C658FFA518FECB58F /* GameSetting */,
 				4CB1E6C3B6AAA8D2DE79F143 /* configuration.h */,
 				B89229C0696BBC314DF43718 /* Scene */,
@@ -668,6 +675,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230A1A822249E755000618B9 /* InitializeScene.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				F6843D895A126D5A5EBCB33C /* AppSetting.cpp in Sources */,

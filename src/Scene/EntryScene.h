@@ -11,3 +11,14 @@
 #include <iostream>
 
 #endif /* __ENTRY_SCENE_H_ */
+
+
+class EntryScene{
+public:
+    EntryScene();
+    ~EntryScene();
+    
+private:
+    
+    
+};
