@@ -10,9 +10,6 @@
     <ClCompile Include="src\GameSetting\AppSetting.cpp">
       <Filter>src\GameSetting</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scene\MusicSelect.cpp">
-      <Filter>src\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="src\Scene\EntryScene.cpp">
       <Filter>src\Scene</Filter>
     </ClCompile>
@@ -22,11 +19,17 @@
     <ClCompile Include="src\Shader\ofxBlurShader.cpp">
       <Filter>src\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="src\extension\ofBackgroundPlayer.cpp">
-      <Filter>src\extensions</Filter>
+    <ClCompile Include="src\Scene\MusicSelect\MusicSelect.cpp">
+      <Filter>src\Scene\MusicSelect</Filter>
     </ClCompile>
-    <ClCompile Include="src\extension\ofSelectSlider.cpp">
-      <Filter>src\extensions</Filter>
+    <ClCompile Include="src\Scene\MusicSelect\Extension\ofSelectSlider.cpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\Extension\KeyBeam.cpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.cpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,8 +45,11 @@
     <Filter Include="src\Shader">
       <UniqueIdentifier>{700189d3-779e-46a4-973f-896ad10984ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\extensions">
-      <UniqueIdentifier>{5a59ce36-cb1a-4f75-8570-93a6c5118ec7}</UniqueIdentifier>
+    <Filter Include="src\Scene\MusicSelect">
+      <UniqueIdentifier>{22489ae5-fca8-4718-b31f-d07f42703d85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene\MusicSelect\Extension">
+      <UniqueIdentifier>{b805157b-0dc5-43b2-8445-741a35d11341}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -59,9 +65,6 @@
     <ClInclude Include="src\Scene\EntryScene.h">
       <Filter>src\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scene\MusicSelect.h">
-      <Filter>src\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="src\Scene.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -71,14 +74,17 @@
     <ClInclude Include="src\Shader\ofxBlurShader.h">
       <Filter>src\Shader</Filter>
     </ClInclude>
-    <ClInclude Include="src\extension\ofBackgroundPlayer.h">
-      <Filter>src\extensions</Filter>
+    <ClInclude Include="src\Scene\MusicSelect\MusicSelect.h">
+      <Filter>src\Scene\MusicSelect</Filter>
     </ClInclude>
-    <ClInclude Include="src\extension\ofSelectSlider.h">
-      <Filter>src\extensions</Filter>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.h">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
     </ClInclude>
-    <ClInclude Include="src\extension\Extensions.h">
-      <Filter>src\extensions</Filter>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\ofSelectSlider.h">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.h">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
