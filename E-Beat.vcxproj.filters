@@ -19,6 +19,15 @@
     <ClCompile Include="src\Scene\InitializeScene.cpp">
       <Filter>src\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\Shader\ofxBlurShader.cpp">
+      <Filter>src\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\extension\ofBackgroundPlayer.cpp">
+      <Filter>src\extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\extension\ofSelectSlider.cpp">
+      <Filter>src\extensions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -29,6 +38,12 @@
     </Filter>
     <Filter Include="src\Scene">
       <UniqueIdentifier>{A02AE993-DEC1-492D-B45F-C2B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Shader">
+      <UniqueIdentifier>{700189d3-779e-46a4-973f-896ad10984ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\extensions">
+      <UniqueIdentifier>{5a59ce36-cb1a-4f75-8570-93a6c5118ec7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +67,18 @@
     </ClInclude>
     <ClInclude Include="src\Scene\InitializeScene.h">
       <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shader\ofxBlurShader.h">
+      <Filter>src\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\extension\ofBackgroundPlayer.h">
+      <Filter>src\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\extension\ofSelectSlider.h">
+      <Filter>src\extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\extension\Extensions.h">
+      <Filter>src\extensions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

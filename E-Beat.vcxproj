@@ -180,14 +180,20 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\extension\ofBackgroundPlayer.cpp" />
+    <ClCompile Include="src\extension\ofSelectSlider.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\GameSetting\AppSetting.cpp" />
     <ClCompile Include="src\Scene\InitializeScene.cpp" />
     <ClCompile Include="src\Scene\MusicSelect.cpp" />
     <ClCompile Include="src\Scene\EntryScene.cpp" />
+    <ClCompile Include="src\Shader\ofxBlurShader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\extension\Extensions.h" />
+    <ClInclude Include="src\extension\ofBackgroundPlayer.h" />
+    <ClInclude Include="src\extension\ofSelectSlider.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\GameSetting\AppSetting.h" />
     <ClInclude Include="src\configuration.h" />
@@ -195,6 +201,7 @@
     <ClInclude Include="src\Scene\EntryScene.h" />
     <ClInclude Include="src\Scene\InitializeScene.h" />
     <ClInclude Include="src\Scene\MusicSelect.h" />
+    <ClInclude Include="src\Shader\ofxBlurShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
