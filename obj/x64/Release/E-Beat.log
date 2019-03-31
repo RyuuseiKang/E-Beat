@@ -1,0 +1,48 @@
+﻿  MusicSelect.cpp
+  ofSelectSlider.cpp
+  ofApp.cpp
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\extension\ofSelectSlider.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\extension\ofSelectSlider.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\extension\ofSelectSlider.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\extension\ofSelectSlider.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\extension\ofSelectSlider.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\extension\ofSelectSlider.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\extension\ofSelectSlider.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\extension\ofSelectSlider.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect.cpp(11): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+  x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\entryscene.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\initializescene.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+     bin\E-Beat.lib 라이브러리 및 bin\E-Beat.exp 개체를 생성하고 있습니다.
+  LINK : /LTCG를 지정했지만 코드를 생성할 필요가 없습니다. 명령줄에서 /LTCG를 제거하면 링커 성능이 향상됩니다.
+  E-Beat.vcxproj -> X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\E-Beat.exe
+  
+  	                   2	X:\Development\of_v0.10.1_vs2017_release\libs\fmodex\lib\vs\x64\
+  	  *EXTRA File 		 1266176	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex.dll
+  	  *EXTRA File 		 1312768	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL.dll
+  	  *EXTRA File 		 6942208	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\FreeImage.dll
+  
+  	                   1	X:\Development\of_v0.10.1_vs2017_release\libs\FreeImage\lib\vs\x64\
+  	  *EXTRA File 		 1266176	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex.dll
+  	  *EXTRA File 		 1503232	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex64.dll
+  	  *EXTRA File 		 1312768	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL.dll
+  	  *EXTRA File 		 1552384	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL64.dll

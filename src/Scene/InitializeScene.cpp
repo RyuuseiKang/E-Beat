@@ -23,6 +23,14 @@ void InitializeScene::draw() {
 	ofDrawBitmapStringHighlight("Initialize Scene", 20, 20);
 }
 
+void InitializeScene::keyPressed(int key) {
+
+}
+
+void InitializeScene::keyReleased(int key) {
+
+}
+
 class FileSystem : public ofThread{
     
 };

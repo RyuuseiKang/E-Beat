@@ -9,7 +9,7 @@
 #define __INITIALIZE_SCENE_H_
 
 #include <iostream>
-#include "../ofApp.h"
+#include "../ofMain.h"
 
 #endif /* __INITIALIZE_SCENE_H_ */
 
@@ -20,6 +20,8 @@ public:
     
 	void update(bool keys[256]);
 	void draw();
+	void keyPressed(int key);
+	void keyReleased(int key);
 private:
     
 };

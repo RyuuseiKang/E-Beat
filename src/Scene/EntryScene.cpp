@@ -22,3 +22,11 @@ void EntryScene::update(bool keys[256]){
 void EntryScene::draw(){
     
 }
+
+void EntryScene::keyPressed(int key) {
+
+}
+
+void EntryScene::keyReleased(int key) {
+
+}

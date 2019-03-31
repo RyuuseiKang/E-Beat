@@ -1,13 +1,30 @@
-﻿  InitializeScene.cpp
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\initializescene.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\initializescene.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+﻿  ofBackgroundPlayer.cpp
+  ofApp.cpp
+  MusicSelect.cpp
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\extension\ofBackgroundPlayer.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\extension\ofBackgroundPlayer.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect.cpp)
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect.cpp(11): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+  x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\entryscene.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\initializescene.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+     bin\E-Beat_debug.lib 
   E-Beat.vcxproj -> X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\E-Beat_debug.exe
   
   	                   2	X:\Development\of_v0.10.1_vs2017_release\libs\fmodex\lib\vs\Win32\
-  	  *EXTRA File 		 6018560	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\FreeImage.dll
+  	  *EXTRA File 		 1503232	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex64.dll
+  	  *EXTRA File 		 1552384	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL64.dll
+  	  *EXTRA File 		 6942208	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\FreeImage.dll
   
   	                   1	X:\Development\of_v0.10.1_vs2017_release\libs\FreeImage\lib\vs\Win32\
   	  *EXTRA File 		 1266176	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex.dll
+  	  *EXTRA File 		 1503232	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex64.dll
   	  *EXTRA File 		 1312768	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL.dll
+  	  *EXTRA File 		 1552384	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL64.dll
+  	    Newer     		 6018560	X:\Development\of_v0.10.1_vs2017_release\libs\FreeImage\lib\vs\Win32\FreeImage.dll

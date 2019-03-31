@@ -9,6 +9,7 @@
 #define __ENTRY_SCENE_H_
 
 #include <iostream>
+#include "../ofMain.h"
 
 class EntryScene {
 public:
@@ -17,6 +18,9 @@ public:
 
     void update(bool keys[256]);
     void draw();
+	void keyPressed(int key);
+	void keyReleased(int key);
+
 private:
 
 

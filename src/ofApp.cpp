@@ -14,6 +14,8 @@ Scene scene;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	ofSetFrameRate(144);
+
     player.setMultiPlay(true);
     player.load("Rooftop.mp3");
     
@@ -21,7 +23,7 @@ void ofApp::setup(){
     entryScene = new EntryScene();
     musicSelect = new MusicSelect();
 
-	scene = INITIALIZE;
+	scene = MUSIC_SELECT;
 }
 
 //--------------------------------------------------------------
@@ -108,11 +110,51 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     keys[key] = true;
+
+	switch (scene) {
+	case INITIALIZE:
+		initializeScene->keyPressed(key);
+		break;
+
+	case ENTRY:
+		entryScene->keyPressed(key);
+		break;
+
+	case MUSIC_SELECT:
+		musicSelect->keyPressed(key);
+		break;
+
+	case INGAME:
+		break;
+
+	default:
+		break;
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
     keys[key] = false;
+
+	switch (scene) {
+	case INITIALIZE:
+		initializeScene->keyReleased(key);
+		break;
+
+	case ENTRY:
+		entryScene->keyReleased(key);
+		break;
+
+	case MUSIC_SELECT:
+		musicSelect->keyReleased(key);
+		break;
+
+	case INGAME:
+		break;
+
+	default:
+		break;
+	}
 }
 
 //--------------------------------------------------------------
