@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\Scene",
+    "\\src\\Scene\\MusicSelect"
   ],
-  "SelectedNode": "\\E-Beat.sln",
+  "SelectedNode": "\\src\\Scene\\InitializeScene.h",
   "PreviewInSolutionExplorer": false
 }

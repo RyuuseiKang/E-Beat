@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include "../ofMain.h"
-#include "../Shader/ofxBlurShader.h"
+#include "../Extension/ofxBlurShader.h"
 
 class ofBackgroundPlayer : ofVideoPlayer {
 public:

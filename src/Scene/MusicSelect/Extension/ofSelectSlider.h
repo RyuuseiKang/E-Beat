@@ -10,12 +10,14 @@
 
 #include <iostream>
 #include "../ofMain.h"
+#include "Extension/ofxTextSuite.h"
 
 class ofSelectSlider {
 public:
 	ofSelectSlider();
 	~ofSelectSlider();
 
+	void update();
 	void draw();
 
 	void setMaxCount(int _maxCount);
@@ -25,6 +27,10 @@ private:
 
 	int position = 0;
 	float maxCount = 1;
+
+	ofxTextBlock slashText;
+	ofxTextBlock maxText;
+	ofxTextBlock positionText;
 };
 
 #endif __OF_SELECT_SLIDER_H_

@@ -1,7 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Shader/ofxBlurShader.h"
+#include "Extension/ofxBlurShader.h"
+#include "Extension/ofxTextSuite.h"
 
 class ofApp : public ofBaseApp{
 

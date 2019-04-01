@@ -34,6 +34,19 @@ MusicSelect::~MusicSelect() {
 }
 
 void MusicSelect::update(bool keys[256]) {
+	// 키 갱신
+	if (keys['d'] == true)
+		button[0].Active();
+
+	if (keys['f'] == true)
+		button[1].Active();
+
+	if (keys['j'] == true)
+		button[2].Active();
+
+	if (keys['k'] == true)
+		button[3].Active();
+
 	// BGA 갱신
 	bgaPlayer.update();
 
@@ -92,20 +105,7 @@ void MusicSelect::keyPressed(int key) {
 
 	if (key == 's')
 		m--;
-
-	if (key == 'd')
-		button[0].Active();
-
-	if (key == 'f')
-		button[1].Active();
-
-	if (key == 'j')
-		button[2].Active();
-
-	if (key == 'k')
-		button[3].Active();
-
-
+	
 	slider.setMaxCount(m);
 	slider.setPosition(p);
 }

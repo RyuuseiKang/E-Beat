@@ -16,9 +16,6 @@
     <ClCompile Include="src\Scene\InitializeScene.cpp">
       <Filter>src\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\Shader\ofxBlurShader.cpp">
-      <Filter>src\Shader</Filter>
-    </ClCompile>
     <ClCompile Include="src\Scene\MusicSelect\MusicSelect.cpp">
       <Filter>src\Scene\MusicSelect</Filter>
     </ClCompile>
@@ -31,6 +28,12 @@
     <ClCompile Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.cpp">
       <Filter>src\Scene\MusicSelect\Extension</Filter>
     </ClCompile>
+    <ClCompile Include="src\Extension\ofxBlurShader.cpp">
+      <Filter>src\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Extension\ofxTextBlock.cpp">
+      <Filter>src\Extension</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -42,14 +45,14 @@
     <Filter Include="src\Scene">
       <UniqueIdentifier>{A02AE993-DEC1-492D-B45F-C2B2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Shader">
-      <UniqueIdentifier>{700189d3-779e-46a4-973f-896ad10984ac}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Scene\MusicSelect">
       <UniqueIdentifier>{22489ae5-fca8-4718-b31f-d07f42703d85}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Scene\MusicSelect\Extension">
       <UniqueIdentifier>{b805157b-0dc5-43b2-8445-741a35d11341}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Extension">
+      <UniqueIdentifier>{700189d3-779e-46a4-973f-896ad10984ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -71,9 +74,6 @@
     <ClInclude Include="src\Scene\InitializeScene.h">
       <Filter>src\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="src\Shader\ofxBlurShader.h">
-      <Filter>src\Shader</Filter>
-    </ClInclude>
     <ClInclude Include="src\Scene\MusicSelect\MusicSelect.h">
       <Filter>src\Scene\MusicSelect</Filter>
     </ClInclude>
@@ -85,6 +85,15 @@
     </ClInclude>
     <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.h">
       <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extension\ofxBlurShader.h">
+      <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extension\ofxTextBlock.h">
+      <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extension\ofxTextSuite.h">
+      <Filter>src\Extension</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

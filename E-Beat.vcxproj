@@ -180,6 +180,8 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Extension\ofxBlurShader.cpp" />
+    <ClCompile Include="src\Extension\ofxTextBlock.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\GameSetting\AppSetting.cpp" />
@@ -189,9 +191,11 @@
     <ClCompile Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.cpp" />
     <ClCompile Include="src\Scene\MusicSelect\Extension\ofSelectSlider.cpp" />
     <ClCompile Include="src\Scene\MusicSelect\MusicSelect.cpp" />
-    <ClCompile Include="src\Shader\ofxBlurShader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Extension\ofxBlurShader.h" />
+    <ClInclude Include="src\Extension\ofxTextBlock.h" />
+    <ClInclude Include="src\Extension\ofxTextSuite.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\GameSetting\AppSetting.h" />
     <ClInclude Include="src\configuration.h" />
@@ -202,7 +206,6 @@
     <ClInclude Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.h" />
     <ClInclude Include="src\Scene\MusicSelect\Extension\ofSelectSlider.h" />
     <ClInclude Include="src\Scene\MusicSelect\MusicSelect.h" />
-    <ClInclude Include="src\Shader\ofxBlurShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
