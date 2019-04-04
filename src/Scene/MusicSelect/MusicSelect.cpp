@@ -50,6 +50,12 @@ void MusicSelect::update(bool keys[256]) {
 	// BGA 갱신
 	bgaPlayer.update();
 
+		// 노래 리스트 갱신
+		//musicList.update();
+	// 노래 카드 갱신
+	card.update();
+
+
 	// 키빔 갱신
 	button[0].update();
 	button[1].update();
@@ -65,15 +71,15 @@ void MusicSelect::draw(){
 	// BGA 부분 처리
 	bgaPlayer.draw(-265, -150, 2450, 1380);
 	
-
-	// 백그라운드 Rect
-	musicLinerBackRect.draw(0, 0);
-	
 	// 하단 버튼 키빔
 	button[0].draw();
 	button[1].draw();
 	button[2].draw();
 	button[3].draw();
+
+	// 백그라운드 Rect
+	musicLinerBackRect.draw(0, 0);
+
 
 	// 하단 버튼 인디케이터
 	bottombuttonsRect.draw(0, 0);
@@ -82,6 +88,10 @@ void MusicSelect::draw(){
 	// 하단 슬라이더
 	slider.draw();
 	
+		// 카드 카메라 이동
+		//musicList.draw();
+	// 카드 처리
+	card.draw(1920 / 2);
 
 	// 상태 표시
 	ofDrawBitmapStringHighlight("MusicSelect Scene", 20, 20);
@@ -94,17 +104,28 @@ void MusicSelect::draw(){
 }
 
 void MusicSelect::keyPressed(int key) {
-	if (key == 'd')
+	if (key == 'd') {
+		musicList.move(false);
 		p--;
-
-	if (key == 'f')
+	}
+		
+	if (key == 'f') {
+		musicList.move(true);
 		p++;
-
+	}
+		
 	if (key == 'w')
 		m++;
 
 	if (key == 's')
 		m--;
+
+	if (key == 'z')
+		card.Select();
+
+	if (key == 'x')
+		card.Deselect();
+
 	
 	slider.setMaxCount(m);
 	slider.setPosition(p);

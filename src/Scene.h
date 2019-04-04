@@ -5,7 +5,7 @@
 
 #include "Scene/EntryScene.h"
 #include "Scene/MusicSelect/MusicSelect.h"
-#include "Scene/InitializeScene.h"
+#include "Scene/Initialize/InitializeScene.h"
 
 enum Scene {
 	INITIALIZE,

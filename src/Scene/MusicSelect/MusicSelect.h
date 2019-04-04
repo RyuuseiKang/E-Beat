@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include "../ofMain.h"
+#include	"MusicList.h"
 #include "Extension/ofBackgroundPlayer.h"
 #include "Extension/ofSelectSlider.h"
 #include "Extension/KeyBeam.h"
@@ -25,6 +26,8 @@ public:
 	void keyReleased(int key);
 
 private:
+	MusicList musicList;
+
 	ofImage musicLinerBackRect;
 	ofImage bottombuttonsRect;
 
@@ -37,7 +40,11 @@ private:
 	int p = 0;
 	int m = 1;
 
+	int x = 1;
+
 	KeyBeam button[4];
+
+	MusicCard card;
 };
 
 #endif /* __MUSIC_SELECT_H_ */

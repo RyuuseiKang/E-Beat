@@ -13,9 +13,6 @@
     <ClCompile Include="src\Scene\EntryScene.cpp">
       <Filter>src\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scene\InitializeScene.cpp">
-      <Filter>src\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="src\Scene\MusicSelect\MusicSelect.cpp">
       <Filter>src\Scene\MusicSelect</Filter>
     </ClCompile>
@@ -33,6 +30,15 @@
     </ClCompile>
     <ClCompile Include="src\Extension\ofxTextBlock.cpp">
       <Filter>src\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\Extension\MusicCard.cpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\MusicList.cpp">
+      <Filter>src\Scene\MusicSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Initialize\InitializeScene.cpp">
+      <Filter>src\Scene\Initialize</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +60,9 @@
     <Filter Include="src\Extension">
       <UniqueIdentifier>{700189d3-779e-46a4-973f-896ad10984ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Scene\Initialize">
+      <UniqueIdentifier>{4f83d87f-3f55-401c-bbcb-46fac786e30e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h">
@@ -70,9 +79,6 @@
     </ClInclude>
     <ClInclude Include="src\Scene.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Scene\InitializeScene.h">
-      <Filter>src\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\Scene\MusicSelect\MusicSelect.h">
       <Filter>src\Scene\MusicSelect</Filter>
@@ -94,6 +100,15 @@
     </ClInclude>
     <ClInclude Include="src\Extension\ofxTextSuite.h">
       <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\MusicCard.h">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\MusicList.h">
+      <Filter>src\Scene\MusicSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Initialize\InitializeScene.h">
+      <Filter>src\Scene\Initialize</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

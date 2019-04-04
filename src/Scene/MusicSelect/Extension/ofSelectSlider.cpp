@@ -10,7 +10,7 @@
 ofSelectSlider::ofSelectSlider() {
 	slashText.init("Fonts/Gotham-Bold.ttf", 13);
 	maxText.init("Fonts/Gotham-Bold.ttf", 16);
-	positionText.init("Fonts/Gotham-Bold.ttf", 24);
+	positionText.init("Fonts/Gotham-Bold.ttf", 22);
 
 	slashText.setText("/");
 
@@ -37,14 +37,15 @@ void ofSelectSlider::draw() {
 	
 	// 슬라이더 하단 숫자부
 	slashText.setColor(255, 255, 255, 255);
-	slashText.drawCenter(ofGetWidth() / 2, 974);
+	slashText.drawCenter(975, 974);
+	// slashText.drawCenter(ofGetWidth() / 2, 974);
 
 	maxText.setColor(255, 255, 255, 255);
-	maxText.draw(971, 972);
+	maxText.draw(981, 970);
 	//maxText.drawString(to_string(int(maxCount)), 971, 992);
 
 	positionText.setColor(255, 255, 255, 255);
-	positionText.drawRight(947, 962);
+	positionText.drawRight(960, 962);
 	//positionText.drawString(to_string(position + 1), 946 - realWidth, 992);
 
 }

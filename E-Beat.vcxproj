@@ -185,11 +185,13 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\GameSetting\AppSetting.cpp" />
-    <ClCompile Include="src\Scene\InitializeScene.cpp" />
     <ClCompile Include="src\Scene\EntryScene.cpp" />
+    <ClCompile Include="src\Scene\Initialize\InitializeScene.cpp" />
     <ClCompile Include="src\Scene\MusicSelect\Extension\KeyBeam.cpp" />
+    <ClCompile Include="src\Scene\MusicSelect\Extension\MusicCard.cpp" />
     <ClCompile Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.cpp" />
     <ClCompile Include="src\Scene\MusicSelect\Extension\ofSelectSlider.cpp" />
+    <ClCompile Include="src\Scene\MusicSelect\MusicList.cpp" />
     <ClCompile Include="src\Scene\MusicSelect\MusicSelect.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -201,10 +203,12 @@
     <ClInclude Include="src\configuration.h" />
     <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\Scene\EntryScene.h" />
-    <ClInclude Include="src\Scene\InitializeScene.h" />
+    <ClInclude Include="src\Scene\Initialize\InitializeScene.h" />
     <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.h" />
+    <ClInclude Include="src\Scene\MusicSelect\Extension\MusicCard.h" />
     <ClInclude Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.h" />
     <ClInclude Include="src\Scene\MusicSelect\Extension\ofSelectSlider.h" />
+    <ClInclude Include="src\Scene\MusicSelect\MusicList.h" />
     <ClInclude Include="src\Scene\MusicSelect\MusicSelect.h" />
   </ItemGroup>
   <ItemGroup>
