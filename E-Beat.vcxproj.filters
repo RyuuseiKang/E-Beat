@@ -68,30 +68,6 @@
     <ClInclude Include="src\ofApp.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameSetting\AppSetting.h">
-      <Filter>src\GameSetting</Filter>
-    </ClInclude>
-    <ClInclude Include="src\configuration.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Scene\EntryScene.h">
-      <Filter>src\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Scene.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Scene\MusicSelect\MusicSelect.h">
-      <Filter>src\Scene\MusicSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.h">
-      <Filter>src\Scene\MusicSelect\Extension</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Scene\MusicSelect\Extension\ofSelectSlider.h">
-      <Filter>src\Scene\MusicSelect\Extension</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.h">
-      <Filter>src\Scene\MusicSelect\Extension</Filter>
-    </ClInclude>
     <ClInclude Include="src\Extension\ofxBlurShader.h">
       <Filter>src\Extension</Filter>
     </ClInclude>
@@ -101,14 +77,38 @@
     <ClInclude Include="src\Extension\ofxTextSuite.h">
       <Filter>src\Extension</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scene\MusicSelect\Extension\MusicCard.h">
+    <ClInclude Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.hpp">
       <Filter>src\Scene\MusicSelect\Extension</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scene\MusicSelect\MusicList.h">
+    <ClInclude Include="src\Scene\MusicSelect\Extension\ofSelectSlider.hpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.hpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\MusicCard.hpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\MusicList.hpp">
       <Filter>src\Scene\MusicSelect</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scene\Initialize\InitializeScene.h">
+    <ClInclude Include="src\Scene\MusicSelect\MusicSelect.hpp">
+      <Filter>src\Scene\MusicSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Initialize\InitializeScene.hpp">
       <Filter>src\Scene\Initialize</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\EntryScene.hpp">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\configuration.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameSetting\AppSetting.hpp">
+      <Filter>src\GameSetting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

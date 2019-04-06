@@ -5,7 +5,7 @@
 //  Created by 一ノ瀬琉聖 on 26/03/2019.
 //
 
-#include "InitializeScene.h"
+#include "InitializeScene.hpp"
 
 InitializeScene::InitializeScene(){
         

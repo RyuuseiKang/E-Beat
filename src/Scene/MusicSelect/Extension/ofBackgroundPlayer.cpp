@@ -5,7 +5,7 @@
 //  Created by 一ノ瀬琉聖 on 20/03/2019.
 //
 
-#include "ofBackgroundPlayer.h"
+#include "ofBackgroundPlayer.hpp"
 
 ofBackgroundPlayer::ofBackgroundPlayer() {
 	BGAblur.setup(1920, 1080);

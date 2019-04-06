@@ -5,7 +5,7 @@
 //  Created by 一ノ瀬琉聖 on 31/03/2019.
 //
 
-#include "KeyBeam.h"
+#include "KeyBeam.hpp"
 
 KeyBeam::KeyBeam() {
 

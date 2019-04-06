@@ -5,7 +5,7 @@
 //  Created by 一ノ瀬琉聖 on 20/03/2019.
 //
 
-#include "ofSelectSlider.h"
+#include "ofSelectSlider.hpp"
 
 ofSelectSlider::ofSelectSlider() {
 	slashText.init("Fonts/Gotham-Bold.ttf", 13);

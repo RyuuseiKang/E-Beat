@@ -1,5 +1,5 @@
 #include "ofApp.h"
-#include "Scene.h"
+#include "Scene.hpp"
 
 using namespace std;
 bool keys[256];
@@ -14,7 +14,7 @@ Scene scene;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	ofSetFrameRate(144);
+	ofSetFrameRate(60);
 
     player.setMultiPlay(true);
     player.load("Rooftop.mp3");
@@ -49,26 +49,26 @@ void ofApp::update(){
 		break;
 	}
 
-    if(keys['q'])
-        player.play();
-    
-    if(keys['a'])
-        player.setPositionMS(player.getPositionMS() - 2);
-    
-    if(keys['d'])
-        player.setPositionMS(player.getPositionMS() + 2);
-    
-	if (keys['w']) 
-		player.setVolume(player.getVolume() + 0.0005f);
-
-	if (keys['s']) 
-		player.setVolume(player.getVolume() - 0.0005f);
-
-    if(keys['e'])
-        player.setPaused(player.isPlaying());
-    
-    if(keys['r'])
-        player.setPaused(false);
+    // if(keys['q'])
+    //     player.play();
+    // 
+    // if(keys['a'])
+    //     player.setPositionMS(player.getPositionMS() - 2);
+    // 
+    // if(keys['d'])
+    //     player.setPositionMS(player.getPositionMS() + 2);
+    // 
+	// if (keys['w']) 
+	// 	player.setVolume(player.getVolume() + 0.0005f);
+	// 
+	// if (keys['s']) 
+	// 	player.setVolume(player.getVolume() - 0.0005f);
+	// 
+    // if(keys['e'])
+    //     player.setPaused(player.isPlaying());
+    // 
+    // if(keys['r'])
+    //     player.setPaused(false);
     
 
 }

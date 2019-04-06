@@ -195,21 +195,21 @@
     <ClCompile Include="src\Scene\MusicSelect\MusicSelect.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\configuration.hpp" />
     <ClInclude Include="src\Extension\ofxBlurShader.h" />
     <ClInclude Include="src\Extension\ofxTextBlock.h" />
     <ClInclude Include="src\Extension\ofxTextSuite.h" />
+    <ClInclude Include="src\GameSetting\AppSetting.hpp" />
     <ClInclude Include="src\ofApp.h" />
-    <ClInclude Include="src\GameSetting\AppSetting.h" />
-    <ClInclude Include="src\configuration.h" />
-    <ClInclude Include="src\Scene.h" />
-    <ClInclude Include="src\Scene\EntryScene.h" />
-    <ClInclude Include="src\Scene\Initialize\InitializeScene.h" />
-    <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.h" />
-    <ClInclude Include="src\Scene\MusicSelect\Extension\MusicCard.h" />
-    <ClInclude Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.h" />
-    <ClInclude Include="src\Scene\MusicSelect\Extension\ofSelectSlider.h" />
-    <ClInclude Include="src\Scene\MusicSelect\MusicList.h" />
-    <ClInclude Include="src\Scene\MusicSelect\MusicSelect.h" />
+    <ClInclude Include="src\Scene.hpp" />
+    <ClInclude Include="src\Scene\EntryScene.hpp" />
+    <ClInclude Include="src\Scene\Initialize\InitializeScene.hpp" />
+    <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.hpp" />
+    <ClInclude Include="src\Scene\MusicSelect\Extension\MusicCard.hpp" />
+    <ClInclude Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.hpp" />
+    <ClInclude Include="src\Scene\MusicSelect\Extension\ofSelectSlider.hpp" />
+    <ClInclude Include="src\Scene\MusicSelect\MusicList.hpp" />
+    <ClInclude Include="src\Scene\MusicSelect\MusicSelect.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

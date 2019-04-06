@@ -5,7 +5,7 @@
 //  Created by 一ノ瀬琉聖 on 20/03/2019.
 //
 
-#include "MusicSelect.h"
+#include "MusicSelect.hpp"
 
 MusicSelect::MusicSelect() {
 	musicLinerBackRect.loadImage("Scene/MusicSelect/BackRect.png");
@@ -27,6 +27,10 @@ MusicSelect::MusicSelect() {
 
 	bgaPlayer.load("MusicData/Yes or Yes/BGA.mp4");
 	bgaPlayer.play();
+
+	slider.setMaxCount(maxCountMusic);
+	musicList.setMaxCount(maxCountMusic);
+	musicList.setPosition(0);
 }
 
 MusicSelect::~MusicSelect() {
@@ -50,12 +54,9 @@ void MusicSelect::update(bool keys[256]) {
 	// BGA 갱신
 	bgaPlayer.update();
 
-		// 노래 리스트 갱신
-		//musicList.update();
-	// 노래 카드 갱신
-	card.update();
-
-
+	// 노래 리스트 갱신
+	musicList.update();
+	
 	// 키빔 갱신
 	button[0].update();
 	button[1].update();
@@ -88,10 +89,8 @@ void MusicSelect::draw(){
 	// 하단 슬라이더
 	slider.draw();
 	
-		// 카드 카메라 이동
-		//musicList.draw();
-	// 카드 처리
-	card.draw(1920 / 2);
+	// 카드 카메라 이동
+	musicList.draw();
 
 	// 상태 표시
 	ofDrawBitmapStringHighlight("MusicSelect Scene", 20, 20);
@@ -105,30 +104,33 @@ void MusicSelect::draw(){
 
 void MusicSelect::keyPressed(int key) {
 	if (key == 'd') {
-		musicList.move(false);
 		p--;
+		if (p < 0) {
+			p = 0;
+			return;
+		}
+		musicList.setPosition(p);
+		slider.setPosition(p);
 	}
 		
 	if (key == 'f') {
-		musicList.move(true);
 		p++;
+		if (p >= maxCountMusic) {
+			p = maxCountMusic - 1;
+			return;
+		}
+		musicList.setPosition(p);
+		slider.setPosition(p);
 	}
 		
-	if (key == 'w')
+	if (key == 'w') {
 		m++;
+	}
 
-	if (key == 's')
+	if (key == 's') {
 		m--;
-
-	if (key == 'z')
-		card.Select();
-
-	if (key == 'x')
-		card.Deselect();
-
-	
-	slider.setMaxCount(m);
-	slider.setPosition(p);
+	}
+			
 }
 
 void MusicSelect::keyReleased(int key) {
