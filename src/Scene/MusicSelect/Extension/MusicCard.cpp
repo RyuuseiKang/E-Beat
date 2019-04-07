@@ -39,9 +39,9 @@ void MusicCard::update() {
 void MusicCard::draw() {
 	//ofDrawRectangle(19countKey / 2 - (cardWidth / 2), 1080 / 2 - (cardHeight / 2), cardWidth, cardHeight);
 	
-	double changeSizeWidth, changeSizeHeight, changeAlbumSize;
-	double changePaddingAlbum, changePaddingBox;
-	double changeLeftPadding;
+	double changeSizeWidth = 0, changeSizeHeight = 0, changeAlbumSize = 0;
+	double changePaddingAlbum = 0, changePaddingBox = 0;
+	double changeLeftPadding = 0;
 	if (isSizeChange) {
 			changeSizeWidth = ((-(1 / countKey) * (changeCounter - countKey) * (changeCounter - countKey)) + countKey) / countKey * (selectedCardWidth - normalCardWidth);
 			changeSizeHeight = ((-(1 / countKey) * (changeCounter - countKey) * (changeCounter - countKey)) + countKey) / countKey * (selectedCardHeight - normalCardHeight);

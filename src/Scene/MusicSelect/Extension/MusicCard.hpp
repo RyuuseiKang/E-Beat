@@ -53,7 +53,7 @@ private:
 
 	const ofColor expertColor = ofColor(255, 102, 102, 255);
 
-	const double countKey = 10;
+	const double countKey = 8;
 	bool isSizeChange;
 	int changeCounter;
 	bool isDirection;
