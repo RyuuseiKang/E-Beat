@@ -17,6 +17,7 @@ InitializeScene::~InitializeScene(){
 
 void InitializeScene::update(bool keys[256]) {
     // TODO: 파일 읽는 쓰레드 추가
+
 }
 
 void InitializeScene::draw() {
