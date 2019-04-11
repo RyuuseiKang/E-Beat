@@ -33,3 +33,4 @@
 *.opendb
 *.ipch
 *.mp4
+/.vs/slnx.sqlite-journal

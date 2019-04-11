@@ -12,25 +12,27 @@ InitializeScene::InitializeScene(){
     
     string dataPath = dir.path();
     
-    dir.open(dataPath + "MusicData/");
+    dir.open(dataPath + "MusicData");
     
     //populate the directory object
+	// 이거 꼭 필요함
     dir.listDir();
     
     cout << dir.path() << endl;
     
     for(int i = 0; i < dir.size(); i++){
         ofLogNotice(dir.getPath(i));
-        //cout << dir.getPath(i) << endl;
+        cout << dir.getPath(i) << endl;
     }
 }
     
 InitializeScene::~InitializeScene(){
-        
+	
 }
 
 void InitializeScene::update(bool keys[256]) {
     // TODO: 파일 읽는 쓰레드 추가
+	// 위에서 추가해벌임
 
 }
 
