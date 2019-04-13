@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "Extension/ofxBlurShader.h"
 #include "Extension/ofxTextSuite.h"
+#include "Extension/FileSystem.hpp"
 
 class ofApp : public ofBaseApp{
 

@@ -10,14 +10,17 @@
 
 #include <iostream>
 #include "../ofMain.h"
+#include "../Extension/FileSystem.hpp"
 #include "MusicList.hpp"
 #include "Extension/ofBackgroundPlayer.hpp"
 #include "Extension/ofSelectSlider.hpp"
 #include "Extension/KeyBeam.hpp"
 
+
 class MusicSelect {
 public:
 	MusicSelect();
+    MusicSelect(FileSystem *file);
 	~MusicSelect();
 
 	void update(bool keys[256]);

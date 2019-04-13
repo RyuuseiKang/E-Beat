@@ -9,6 +9,7 @@ ofSoundPlayer player;
 InitializeScene *initializeScene;
 EntryScene *entryScene;
 MusicSelect *musicSelect;
+FileSystem *file;
 
 Scene scene;
 
@@ -19,9 +20,12 @@ void ofApp::setup(){
     player.setMultiPlay(true);
     player.load("Rooftop.mp3");
     
-	initializeScene = new InitializeScene;
+    file = new FileSystem();
+    
+	initializeScene = new InitializeScene(*file);
     entryScene = new EntryScene();
-    musicSelect = new MusicSelect();
+    musicSelect = new MusicSelect(file);
+    
 
 	scene = MUSIC_SELECT;
 }

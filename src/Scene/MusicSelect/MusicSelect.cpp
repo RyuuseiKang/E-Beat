@@ -33,6 +33,11 @@ MusicSelect::MusicSelect() {
 	musicList.setPosition(0);
 }
 
+MusicSelect::MusicSelect(FileSystem *file){
+    maxCountMusic = file->getMusicCount();
+    MusicSelect();
+}
+
 MusicSelect::~MusicSelect() {
 
 }

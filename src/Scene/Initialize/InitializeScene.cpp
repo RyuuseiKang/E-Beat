@@ -8,22 +8,11 @@
 #include "InitializeScene.hpp"
 
 InitializeScene::InitializeScene(){
-    ofDirectory dir("");
     
-    string dataPath = dir.path();
+}
+
+InitializeScene::InitializeScene(FileSystem &file){
     
-    dir.open(dataPath + "MusicData");
-    
-    //populate the directory object
-	// 이거 꼭 필요함
-    dir.listDir();
-    
-    cout << dir.path() << endl;
-    
-    for(int i = 0; i < dir.size(); i++){
-        ofLogNotice(dir.getPath(i));
-        cout << dir.getPath(i) << endl;
-    }
 }
     
 InitializeScene::~InitializeScene(){
@@ -48,6 +37,6 @@ void InitializeScene::keyReleased(int key) {
 
 }
 
-class FileSystem : public ofThread{
+//class FileSystem : public ofThread{
     
-};
+//};

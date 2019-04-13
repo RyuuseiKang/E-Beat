@@ -10,10 +10,12 @@
 
 #include <iostream>
 #include "../ofMain.h"
+#include "../Extension/FileSystem.hpp"
 
 class InitializeScene{
 public:
     InitializeScene();
+    InitializeScene(FileSystem &file);
     ~InitializeScene();
     
 	void update(bool keys[256]);
