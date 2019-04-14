@@ -9,6 +9,7 @@ ofSoundPlayer player;
 InitializeScene *initializeScene;
 EntryScene *entryScene;
 MusicSelect *musicSelect;
+Ingame *ingame;
 FileSystem file;
 
 Scene scene;
@@ -24,8 +25,9 @@ void ofApp::setup(){
 	initializeScene = new InitializeScene();
     entryScene = new EntryScene();
     musicSelect = new MusicSelect(&file);
+	ingame = new Ingame(&file);
 
-	scene = MUSIC_SELECT;
+	scene = INGAME;
 }
 
 //--------------------------------------------------------------
@@ -45,6 +47,7 @@ void ofApp::update(){
 		break;
 
 	case INGAME:
+		ingame->update(keys);
 		break;
 
 	default:
@@ -92,7 +95,7 @@ void ofApp::draw(){
 		break;
 
 	case INGAME:
-
+		ingame->draw();
 		break;
 
 	default:
@@ -128,7 +131,7 @@ void ofApp::keyPressed(int key){
 		break;
 
 	case INGAME:
-
+		ingame->keyPressed(key);
 		break;
 
 	default:
@@ -154,6 +157,7 @@ void ofApp::keyReleased(int key){
 		break;
 
 	case INGAME:
+
 		break;
 
 	default:

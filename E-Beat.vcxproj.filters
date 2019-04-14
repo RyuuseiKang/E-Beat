@@ -43,6 +43,9 @@
     <ClCompile Include="src\Extension\FileSystem.cpp">
       <Filter>src\Extension</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\Ingame\Ingame.cpp">
+      <Filter>src\Scene\Ingame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -65,6 +68,9 @@
     </Filter>
     <Filter Include="src\Scene\Initialize">
       <UniqueIdentifier>{4f83d87f-3f55-401c-bbcb-46fac786e30e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene\Ingame">
+      <UniqueIdentifier>{a93de1c4-4d94-4ed9-b1a4-d11400ca40ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +121,9 @@
     </ClInclude>
     <ClInclude Include="src\Extension\FileSystem.hpp">
       <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Ingame\Ingame.hpp">
+      <Filter>src\Scene\Ingame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
