@@ -42,7 +42,6 @@ MusicSelect::MusicSelect(FileSystem* _file){
 	}
 
 	musicList.setPosition(0);
-
 }
 
 MusicSelect::~MusicSelect() {

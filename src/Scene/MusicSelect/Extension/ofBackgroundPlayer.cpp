@@ -1,4 +1,4 @@
-﻿//
+//
 //  ofBackgroundPlayer.cpp
 //  E-Beat
 //
@@ -35,9 +35,10 @@ void ofBackgroundPlayer::update() {
 }
 
 void ofBackgroundPlayer::loadAsync(string _fileName) {
-			
+    ofVideoPlayer::stop();
+    
 	string filePath = "musicData/" + _fileName + "/BGA.mp4";
-	ofVideoPlayer::load(filePath);
+	ofVideoPlayer::loadAsync(filePath);
 }
 
 void ofBackgroundPlayer::play() {
