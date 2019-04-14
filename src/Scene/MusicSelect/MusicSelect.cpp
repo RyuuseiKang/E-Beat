@@ -8,7 +8,6 @@
 #include "MusicSelect.hpp"
 
 MusicSelect::MusicSelect() {
-
 }
 
 MusicSelect::MusicSelect(FileSystem* _file){
@@ -32,7 +31,7 @@ MusicSelect::MusicSelect(FileSystem* _file){
 	button[3].setCount(3);
 	button[3].setColor("Red");
 
-	setMusic(0);
+	bgaPlayer = new ofBackgroundPlayer();
 
 	slider.setMaxCount(maxCountMusic);
 	musicList.setMaxCount(maxCountMusic);
@@ -63,7 +62,7 @@ void MusicSelect::update(bool keys[256]) {
 		button[3].Active();
 
 	// BGA 갱신
-	bgaPlayer.update();
+	bgaPlayer->update();
 
 	// 노래 리스트 갱신
 	musicList.update();
@@ -75,13 +74,23 @@ void MusicSelect::update(bool keys[256]) {
 	button[3].update();
 
 	//if (keys['a'])
-		//cout << backBGAPlayer.getCurrentFrame() << endl;
+		//cout << bgaPlayer->getCurrentFrame() << endl;
+	
+	//여러가지 갱신
+	updateMusic();
+	if (isLoadCue) {
+		if (LoadCueCounter-- < 0) {
+			bgaPlayer->loadAsync(file->getMusicData(pos));
+			bgaPlayer->videoPlay();
+			isLoadCue = false;
+		}
+	}
 }
 
 void MusicSelect::draw(){
 	// BGA 부분 처리
-	setMusic(pos);
-	bgaPlayer.draw(-265, -150, 2450, 1380);
+	//setMusic(pos);
+	bgaPlayer->draw(-265, -150, 2450, 1380);
 	
 	// 하단 버튼 키빔
 	button[0].draw();
@@ -132,11 +141,9 @@ void MusicSelect::keyReleased(int key) {
 
 }
 
-void MusicSelect::setMusic(int _pos) {
+void MusicSelect::updateMusic() {
 	static int p_pos = -1;
 	if (p_pos == pos) return;
-	pos = _pos;
-	p_pos = pos;
 
 	if (pos < 0) {
 		pos = 0;
@@ -148,11 +155,16 @@ void MusicSelect::setMusic(int _pos) {
 		return;
 	}
 
+	p_pos = pos;
+
 	musicList.setPosition(pos);
 	slider.setPosition(pos);
 
-	bgaPlayer.SetLoopFrame(2005, 3072);
+	bgaPlayer->SetLoopFrame(2005, 3072);
 	
-	bgaPlayer.loadAsync(file->getMusicData(pos));
-	bgaPlayer.play();
+	//bgaPlayer->setMusic(pos);
+
+	isLoadCue = true;
+	LoadCueCounter = 15;
+	bgaPlayer->videoStop();
 }

@@ -12,15 +12,15 @@
 #include "../ofMain.h"
 #include "../Extension/ofxBlurShader.h"
 
-class ofBackgroundPlayer : public ofVideoPlayer {
+class ofBackgroundPlayer : ofVideoPlayer, ofThread{
 public:
 	ofBackgroundPlayer();
 	~ofBackgroundPlayer();
 
 	void update();
 	void loadAsync(string _fileName);
-	void play();
-	void stop();
+	void videoPlay();
+	void videoStop();
 	bool isPaused();
 	bool isPlaying();
 	void setVolume(float volume);
@@ -28,8 +28,18 @@ public:
 	void SetLoopFrame(int startFrame, int endFrame);
 	void draw(float x, float y, float w, float h);
 
+	void ThreadStart();
+	void ThreadStop();
+
+	void threadedFunction();
+
 private:
 	ofxBlurShader BGAblur;
+
+	string filePath;
+
+	int currentPos = 0;
+	int maxCount = 0;
 
 	int blurAmount = 2;
 	int blurIterations = 5;

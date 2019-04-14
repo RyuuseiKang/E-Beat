@@ -35,7 +35,7 @@ private:
 	ofImage musicLinerBackRect;
 	ofImage bottombuttonsRect;
 
-	ofBackgroundPlayer bgaPlayer;
+	ofBackgroundPlayer *bgaPlayer;
 	ofSelectSlider slider;
 
 	float bgaStartPosition = 0.28;
@@ -49,8 +49,10 @@ private:
 
 	KeyBeam button[4];
 
-	void setMusic(int _pos);
+	void updateMusic();
 	
+	bool isLoadCue = true;
+	int LoadCueCounter = 15;
 	};
 
 #endif /* __MUSIC_SELECT_HPP_ */
