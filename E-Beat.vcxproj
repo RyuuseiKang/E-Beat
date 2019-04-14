@@ -180,6 +180,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Extension\FileSystem.cpp" />
     <ClCompile Include="src\Extension\ofxBlurShader.cpp" />
     <ClCompile Include="src\Extension\ofxTextBlock.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -196,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\configuration.hpp" />
+    <ClInclude Include="src\Extension\FileSystem.hpp" />
     <ClInclude Include="src\Extension\ofxBlurShader.h" />
     <ClInclude Include="src\Extension\ofxTextBlock.h" />
     <ClInclude Include="src\Extension\ofxTextSuite.h" />

@@ -9,23 +9,21 @@ ofSoundPlayer player;
 InitializeScene *initializeScene;
 EntryScene *entryScene;
 MusicSelect *musicSelect;
-FileSystem *file;
+FileSystem file;
 
 Scene scene;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetFrameRate(60);
+	ofSetVerticalSync(false);
 
     player.setMultiPlay(true);
     player.load("Rooftop.mp3");
-    
-    file = new FileSystem();
-    
-	initializeScene = new InitializeScene(*file);
+
+	initializeScene = new InitializeScene();
     entryScene = new EntryScene();
-    musicSelect = new MusicSelect(file);
-    
+    musicSelect = new MusicSelect(&file);
 
 	scene = MUSIC_SELECT;
 }
@@ -94,6 +92,7 @@ void ofApp::draw(){
 		break;
 
 	case INGAME:
+
 		break;
 
 	default:
@@ -129,6 +128,7 @@ void ofApp::keyPressed(int key){
 		break;
 
 	case INGAME:
+
 		break;
 
 	default:

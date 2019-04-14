@@ -22,11 +22,11 @@ public:
 	void Select(bool direction);
 	void Deselect(bool direction);
 
-	void setMusicData(string _musicName, string _artistName, double maxScore);
-
-	void setImage(string imageLink);
+	void setMusicData(string _musicName);
 	
 private:
+	string musicPath;
+
 	string musicName;
 	string artistName;
 	double maxScore;

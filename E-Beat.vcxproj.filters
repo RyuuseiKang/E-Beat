@@ -40,6 +40,9 @@
     <ClCompile Include="src\Scene\Initialize\InitializeScene.cpp">
       <Filter>src\Scene\Initialize</Filter>
     </ClCompile>
+    <ClCompile Include="src\Extension\FileSystem.cpp">
+      <Filter>src\Extension</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="src\GameSetting\AppSetting.hpp">
       <Filter>src\GameSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extension\FileSystem.hpp">
+      <Filter>src\Extension</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

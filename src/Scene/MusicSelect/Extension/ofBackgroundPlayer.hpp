@@ -18,7 +18,7 @@ public:
 	~ofBackgroundPlayer();
 
 	void update();
-	bool load(string name);
+	void loadAsync(string _fileName);
 	void play();
 	void stop();
 	bool isPaused();

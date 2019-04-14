@@ -8,37 +8,39 @@
 #include "FileSystem.hpp"
 
 FileSystem::FileSystem(){
-    ofDirectory applicationDirectory("");
-    
+	dir = new ofDirectory();
+
     // 파일 데이터 패스
-    string dataPath = applicationDirectory.path();
-    applicationDirectory.close();
+    dataPath = dir->path();
     
-    // 이외 패스들
-    const string musicDataPath = dataPath + "MusicData";
-    
-    
-    // 패스별 처리
-    musicDataDirectory = new ofDirectory(musicDataPath);
-    //dir.open(dataPath + "MusicData");
-    
-    // 이거 꼭 필요함
-    // 하위 폴더 리스트 처리
-    musicDataDirectory->listDir();
-    
-    musicDataSize = musicDataDirectory->size();
-    
-    //for(int i = 0; i < musicDataDirectory.size(); i++){
-    //    ofLogNotice(musicDataDirectory.getPath(i));
-    //    cout << musicDataDirectory.getPath(i) << endl;
-    //}
-    
+    // 이외 패스들 주소 기록
+	musicDataPath = dataPath + "MusicData";
+
+	dir->close();
 }
 
 FileSystem::~FileSystem(){
-    delete musicDataDirectory;
+	dir->close();
+
+	delete dir;
 }
 
 int FileSystem::getMusicCount(){
+	dir->open(musicDataPath);
+	dir->listDir();
+
+	musicDataSize = dir->size();
+
+	musicData = new string[musicDataSize];
+	for (int i = 0; i < musicDataSize; i++) {
+		musicData[i] = dir->getFile(i).getFileName();
+	}
+
+	dir->close();
+	
     return musicDataSize;
+}
+
+string FileSystem::getMusicData(int num) {
+	return musicData[num];
 }

@@ -15,7 +15,7 @@
 class InitializeScene{
 public:
     InitializeScene();
-    InitializeScene(FileSystem &file);
+    InitializeScene(FileSystem *_file);
     ~InitializeScene();
     
 	void update(bool keys[256]);

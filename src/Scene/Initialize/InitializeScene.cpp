@@ -11,7 +11,7 @@ InitializeScene::InitializeScene(){
     
 }
 
-InitializeScene::InitializeScene(FileSystem &file){
+InitializeScene::InitializeScene(FileSystem *_file){
     
 }
     

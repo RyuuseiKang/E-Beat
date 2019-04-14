@@ -82,7 +82,6 @@ void MusicCard::draw() {
 			patternOverlay.draw(normalLeftPadding - changeLeftPadding, normalBoxPadding - changePaddingBox, normalCardWidth + changeSizeWidth, normalCardHeight + changeSizeHeight);
 			albumImage.draw(normalLeftPadding - changeLeftPadding + (normalCardWidth + changeSizeWidth) / 2 - ((normalAlbumSize + changeAlbumSize) / 2), normalBoxPadding + normalAlbumPadding - changePaddingBox - changePaddingAlbum, normalAlbumSize + changeAlbumSize, normalAlbumSize + changeAlbumSize);
 		}
-
 }
 
 void MusicCard::Select(bool direction) {
@@ -93,12 +92,10 @@ void MusicCard::Deselect(bool direction) {
 	sizeChange(false, direction);
 }
 
-void MusicCard::setMusicData(string _musicName, string _artistName, double maxScore) {
-
-}
-
-void MusicCard::setImage(string imageLink) {
-	albumImage.loadImage("MusicData/Yes or Yes/" + imageLink + ".png");
+void MusicCard::setMusicData(string _musicName) {
+	musicName = _musicName;
+	musicPath = "musicData/" + musicName;
+	albumImage.loadImage(musicPath + "/" + "album.jpg");
 	albumImage.resize(normalAlbumSize, normalAlbumSize);
 }
 

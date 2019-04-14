@@ -17,10 +17,16 @@ public:
     ~FileSystem();
     
     int getMusicCount();
+	string getMusicData(int num);
     
-private:
-    ofDirectory *musicDataDirectory;
-    
+private:    
+	ofDirectory *dir;
+
+	string dataPath;
+	string musicDataPath;
+
+	string *musicData;
+
     size_t musicDataSize;
 };
 

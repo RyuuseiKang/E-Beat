@@ -11,8 +11,14 @@ MusicCard *card;
 MusicList::MusicList() {
 	card = new MusicCard[maxCount];
 
-	for(int i = 1; i <= maxCount; i++)
-		card[i - 1].setImage(to_string(i));
+	//for(int i = 1; i <= maxCount; i++)
+	//	card[i - 1].setImage(to_string(i));
+}
+
+void MusicList::addItem(string musicName) {
+	static int i = 0;
+	card[i].setMusicData(musicName);
+	i++;
 }
 
 MusicList::~MusicList() {

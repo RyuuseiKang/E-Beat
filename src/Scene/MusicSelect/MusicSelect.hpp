@@ -20,7 +20,7 @@
 class MusicSelect {
 public:
 	MusicSelect();
-    MusicSelect(FileSystem *file);
+	MusicSelect(FileSystem* _file);
 	~MusicSelect();
 
 	void update(bool keys[256]);
@@ -29,6 +29,7 @@ public:
 	void keyReleased(int key);
 
 private:
+	FileSystem* file;
 	MusicList musicList;
 
 	ofImage musicLinerBackRect;
@@ -40,8 +41,7 @@ private:
 	float bgaStartPosition = 0.28;
 	float bgaEndPosition = 0.43;
 
-	int p = 0;
-	int m = 1;
+	int pos = 0;
 
 	int x = 1;
 
@@ -49,6 +49,8 @@ private:
 
 	KeyBeam button[4];
 
+	void setMusic(int _pos);
+	
 	};
 
 #endif /* __MUSIC_SELECT_HPP_ */

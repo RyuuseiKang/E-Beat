@@ -8,13 +8,20 @@
 #include "MusicSelect.hpp"
 
 MusicSelect::MusicSelect() {
+
+}
+
+MusicSelect::MusicSelect(FileSystem* _file){
+	file = _file;
+    maxCountMusic = file->getMusicCount();
+	
 	musicLinerBackRect.loadImage("Scene/MusicSelect/BackRect.png");
 	musicLinerBackRect.resize(1920, 1080);
 
 	// 하단 버튼
 	bottombuttonsRect.loadImage("Scene/MusicSelect/BottomButtons.png");
 	bottombuttonsRect.resize(1920, 1080);
-	
+
 	// 하단 키빔
 	button[0].setCount(0);
 	button[0].setColor("Green");
@@ -25,17 +32,17 @@ MusicSelect::MusicSelect() {
 	button[3].setCount(3);
 	button[3].setColor("Red");
 
-	bgaPlayer.load("MusicData/Yes or Yes/BGA.mp4");
-	bgaPlayer.play();
+	setMusic(0);
 
 	slider.setMaxCount(maxCountMusic);
 	musicList.setMaxCount(maxCountMusic);
-	musicList.setPosition(0);
-}
+	
+	for (int i = 0; i < maxCountMusic; i++) {
+		musicList.addItem(file->getMusicData(i));
+	}
 
-MusicSelect::MusicSelect(FileSystem *file){
-    maxCountMusic = file->getMusicCount();
-    MusicSelect();
+	musicList.setPosition(0);
+
 }
 
 MusicSelect::~MusicSelect() {
@@ -57,6 +64,7 @@ void MusicSelect::update(bool keys[256]) {
 		button[3].Active();
 
 	// BGA 갱신
+	cout << "update!" << endl;
 	bgaPlayer.update();
 
 	// 노래 리스트 갱신
@@ -70,12 +78,13 @@ void MusicSelect::update(bool keys[256]) {
 
 	//if (keys['a'])
 		//cout << backBGAPlayer.getCurrentFrame() << endl;
-
+	setMusic(pos);
 }
 
 void MusicSelect::draw(){
 	// BGA 부분 처리
 	bgaPlayer.draw(-265, -150, 2450, 1380);
+	cout << "draw!" << endl;
 	
 	// 하단 버튼 키빔
 	button[0].draw();
@@ -109,35 +118,43 @@ void MusicSelect::draw(){
 
 void MusicSelect::keyPressed(int key) {
 	if (key == 'd') {
-		p--;
-		if (p < 0) {
-			p = 0;
-			return;
-		}
-		musicList.setPosition(p);
-		slider.setPosition(p);
+		--pos;
 	}
 		
 	if (key == 'f') {
-		p++;
-		if (p >= maxCountMusic) {
-			p = maxCountMusic - 1;
-			return;
-		}
-		musicList.setPosition(p);
-		slider.setPosition(p);
+		++pos;	
 	}
-		
-	if (key == 'w') {
-		m++;
+	
+	if (key == 'k') {
+		// 게임 시작 처리
 	}
 
-	if (key == 's') {
-		m--;
-	}
-			
 }
 
 void MusicSelect::keyReleased(int key) {
 
+}
+
+void MusicSelect::setMusic(int _pos) {
+	static int p_pos = -1;
+	if (p_pos == pos) return;
+	pos = _pos;
+	p_pos = pos;
+
+	if (pos < 0) {
+		pos = 0;
+		return;
+	}
+
+	if (pos >= maxCountMusic) {
+		pos = maxCountMusic - 1;
+		return;
+	}
+
+	musicList.setPosition(pos);
+	slider.setPosition(pos);
+
+	bgaPlayer.SetLoopFrame(2005, 3072);
+	bgaPlayer.loadAsync(file->getMusicData(pos));
+	bgaPlayer.play();
 }
