@@ -12,7 +12,7 @@
 #include "../ofMain.h"
 #include "../Extension/ofxBlurShader.h"
 
-class ofBackgroundPlayer : ofVideoPlayer {
+class ofBackgroundPlayer : public ofVideoPlayer {
 public:
 	ofBackgroundPlayer();
 	~ofBackgroundPlayer();
@@ -30,6 +30,7 @@ public:
 
 private:
 	ofxBlurShader BGAblur;
+
 	int blurAmount = 2;
 	int blurIterations = 5;
 

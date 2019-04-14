@@ -64,7 +64,6 @@ void MusicSelect::update(bool keys[256]) {
 		button[3].Active();
 
 	// BGA 갱신
-	cout << "update!" << endl;
 	bgaPlayer.update();
 
 	// 노래 리스트 갱신
@@ -78,13 +77,12 @@ void MusicSelect::update(bool keys[256]) {
 
 	//if (keys['a'])
 		//cout << backBGAPlayer.getCurrentFrame() << endl;
-	setMusic(pos);
 }
 
 void MusicSelect::draw(){
 	// BGA 부분 처리
+	setMusic(pos);
 	bgaPlayer.draw(-265, -150, 2450, 1380);
-	cout << "draw!" << endl;
 	
 	// 하단 버튼 키빔
 	button[0].draw();
@@ -155,6 +153,7 @@ void MusicSelect::setMusic(int _pos) {
 	slider.setPosition(pos);
 
 	bgaPlayer.SetLoopFrame(2005, 3072);
+	
 	bgaPlayer.loadAsync(file->getMusicData(pos));
 	bgaPlayer.play();
 }

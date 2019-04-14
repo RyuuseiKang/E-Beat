@@ -35,10 +35,9 @@ void ofBackgroundPlayer::update() {
 }
 
 void ofBackgroundPlayer::loadAsync(string _fileName) {
-	ofVideoPlayer::close();
-
+			
 	string filePath = "musicData/" + _fileName + "/BGA.mp4";
-	ofVideoPlayer::loadAsync(filePath);
+	ofVideoPlayer::load(filePath);
 }
 
 void ofBackgroundPlayer::play() {
