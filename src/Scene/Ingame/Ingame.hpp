@@ -11,6 +11,7 @@
 #include <iostream>
 #include "../ofMain.h"
 #include "../Extension/FileSystem.hpp"
+#include "Extension/DataViewer.hpp"
 
 class Ingame {
 public:
@@ -24,6 +25,10 @@ public:
 	void keyPressed(int key);
 
 private:
+	FileSystem* file;
+
+	DataViewer *dataViewer;
+	
 	ofImage backLane;
 };
 

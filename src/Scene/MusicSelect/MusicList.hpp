@@ -39,4 +39,4 @@ private:
 	int maxCount = 7;
 };
 
-#endif __MUSIC_LIST_HPP_
+#endif /* __MUSIC_LIST_HPP_ */
