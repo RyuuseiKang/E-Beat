@@ -10,7 +10,10 @@
 ofBackgroundPlayer::ofBackgroundPlayer() {
 	BGAblur.setup(1920, 1080);
 
-	ofVideoPlayer::setPixelFormat(OF_PIXELS_NATIVE);
+#ifdef defined _WIN32 || defined _WIN64
+    ofVideoPlayer::setPixelFormat(OF_PIXELS_NATIVE);
+#endif
+	
 }
 
 ofBackgroundPlayer::~ofBackgroundPlayer() {
@@ -37,11 +40,15 @@ void ofBackgroundPlayer::update() {
 }
 
 void ofBackgroundPlayer::loadAsync(string _fileName) {
-
 	filePath = "musicData/" + _fileName + "/BGA.mp4";
-	//ofVideoPlayer::loadAsync(filePath);
-
-	ThreadStart();
+	
+#ifdef TARGET_OS_MAC
+    ofVideoPlayer::loadAsync(filePath);
+    videoPlay();
+#elif defined _WIN32 || defined _WIN64
+    ThreadStart();
+    videoPlay();
+#endif
 }
 
 void ofBackgroundPlayer::videoPlay() {
@@ -78,10 +85,13 @@ void ofBackgroundPlayer::draw(float x, float y, float w, float h) {
 }
 
 void ofBackgroundPlayer::ThreadStart() {
+#ifdef defined _WIN32 || defined _WIN64
 	if (ofThread::isThreadRunning() != 0)
 		ThreadStop();
 
-	ofThread::startThread(true);
+    ofThread::startThread(true);
+#endif
+
 }
 
 void ofBackgroundPlayer::ThreadStop() {
@@ -90,10 +100,15 @@ void ofBackgroundPlayer::ThreadStop() {
 
 void ofBackgroundPlayer::threadedFunction() {
 	while (isThreadRunning() != 0) {
-		if(ofThread::lock()){
-			
-			ofVideoPlayer::loadMovie(filePath);
-
+#ifdef TARGET_OS_MAC
+        if(!isPlaying()){
+            ofThread::lock();
+            
+            ofVideoPlayer::play();
+#elif defined _WIN32 || defined _WIN64
+        if(ofThread::lock()){
+            ofVideoPlayer::loadMovie(filePath);
+#endif
 			ofThread::unlock();
 		}
 		videoPlay();

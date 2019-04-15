@@ -1,4 +1,4 @@
-﻿//
+//
 //  Ingame.cpp
 //  E-Beat
 //
@@ -25,8 +25,10 @@ void Ingame::update(bool keys[256]) {
 }
 
 void Ingame::draw() {
+    // BGA 등
 	backLane.draw(0, 0);
-
+    
+    // 화면 상단처리
 }
 
 void Ingame::keyPressed(int key) {
