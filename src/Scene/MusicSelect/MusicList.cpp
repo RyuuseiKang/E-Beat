@@ -48,7 +48,6 @@ void MusicList::draw() {
 	
 	// 초기 포지션 잡는 부분
 	double pos = 363 - ((selectedPosition) * 311);
-	//cout << pos << endl;
 	ofTranslate(pos, 0, 0);
 
 	// 이동 애니메이션 처리
@@ -95,6 +94,10 @@ void MusicList::setPosition(int selectedKey) {
 
 void MusicList::setMaxCount(int max) {
 	maxCount = max;
+}
+
+bool MusicList::isMoving() {
+	return isMove;
 }
 
 void MusicList::move(bool direction) {

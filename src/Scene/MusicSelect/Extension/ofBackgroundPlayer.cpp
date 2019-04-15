@@ -9,11 +9,7 @@
 
 ofBackgroundPlayer::ofBackgroundPlayer() {
 	BGAblur.setup(1920, 1080);
-
-#ifdef defined _WIN32 || defined _WIN64
     ofVideoPlayer::setPixelFormat(OF_PIXELS_NATIVE);
-#endif
-	
 }
 
 ofBackgroundPlayer::~ofBackgroundPlayer() {
@@ -45,7 +41,7 @@ void ofBackgroundPlayer::loadAsync(string _fileName) {
 #ifdef TARGET_OS_MAC
     ofVideoPlayer::loadAsync(filePath);
     videoPlay();
-#elif defined _WIN32 || defined _WIN64
+#else
     ThreadStart();
     videoPlay();
 #endif
@@ -85,13 +81,10 @@ void ofBackgroundPlayer::draw(float x, float y, float w, float h) {
 }
 
 void ofBackgroundPlayer::ThreadStart() {
-#ifdef defined _WIN32 || defined _WIN64
 	if (ofThread::isThreadRunning() != 0)
 		ThreadStop();
 
     ofThread::startThread(true);
-#endif
-
 }
 
 void ofBackgroundPlayer::ThreadStop() {
@@ -105,7 +98,7 @@ void ofBackgroundPlayer::threadedFunction() {
             ofThread::lock();
             
             ofVideoPlayer::play();
-#elif defined _WIN32 || defined _WIN64
+#else
         if(ofThread::lock()){
             ofVideoPlayer::loadMovie(filePath);
 #endif

@@ -26,6 +26,8 @@ public:
 
 	void setMaxCount(int max);
 
+	bool isMoving();
+
 private:
 	bool isMove = false;
 	bool moveDirection = false;

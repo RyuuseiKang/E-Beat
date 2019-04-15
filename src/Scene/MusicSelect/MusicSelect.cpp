@@ -78,13 +78,14 @@ void MusicSelect::update(bool keys[256]) {
 	
 	//여러가지 갱신
 	updateMusic();
-	if (isLoadCue) {
-		if (LoadCueCounter-- < 0) {
-			bgaPlayer->loadAsync(file->getMusicData(pos));
-			bgaPlayer->videoPlay();
-			isLoadCue = false;
+	if(!musicList.isMoving())
+		if (isLoadCue) {
+			if (LoadCueCounter-- < 0) {
+				bgaPlayer->loadAsync(file->getMusicData(pos));
+				bgaPlayer->videoPlay();
+				isLoadCue = false;
+			}
 		}
-	}
 }
 
 void MusicSelect::draw(){
