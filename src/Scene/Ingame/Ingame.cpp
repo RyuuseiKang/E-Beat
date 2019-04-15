@@ -26,6 +26,7 @@ void Ingame::update(bool keys[256]) {
 
 void Ingame::draw() {
 	backLane.draw(0, 0);
+
 }
 
 void Ingame::keyPressed(int key) {
