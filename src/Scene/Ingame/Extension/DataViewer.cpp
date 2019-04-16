@@ -22,20 +22,20 @@ void DataViewer::draw() {
 	ofRectangle levelBackground((1920 / 2) - (1820 / 2), 0, 1820, 160);
 
 	// 난이도별 상단 색상처리 안햇음
-	ofMesh levelBackgroundMesh;
-	levelBackgroundMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-	levelBackgroundMesh.addVertex(ofPoint((1920 / 2) - (1820 / 2), 0));
-	levelBackgroundMesh.addColor(ofColor(98, 6, 168, 255));
-	levelBackgroundMesh.addVertex(ofPoint((1920 / 2) + (1820 / 2), 0));
-	levelBackgroundMesh.addColor(ofColor(98, 6, 168, 255));
-	levelBackgroundMesh.addVertex(ofPoint(1920 / 2 - (1820 / 2), 160));
-	levelBackgroundMesh.addColor(ofColor(136, 3, 232, 255));
-	levelBackgroundMesh.addVertex(ofPoint(1920 / 2 + (1820 / 2), 160));
-	levelBackgroundMesh.addColor(ofColor(136, 3, 232, 255));
-	levelBackgroundMesh.draw();
+	ofMesh levelColorBackgroundMesh;
+	levelColorBackgroundMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+	levelColorBackgroundMesh.addVertex(ofPoint((1920 / 2) - (1820 / 2), 0));
+	levelColorBackgroundMesh.addColor(ofColor(98, 6, 168, 255));
+	levelColorBackgroundMesh.addVertex(ofPoint((1920 / 2) + (1820 / 2), 0));
+	levelColorBackgroundMesh.addColor(ofColor(98, 6, 168, 255));
+	levelColorBackgroundMesh.addVertex(ofPoint(1920 / 2 - (1820 / 2), 160));
+	levelColorBackgroundMesh.addColor(ofColor(136, 3, 232, 255));
+	levelColorBackgroundMesh.addVertex(ofPoint(1920 / 2 + (1820 / 2), 160));
+	levelColorBackgroundMesh.addColor(ofColor(136, 3, 232, 255));
+	levelColorBackgroundMesh.draw();
 
 	// 레벨표시
-	
+	LevelBackgroundRect.draw(1752 - 5, 41 - 5, 105, 77);
 
 	// 판정 후면 검은색
 	ofSetColor(0, 0, 0, 255);

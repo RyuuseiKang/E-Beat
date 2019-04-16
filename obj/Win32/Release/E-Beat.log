@@ -1,24 +1,127 @@
-﻿  MusicSelect.cpp
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\musicselect.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\musicselect.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\musicselect.cpp(18): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
-  x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\musicselect.cpp(22): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
-  x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
+﻿  FileSystem.cpp
+  ofxBlurShader.cpp
+  ofxTextBlock.cpp
+  main.cpp
+  ofApp.cpp
+  AppSetting.cpp
+  EntryScene.cpp
+  DataViewer.cpp
+  Ingame.cpp
+  InitializeScene.cpp
+  KeyBeam.cpp
+  MusicCard.cpp
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Extension\FileSystem.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\ingame.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\entryscene.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\ingame.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Ingame\Ingame.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\entryscene.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\EntryScene.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\gamesetting\appsetting.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\initialize\initializescene.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\gamesetting\appsetting.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\GameSetting\AppSetting.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\initialize\initializescene.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Initialize\InitializeScene.cpp)
+  ofBackgroundPlayer.cpp
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\extension\ofbackgroundplayer.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\Extension\MusicCard.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\Extension\MusicCard.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Extension\ofxTextBlock.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Extension\ofxTextBlock.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Ingame\Extension\DataViewer.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Ingame\Extension\DataViewer.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Ingame\Ingame.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\EntryScene.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Ingame\Ingame.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\EntryScene.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\Extension\KeyBeam.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\Extension\KeyBeam.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Extension\FileSystem.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Extension\FileSystem.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Initialize\InitializeScene.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Initialize\InitializeScene.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\main.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\main.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Extension\ofxBlurShader.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Extension\ofxBlurShader.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\Extension\ofBackgroundPlayer.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\Extension\ofBackgroundPlayer.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\extension\musiccard.cpp(13): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+  c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\extension\musiccard.cpp(14): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+  c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Ingame\Ingame.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Ingame\Extension\DataViewer.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\extension\musiccard.cpp(98): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+  c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\ingame.cpp(17): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+  c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(36): warning C4996: 'ofTrueTypeFont::loadFont': Use load instead
+  c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\oftruetypefont.h(193): note: 'ofTrueTypeFont::loadFont' 선언을 참조하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(69): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(71): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(107): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(112): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(118): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(161): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(167): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(176): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(218): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(253): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\extension\keybeam.cpp(50): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+  c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\initialize\initializescene.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\entryscene.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\musicselect.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(275): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(344): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(381): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(424): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(435): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(448): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(470): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(472): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(510): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\ingame.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\ofApp.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.cpp(35): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\Initialize\InitializeScene.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\main.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\extension\ofbackgroundplayer.cpp(87): warning C4996: 'ofThread::startThread': Use tryLock instead of setting the type of lock on startThread
+  c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\utils\ofthread.h(98): note: 'ofThread::startThread' 선언을 참조하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\extension\ofbackgroundplayer.cpp(103): warning C4996: 'ofVideoPlayer::loadMovie': Use load instead
+  c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\video\ofvideoplayer.h(57): note: 'ofVideoPlayer::loadMovie' 선언을 참조하십시오.
+  ofSelectSlider.cpp
+  MusicList.cpp
+  MusicSelect.cpp
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\musicselect.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\musicselect.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\MusicSelect.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\ofxtextblock.cpp(363): warning C4715: 'ofxTextBlock::wrapTextForceLines': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\Extension\ofSelectSlider.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\Extension\ofSelectSlider.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\MusicList.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\MusicList.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\MusicSelect.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\MusicSelect.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오. (소스 파일 컴파일 중 src\Scene\MusicSelect\MusicSelect.cpp)
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\musicselect.cpp(17): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+  c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
+c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\musicselect\musicselect.cpp(21): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+  c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
      bin\E-Beat.lib 라이브러리 및 bin\E-Beat.exp 개체를 생성하고 있습니다.
   LINK : /LTCG를 지정했지만 코드를 생성할 필요가 없습니다. 명령줄에서 /LTCG를 제거하면 링커 성능이 향상됩니다.
-  E-Beat.vcxproj -> X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\E-Beat.exe
+  E-Beat.vcxproj -> C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\E-Beat.exe
   
-  	                   2	X:\Development\of_v0.10.1_vs2017_release\libs\fmodex\lib\vs\Win32\
-  	  *EXTRA File 		 1503232	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex64.dll
-  	  *EXTRA File 		 1552384	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL64.dll
-  	  *EXTRA File 		 6018560	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\FreeImage.dll
+  	                   2	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\libs\fmodex\lib\vs\Win32\
+  	  *추가 파일  		 1503232	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex64.dll
+  	  *추가 파일  		 1552384	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL64.dll
+  	  *추가 파일  		 6942208	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\FreeImage.dll
+  	     오래됨   		 1266176	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\libs\fmodex\lib\vs\Win32\fmodex.dll
+  	     오래됨   		 1312768	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\libs\fmodex\lib\vs\Win32\fmodexL.dll
   
-  	                   1	X:\Development\of_v0.10.1_vs2017_release\libs\FreeImage\lib\vs\Win32\
-  	  *EXTRA File 		 1266176	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex.dll
-  	  *EXTRA File 		 1503232	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex64.dll
-  	  *EXTRA File 		 1312768	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL.dll
-  	  *EXTRA File 		 1552384	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL64.dll
+  	                   1	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\libs\FreeImage\lib\vs\Win32\
+  	  *추가 파일  		 1266176	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex.dll
+  	  *추가 파일  		 1503232	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex64.dll
+  	  *추가 파일  		 1312768	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL.dll
+  	  *추가 파일  		 1552384	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL64.dll
+  	     오래됨   		 6018560	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\libs\FreeImage\lib\vs\Win32\FreeImage.dll
