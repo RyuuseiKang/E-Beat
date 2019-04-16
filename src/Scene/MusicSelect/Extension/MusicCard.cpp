@@ -7,19 +7,14 @@
 
 #include "MusicCard.hpp"
 
-int cWidth, cHeight, aSize;
 MusicCard::MusicCard() {
 	// 오버레이
 
 	patternOverlay.loadImage("Scene/MusicSelect/CardOverlay.png");
 	albumImage.loadImage("MusicData/Yes or Yes/album.png");
 
-	cWidth = normalCardWidth;
-	cHeight = normalCardHeight;
-	aSize = normalAlbumSize;
-
-	patternOverlay.resize(cWidth, cHeight);
-	albumImage.resize(aSize, aSize);
+	patternOverlay.resize(normalCardWidth, normalCardHeight);
+	albumImage.resize(normalAlbumSize, normalAlbumSize);
 }
 
 MusicCard::~MusicCard() {
@@ -43,14 +38,17 @@ void MusicCard::draw() {
 	double changePaddingAlbum = 0, changePaddingBox = 0;
 	double changeLeftPadding = 0;
 	if (isSizeChange) {
-			changeSizeWidth = ((-(1 / countKey) * (changeCounter - countKey) * (changeCounter - countKey)) + countKey) / countKey * (selectedCardWidth - normalCardWidth);
-			changeSizeHeight = ((-(1 / countKey) * (changeCounter - countKey) * (changeCounter - countKey)) + countKey) / countKey * (selectedCardHeight - normalCardHeight);
-			changeAlbumSize = ((-(1 / countKey) * (changeCounter - countKey) * (changeCounter - countKey)) + countKey) / countKey * (selectedAlbumSize - normalAlbumSize);
-			
-			changePaddingBox = ((-(1 / countKey) * (changeCounter - countKey) * (changeCounter - countKey)) + countKey) / countKey * (normalBoxPadding - selectedBoxPadding);
-			changePaddingAlbum = ((-(1 / countKey) * (changeCounter - countKey) * (changeCounter - countKey)) + countKey) / countKey * (normalAlbumPadding - selectedAlbumPadding);
+		double pos = ((-(1 / countKey) * std::pow((changeCounter - countKey), 2)) + countKey) / countKey;
 
-			changeLeftPadding = ((-(1 / countKey) * (changeCounter - countKey) * (changeCounter - countKey)) + countKey) / countKey * (normalLeftPadding - selectedLeftPadding);
+
+		changeSizeWidth = pos * (selectedCardWidth - normalCardWidth);
+		changeSizeHeight = pos * (selectedCardHeight - normalCardHeight);
+		changeAlbumSize = pos * (selectedAlbumSize - normalAlbumSize);
+		
+		changePaddingBox = pos * (normalBoxPadding - selectedBoxPadding);
+		changePaddingAlbum = pos * (normalAlbumPadding - selectedAlbumPadding);
+
+		changeLeftPadding = pos * (normalLeftPadding - selectedLeftPadding);
 	}
 
 	ofSetColor(expertColor);
@@ -84,7 +82,6 @@ void MusicCard::draw() {
 			patternOverlay.draw(normalLeftPadding - changeLeftPadding, normalBoxPadding - changePaddingBox, normalCardWidth + changeSizeWidth, normalCardHeight + changeSizeHeight);
 			albumImage.draw(normalLeftPadding - changeLeftPadding + (normalCardWidth + changeSizeWidth) / 2 - ((normalAlbumSize + changeAlbumSize) / 2), normalBoxPadding + normalAlbumPadding - changePaddingBox - changePaddingAlbum, normalAlbumSize + changeAlbumSize, normalAlbumSize + changeAlbumSize);
 		}
-
 }
 
 void MusicCard::Select(bool direction) {
@@ -95,13 +92,11 @@ void MusicCard::Deselect(bool direction) {
 	sizeChange(false, direction);
 }
 
-void MusicCard::setMusicData(string _musicName, string _artistName, double maxScore) {
-
-}
-
-void MusicCard::setImage(string imageLink) {
-	albumImage.loadImage("MusicData/Yes or Yes/" + imageLink + ".png");
-	albumImage.resize(aSize, aSize);
+void MusicCard::setMusicData(string _musicName) {
+	musicName = _musicName;
+	musicPath = "musicData/" + musicName;
+	albumImage.loadImage(musicPath + "/" + "album.jpg");
+	albumImage.resize(normalAlbumSize, normalAlbumSize);
 }
 
 void MusicCard::sizeChange(bool selected, bool direction) {

@@ -8,15 +8,20 @@
 #include "InitializeScene.hpp"
 
 InitializeScene::InitializeScene(){
-        
+    
+}
+
+InitializeScene::InitializeScene(FileSystem *_file){
+    
 }
     
 InitializeScene::~InitializeScene(){
-        
+	
 }
 
 void InitializeScene::update(bool keys[256]) {
     // TODO: 파일 읽는 쓰레드 추가
+	// 위에서 추가해벌임
 
 }
 
@@ -32,6 +37,6 @@ void InitializeScene::keyReleased(int key) {
 
 }
 
-class FileSystem : public ofThread{
+//class FileSystem : public ofThread{
     
-};
+//};

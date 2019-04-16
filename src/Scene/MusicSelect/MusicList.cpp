@@ -11,8 +11,14 @@ MusicCard *card;
 MusicList::MusicList() {
 	card = new MusicCard[maxCount];
 
-	for(int i = 1; i <= maxCount; i++)
-		card[i - 1].setImage(to_string(i));
+	//for(int i = 1; i <= maxCount; i++)
+	//	card[i - 1].setImage(to_string(i));
+}
+
+void MusicList::addItem(string musicName) {
+	static int i = 0;
+	card[i].setMusicData(musicName);
+	i++;
 }
 
 MusicList::~MusicList() {
@@ -42,7 +48,6 @@ void MusicList::draw() {
 	
 	// 초기 포지션 잡는 부분
 	double pos = 363 - ((selectedPosition) * 311);
-	//cout << pos << endl;
 	ofTranslate(pos, 0, 0);
 
 	// 이동 애니메이션 처리
@@ -89,6 +94,10 @@ void MusicList::setPosition(int selectedKey) {
 
 void MusicList::setMaxCount(int max) {
 	maxCount = max;
+}
+
+bool MusicList::isMoving() {
+	return isMove;
 }
 
 void MusicList::move(bool direction) {

@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E3BDB22B0C5DF7176B163A2 /* MusicSelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFD54D4BF1F59B6D27C9674F /* MusicSelect.cpp */; };
-		230A1A822249E755000618B9 /* InitializeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 230A1A802249E755000618B9 /* InitializeScene.cpp */; };
+		234403B4225ABBE600FFDB02 /* MusicSelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403B2225ABBE600FFDB02 /* MusicSelect.cpp */; };
+		234403B7225ABC4200FFDB02 /* MusicList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403B5225ABC4200FFDB02 /* MusicList.cpp */; };
+		234403BA225ABCA000FFDB02 /* KeyBeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403B8225ABCA000FFDB02 /* KeyBeam.cpp */; };
+		234403BD225ABCDD00FFDB02 /* MusicCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403BB225ABCDD00FFDB02 /* MusicCard.cpp */; };
+		234403C0225ABD2200FFDB02 /* ofSelectSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403BE225ABD2200FFDB02 /* ofSelectSlider.cpp */; };
+		234403C3225ABD4100FFDB02 /* ofBackgroundPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403C1225ABD4100FFDB02 /* ofBackgroundPlayer.cpp */; };
+		234403C9225ABDD400FFDB02 /* ofxBlurShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403C7225ABDD400FFDB02 /* ofxBlurShader.cpp */; };
+		234403CC225ABE1400FFDB02 /* ofxTextBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403CA225ABE1400FFDB02 /* ofxTextBlock.cpp */; };
+		23C835482260123000F84DFA /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23C835462260123000F84DFA /* FileSystem.cpp */; };
+		23C8354D2263F2E200F84DFA /* Ingame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23C8354C2263F2E200F84DFA /* Ingame.cpp */; };
+		23C835502263F36100F84DFA /* InitializeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23C8354F2263F36100F84DFA /* InitializeScene.cpp */; };
 		D58EFCF04EFBF4FF04E62658 /* EntryScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 765D0954F911177049AC8799 /* EntryScene.cpp */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
@@ -28,14 +37,34 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0189F5DDCF0CE77E226954FF /* MusicSelect.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = MusicSelect.h; path = src/Scene/MusicSelect.h; sourceTree = SOURCE_ROOT; };
-		230A1A7F2249E5F8000618B9 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
-		230A1A802249E755000618B9 /* InitializeScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InitializeScene.cpp; path = Scene/InitializeScene.cpp; sourceTree = "<group>"; };
-		230A1A812249E755000618B9 /* InitializeScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InitializeScene.h; path = Scene/InitializeScene.h; sourceTree = "<group>"; };
-		32B12372021459C7677B0AFF /* EntryScene.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = EntryScene.h; path = src/Scene/EntryScene.h; sourceTree = SOURCE_ROOT; };
-		4CB1E6C3B6AAA8D2DE79F143 /* configuration.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = configuration.h; path = src/configuration.h; sourceTree = SOURCE_ROOT; };
+		23440380225AB4FE00FFDB02 /* configuration.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = configuration.hpp; sourceTree = "<group>"; };
+		23440381225AB50C00FFDB02 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
+		23440382225AB52300FFDB02 /* EntryScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = EntryScene.hpp; path = Scene/EntryScene.hpp; sourceTree = "<group>"; };
+		234403A8225AB5DD00FFDB02 /* AppSetting.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = AppSetting.hpp; path = GameSetting/AppSetting.hpp; sourceTree = "<group>"; };
+		234403AA225AB5EF00FFDB02 /* ofxTextSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTextSuite.h; sourceTree = "<group>"; };
+		234403B2225ABBE600FFDB02 /* MusicSelect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MusicSelect.cpp; path = src/Scene/MusicSelect/MusicSelect.cpp; sourceTree = SOURCE_ROOT; };
+		234403B3225ABBE600FFDB02 /* MusicSelect.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = MusicSelect.hpp; path = src/Scene/MusicSelect/MusicSelect.hpp; sourceTree = SOURCE_ROOT; };
+		234403B5225ABC4200FFDB02 /* MusicList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MusicList.cpp; path = src/Scene/MusicSelect/MusicList.cpp; sourceTree = SOURCE_ROOT; };
+		234403B6225ABC4200FFDB02 /* MusicList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = MusicList.hpp; path = src/Scene/MusicSelect/MusicList.hpp; sourceTree = SOURCE_ROOT; };
+		234403B8225ABCA000FFDB02 /* KeyBeam.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = KeyBeam.cpp; path = src/Scene/MusicSelect/Extension/KeyBeam.cpp; sourceTree = SOURCE_ROOT; };
+		234403B9225ABCA000FFDB02 /* KeyBeam.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = KeyBeam.hpp; path = src/Scene/MusicSelect/Extension/KeyBeam.hpp; sourceTree = SOURCE_ROOT; };
+		234403BB225ABCDD00FFDB02 /* MusicCard.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MusicCard.cpp; path = src/Scene/MusicSelect/Extension/MusicCard.cpp; sourceTree = SOURCE_ROOT; };
+		234403BC225ABCDD00FFDB02 /* MusicCard.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = MusicCard.hpp; path = src/Scene/MusicSelect/Extension/MusicCard.hpp; sourceTree = SOURCE_ROOT; };
+		234403BE225ABD2200FFDB02 /* ofSelectSlider.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ofSelectSlider.cpp; path = src/Scene/MusicSelect/Extension/ofSelectSlider.cpp; sourceTree = SOURCE_ROOT; };
+		234403BF225ABD2200FFDB02 /* ofSelectSlider.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ofSelectSlider.hpp; path = src/Scene/MusicSelect/Extension/ofSelectSlider.hpp; sourceTree = SOURCE_ROOT; };
+		234403C1225ABD4100FFDB02 /* ofBackgroundPlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ofBackgroundPlayer.cpp; path = src/Scene/MusicSelect/Extension/ofBackgroundPlayer.cpp; sourceTree = SOURCE_ROOT; };
+		234403C2225ABD4100FFDB02 /* ofBackgroundPlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ofBackgroundPlayer.hpp; path = src/Scene/MusicSelect/Extension/ofBackgroundPlayer.hpp; sourceTree = SOURCE_ROOT; };
+		234403C7225ABDD400FFDB02 /* ofxBlurShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxBlurShader.cpp; sourceTree = "<group>"; };
+		234403C8225ABDD400FFDB02 /* ofxBlurShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxBlurShader.h; sourceTree = "<group>"; };
+		234403CA225ABE1400FFDB02 /* ofxTextBlock.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTextBlock.cpp; sourceTree = "<group>"; };
+		234403CB225ABE1400FFDB02 /* ofxTextBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTextBlock.h; sourceTree = "<group>"; };
+		23C835462260123000F84DFA /* FileSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileSystem.cpp; sourceTree = "<group>"; };
+		23C835472260123000F84DFA /* FileSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileSystem.hpp; sourceTree = "<group>"; };
+		23C8354B2263F2E200F84DFA /* Ingame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Ingame.hpp; path = src/Scene/Ingame/Ingame.hpp; sourceTree = SOURCE_ROOT; };
+		23C8354C2263F2E200F84DFA /* Ingame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Ingame.cpp; path = src/Scene/Ingame/Ingame.cpp; sourceTree = SOURCE_ROOT; };
+		23C8354E2263F36000F84DFA /* InitializeScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = InitializeScene.hpp; path = src/Scene/Initialize/InitializeScene.hpp; sourceTree = SOURCE_ROOT; };
+		23C8354F2263F36100F84DFA /* InitializeScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InitializeScene.cpp; path = src/Scene/Initialize/InitializeScene.cpp; sourceTree = SOURCE_ROOT; };
 		765D0954F911177049AC8799 /* EntryScene.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = EntryScene.cpp; path = src/Scene/EntryScene.cpp; sourceTree = SOURCE_ROOT; };
-		CFD54D4BF1F59B6D27C9674F /* MusicSelect.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = MusicSelect.cpp; path = src/Scene/MusicSelect.cpp; sourceTree = SOURCE_ROOT; };
 		D35B171011411583CE090E81 /* AppSetting.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = AppSetting.cpp; path = src/GameSetting/AppSetting.cpp; sourceTree = SOURCE_ROOT; };
 		E42962AC2163EDD300A6A9E2 /* ofCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ofCamera.cpp; path = ../../../libs/openFrameworks/3d/ofCamera.cpp; sourceTree = SOURCE_ROOT; };
 		E42962AD2163EDD300A6A9E2 /* ofMesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofMesh.h; path = ../../../libs/openFrameworks/3d/ofMesh.h; sourceTree = SOURCE_ROOT; };
@@ -218,7 +247,6 @@
 		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
-		FB72A31CE125765EE17BA25B /* AppSetting.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = AppSetting.h; path = src/GameSetting/AppSetting.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +260,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23440386225AB53800FFDB02 /* MusicSelect */ = {
+			isa = PBXGroup;
+			children = (
+				23440387225AB53800FFDB02 /* Extension */,
+				234403B2225ABBE600FFDB02 /* MusicSelect.cpp */,
+				234403B3225ABBE600FFDB02 /* MusicSelect.hpp */,
+				234403B5225ABC4200FFDB02 /* MusicList.cpp */,
+				234403B6225ABC4200FFDB02 /* MusicList.hpp */,
+			);
+			name = MusicSelect;
+			path = src/MusicSelect;
+			sourceTree = SOURCE_ROOT;
+		};
+		23440387225AB53800FFDB02 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				234403B8225ABCA000FFDB02 /* KeyBeam.cpp */,
+				234403B9225ABCA000FFDB02 /* KeyBeam.hpp */,
+				234403BB225ABCDD00FFDB02 /* MusicCard.cpp */,
+				234403BC225ABCDD00FFDB02 /* MusicCard.hpp */,
+				234403BE225ABD2200FFDB02 /* ofSelectSlider.cpp */,
+				234403BF225ABD2200FFDB02 /* ofSelectSlider.hpp */,
+				234403C1225ABD4100FFDB02 /* ofBackgroundPlayer.cpp */,
+				234403C2225ABD4100FFDB02 /* ofBackgroundPlayer.hpp */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		234403A5225AB5BF00FFDB02 /* Initialize */ = {
+			isa = PBXGroup;
+			children = (
+				23C8354F2263F36100F84DFA /* InitializeScene.cpp */,
+				23C8354E2263F36000F84DFA /* InitializeScene.hpp */,
+			);
+			path = Initialize;
+			sourceTree = "<group>";
+		};
+		234403A9225AB5EF00FFDB02 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				234403AA225AB5EF00FFDB02 /* ofxTextSuite.h */,
+				234403C7225ABDD400FFDB02 /* ofxBlurShader.cpp */,
+				234403C8225ABDD400FFDB02 /* ofxBlurShader.h */,
+				234403CA225ABE1400FFDB02 /* ofxTextBlock.cpp */,
+				234403CB225ABE1400FFDB02 /* ofxTextBlock.h */,
+				23C835462260123000F84DFA /* FileSystem.cpp */,
+				23C835472260123000F84DFA /* FileSystem.hpp */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		23C8354A2263F2D200F84DFA /* Ingame */ = {
+			isa = PBXGroup;
+			children = (
+				23C8354C2263F2E200F84DFA /* Ingame.cpp */,
+				23C8354B2263F2E200F84DFA /* Ingame.hpp */,
+			);
+			path = Ingame;
+			sourceTree = "<group>";
+		};
 		6948EE371B920CB800B5AC1A /* local_addons */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,12 +330,11 @@
 		B89229C0696BBC314DF43718 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				32B12372021459C7677B0AFF /* EntryScene.h */,
-				CFD54D4BF1F59B6D27C9674F /* MusicSelect.cpp */,
+				23C8354A2263F2D200F84DFA /* Ingame */,
+				234403A5225AB5BF00FFDB02 /* Initialize */,
+				23440386225AB53800FFDB02 /* MusicSelect */,
 				765D0954F911177049AC8799 /* EntryScene.cpp */,
-				0189F5DDCF0CE77E226954FF /* MusicSelect.h */,
-				230A1A802249E755000618B9 /* InitializeScene.cpp */,
-				230A1A812249E755000618B9 /* InitializeScene.h */,
+				23440382225AB52300FFDB02 /* EntryScene.hpp */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -557,12 +644,13 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				23440380225AB4FE00FFDB02 /* configuration.hpp */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				230A1A7F2249E5F8000618B9 /* Scene.h */,
+				23440381225AB50C00FFDB02 /* Scene.hpp */,
+				234403A9225AB5EF00FFDB02 /* Extension */,
 				F05D9A8C658FFA518FECB58F /* GameSetting */,
-				4CB1E6C3B6AAA8D2DE79F143 /* configuration.h */,
 				B89229C0696BBC314DF43718 /* Scene */,
 			);
 			path = src;
@@ -572,7 +660,7 @@
 			isa = PBXGroup;
 			children = (
 				D35B171011411583CE090E81 /* AppSetting.cpp */,
-				FB72A31CE125765EE17BA25B /* AppSetting.h */,
+				234403A8225AB5DD00FFDB02 /* AppSetting.hpp */,
 			);
 			name = GameSetting;
 			sourceTree = "<group>";
@@ -606,7 +694,7 @@
 		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 1020;
 			};
 			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "E-Beat" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -675,12 +763,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				230A1A822249E755000618B9 /* InitializeScene.cpp in Sources */,
+				234403BA225ABCA000FFDB02 /* KeyBeam.cpp in Sources */,
+				234403BD225ABCDD00FFDB02 /* MusicCard.cpp in Sources */,
+				234403B4225ABBE600FFDB02 /* MusicSelect.cpp in Sources */,
+				23C8354D2263F2E200F84DFA /* Ingame.cpp in Sources */,
+				234403C0225ABD2200FFDB02 /* ofSelectSlider.cpp in Sources */,
+				234403B7225ABC4200FFDB02 /* MusicList.cpp in Sources */,
+				23C835502263F36100F84DFA /* InitializeScene.cpp in Sources */,
+				234403C3225ABD4100FFDB02 /* ofBackgroundPlayer.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				F6843D895A126D5A5EBCB33C /* AppSetting.cpp in Sources */,
-				0E3BDB22B0C5DF7176B163A2 /* MusicSelect.cpp in Sources */,
+				234403CC225ABE1400FFDB02 /* ofxTextBlock.cpp in Sources */,
+				23C835482260123000F84DFA /* FileSystem.cpp in Sources */,
 				D58EFCF04EFBF4FF04E62658 /* EntryScene.cpp in Sources */,
+				234403C9225ABDD400FFDB02 /* ofxBlurShader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,21 +788,45 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "DISTRIBUTION=1";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_UNROLL_LOOPS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -728,6 +849,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -751,6 +873,7 @@
 					"$(OF_CORE_FRAMEWORKS)",
 					"$(LIB_OF)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = cc.openFrameworks.ofapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
@@ -761,19 +884,44 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -797,20 +945,44 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_UNROLL_LOOPS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -833,6 +1005,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -856,6 +1029,7 @@
 					"$(OF_CORE_FRAMEWORKS)",
 					"$(LIB_OF_DEBUG)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = cc.openFrameworks.ofapp;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
 			};
@@ -865,6 +1039,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -887,6 +1062,7 @@
 					"$(OF_CORE_FRAMEWORKS)",
 					"$(LIB_OF)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = cc.openFrameworks.ofapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;

@@ -180,12 +180,15 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Extension\FileSystem.cpp" />
     <ClCompile Include="src\Extension\ofxBlurShader.cpp" />
     <ClCompile Include="src\Extension\ofxTextBlock.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\GameSetting\AppSetting.cpp" />
     <ClCompile Include="src\Scene\EntryScene.cpp" />
+    <ClCompile Include="src\Scene\Ingame\Extension\DataViewer.cpp" />
+    <ClCompile Include="src\Scene\Ingame\Ingame.cpp" />
     <ClCompile Include="src\Scene\Initialize\InitializeScene.cpp" />
     <ClCompile Include="src\Scene\MusicSelect\Extension\KeyBeam.cpp" />
     <ClCompile Include="src\Scene\MusicSelect\Extension\MusicCard.cpp" />
@@ -196,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\configuration.hpp" />
+    <ClInclude Include="src\Extension\FileSystem.hpp" />
     <ClInclude Include="src\Extension\ofxBlurShader.h" />
     <ClInclude Include="src\Extension\ofxTextBlock.h" />
     <ClInclude Include="src\Extension\ofxTextSuite.h" />
@@ -203,6 +207,8 @@
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Scene.hpp" />
     <ClInclude Include="src\Scene\EntryScene.hpp" />
+    <ClInclude Include="src\Scene\Ingame\Extension\DataViewer.hpp" />
+    <ClInclude Include="src\Scene\Ingame\Ingame.hpp" />
     <ClInclude Include="src\Scene\Initialize\InitializeScene.hpp" />
     <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.hpp" />
     <ClInclude Include="src\Scene\MusicSelect\Extension\MusicCard.hpp" />

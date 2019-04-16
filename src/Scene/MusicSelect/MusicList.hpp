@@ -20,11 +20,13 @@ public:
 	void update();
 	void draw();
 
-	void addList();
+	void addItem(string musicName);
 	void move(bool direction);
 	void setPosition(int selectedKey);
 
 	void setMaxCount(int max);
+
+	bool isMoving();
 
 private:
 	bool isMove = false;
@@ -37,4 +39,4 @@ private:
 	int maxCount = 7;
 };
 
-#endif __MUSIC_LIST_HPP_
+#endif /* __MUSIC_LIST_HPP_ */

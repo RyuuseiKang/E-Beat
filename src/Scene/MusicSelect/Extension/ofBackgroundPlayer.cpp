@@ -1,4 +1,4 @@
-﻿//
+//
 //  ofBackgroundPlayer.cpp
 //  E-Beat
 //
@@ -9,10 +9,11 @@
 
 ofBackgroundPlayer::ofBackgroundPlayer() {
 	BGAblur.setup(1920, 1080);
+    ofVideoPlayer::setPixelFormat(OF_PIXELS_NATIVE);
 }
 
 ofBackgroundPlayer::~ofBackgroundPlayer() {
-
+	ofThread::stopThread();
 }
 
 void ofBackgroundPlayer::update() {
@@ -25,24 +26,32 @@ void ofBackgroundPlayer::update() {
 		this->setVolume((currentFrame - bgaStartFrame) / fadeFrame);
 		//cout << "Set Volume : " << (currentFrame - bgaStartFrame) / fadeFrame << endl;
 	}
-		
+
 	if (bgaEndFrame - currentFrame < fadeFrame) {
 		this->setVolume((bgaEndFrame - currentFrame) / fadeFrame);
 		//cout << "Set Volume : " << (bgaEndFrame - currentFrame) / fadeFrame << endl;
 	}
-		
+
 	ofVideoPlayer::update();
 }
 
-bool ofBackgroundPlayer::load(string name) {
-	return ofVideoPlayer::load(name);
+void ofBackgroundPlayer::loadAsync(string _fileName) {
+	filePath = "musicData/" + _fileName + "/BGA.mp4";
+	
+#ifdef TARGET_OS_MAC
+    ofVideoPlayer::loadAsync(filePath);
+    videoPlay();
+#else
+    ThreadStart();
+    videoPlay();
+#endif
 }
 
-void ofBackgroundPlayer::play() {
+void ofBackgroundPlayer::videoPlay() {
 	ofVideoPlayer::play();
 }
 
-void ofBackgroundPlayer::stop() {
+void ofBackgroundPlayer::videoStop() {
 	ofVideoPlayer::stop();
 }
 
@@ -69,4 +78,33 @@ void ofBackgroundPlayer::draw(float x, float y, float w, float h) {
 	BGAblur.iterations = blurIterations;
 	ofVideoPlayer::draw(x, y, w, h);
 	BGAblur.end();
+}
+
+void ofBackgroundPlayer::ThreadStart() {
+	if (ofThread::isThreadRunning() != 0)
+		ThreadStop();
+
+    ofThread::startThread(true);
+}
+
+void ofBackgroundPlayer::ThreadStop() {
+	ofThread::stopThread();
+}
+
+void ofBackgroundPlayer::threadedFunction() {
+	while (isThreadRunning() != 0) {
+#ifdef TARGET_OS_MAC
+        if(!isPlaying()){
+            ofThread::lock();
+            
+            ofVideoPlayer::play();
+#else
+        if(ofThread::lock()){
+            ofVideoPlayer::loadMovie(filePath);
+#endif
+			ofThread::unlock();
+		}
+		videoPlay();
+		ofThread::stopThread();
+	}
 }

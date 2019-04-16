@@ -8,13 +8,19 @@
 #include "MusicSelect.hpp"
 
 MusicSelect::MusicSelect() {
+}
+
+MusicSelect::MusicSelect(FileSystem* _file){
+	file = _file;
+    maxCountMusic = file->getMusicCount();
+	
 	musicLinerBackRect.loadImage("Scene/MusicSelect/BackRect.png");
 	musicLinerBackRect.resize(1920, 1080);
 
 	// 하단 버튼
 	bottombuttonsRect.loadImage("Scene/MusicSelect/BottomButtons.png");
 	bottombuttonsRect.resize(1920, 1080);
-	
+
 	// 하단 키빔
 	button[0].setCount(0);
 	button[0].setColor("Green");
@@ -25,11 +31,15 @@ MusicSelect::MusicSelect() {
 	button[3].setCount(3);
 	button[3].setColor("Red");
 
-	bgaPlayer.load("MusicData/Yes or Yes/BGA.mp4");
-	bgaPlayer.play();
+	bgaPlayer = new ofBackgroundPlayer();
 
 	slider.setMaxCount(maxCountMusic);
 	musicList.setMaxCount(maxCountMusic);
+	
+	for (int i = 0; i < maxCountMusic; i++) {
+		musicList.addItem(file->getMusicData(i));
+	}
+
 	musicList.setPosition(0);
 }
 
@@ -52,7 +62,7 @@ void MusicSelect::update(bool keys[256]) {
 		button[3].Active();
 
 	// BGA 갱신
-	bgaPlayer.update();
+	bgaPlayer->update();
 
 	// 노래 리스트 갱신
 	musicList.update();
@@ -64,13 +74,24 @@ void MusicSelect::update(bool keys[256]) {
 	button[3].update();
 
 	//if (keys['a'])
-		//cout << backBGAPlayer.getCurrentFrame() << endl;
-
+		//cout << bgaPlayer->getCurrentFrame() << endl;
+	
+	//여러가지 갱신
+	updateMusic();
+	if(!musicList.isMoving())
+		if (isLoadCue) {
+			if (LoadCueCounter-- < 0) {
+				bgaPlayer->loadAsync(file->getMusicData(pos));
+				bgaPlayer->videoPlay();
+				isLoadCue = false;
+			}
+		}
 }
 
 void MusicSelect::draw(){
 	// BGA 부분 처리
-	bgaPlayer.draw(-265, -150, 2450, 1380);
+	//setMusic(pos);
+	bgaPlayer->draw(-265, -150, 2450, 1380);
 	
 	// 하단 버튼 키빔
 	button[0].draw();
@@ -104,35 +125,47 @@ void MusicSelect::draw(){
 
 void MusicSelect::keyPressed(int key) {
 	if (key == 'd') {
-		p--;
-		if (p < 0) {
-			p = 0;
-			return;
-		}
-		musicList.setPosition(p);
-		slider.setPosition(p);
+		--pos;
 	}
 		
 	if (key == 'f') {
-		p++;
-		if (p >= maxCountMusic) {
-			p = maxCountMusic - 1;
-			return;
-		}
-		musicList.setPosition(p);
-		slider.setPosition(p);
+		++pos;	
 	}
-		
-	if (key == 'w') {
-		m++;
+	
+	if (key == 'k') {
+		// 게임 시작 처리
 	}
 
-	if (key == 's') {
-		m--;
-	}
-			
 }
 
 void MusicSelect::keyReleased(int key) {
 
+}
+
+void MusicSelect::updateMusic() {
+	static int p_pos = -1;
+	if (p_pos == pos) return;
+
+	if (pos < 0) {
+		pos = 0;
+		return;
+	}
+
+	if (pos >= maxCountMusic) {
+		pos = maxCountMusic - 1;
+		return;
+	}
+
+	p_pos = pos;
+
+	musicList.setPosition(pos);
+	slider.setPosition(pos);
+
+	bgaPlayer->SetLoopFrame(2005, 3072);
+	
+	//bgaPlayer->setMusic(pos);
+
+	isLoadCue = true;
+	LoadCueCounter = 15;
+	bgaPlayer->videoStop();
 }

@@ -3,9 +3,10 @@
 
 #include <iostream>
 
+#include "Scene/Initialize/InitializeScene.hpp"
 #include "Scene/EntryScene.hpp"
 #include "Scene/MusicSelect/MusicSelect.hpp"
-#include "Scene/Initialize/InitializeScene.hpp"
+#include "Scene/Ingame/Ingame.hpp"
 
 enum Scene {
 	INITIALIZE,

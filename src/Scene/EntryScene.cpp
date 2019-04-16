@@ -8,7 +8,7 @@
 #include "EntryScene.hpp"
 
 EntryScene::EntryScene(){
-       
+    // 서버통신 로그인 대응
 }
     
 EntryScene::~EntryScene(){
