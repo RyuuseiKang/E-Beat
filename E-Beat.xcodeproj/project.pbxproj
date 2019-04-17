@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		233E7E222267F40F00799D5F /* DataViewer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 233E7E212267F40F00799D5F /* DataViewer.cpp */; };
 		234403B4225ABBE600FFDB02 /* MusicSelect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403B2225ABBE600FFDB02 /* MusicSelect.cpp */; };
 		234403B7225ABC4200FFDB02 /* MusicList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403B5225ABC4200FFDB02 /* MusicList.cpp */; };
 		234403BA225ABCA000FFDB02 /* KeyBeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234403B8225ABCA000FFDB02 /* KeyBeam.cpp */; };
@@ -37,6 +38,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		233E7E1C2267F2B900799D5F /* DataViewer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = DataViewer.hpp; path = src/Scene/Ingame/Extension/DataViewer.hpp; sourceTree = SOURCE_ROOT; };
+		233E7E212267F40F00799D5F /* DataViewer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DataViewer.cpp; path = src/Scene/Ingame/Extension/DataViewer.cpp; sourceTree = SOURCE_ROOT; };
 		23440380225AB4FE00FFDB02 /* configuration.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = configuration.hpp; sourceTree = "<group>"; };
 		23440381225AB50C00FFDB02 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		23440382225AB52300FFDB02 /* EntryScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = EntryScene.hpp; path = Scene/EntryScene.hpp; sourceTree = "<group>"; };
@@ -260,6 +263,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		233E7E1A2267F28E00799D5F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				233E7E1C2267F2B900799D5F /* DataViewer.hpp */,
+				233E7E212267F40F00799D5F /* DataViewer.cpp */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		23440386225AB53800FFDB02 /* MusicSelect */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +326,7 @@
 		23C8354A2263F2D200F84DFA /* Ingame */ = {
 			isa = PBXGroup;
 			children = (
+				233E7E1A2267F28E00799D5F /* Extension */,
 				23C8354C2263F2E200F84DFA /* Ingame.cpp */,
 				23C8354B2263F2E200F84DFA /* Ingame.hpp */,
 			);
@@ -774,6 +787,7 @@
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				F6843D895A126D5A5EBCB33C /* AppSetting.cpp in Sources */,
+				233E7E222267F40F00799D5F /* DataViewer.cpp in Sources */,
 				234403CC225ABE1400FFDB02 /* ofxTextBlock.cpp in Sources */,
 				23C835482260123000F84DFA /* FileSystem.cpp in Sources */,
 				D58EFCF04EFBF4FF04E62658 /* EntryScene.cpp in Sources */,
