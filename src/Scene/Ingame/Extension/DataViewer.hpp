@@ -1,4 +1,4 @@
-﻿//
+//
 //  DataViewer.hpp
 //  E-Beat
 //
@@ -11,6 +11,7 @@
 #include <iostream>
 #include "../ofMain.h"
 #include "../Extension/FileSystem.hpp"
+#include "../Extension/ofxTextBlock.h"
 
 class DataViewer {
 public:
@@ -38,10 +39,13 @@ private:
 	// ATTACK
 	//MISS
 	unsigned int judge[4];
+    ofxTextBlock judgeTextBlock[4];
 
 	unsigned int maxCombo;
 
 	ofImage LevelBackgroundRect;
+    
+    ofColor levelColor[2];
 };
 
 #endif // __DATA_VIEWER_HPP_
