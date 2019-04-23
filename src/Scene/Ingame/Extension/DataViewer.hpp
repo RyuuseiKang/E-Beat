@@ -37,7 +37,7 @@ private:
 	// JUSTICE_CRITICAL
 	// JUSTICE
 	// ATTACK
-	//MISS
+	// MISS
 	unsigned int judge[4];
     ofxTextBlock judgeTextBlock[4];
 

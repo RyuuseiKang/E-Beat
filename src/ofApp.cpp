@@ -75,6 +75,10 @@ void ofApp::update(){
     // if(keys['r'])
     //     player.setPaused(false);
     
+    if(keys['0'])
+        scene = INGAME;
+    if(keys['9'])
+        scene = MUSIC_SELECT;
 
 }
 
