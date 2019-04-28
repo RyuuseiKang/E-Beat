@@ -56,6 +56,10 @@ private:
 
 	unsigned int maxCombo;
 
+    ofxTextBlock difficultyLabel;
+    vector<int> difficultyLabelVector;
+    vector<int> difficultyLabelColorVector;
+    
 	int difficult = 1;
 	int level = 10;
 	ofImage LevelBackgroundRect;

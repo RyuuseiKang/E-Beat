@@ -39,3 +39,9 @@
 #albumArt 1376 49 115
 *albumArtBox(x, y, w or h)
 #albumArtBox 1374 47 119
+
+
+*difficultyLabel(x, y, pt)
+#difficultyLabel 1505 60 25
+*difficultyLabelColor(r, g, b, a)
+#difficultyLabelColor 235 255 235 255

@@ -23,6 +23,7 @@ DataViewer::DataViewer(FileSystem * _file) {
     judgeTextBlock[2].init(judgeFontPath, judgeFontSize);
     judgeTextBlock[3].init(judgeFontPath, judgeFontSize);
 	albumArt.loadImage("MusicData/Yes or Yes/album.jpg");
+
 }
 
 DataViewer::~DataViewer() {
@@ -73,6 +74,10 @@ void DataViewer::draw() {
 	ofSetColor(levelColor[difficult]);
 	ofDrawRectangle(musicProfileSpliterVector[0], musicProfileSpliterVector[1], musicProfileSpliterVector[2], musicProfileSpliterVector[3]);
 
+    // 난이도 표시
+    difficultyLabel.setColor(difficultyLabelColorVector[0], difficultyLabelColorVector[1], difficultyLabelColorVector[2], difficultyLabelColorVector[3]);
+    difficultyLabel.draw(difficultyLabelVector[0], difficultyLabelVector[1]);
+    
 	// 레벨표시
 	ofSetColor(255, 255, 255, 255);
 	LevelBackgroundRect.draw(LevelBackgroundRectVector[0], LevelBackgroundRectVector[1], LevelBackgroundRectVector[2], LevelBackgroundRectVector[3]);
@@ -126,6 +131,27 @@ void DataViewer::setDesign() {
 	albumArtVector = changeVectorIntType(dataParse("albumArt"));
 	albumArtBoxVector = changeVectorIntType(dataParse("albumArtBox"));
 
+    // 난이도 영어표기
+    difficultyLabelColorVector = changeVectorIntType(dataParse("difficultyLabelColor"));
+    difficultyLabelVector = changeVectorIntType(dataParse("difficultyLabel"));
+    difficultyLabel.init("Fonts/GOTHICB0.ttf", difficultyLabelVector[2]);
+    string difficulty;
+    switch(difficult){
+        case 1:
+            difficulty = "BASIC";
+            break;
+        case 2:
+            difficulty = "ADVANCED";
+            break;
+        case 3:
+            difficulty = "EXPERT";
+            break;
+        case 4:
+            difficulty="MASTER";
+            break;
+    }
+    difficultyLabel.setText(difficulty);
+    
 	// 난이도 색상
 	levelColorVector[0] = changeVectorIntType(dataParse("levelColor0"));
 	levelColorVector[1] = changeVectorIntType(dataParse("levelColor1"));
@@ -166,8 +192,10 @@ void DataViewer::DrawBoxRect(float x, float y, float w, float h) {
 	boxLeftBottom.loadImage("Scene/Ingame/DataViewer/boxLeftBottom.png");
 	boxRightBottom.loadImage("Scene/Ingame/DataViewer/boxRightBottom.png");
 
+    // 색상 덧씌워짐을 방지
 	ofSetColor(255, 255, 255, 255);
 
+    // 폼 테두리
 	boxLeft.draw(x - 3, y + 3, 5, h - 5);
 	boxRight.draw(x + w - 2, y + 3, 5, h - 5);
 	boxTop.draw(x + 2, y - 2, w - 2 - 2, 5);
@@ -213,8 +241,6 @@ vector<string> DataViewer::dataParse(string itemName) {
 
 	if (!isEnabled)
 		return data;
-
-	stringstream str();
 
 	data = split(designerVector.at(pos), ' ');
 		
