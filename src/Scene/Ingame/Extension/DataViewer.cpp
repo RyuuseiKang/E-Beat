@@ -12,6 +12,8 @@ DataViewer::DataViewer() {
 }
 
 DataViewer::DataViewer(FileSystem * _file) {
+	readDesigner();
+
     LevelBackgroundRect.load("Scene/Ingame/DataViewer/LevelBackground.png");
     
     string judgeFontPath = "Fonts/GOTHICB0.ttf";
@@ -21,8 +23,9 @@ DataViewer::DataViewer(FileSystem * _file) {
     judgeTextBlock[2].init(judgeFontPath, judgeFontSize);
     judgeTextBlock[3].init(judgeFontPath, judgeFontSize);
     
-    levelColor[0] = ofColor(98, 6, 168, 255);
-    levelColor[1] = ofColor(136, 3, 232, 255);
+	// 마스터 난이도 색상
+    levelColor[0] = ofColor(0, 0, 64, 255);
+    levelColor[1] = ofColor(94, 58, 148, 255);
 }
 
 DataViewer::~DataViewer() {
@@ -36,24 +39,24 @@ void DataViewer::update() {
 void DataViewer::draw() {
     
     // 화면 상단처리
-    ofRectangle levelBackground((1920 / 2) - (1820 / 2), 0, 1820, 160);
+    ofRectangle levelBackground((1920 / 2) - (1825 / 2), 0, 1825, 160);
     
     // 난이도별 상단 색상처리 안햇음
     // 색상은 그라데이션으로 주고 있음, 리팩토링 끝
     ofMesh levelColorBackgroundMesh;
     levelColorBackgroundMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-    levelColorBackgroundMesh.addVertex(ofPoint((1920 / 2) - (1820 / 2), 0));
+    levelColorBackgroundMesh.addVertex(ofPoint((1920 / 2) - (1825 / 2), 0));
     levelColorBackgroundMesh.addColor(levelColor[0]);
-    levelColorBackgroundMesh.addVertex(ofPoint((1920 / 2) + (1820 / 2), 0));
+    levelColorBackgroundMesh.addVertex(ofPoint((1920 / 2) + (1825 / 2), 0));
     levelColorBackgroundMesh.addColor(levelColor[0]);
-    levelColorBackgroundMesh.addVertex(ofPoint(1920 / 2 - (1820 / 2), 160));
+    levelColorBackgroundMesh.addVertex(ofPoint(1920 / 2 - (1825 / 2), 160));
     levelColorBackgroundMesh.addColor(levelColor[1]);
-    levelColorBackgroundMesh.addVertex(ofPoint(1920 / 2 + (1820 / 2), 160));
+    levelColorBackgroundMesh.addVertex(ofPoint(1920 / 2 + (1825 / 2), 160));
     levelColorBackgroundMesh.addColor(levelColor[1]);
     levelColorBackgroundMesh.draw();
     
     // 레벨표시
-    LevelBackgroundRect.draw(1752 - 5, 41 - 5, 105, 77);
+    LevelBackgroundRect.draw(LevelBackgroundRectVector.at(0), LevelBackgroundRectVector.at(1), LevelBackgroundRectVector.at(2), LevelBackgroundRectVector.at(3));
     // 여기에 텍스트블럭 추가 요망
     
     // 판정 후면 검은색
@@ -70,6 +73,10 @@ void DataViewer::draw() {
     judgeTextBlock[2].draw(0, 0);
     judgeTextBlock[3].draw(0, 0);
     
+
+	// 115, 115 앨범 아트 사이즈
+	// 1376, 53 앨범 아트 포지션
+
 }
 
 void DataViewer::setScore(double _score) {
@@ -82,4 +89,71 @@ void DataViewer::upCombo() {
 
 void DataViewer::breakCombo() {
     combo = 0;
+}
+
+void DataViewer::readDesigner() {
+	// 디자이너 파일 내용 읽어오기
+	ofBuffer designerBuffer = ofBufferFromFile("Scene/Ingame/DataViewer/Designer.des");
+
+	designerVector.clear();
+	int countLines = 0;
+	for (auto line : designerBuffer.getLines()) {
+		designerVector.push_back(line);
+		countLines++;
+	}
+
+	setDesign();
+}
+
+void DataViewer::setDesign() {
+	LevelBackgroundRectVector = changeVectorType(dataParse("LevelBackgroundRect"));
+}
+
+vector<string> DataViewer::dataParse(string itemName) {
+	vector<string> data;
+
+	int pos = 0;
+	bool isEnabled = false;
+
+	for (auto line : designerVector) {
+		if (line.find("#" + itemName, 0) != string::npos)
+			isEnabled = true;
+
+		if(!isEnabled)
+			pos++;
+	}
+
+	if (!isEnabled)
+		return data;
+
+	stringstream str();
+
+	data = split(designerVector.at(pos), ' ');
+		
+	// for (int i = 0; i < data.size(); i++) {
+	// 	cout << data[i] << endl;
+	// 
+	// }
+
+	return data;
+}
+
+vector<string> DataViewer::split(string str, char delimiter) {
+	vector<string> internal;
+		stringstream ss(str);
+		string temp;
+
+		while (getline(ss, temp, delimiter)) {
+			internal.push_back(temp);
+		}
+
+	return internal;
+}
+
+vector<int> DataViewer::changeVectorType(vector<string> str) {
+	vector<int> data;
+	for (int i = 1; i < str.size(); i++) {
+		data.push_back(stoi(str[i]));
+	}
+	return data;
 }

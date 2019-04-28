@@ -1,24 +1,27 @@
 ﻿  DataViewer.cpp
-c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\seto_\desktop\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\dataviewer.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\dataviewer.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\extension\filesystem.hpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\dataviewer.cpp(129): warning C4930: 'std::stringstream str(void)': 프로토타입 함수가 호출되지 않았습니다. 변수 정의로 사용하려고 한 것은 아닌지 확인하십시오.
      bin\E-Beat.lib 라이브러리 및 bin\E-Beat.exp 개체를 생성하고 있습니다.
   LINK : /LTCG를 지정했지만 코드를 생성할 필요가 없습니다. 명령줄에서 /LTCG를 제거하면 링커 성능이 향상됩니다.
-  E-Beat.vcxproj -> C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\E-Beat.exe
+  E-Beat.vcxproj -> X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\E-Beat.exe
   
-  	                   2	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\libs\fmodex\lib\vs\x64\
-  	  *추가 파일  		 1266176	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex.dll
-  	  *추가 파일  		 1312768	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL.dll
-  	  *추가 파일  		 6942208	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\FreeImage.dll
+  	                   2	X:\Development\of_v0.10.1_vs2017_release\libs\fmodex\lib\vs\x64\
+  	  *추가 파일  		 1266176	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex.dll
+  	  *추가 파일  		 1312768	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL.dll
+  	  *추가 파일  		 6942208	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\FreeImage.dll
   
-  	                   1	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\libs\FreeImage\lib\vs\x64\
-  	  *추가 파일  		 1266176	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex.dll
-  	  *추가 파일  		 1503232	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex64.dll
-  	  *추가 파일  		 1312768	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL.dll
-  	  *추가 파일  		 1552384	C:\Users\seto_\Desktop\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL64.dll
+  	                   1	X:\Development\of_v0.10.1_vs2017_release\libs\FreeImage\lib\vs\x64\
+  	  *추가 파일  		 1266176	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex.dll
+  	  *추가 파일  		 1503232	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodex64.dll
+  	  *추가 파일  		 1312768	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL.dll
+  	  *추가 파일  		 1552384	X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\fmodexL64.dll

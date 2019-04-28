@@ -23,6 +23,7 @@ public:
 	void draw();
 
 	void keyPressed(int key);
+	void keyRelease(int key);
 
 private:
 	FileSystem* file;

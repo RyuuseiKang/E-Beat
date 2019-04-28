@@ -27,8 +27,15 @@ public:
 	void upCombo();
 	void breakCombo();
 
-
+	void readDesigner();
+	
 private:
+	void setDesign();
+
+	vector<string> designerVector;
+	vector<string> dataParse(string itemName);
+	vector<string> split(string str, char delimiter);
+	vector<int> changeVectorType(vector<string> str);
 
 	double score;
 	unsigned int combo;
@@ -44,6 +51,7 @@ private:
 	unsigned int maxCombo;
 
 	ofImage LevelBackgroundRect;
+	vector<int> LevelBackgroundRectVector;
     
     ofColor levelColor[2];
 };

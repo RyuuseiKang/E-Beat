@@ -143,6 +143,9 @@ void ofApp::keyPressed(int key){
 void ofApp::keyReleased(int key){
     keys[key] = false;
 
+	if(key == '0') scene = INGAME;
+	if(key == '9') scene = MUSIC_SELECT;
+
 	switch (scene) {
 	case INITIALIZE:
 		initializeScene->keyReleased(key);
@@ -157,7 +160,7 @@ void ofApp::keyReleased(int key){
 		break;
 
 	case INGAME:
-
+		ingame->keyRelease(key);
 		break;
 
 	default:

@@ -44,5 +44,10 @@ void Ingame::draw() {
 }
 
 void Ingame::keyPressed(int key) {
+	if (key == 'r')
+		dataViewer->readDesigner();
+}
+
+void Ingame::keyRelease(int key) {
 
 }
