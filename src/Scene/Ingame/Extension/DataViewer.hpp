@@ -29,13 +29,19 @@ public:
 
 	void readDesigner();
 	
+	void setDifficult(int _difficult);
+
 private:
 	void setDesign();
+	void DrawBoxRect(float x, float y, float w, float h);
+
+	ofImage albumArt;
 
 	vector<string> designerVector;
 	vector<string> dataParse(string itemName);
 	vector<string> split(string str, char delimiter);
-	vector<int> changeVectorType(vector<string> str);
+	vector<int> changeVectorIntType(vector<string> str);
+	vector<double> changeVectorDoubleType(vector<string> str);
 
 	double score;
 	unsigned int combo;
@@ -50,10 +56,30 @@ private:
 
 	unsigned int maxCombo;
 
+	int difficult = 1;
+	int level = 10;
 	ofImage LevelBackgroundRect;
 	vector<int> LevelBackgroundRectVector;
-    
-    ofColor levelColor[2];
+
+	ofMesh levelColorBackgroundMesh;
+	vector<double> levelColorBackgroundMeshVector;
+
+    ofColor levelColor[5];
+	vector<int> levelColorVector[5];
+
+	vector<int> musicProfileSpliterVector;
+	vector<int> musicProfileBoxBorderVector;
+	vector<int> musicProfileHalfBoxVector;
+	vector<int> musicProfileHalfInBoxVector;
+	vector<int> musicProfileBoxVector;
+
+	vector<int> judgeDetailBoxBorderVector;
+	vector<int> judgeDetailHalfBoxVector;
+	vector<int> judgeDetailHalfInBoxVector;
+	vector<int> judgeDetailBoxVector;
+
+	vector<int> albumArtVector;
+	vector<int> albumArtBoxVector;
 };
 
 #endif // __DATA_VIEWER_HPP_

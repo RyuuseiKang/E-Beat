@@ -46,6 +46,22 @@ void Ingame::draw() {
 void Ingame::keyPressed(int key) {
 	if (key == 'r')
 		dataViewer->readDesigner();
+
+	if (key == '1') {
+		dataViewer->setDifficult(1); dataViewer->readDesigner();
+	}
+			
+	if (key == '2') {
+		dataViewer->setDifficult(2); dataViewer->readDesigner();
+	}
+
+	if (key == '3') {
+		dataViewer->setDifficult(3); dataViewer->readDesigner();
+	}
+	
+	if (key == '4') {
+		dataViewer->setDifficult(4); dataViewer->readDesigner();
+	}
 }
 
 void Ingame::keyRelease(int key) {
