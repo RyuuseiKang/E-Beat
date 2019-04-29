@@ -16,7 +16,7 @@ DataViewer::DataViewer(FileSystem * _file) {
 
     LevelBackgroundRect.load("Scene/Ingame/DataViewer/LevelBackground.png");
     
-    string judgeFontPath = "Fonts/GOTHICB0.ttf";
+    string judgeFontPath = "Fonts/ITCAvantGardeStd-Bold.ttf";
     int judgeFontSize = 22;
     judgeTextBlock[0].init(judgeFontPath, judgeFontSize);
     judgeTextBlock[1].init(judgeFontPath, judgeFontSize);
@@ -133,24 +133,29 @@ void DataViewer::setDesign() {
 
     // 난이도 영어표기
     difficultyLabelColorVector = changeVectorIntType(dataParse("difficultyLabelColor"));
-    difficultyLabelVector = changeVectorIntType(dataParse("difficultyLabel"));
-    difficultyLabel.init("Fonts/GOTHICB0.ttf", difficultyLabelVector[2]);
+    difficultyLabelVector = changeVectorDoubleType(dataParse("difficultyLabel"));
+    difficultyLabel.init("Fonts/ITCAvantGardeStd-Bold.ttf", difficultyLabelVector[2]);
     string difficulty;
     switch(difficult){
         case 1:
-            difficulty = "BASIC";
+            difficulty = "B\nA\nS\nI\nC";
+			difficultyLabel.setTracking(difficultyLabelVector[3]);
             break;
         case 2:
             difficulty = "ADVANCED";
+			difficultyLabel.setTracking(difficultyLabelVector[3]);
             break;
         case 3:
-            difficulty = "EXPERT";
+            difficulty = "E\nX\nP\nE\nR\nT";
+			difficultyLabel.setTracking(difficultyLabelVector[3]);
             break;
         case 4:
-            difficulty="MASTER";
+            difficulty="M\nA\nS\nT\nE\nR";
+			difficultyLabel.setTracking(difficultyLabelVector[3]);
             break;
     }
     difficultyLabel.setText(difficulty);
+
     
 	// 난이도 색상
 	levelColorVector[0] = changeVectorIntType(dataParse("levelColor0"));

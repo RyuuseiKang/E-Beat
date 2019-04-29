@@ -55,6 +55,7 @@ class ofxTextBlock
         ofTrueTypeFont  defaultFont;
         wordBlock       blankSpaceWord;
         float           scale;
+		float			tracking;
 
         vector<wordBlock>   words;
         vector<lineBlock>   lines;
@@ -69,6 +70,7 @@ class ofxTextBlock
 
         void    setLineHeight(float lineHeight);
         void    setColor(int r, int g, int b, int a);
+		void	setTracking(float _tracking);
 
         void    draw(float x, float y);                    //Draws left align.
         void    drawLeft(float x, float y);

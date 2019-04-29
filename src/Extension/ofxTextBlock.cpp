@@ -23,6 +23,7 @@ ofxTextBlock::ofxTextBlock()
 {
 
     scale       =   1.0f;
+	tracking	=	0.0f;
 
 }
 
@@ -76,13 +77,13 @@ void ofxTextBlock::drawLeft(float x, float y){
                 drawY = y + (defaultFont.getLineHeight() * (l + 1));
 
                 ofSetColor(words[currentWordID].color.r, words[currentWordID].color.g, words[currentWordID].color.b, words[currentWordID].color.a);
-                glPushMatrix();
+				glPushMatrix();
+				glTranslatef(tracking * currentWordID, 0, 0.0f);
                 //glTranslatef(drawX, drawY, 0.0f);
                 glScalef(scale, scale, scale);
 
                 defaultFont.drawString(words[currentWordID].rawWord.c_str(), drawX, drawY);
                 currX += words[currentWordID].width;
-
                 glPopMatrix();
 
             }
@@ -514,6 +515,10 @@ void ofxTextBlock::setColor(int r, int g, int b, int a){
         }
     }
 
+}
+
+void ofxTextBlock::setTracking(float _tracking) {
+	tracking = _tracking;
 }
 
 void ofxTextBlock::forceScale(float _scale){

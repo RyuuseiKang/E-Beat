@@ -8,9 +8,9 @@
 #include "ofSelectSlider.hpp"
 
 ofSelectSlider::ofSelectSlider() {
-	slashText.init("Fonts/GOTHICB0.ttf", 13);
-	maxText.init("Fonts/GOTHICB0.ttf", 16);
-	positionText.init("Fonts/GOTHICB0.ttf", 22);
+	slashText.init("Fonts/ITCAvantGardeStd-Bold.ttf", 13);
+	maxText.init("Fonts/ITCAvantGardeStd-Bold.ttf", 16);
+	positionText.init("Fonts/ITCAvantGardeStd-Bold.ttf", 22);
 
 	slashText.setText("/");
 

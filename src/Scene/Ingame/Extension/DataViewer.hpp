@@ -57,7 +57,7 @@ private:
 	unsigned int maxCombo;
 
     ofxTextBlock difficultyLabel;
-    vector<int> difficultyLabelVector;
+    vector<double> difficultyLabelVector;
     vector<int> difficultyLabelColorVector;
     
 	int difficult = 1;
