@@ -28,7 +28,7 @@ public:
 	void breakCombo();
 
 	void readDesigner();
-	
+
 	void setDifficult(int _difficult);
 
 private:
@@ -52,23 +52,26 @@ private:
 	// ATTACK
 	// MISS
 	unsigned int judge[4];
-    ofxTextBlock judgeTextBlock[4];
+	ofxTextBlock judgeTextBlock[4];
 
 	unsigned int maxCombo;
 
-    ofxTextBlock difficultyLabel;
-    vector<double> difficultyLabelVector;
-    vector<int> difficultyLabelColorVector;
-    
 	int difficult = 1;
 	int level = 10;
+	ofxTextBlock difficultyLabel;
+	vector<double> difficultyLabelVector;
+	vector<int> difficultyLabelColorVector;
+	ofxTextBlock levelLabel;
+	vector<int> levelLabelVector;
+	vector<int> levelLabelColorVector;
+
 	ofImage LevelBackgroundRect;
 	vector<int> LevelBackgroundRectVector;
 
 	ofMesh levelColorBackgroundMesh;
 	vector<double> levelColorBackgroundMeshVector;
 
-    ofColor levelColor[5];
+	ofColor levelColor[5];
 	vector<int> levelColorVector[5];
 
 	vector<int> musicProfileSpliterVector;

@@ -8,47 +8,47 @@
 #include "DataViewer.hpp"
 
 DataViewer::DataViewer() {
-    
+
 }
 
-DataViewer::DataViewer(FileSystem * _file) {
+DataViewer::DataViewer(FileSystem* _file) {
 	readDesigner();
 
-    LevelBackgroundRect.load("Scene/Ingame/DataViewer/LevelBackground.png");
-    
-    string judgeFontPath = "Fonts/ITCAvantGardeStd-Bold.ttf";
-    int judgeFontSize = 22;
-    judgeTextBlock[0].init(judgeFontPath, judgeFontSize);
-    judgeTextBlock[1].init(judgeFontPath, judgeFontSize);
-    judgeTextBlock[2].init(judgeFontPath, judgeFontSize);
-    judgeTextBlock[3].init(judgeFontPath, judgeFontSize);
+	LevelBackgroundRect.load("Scene/Ingame/DataViewer/LevelBackground.png");
+
+	string judgeFontPath = "Fonts/ITCAvantGardeStd-Bold.ttf";
+	int judgeFontSize = 22;
+	judgeTextBlock[0].init(judgeFontPath, judgeFontSize);
+	judgeTextBlock[1].init(judgeFontPath, judgeFontSize);
+	judgeTextBlock[2].init(judgeFontPath, judgeFontSize);
+	judgeTextBlock[3].init(judgeFontPath, judgeFontSize);
 	albumArt.loadImage("MusicData/Yes or Yes/album.jpg");
 
 }
 
 DataViewer::~DataViewer() {
-    
+
 }
 
 void DataViewer::update() {
-    
+
 }
 
 void DataViewer::draw() {
 	// 화면 상단처리
-    // 난이도별 상단 색상처리 안햇음
-    // 색상은 그라데이션으로 주고 있음, 리팩토링 끝
-    levelColorBackgroundMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-    levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0], levelColorBackgroundMeshVector[1]));
-    levelColorBackgroundMesh.addColor(levelColor[0]);
-    levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0] + levelColorBackgroundMeshVector[2], levelColorBackgroundMeshVector[1]));
-    levelColorBackgroundMesh.addColor(levelColor[0]);
-    levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0], levelColorBackgroundMeshVector[3]));
-    levelColorBackgroundMesh.addColor(levelColor[difficult]);
-    levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0] + levelColorBackgroundMeshVector[2], levelColorBackgroundMeshVector[3]));
-    levelColorBackgroundMesh.addColor(levelColor[difficult]);
-    levelColorBackgroundMesh.draw();
-    
+	// 난이도별 상단 색상처리 안햇음
+	// 색상은 그라데이션으로 주고 있음, 리팩토링 끝
+	levelColorBackgroundMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0], levelColorBackgroundMeshVector[1]));
+	levelColorBackgroundMesh.addColor(levelColor[0]);
+	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0] + levelColorBackgroundMeshVector[2], levelColorBackgroundMeshVector[1]));
+	levelColorBackgroundMesh.addColor(levelColor[0]);
+	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0], levelColorBackgroundMeshVector[3]));
+	levelColorBackgroundMesh.addColor(levelColor[difficult]);
+	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0] + levelColorBackgroundMeshVector[2], levelColorBackgroundMeshVector[3]));
+	levelColorBackgroundMesh.addColor(levelColor[difficult]);
+	levelColorBackgroundMesh.draw();
+
 	// 옵션들 상자표시
 	DrawBoxRect(musicProfileBoxBorderVector[0], musicProfileBoxBorderVector[1], musicProfileBoxBorderVector[2], musicProfileBoxBorderVector[3]);
 	ofSetColor(musicProfileBoxVector[4], musicProfileBoxVector[5], musicProfileBoxVector[6], musicProfileBoxVector[7]);
@@ -63,7 +63,7 @@ void DataViewer::draw() {
 	DrawBoxRect(judgeDetailHalfBoxVector[0], judgeDetailHalfBoxVector[1], judgeDetailHalfBoxVector[2], judgeDetailHalfBoxVector[3]);
 	ofSetColor(levelColor[difficult]);
 	ofDrawRectangle(judgeDetailHalfInBoxVector[0], judgeDetailHalfInBoxVector[1], judgeDetailHalfInBoxVector[2], judgeDetailHalfInBoxVector[3]);
-   
+
 	ofSetColor(255, 255, 255, 255);
 
 	// 앨범아트 관련
@@ -74,47 +74,48 @@ void DataViewer::draw() {
 	ofSetColor(levelColor[difficult]);
 	ofDrawRectangle(musicProfileSpliterVector[0], musicProfileSpliterVector[1], musicProfileSpliterVector[2], musicProfileSpliterVector[3]);
 
-    // 난이도 표시
-    difficultyLabel.setColor(difficultyLabelColorVector[0], difficultyLabelColorVector[1], difficultyLabelColorVector[2], difficultyLabelColorVector[3]);
-    difficultyLabel.draw(difficultyLabelVector[0], difficultyLabelVector[1]);
-    
+	// 난이도 표시
+	difficultyLabel.setColor(difficultyLabelColorVector[0], difficultyLabelColorVector[1], difficultyLabelColorVector[2], difficultyLabelColorVector[3]);
+	difficultyLabel.draw(difficultyLabelVector[0], difficultyLabelVector[1]);
+
 	// 레벨표시
 	ofSetColor(255, 255, 255, 255);
 	LevelBackgroundRect.draw(LevelBackgroundRectVector[0], LevelBackgroundRectVector[1], LevelBackgroundRectVector[2], LevelBackgroundRectVector[3]);
 	// 여기에 레벨 텍스트
+	ofSetColor(levelLabelColorVector[0], levelLabelColorVector[1], levelLabelColorVector[2], levelLabelColorVector[3]);
+	levelLabel.drawCenter(levelLabelVector[0], levelLabelVector[1]);
 
+	// 판정 후면 검은색
+	ofSetColor(0, 0, 0, 255);
+	ofDrawRectangle(580, 0, 762, 35);
 
-    // 판정 후면 검은색
-    ofSetColor(0, 0, 0, 255);
-    ofDrawRectangle(580, 0, 762, 35);
-    
-    // 옵션 후면 검은색
-    ofDrawRectangle(1367, 0, 487, 35);
-    
-    // 판정 처리
-    // TODO :: 임의로 위치값 (0, 0)으로 지정했음, 나중에 수정 요망
-    judgeTextBlock[0].draw(0, 0);
-    judgeTextBlock[1].draw(0, 0);
-    judgeTextBlock[2].draw(0, 0);
-    judgeTextBlock[3].draw(0, 0);
-    
+	// 옵션 후면 검은색
+	ofDrawRectangle(1367, 0, 487, 35);
+
+	// 판정 처리
+	// TODO :: 임의로 위치값 (0, 0)으로 지정했음, 나중에 수정 요망
+	judgeTextBlock[0].draw(0, 0);
+	judgeTextBlock[1].draw(0, 0);
+	judgeTextBlock[2].draw(0, 0);
+	judgeTextBlock[3].draw(0, 0);
+
 }
 
 void DataViewer::setScore(double _score) {
-    score = _score;
+	score = _score;
 }
 
 void DataViewer::upCombo() {
-    combo++;
+	combo++;
 }
 
 void DataViewer::breakCombo() {
-    combo = 0;
+	combo = 0;
 }
 
 void DataViewer::setDesign() {
 	LevelBackgroundRectVector = changeVectorIntType(dataParse("LevelBackgroundRect"));
-	
+
 	levelColorBackgroundMeshVector = changeVectorDoubleType(dataParse("levelColorBackgroundMesh"));
 
 	musicProfileSpliterVector = changeVectorIntType(dataParse("musicProfileSpliter"));
@@ -131,32 +132,36 @@ void DataViewer::setDesign() {
 	albumArtVector = changeVectorIntType(dataParse("albumArt"));
 	albumArtBoxVector = changeVectorIntType(dataParse("albumArtBox"));
 
-    // 난이도 영어표기
-    difficultyLabelColorVector = changeVectorIntType(dataParse("difficultyLabelColor"));
-    difficultyLabelVector = changeVectorDoubleType(dataParse("difficultyLabel"));
-    difficultyLabel.init("Fonts/ITCAvantGardeStd-Bold.ttf", difficultyLabelVector[2]);
-    string difficulty;
-    switch(difficult){
-        case 1:
-            difficulty = "B\nA\nS\nI\nC";
+	// 난이도 영어표기
+	difficultyLabelColorVector = changeVectorIntType(dataParse("difficultyLabelColor"));
+	difficultyLabelVector = changeVectorDoubleType(dataParse("difficultyLabel"));
+	difficultyLabel.init("Fonts/ITCAvantGardeStd-Bold.ttf", difficultyLabelVector[2]);
+	string difficulty;
+	switch (difficult) {
+		case 1:
+			difficulty = "E\nA\nS\nY";
 			difficultyLabel.setTracking(difficultyLabelVector[3]);
-            break;
-        case 2:
-            difficulty = "ADVANCED";
+			break;
+		case 2:
+			difficulty = "N\nO\nR\nM\nA\nL";
+			difficultyLabel.setTracking(-13);
+			break;
+		case 3:
+			difficulty = "E\nX\nP\nE\nR\nT";
 			difficultyLabel.setTracking(difficultyLabelVector[3]);
-            break;
-        case 3:
-            difficulty = "E\nX\nP\nE\nR\nT";
+			break;
+		case 4:
+			difficulty = "M\nA\nS\nT\nE\nR";
 			difficultyLabel.setTracking(difficultyLabelVector[3]);
-            break;
-        case 4:
-            difficulty="M\nA\nS\nT\nE\nR";
-			difficultyLabel.setTracking(difficultyLabelVector[3]);
-            break;
-    }
-    difficultyLabel.setText(difficulty);
+			break;
+	}
+	difficultyLabel.setText(difficulty);
 
-    
+	levelLabelVector = changeVectorIntType(dataParse("levelLabel"));
+	levelLabelColorVector = changeVectorIntType(dataParse("levelLabelColor"));
+	levelLabel.init("Fonts/ITCAvantGardeStd-Bold.ttf", levelLabelVector[2]);
+	levelLabel.setText(to_string(level));
+
 	// 난이도 색상
 	levelColorVector[0] = changeVectorIntType(dataParse("levelColor0"));
 	levelColorVector[1] = changeVectorIntType(dataParse("levelColor1"));
@@ -170,7 +175,7 @@ void DataViewer::setDesign() {
 			break;
 		case 2:
 			levelColor[0] = ofColor(levelColorVector[0][0], levelColorVector[0][0], levelColorVector[0][1], levelColorVector[0][2]);
-			break;		
+			break;
 		case 3:
 			levelColor[0] = ofColor(levelColorVector[0][0], levelColorVector[0][1], levelColorVector[0][1], levelColorVector[0][2]);
 			break;
@@ -178,7 +183,7 @@ void DataViewer::setDesign() {
 			levelColor[0] = ofColor(levelColorVector[0][1], levelColorVector[0][1], levelColorVector[0][0], levelColorVector[0][2]);
 			break;
 	}
-	
+
 	levelColor[1] = ofColor(levelColorVector[1][0], levelColorVector[1][1], levelColorVector[1][2], levelColorVector[1][3]);
 	levelColor[2] = ofColor(levelColorVector[2][0], levelColorVector[2][1], levelColorVector[2][2], levelColorVector[2][3]);
 	levelColor[3] = ofColor(levelColorVector[3][0], levelColorVector[3][1], levelColorVector[3][2], levelColorVector[3][3]);
@@ -187,7 +192,7 @@ void DataViewer::setDesign() {
 
 void DataViewer::DrawBoxRect(float x, float y, float w, float h) {
 	ofImage boxLeft, boxRight, boxTop, boxBottom, boxLeftTop, boxRightTop, boxLeftBottom, boxRightBottom;
-	
+
 	boxLeft.loadImage("Scene/Ingame/DataViewer/boxLeft.png");
 	boxRight.loadImage("Scene/Ingame/DataViewer/boxRight.png");
 	boxTop.loadImage("Scene/Ingame/DataViewer/boxTop.png");
@@ -197,10 +202,10 @@ void DataViewer::DrawBoxRect(float x, float y, float w, float h) {
 	boxLeftBottom.loadImage("Scene/Ingame/DataViewer/boxLeftBottom.png");
 	boxRightBottom.loadImage("Scene/Ingame/DataViewer/boxRightBottom.png");
 
-    // 색상 덧씌워짐을 방지
+	// 색상 덧씌워짐을 방지
 	ofSetColor(255, 255, 255, 255);
 
-    // 폼 테두리
+	// 폼 테두리
 	boxLeft.draw(x - 3, y + 3, 5, h - 5);
 	boxRight.draw(x + w - 2, y + 3, 5, h - 5);
 	boxTop.draw(x + 2, y - 2, w - 2 - 2, 5);
@@ -240,7 +245,7 @@ vector<string> DataViewer::dataParse(string itemName) {
 		if (line.find("#" + itemName + " ", 0) != string::npos)
 			isEnabled = true;
 
-		if(!isEnabled)
+		if (!isEnabled)
 			pos++;
 	}
 
@@ -248,7 +253,7 @@ vector<string> DataViewer::dataParse(string itemName) {
 		return data;
 
 	data = split(designerVector.at(pos), ' ');
-		
+
 	// for (int i = 0; i < data.size(); i++) {
 	// 	cout << data[i] << endl;
 	// 
@@ -259,12 +264,12 @@ vector<string> DataViewer::dataParse(string itemName) {
 
 vector<string> DataViewer::split(string str, char delimiter) {
 	vector<string> internal;
-		stringstream ss(str);
-		string temp;
+	stringstream ss(str);
+	string temp;
 
-		while (getline(ss, temp, delimiter)) {
-			internal.push_back(temp);
-		}
+	while (getline(ss, temp, delimiter)) {
+		internal.push_back(temp);
+	}
 
 	return internal;
 }
