@@ -9,7 +9,7 @@
 
 ofBackgroundPlayer::ofBackgroundPlayer() {
 	BGAblur.setup(1920, 1080);
-    ofVideoPlayer::setPixelFormat(OF_PIXELS_NATIVE);
+	ofVideoPlayer::setPixelFormat(OF_PIXELS_NATIVE);
 }
 
 ofBackgroundPlayer::~ofBackgroundPlayer() {
@@ -36,14 +36,15 @@ void ofBackgroundPlayer::update() {
 }
 
 void ofBackgroundPlayer::loadAsync(string _fileName) {
-	filePath = "musicData/" + _fileName + "/BGA.mp4";
-	
+	filePath = "MusicData/" + _fileName + "/BGA.mp4";
+
 #ifdef TARGET_OS_MAC
-    ofVideoPlayer::loadAsync(filePath);
-    videoPlay();
+	ofVideoPlayer::loadAsync(filePath);
+	videoPlay();
 #else
-    ThreadStart();
-    videoPlay();
+
+	ThreadStart();
+	videoPlay();
 #endif
 }
 
@@ -84,7 +85,7 @@ void ofBackgroundPlayer::ThreadStart() {
 	if (ofThread::isThreadRunning() != 0)
 		ThreadStop();
 
-    ofThread::startThread(true);
+	ofThread::startThread(true);
 }
 
 void ofBackgroundPlayer::ThreadStop() {
@@ -94,17 +95,17 @@ void ofBackgroundPlayer::ThreadStop() {
 void ofBackgroundPlayer::threadedFunction() {
 	while (isThreadRunning() != 0) {
 #ifdef TARGET_OS_MAC
-        if(!isPlaying()){
-            ofThread::lock();
-            
-            ofVideoPlayer::play();
+		if (!isPlaying()) {
+			ofThread::lock();
+
+			ofVideoPlayer::play();
 #else
-        if(ofThread::lock()){
-            ofVideoPlayer::loadMovie(filePath);
+		if (ofThread::lock()) {
+			ofVideoPlayer::loadAsync(filePath);
 #endif
 			ofThread::unlock();
 		}
 		videoPlay();
 		ofThread::stopThread();
+		}
 	}
-}

@@ -27,7 +27,7 @@ void ofApp::setup(){
     musicSelect = new MusicSelect(&file);
 	ingame = new Ingame(&file);
 
-	scene = INGAME;
+	scene = MUSIC_SELECT;
 }
 
 //--------------------------------------------------------------
