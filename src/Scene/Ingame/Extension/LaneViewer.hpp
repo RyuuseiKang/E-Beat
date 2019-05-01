@@ -33,7 +33,10 @@ private:
 	ofxFloatSlider y;
 	ofxFloatSlider w;
 	ofxFloatSlider h;
+	ofxFloatSlider tilt;
 
+	ofMesh airNote;
+	ofImage texturePtr;
 };
 
 #endif // __LANE_VIEWER_HPP_
