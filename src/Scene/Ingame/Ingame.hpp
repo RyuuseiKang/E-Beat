@@ -12,6 +12,7 @@
 #include "../ofMain.h"
 #include "../Extension/FileSystem.hpp"
 #include "Extension/DataViewer.hpp"
+#include "Extension/LaneViewer.hpp"
 
 class Ingame {
 public:
@@ -29,6 +30,7 @@ private:
 	FileSystem* file;
 
 	DataViewer *dataViewer;
+	LaneViewer *laneViewer;
 	
 	ofImage backLane;
 };

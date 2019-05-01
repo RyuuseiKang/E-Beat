@@ -30,6 +30,7 @@ public:
 	void readDesigner();
 
 	void setDifficult(int _difficult);
+	void setLevel(int _level);
 
 private:
 	void setDesign();
@@ -44,6 +45,8 @@ private:
 	vector<double> changeVectorDoubleType(vector<string> str);
 
 	double score;
+	ofxTextBlock scoreLabel;
+	vector<int> scoreLabelVector;
 	unsigned int combo;
 
 	// 판정 예
@@ -62,7 +65,7 @@ private:
 	vector<double> difficultyLabelVector;
 	vector<int> difficultyLabelColorVector;
 	ofxTextBlock levelLabel;
-	vector<int> levelLabelVector;
+	vector<double> levelLabelVector;
 	vector<int> levelLabelColorVector;
 
 	ofImage LevelBackgroundRect;
@@ -73,6 +76,9 @@ private:
 
 	ofColor levelColor[5];
 	vector<int> levelColorVector[5];
+
+	vector<int> userProfileBoxVector;
+	vector<int> userProfileBoxBorderVector;
 
 	vector<int> musicProfileSpliterVector;
 	vector<int> musicProfileBoxBorderVector;

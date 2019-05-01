@@ -22,6 +22,10 @@ DataViewer::DataViewer(FileSystem* _file) {
 	judgeTextBlock[1].init(judgeFontPath, judgeFontSize);
 	judgeTextBlock[2].init(judgeFontPath, judgeFontSize);
 	judgeTextBlock[3].init(judgeFontPath, judgeFontSize);
+	judgeTextBlock[0].setText("0");
+	judgeTextBlock[1].setText("0");
+	judgeTextBlock[2].setText("0");
+	judgeTextBlock[3].setText("0");
 	albumArt.loadImage("MusicData/Yes or Yes/album.jpg");
 
 }
@@ -50,6 +54,10 @@ void DataViewer::draw() {
 	levelColorBackgroundMesh.draw();
 
 	// 옵션들 상자표시
+	DrawBoxRect(userProfileBoxBorderVector[0], userProfileBoxBorderVector[1], userProfileBoxBorderVector[2], userProfileBoxBorderVector[3]);
+	ofSetColor(userProfileBoxVector[4], userProfileBoxVector[5], userProfileBoxVector[6], userProfileBoxVector[7]);
+	ofDrawRectangle(userProfileBoxVector[0], userProfileBoxVector[1], userProfileBoxVector[2], userProfileBoxVector[3]);
+
 	DrawBoxRect(musicProfileBoxBorderVector[0], musicProfileBoxBorderVector[1], musicProfileBoxBorderVector[2], musicProfileBoxBorderVector[3]);
 	ofSetColor(musicProfileBoxVector[4], musicProfileBoxVector[5], musicProfileBoxVector[6], musicProfileBoxVector[7]);
 	ofDrawRectangle(musicProfileBoxVector[0], musicProfileBoxVector[1], musicProfileBoxVector[2], musicProfileBoxVector[3]);
@@ -82,7 +90,7 @@ void DataViewer::draw() {
 	ofSetColor(255, 255, 255, 255);
 	LevelBackgroundRect.draw(LevelBackgroundRectVector[0], LevelBackgroundRectVector[1], LevelBackgroundRectVector[2], LevelBackgroundRectVector[3]);
 	// 여기에 레벨 텍스트
-	ofSetColor(levelLabelColorVector[0], levelLabelColorVector[1], levelLabelColorVector[2], levelLabelColorVector[3]);
+	levelLabel.setColor(levelLabelColorVector[0], levelLabelColorVector[1], levelLabelColorVector[2], levelLabelColorVector[3]);
 	levelLabel.drawCenter(levelLabelVector[0], levelLabelVector[1]);
 
 	// 판정 후면 검은색
@@ -94,11 +102,11 @@ void DataViewer::draw() {
 
 	// 판정 처리
 	// TODO :: 임의로 위치값 (0, 0)으로 지정했음, 나중에 수정 요망
-	judgeTextBlock[0].draw(0, 0);
-	judgeTextBlock[1].draw(0, 0);
-	judgeTextBlock[2].draw(0, 0);
-	judgeTextBlock[3].draw(0, 0);
-
+	// judgeTextBlock[0].draw(0, 0);
+	// judgeTextBlock[1].draw(0, 0);
+	// judgeTextBlock[2].draw(0, 0);
+	// judgeTextBlock[3].draw(0, 0);
+	
 }
 
 void DataViewer::setScore(double _score) {
@@ -117,6 +125,9 @@ void DataViewer::setDesign() {
 	LevelBackgroundRectVector = changeVectorIntType(dataParse("LevelBackgroundRect"));
 
 	levelColorBackgroundMeshVector = changeVectorDoubleType(dataParse("levelColorBackgroundMesh"));
+
+	userProfileBoxVector = changeVectorIntType(dataParse("userProfileBox"));
+	userProfileBoxBorderVector = changeVectorIntType(dataParse("userProfileBoxBorder"));
 
 	musicProfileSpliterVector = changeVectorIntType(dataParse("musicProfileSpliter"));
 	musicProfileBoxBorderVector = changeVectorIntType(dataParse("musicProfileBoxBorder"));
@@ -157,9 +168,10 @@ void DataViewer::setDesign() {
 	}
 	difficultyLabel.setText(difficulty);
 
-	levelLabelVector = changeVectorIntType(dataParse("levelLabel"));
+	levelLabelVector = changeVectorDoubleType(dataParse("levelLabel"));
 	levelLabelColorVector = changeVectorIntType(dataParse("levelLabelColor"));
-	levelLabel.init("Fonts/ITCAvantGardeStd-Bold.ttf", levelLabelVector[2]);
+	levelLabel.init("Fonts/ITCAvantGardeStd-Demi.ttf", levelLabelVector[2]);
+	levelLabel.setTracking(levelLabelVector[3]);
 	levelLabel.setText(to_string(level));
 
 	// 난이도 색상
@@ -233,6 +245,10 @@ void DataViewer::readDesigner() {
 
 void DataViewer::setDifficult(int _difficult) {
 	difficult = _difficult;
+}
+
+void DataViewer::setLevel(int _level) {
+	level = _level;
 }
 
 vector<string> DataViewer::dataParse(string itemName) {

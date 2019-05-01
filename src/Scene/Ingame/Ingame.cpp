@@ -18,6 +18,7 @@ Ingame::Ingame(FileSystem* _file) {
 	backLane.resize(1920, 1080);
 
 	dataViewer = new DataViewer(file);
+	laneViewer = new LaneViewer();
 }
 
 Ingame::~Ingame() {
@@ -25,6 +26,7 @@ Ingame::~Ingame() {
 }
 
 void Ingame::update(bool keys[256]) {
+	laneViewer->update();
 	dataViewer->update();
 }
 
@@ -33,7 +35,7 @@ void Ingame::draw() {
 	backLane.draw(0, 0);
     
 	// 노트 작성
-
+	laneViewer->draw();
 
 	// 상단 데이터뷰어 작성
 	dataViewer->draw();
@@ -62,6 +64,7 @@ void Ingame::keyPressed(int key) {
 	if (key == '4') {
 		dataViewer->setDifficult(4); dataViewer->readDesigner();
 	}
+
 }
 
 void Ingame::keyRelease(int key) {
