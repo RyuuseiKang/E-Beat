@@ -21,7 +21,9 @@ LaneViewer::LaneViewer() {
 	gui.add(h.setup("height", 150, -500, 500));
 	gui.add(tilt.setup("tilt", 0, -100, 100));
 
-	texturePtr.loadImage("Scene/Ingame/LaneViewer/airNote.png");
+	for ( int i = 0; i < 8; i++)
+		texturePtr[i].loadImage("Scene/Ingame/LaneViewer/airNote" + to_string(i) + ".png");
+
 }
 
 LaneViewer::~LaneViewer() {
@@ -29,22 +31,38 @@ LaneViewer::~LaneViewer() {
 }
 
 void LaneViewer::update() {
-	texturePtr.resize(w, h / 2);
+	n++;
 
-	airNote.clear();
-	airNote.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-	airNote.addVertex(ofPoint(x, y, 0));
-	airNote.addTexCoord(ofVec2f(0, 0));
-	airNote.addVertex(ofPoint(x + w, y, 0));
-	airNote.addTexCoord(ofVec2f(w, 0));
-	airNote.addVertex(ofPoint(x + w - tilt, y + (h / 2), 0));
-	airNote.addTexCoord(ofVec2f(w, h / 2));
-	airNote.addVertex(ofPoint(x - tilt, y + (h / 2), 0));
-	airNote.addTexCoord(ofVec2f(0, h / 2));
-	airNote.addVertex(ofPoint(x, y, 0));
-	airNote.addTexCoord(ofVec2f(0, 0));
+	texturePtr[n % 24 / 3].resize(w, h / 2);
+
+	airNotePath.clear();
+	airNotePath.lineTo(x, y, 0);
+	airNotePath.lineTo(x + w, y, 0);
+	airNotePath.lineTo(x + w - tilt, y + (h / 2), 0);
+	airNotePath.lineTo(x - tilt, y + (h / 2), 0);
+
+	fbo.allocate(w, h, GL_RGBA); //or GL_RED if you are using the programmable renderer
+	fbo.begin();
+	ofClear(255, 255, 255, 0);
+	airNotePath.draw();
+	fbo.end();
+
+	texturePtr[n % 24 / 3].getTexture().setAlphaMask(fbo.getTexture());
+
+	// airNote.clear();
+	// airNote.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+	// airNote.addVertex(ofPoint(x, y, 0));
+	// airNote.addTexCoord(ofVec2f(0, 0));
+	// airNote.addVertex(ofPoint(x + w, y, 0));
+	// airNote.addTexCoord(ofVec2f(w, 0));
+	// airNote.addVertex(ofPoint(x + w - tilt, y + (h / 2), 0));
+	// airNote.addTexCoord(ofVec2f(w, h / 2));
+	// airNote.addVertex(ofPoint(x - tilt, y + (h / 2), 0));
+	// airNote.addTexCoord(ofVec2f(0, h / 2));
+	// airNote.addVertex(ofPoint(x, y, 0));
+	// airNote.addTexCoord(ofVec2f(0, 0));
 	
-}
+}	
 
 void LaneViewer::draw() {
 	ofPushMatrix();
@@ -57,10 +75,7 @@ void LaneViewer::draw() {
 		ofRotateY(rY);
 		ofRotateX(rZ);
 		
-		ofSetColor(255, 255, 255, 255);
-		texturePtr.bind();
-		airNote.draw();
-		texturePtr.unbind();
+		texturePtr[n % 24 / 3].draw(0, 0);
 	ofPopMatrix();
 
 	gui.draw();

@@ -36,7 +36,11 @@ private:
 	ofxFloatSlider tilt;
 
 	ofMesh airNote;
-	ofImage texturePtr;
+	ofPath airNotePath;
+	ofFbo fbo;
+	ofImage texturePtr[8];
+
+	int n;
 };
 
 #endif // __LANE_VIEWER_HPP_
