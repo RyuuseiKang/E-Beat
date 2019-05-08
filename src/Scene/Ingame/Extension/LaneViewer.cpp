@@ -33,12 +33,16 @@ LaneViewer::~LaneViewer() {
 void LaneViewer::update() {
 	n++;
 
-	texturePtr[n % 24 / 3].resize(w, h / 2);
+	if (n < 0)
+		n = 0;
+
+	k = n % 24 / 3;
+	texturePtr[k].resize(w, h / 2);
 
 	airNotePath.clear();
-	airNotePath.lineTo(x, y, 0);
+	airNotePath.lineTo(x - tilt, y, 0);
 	airNotePath.lineTo(x + w, y, 0);
-	airNotePath.lineTo(x + w - tilt, y + (h / 2), 0);
+	airNotePath.lineTo(x + w , y + (h / 2), 0);
 	airNotePath.lineTo(x - tilt, y + (h / 2), 0);
 
 	fbo.allocate(w, h, GL_RGBA); //or GL_RED if you are using the programmable renderer
@@ -46,8 +50,7 @@ void LaneViewer::update() {
 	ofClear(255, 255, 255, 0);
 	airNotePath.draw();
 	fbo.end();
-
-	texturePtr[n % 24 / 3].getTexture().setAlphaMask(fbo.getTexture());
+	texturePtr[k].getTexture().setAlphaMask(fbo.getTexture());
 
 	// airNote.clear();
 	// airNote.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
@@ -64,10 +67,16 @@ void LaneViewer::update() {
 	
 }	
 
+int slider = 0;
 void LaneViewer::draw() {
 	ofPushMatrix();
 		ofRotateX(rX);
 		ofTranslate(tX, tY, tZ);
+
+		slider += 2;
+
+		
+
 		ofSetColor(255, 255, 255, 100);
 		ofDrawRectangle(x, y, w, -700);
 
@@ -75,8 +84,9 @@ void LaneViewer::draw() {
 		ofRotateY(rY);
 		ofRotateX(rZ);
 		
-		texturePtr[n % 24 / 3].draw(0, 0);
+		
+		texturePtr[k].draw(0, 0);
 	ofPopMatrix();
 
-	gui.draw();
+	//gui.draw();
 }

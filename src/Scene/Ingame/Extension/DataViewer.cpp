@@ -28,6 +28,8 @@ DataViewer::DataViewer(FileSystem* _file) {
 	judgeTextBlock[3].setText("0");
 	albumArt.loadImage("MusicData/Yes or Yes/album.jpg");
 
+	musicNameLabel.setText("MUSIC NAME");
+	//artistNameLabel.setText("ARTIST NAME");
 }
 
 DataViewer::~DataViewer() {
@@ -35,22 +37,13 @@ DataViewer::~DataViewer() {
 }
 
 void DataViewer::update() {
-
+	musicNameLabel.update();
 }
 
 void DataViewer::draw() {
 	// 화면 상단처리
 	// 난이도별 상단 색상처리 안햇음
 	// 색상은 그라데이션으로 주고 있음, 리팩토링 끝
-	levelColorBackgroundMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0], levelColorBackgroundMeshVector[1]));
-	levelColorBackgroundMesh.addColor(levelColor[0]);
-	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0] + levelColorBackgroundMeshVector[2], levelColorBackgroundMeshVector[1]));
-	levelColorBackgroundMesh.addColor(levelColor[0]);
-	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0], levelColorBackgroundMeshVector[3]));
-	levelColorBackgroundMesh.addColor(levelColor[difficult]);
-	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0] + levelColorBackgroundMeshVector[2], levelColorBackgroundMeshVector[3]));
-	levelColorBackgroundMesh.addColor(levelColor[difficult]);
 	levelColorBackgroundMesh.draw();
 
 	// 옵션들 상자표시
@@ -84,7 +77,7 @@ void DataViewer::draw() {
 
 	// 난이도 표시
 	difficultyLabel.setColor(difficultyLabelColorVector[0], difficultyLabelColorVector[1], difficultyLabelColorVector[2], difficultyLabelColorVector[3]);
-	difficultyLabel.draw(difficultyLabelVector[0], difficultyLabelVector[1]);
+	difficultyLabel.drawJustified(difficultyLabelVector[0], difficultyLabelVector[1], difficultyLabelVector[3]);
 
 	// 레벨표시
 	ofSetColor(255, 255, 255, 255);
@@ -107,6 +100,8 @@ void DataViewer::draw() {
 	// judgeTextBlock[2].draw(0, 0);
 	// judgeTextBlock[3].draw(0, 0);
 	
+	musicNameLabel.draw();
+	//artistNameLabel.draw();
 }
 
 void DataViewer::setScore(double _score) {
@@ -123,9 +118,7 @@ void DataViewer::breakCombo() {
 
 void DataViewer::setDesign() {
 	LevelBackgroundRectVector = changeVectorIntType(dataParse("LevelBackgroundRect"));
-
-	levelColorBackgroundMeshVector = changeVectorDoubleType(dataParse("levelColorBackgroundMesh"));
-
+	
 	userProfileBoxVector = changeVectorIntType(dataParse("userProfileBox"));
 	userProfileBoxBorderVector = changeVectorIntType(dataParse("userProfileBoxBorder"));
 
@@ -140,32 +133,43 @@ void DataViewer::setDesign() {
 	judgeDetailHalfInBoxVector = changeVectorIntType(dataParse("judgeDetailHalfInBox"));
 	judgeDetailBoxVector = changeVectorIntType(dataParse("judgeDetailBox"));
 
+	musicNameLabelVector = changeVectorIntType(dataParse("musicNameLabel"));
+	musicNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", musicNameLabelVector[2]);
+	musicNameLabel.setWidth(musicNameLabelVector[4]);
+	musicNameLabel.setTracking(musicNameLabelVector[3]);
+	musicNameLabel.setPosition(musicNameLabelVector[0], musicNameLabelVector[1]);
+	artistNameLabelVector = changeVectorIntType(dataParse("artistNameLabel"));
+	artistNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", artistNameLabelVector[2]);
+	artistNameLabel.setWidth(artistNameLabelVector[4]);
+	artistNameLabel.setTracking(artistNameLabelVector[3]);
+	artistNameLabel.setPosition(artistNameLabelVector[0], artistNameLabelVector[1]);
+
 	albumArtVector = changeVectorIntType(dataParse("albumArt"));
 	albumArtBoxVector = changeVectorIntType(dataParse("albumArtBox"));
 
 	// 난이도 영어표기
 	difficultyLabelColorVector = changeVectorIntType(dataParse("difficultyLabelColor"));
-	difficultyLabelVector = changeVectorDoubleType(dataParse("difficultyLabel"));
-	difficultyLabel.init("Fonts/ITCAvantGardeStd-Bold.ttf", difficultyLabelVector[2]);
 	string difficulty;
 	switch (difficult) {
 		case 1:
-			difficulty = "E\nA\nS\nY";
-			difficultyLabel.setTracking(difficultyLabelVector[3]);
+			difficultyLabelVector = changeVectorDoubleType(dataParse("difficultyLabel0"));
+			difficulty = "B\nA\nS\nI\nC";
 			break;
 		case 2:
-			difficulty = "N\nO\nR\nM\nA\nL";
-			difficultyLabel.setTracking(-13);
+			difficultyLabelVector = changeVectorDoubleType(dataParse("difficultyLabel1"));
+			difficulty = "A\nD\nV\nA\nN\nC\nE\nD";
 			break;
 		case 3:
+			difficultyLabelVector = changeVectorDoubleType(dataParse("difficultyLabel2"));
 			difficulty = "E\nX\nP\nE\nR\nT";
-			difficultyLabel.setTracking(difficultyLabelVector[3]);
 			break;
 		case 4:
+			difficultyLabelVector = changeVectorDoubleType(dataParse("difficultyLabel3"));
 			difficulty = "M\nA\nS\nT\nE\nR";
-			difficultyLabel.setTracking(difficultyLabelVector[3]);
 			break;
 	}
+	difficultyFontSize = difficultyLabelVector[2];
+	difficultyLabel.init("Fonts/ITCAvantGardeStd-Bold.ttf", difficultyFontSize);
 	difficultyLabel.setText(difficulty);
 
 	levelLabelVector = changeVectorDoubleType(dataParse("levelLabel"));
@@ -200,6 +204,17 @@ void DataViewer::setDesign() {
 	levelColor[2] = ofColor(levelColorVector[2][0], levelColorVector[2][1], levelColorVector[2][2], levelColorVector[2][3]);
 	levelColor[3] = ofColor(levelColorVector[3][0], levelColorVector[3][1], levelColorVector[3][2], levelColorVector[3][3]);
 	levelColor[4] = ofColor(levelColorVector[4][0], levelColorVector[4][1], levelColorVector[4][2], levelColorVector[4][3]);
+
+	levelColorBackgroundMeshVector = changeVectorDoubleType(dataParse("levelColorBackgroundMesh"));
+	levelColorBackgroundMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0], levelColorBackgroundMeshVector[1]));
+	levelColorBackgroundMesh.addColor(levelColor[0]);
+	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0] + levelColorBackgroundMeshVector[2], levelColorBackgroundMeshVector[1]));
+	levelColorBackgroundMesh.addColor(levelColor[0]);
+	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0], levelColorBackgroundMeshVector[3]));
+	levelColorBackgroundMesh.addColor(levelColor[difficult]);
+	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0] + levelColorBackgroundMeshVector[2], levelColorBackgroundMeshVector[3]));
+	levelColorBackgroundMesh.addColor(levelColor[difficult]);
 }
 
 void DataViewer::DrawBoxRect(float x, float y, float w, float h) {

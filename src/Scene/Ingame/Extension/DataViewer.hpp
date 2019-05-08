@@ -12,6 +12,7 @@
 #include "../ofMain.h"
 #include "../Extension/FileSystem.hpp"
 #include "../Extension/ofxTextBlock.h"
+#include "../Extension/ScrollableTextBlock.hpp"
 
 class DataViewer {
 public:
@@ -35,6 +36,11 @@ public:
 private:
 	void setDesign();
 	void DrawBoxRect(float x, float y, float w, float h);
+
+	ScrollableTextBlock musicNameLabel;
+	vector<int> musicNameLabelVector;
+	ScrollableTextBlock artistNameLabel;
+	vector<int> artistNameLabelVector;
 
 	ofImage albumArt;
 
@@ -63,6 +69,8 @@ private:
 	int level = 10;
 	ofxTextBlock difficultyLabel;
 	vector<double> difficultyLabelVector;
+	int difficultyLabelWidth;
+	int difficultyFontSize;
 	vector<int> difficultyLabelColorVector;
 	ofxTextBlock levelLabel;
 	vector<double> levelLabelVector;

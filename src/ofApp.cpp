@@ -16,7 +16,7 @@ Scene scene;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	ofSetFrameRate(60);
+	ofSetFrameRate(120);
 	ofSetVerticalSync(false);
 
     player.setMultiPlay(true);
@@ -80,6 +80,7 @@ void ofApp::update(){
     if(keys['9'])
         scene = MUSIC_SELECT;
 
+	nFps = ofGetFrameRate();
 }
 
 //--------------------------------------------------------------
@@ -109,12 +110,7 @@ void ofApp::draw(){
     // ofDrawBitmapStringHighlight("isPlaying : " + to_string(player.isPlaying()), 20, 20);
     // ofDrawBitmapStringHighlight("POSITION : " + to_string(player.getPositionMS()), 20, 40);
 	// ofDrawBitmapStringHighlight("VOLUME : " + to_string(player.getVolume()), 20, 60);
-    
-    if(keys['a'])
-        ofDrawBitmapStringHighlight("<<", 20, 80);
-    
-    if(keys['d'])
-        ofDrawBitmapStringHighlight(">>", 20, 80);
+	ofDrawBitmapStringHighlight("fps: " + to_string(nFps), 20, 40);
 }
 
 //--------------------------------------------------------------

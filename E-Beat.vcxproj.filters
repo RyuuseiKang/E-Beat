@@ -1,228 +1,240 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<ItemGroup>
-		<ClCompile Include="src\ofApp.cpp">
-			<Filter>src</Filter>
-		</ClCompile>
-		<ClCompile Include="src\main.cpp">
-			<Filter>src</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Extension\FileSystem.cpp">
-			<Filter>src\Extension</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Extension\ofxBlurShader.cpp">
-			<Filter>src\Extension</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Extension\ofxTextBlock.cpp">
-			<Filter>src\Extension</Filter>
-		</ClCompile>
-		<ClCompile Include="src\GameSetting\AppSetting.cpp">
-			<Filter>src\GameSetting</Filter>
-		</ClCompile>
-		<ClCompile Include="src\main.cpp">
-			<Filter>src</Filter>
-		</ClCompile>
-		<ClCompile Include="src\ofApp.cpp">
-			<Filter>src</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\EntryScene.cpp">
-			<Filter>src\Scene</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\Ingame\Extension\DataViewer.cpp">
-			<Filter>src\Scene\Ingame\Extension</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\Ingame\Extension\LaneViewer.cpp">
-			<Filter>src\Scene\Ingame\Extension</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\Ingame\Ingame.cpp">
-			<Filter>src\Scene\Ingame</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\Initialize\InitializeScene.cpp">
-			<Filter>src\Scene\Initialize</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\MusicSelect\Extension\KeyBeam.cpp">
-			<Filter>src\Scene\MusicSelect\Extension</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\MusicSelect\Extension\MusicCard.cpp">
-			<Filter>src\Scene\MusicSelect\Extension</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.cpp">
-			<Filter>src\Scene\MusicSelect\Extension</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\MusicSelect\Extension\ofSelectSlider.cpp">
-			<Filter>src\Scene\MusicSelect\Extension</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\MusicSelect\MusicList.cpp">
-			<Filter>src\Scene\MusicSelect</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Scene\MusicSelect\MusicSelect.cpp">
-			<Filter>src\Scene\MusicSelect</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxColorPicker.cpp">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxInputField.cpp">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxLabel.cpp">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxPanel.cpp">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxSlider.cpp">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClCompile>
-	</ItemGroup>
-	<ItemGroup>
-		<Filter Include="src">
-			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="src\Extension">
-			<UniqueIdentifier>{215E9F7D-1D56-3D61-6E95-28B2}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="src\GameSetting">
-			<UniqueIdentifier>{7F66C457-0EF6-E094-E4A9-8BE4}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="src\Scene">
-			<UniqueIdentifier>{A02AE993-DEC1-492D-B45F-C2B2}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="src\Scene\Ingame">
-			<UniqueIdentifier>{80DBF6DC-812F-50DB-08FA-3032}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="src\Scene\Ingame\Extension">
-			<UniqueIdentifier>{DD9DB3B9-CA24-07DA-471D-C5CA}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="src\Scene\Initialize">
-			<UniqueIdentifier>{4059E447-AD89-A843-8D23-276F}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="src\Scene\MusicSelect">
-			<UniqueIdentifier>{4ACF1531-B0CB-B057-D9A5-6ECB}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="src\Scene\MusicSelect\Extension">
-			<UniqueIdentifier>{347D78BB-8EFE-28FB-2C1F-D3CD}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="addons">
-			<UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="addons\ofxGui">
-			<UniqueIdentifier>{4F2A59AF-5F4E-704B-D067-EC13}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="addons\ofxGui\src">
-			<UniqueIdentifier>{645E9533-4DCD-6179-1CDF-CB65}</UniqueIdentifier>
-		</Filter>
-	</ItemGroup>
-	<ItemGroup>
-		<ClInclude Include="src\ofApp.h">
-			<Filter>src</Filter>
-		</ClInclude>
-		<ClInclude Include="src\configuration.hpp">
-			<Filter>src</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Extension\FileSystem.hpp">
-			<Filter>src\Extension</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Extension\ofxBlurShader.h">
-			<Filter>src\Extension</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Extension\ofxTextBlock.h">
-			<Filter>src\Extension</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Extension\ofxTextSuite.h">
-			<Filter>src\Extension</Filter>
-		</ClInclude>
-		<ClInclude Include="src\GameSetting\AppSetting.hpp">
-			<Filter>src\GameSetting</Filter>
-		</ClInclude>
-		<ClInclude Include="src\ofApp.h">
-			<Filter>src</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\EntryScene.hpp">
-			<Filter>src\Scene</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\Ingame\Extension\DataViewer.hpp">
-			<Filter>src\Scene\Ingame\Extension</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\Ingame\Extension\LaneViewer.hpp">
-			<Filter>src\Scene\Ingame\Extension</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\Ingame\Ingame.hpp">
-			<Filter>src\Scene\Ingame</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\Initialize\InitializeScene.hpp">
-			<Filter>src\Scene\Initialize</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.hpp">
-			<Filter>src\Scene\MusicSelect\Extension</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\MusicSelect\Extension\MusicCard.hpp">
-			<Filter>src\Scene\MusicSelect\Extension</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.hpp">
-			<Filter>src\Scene\MusicSelect\Extension</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\MusicSelect\Extension\ofSelectSlider.hpp">
-			<Filter>src\Scene\MusicSelect\Extension</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\MusicSelect\MusicList.hpp">
-			<Filter>src\Scene\MusicSelect</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene\MusicSelect\MusicSelect.hpp">
-			<Filter>src\Scene\MusicSelect</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Scene.hpp">
-			<Filter>src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxColorPicker.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxInputField.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxLabel.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxPanel.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h">
-			<Filter>addons\ofxGui\src</Filter>
-		</ClInclude>
-	</ItemGroup>
-	<ItemGroup>
-		<ResourceCompile Include="icon.rc" />
-	</ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Extension\FileSystem.cpp">
+      <Filter>src\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Extension\ofxBlurShader.cpp">
+      <Filter>src\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Extension\ofxTextBlock.cpp">
+      <Filter>src\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameSetting\AppSetting.cpp">
+      <Filter>src\GameSetting</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\EntryScene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Ingame\Extension\DataViewer.cpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Ingame\Extension\LaneViewer.cpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Ingame\Ingame.cpp">
+      <Filter>src\Scene\Ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Initialize\InitializeScene.cpp">
+      <Filter>src\Scene\Initialize</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\Extension\KeyBeam.cpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\Extension\MusicCard.cpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.cpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\Extension\ofSelectSlider.cpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\MusicList.cpp">
+      <Filter>src\Scene\MusicSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\MusicSelect.cpp">
+      <Filter>src\Scene\MusicSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxColorPicker.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxInputField.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxLabel.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxPanel.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSlider.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Extension\ScrollableTextBlock.cpp">
+      <Filter>src\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Ingame\Extension\Note.cpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Extension">
+      <UniqueIdentifier>{215E9F7D-1D56-3D61-6E95-28B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameSetting">
+      <UniqueIdentifier>{7F66C457-0EF6-E094-E4A9-8BE4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene">
+      <UniqueIdentifier>{A02AE993-DEC1-492D-B45F-C2B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene\Ingame">
+      <UniqueIdentifier>{80DBF6DC-812F-50DB-08FA-3032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene\Ingame\Extension">
+      <UniqueIdentifier>{DD9DB3B9-CA24-07DA-471D-C5CA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene\Initialize">
+      <UniqueIdentifier>{4059E447-AD89-A843-8D23-276F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene\MusicSelect">
+      <UniqueIdentifier>{4ACF1531-B0CB-B057-D9A5-6ECB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene\MusicSelect\Extension">
+      <UniqueIdentifier>{347D78BB-8EFE-28FB-2C1F-D3CD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxGui">
+      <UniqueIdentifier>{4F2A59AF-5F4E-704B-D067-EC13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxGui\src">
+      <UniqueIdentifier>{645E9533-4DCD-6179-1CDF-CB65}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\configuration.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extension\FileSystem.hpp">
+      <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extension\ofxBlurShader.h">
+      <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extension\ofxTextBlock.h">
+      <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extension\ofxTextSuite.h">
+      <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameSetting\AppSetting.hpp">
+      <Filter>src\GameSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\EntryScene.hpp">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Ingame\Extension\DataViewer.hpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Ingame\Extension\LaneViewer.hpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Ingame\Ingame.hpp">
+      <Filter>src\Scene\Ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Initialize\InitializeScene.hpp">
+      <Filter>src\Scene\Initialize</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.hpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\MusicCard.hpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\ofBackgroundPlayer.hpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\ofSelectSlider.hpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\MusicList.hpp">
+      <Filter>src\Scene\MusicSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\MusicSelect.hpp">
+      <Filter>src\Scene\MusicSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxColorPicker.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxInputField.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxLabel.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxPanel.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h">
+      <Filter>addons\ofxGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extension\ScrollableTextBlock.hpp">
+      <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Ingame\Extension\Note.hpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
 </Project>

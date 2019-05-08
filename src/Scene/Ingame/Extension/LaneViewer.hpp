@@ -41,6 +41,7 @@ private:
 	ofImage texturePtr[8];
 
 	int n;
+	int k;
 };
 
 #endif // __LANE_VIEWER_HPP_

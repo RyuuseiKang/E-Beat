@@ -1,4 +1,4 @@
-﻿  LaneViewer.cpp
+﻿  ScrollableTextBlock.cpp
 x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec3f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofvec2f.h : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
@@ -7,16 +7,6 @@ x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(
 x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\laneviewer.cpp(25): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
-  x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofimage.h(227): note: 'ofImage_<unsigned char>::loadImage' 선언을 참조하십시오.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\laneviewer.cpp(69): warning C4996: 'ofRotateX': Use ofRotateXDeg or ofRotateXRad
-  x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1022): note: 'ofRotateX' 선언을 참조하십시오.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\laneviewer.cpp(74): warning C4996: 'ofRotateX': Use ofRotateXDeg or ofRotateXRad
-  x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1022): note: 'ofRotateX' 선언을 참조하십시오.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\laneviewer.cpp(75): warning C4996: 'ofRotateY': Use ofRotateYDeg or ofRotateYRad
-  x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1033): note: 'ofRotateY' 선언을 참조하십시오.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\laneviewer.cpp(76): warning C4996: 'ofRotateX': Use ofRotateXDeg or ofRotateXRad
-  x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1022): note: 'ofRotateX' 선언을 참조하십시오.
      bin\E-Beat.lib 라이브러리 및 bin\E-Beat.exp 개체를 생성하고 있습니다.
   코드를 생성하고 있습니다.
   0 of 617 functions ( 0.0%) were compiled, the rest were copied from previous compilation.

@@ -10,4 +10,6 @@
 	<y>510</y>
 	<width>60</width>
 	<height>-60</height>
+	<transform_X>0</transform_X>
+	<transform_Y>500</transform_Y>
 </group>

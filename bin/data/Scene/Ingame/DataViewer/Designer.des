@@ -40,14 +40,24 @@
 *judgeDetailBoxBorder(x, y, w, h)
 #judgeDetailBoxBorder 578 0 766 175
 
+*musicNameLabel(x, y, pt, tracking, w)
+#musicNameLabel 1507 140 19 2 340
+*artistNameLabel(x, y, pt, tracking, w)
+#artistNameLabel 1507 167 11 2 340
+
 *albumArt(x, y, w or h)
 #albumArt 1376 49 115
 *albumArtBox(x, y, w or h)
 #albumArtBox 1374 47 119
 
-
-*difficultyLabel(x, y, pt, tracking)
-#difficultyLabel 1505 50 34 -10.2
+*difficultyLabel0(x, y, pt, width)
+#difficultyLabel0 1505 50 34 1670
+*difficultyLabel1(x, y, pt, width)
+#difficultyLabel1 1505 54 31 1740
+*difficultyLabel2(x, y, pt, width)
+#difficultyLabel2 1505 50 34 1700
+*difficultyLabel3(x, y, pt, width)
+#difficultyLabel3 1505 50 34 1717
 *difficultyLabelColor(r, g, b, a)
 #difficultyLabelColor 235 255 235 255
 
