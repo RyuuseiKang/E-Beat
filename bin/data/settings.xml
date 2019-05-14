@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
 <group>
-	<Rotate_X>46.8</Rotate_X>
+	<Rotate_X>56.6</Rotate_X>
 	<Rotate_Y>0</Rotate_Y>
-	<Rotate_Z>0</Rotate_Z>
-	<Translate_X>70</Translate_X>
-	<Translate_Y>150</Translate_Y>
-	<Translate_Z>50</Translate_Z>
-	<x>810</x>
-	<y>510</y>
-	<width>60</width>
-	<height>-60</height>
+	<Rotate_Z>165</Rotate_Z>
+	<Translate_X>903</Translate_X>
+	<Translate_Y>906.5</Translate_Y>
+	<Translate_Z>-110</Translate_Z>
+	<x>0</x>
+	<y>0</y>
+	<width>114</width>
+	<height>150</height>
 	<transform_X>0</transform_X>
 	<transform_Y>500</transform_Y>
+	<tilt>0</tilt>
 </group>

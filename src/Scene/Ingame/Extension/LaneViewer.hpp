@@ -11,6 +11,7 @@
 #include <iostream>
 #include "../ofMain.h"
 #include "ofxGui.h"
+#include "Note.hpp"
 
 class LaneViewer {
 public:
@@ -42,6 +43,10 @@ private:
 
 	int n;
 	int k;
+
+	ofImage normalNote[3];
+
+	Note *note;
 };
 
 #endif // __LANE_VIEWER_HPP_

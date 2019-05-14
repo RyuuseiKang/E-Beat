@@ -8,22 +8,28 @@
 #include "LaneViewer.hpp"
 
 LaneViewer::LaneViewer() {
+	for (int i = 0; i < 3; i++)
+		normalNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Normal_0" + to_string(i + 1) + ".png");
+
 	gui.setup();
 	gui.add(rX.setup("Rotate X", 56.6, -100, 100));
 	gui.add(rY.setup("Rotate Y", 0, -100, 100));
 	gui.add(rZ.setup("Rotate Z", 165, -360, 360));
-	gui.add(tX.setup("Translate X", 903, 500, 1200));
+	gui.add(tX.setup("Translate X", 846, 500, 1200));
 	gui.add(tY.setup("Translate Y", 634.125, -500, 2400));
 	gui.add(tZ.setup("Translate Z", -110, -300, 200));
 	gui.add(x.setup("x", 0, -3000, 3000));
 	gui.add(y.setup("y", 0, -3000, 3000));
-	gui.add(w.setup("width", 113.8, -500, 500));
+	gui.add(w.setup("width", 114, -500, 500));
 	gui.add(h.setup("height", 150, -500, 500));
 	gui.add(tilt.setup("tilt", 0, -100, 100));
 
 	for ( int i = 0; i < 8; i++)
 		texturePtr[i].loadImage("Scene/Ingame/LaneViewer/airNote" + to_string(i) + ".png");
 
+	note = new Note(NOTE_TYPE(NORMAL_NOTE));
+	note->setNoteImage(normalNote);
+	note->setNoteLength(1);
 }
 
 LaneViewer::~LaneViewer() {
@@ -74,19 +80,26 @@ void LaneViewer::draw() {
 		ofTranslate(tX, tY, tZ);
 
 		slider += 2;
-
+		
 		
 
-		ofSetColor(255, 255, 255, 100);
-		ofDrawRectangle(x, y, w, -700);
+		ofSetColor(255, 255, 255, 255);
+		note->setPosition(0);
+		note->draw(x, y);
+		note->setPosition(2);
+		note->draw(x, y - 50);
+		
+		note->setPosition(4);
+		note->draw(x, y - 90);
+		//ofDrawRectangle(x, y, w, -700);
 
 		ofRotateX(rX - (rX*2));
 		ofRotateY(rY);
 		ofRotateX(rZ);
 		
 		
-		texturePtr[k].draw(0, 0);
+		//texturePtr[k].draw(0, 0);
 	ofPopMatrix();
 
-	//gui.draw();
+	gui.draw();
 }
