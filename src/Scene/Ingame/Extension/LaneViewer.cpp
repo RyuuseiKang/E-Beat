@@ -8,6 +8,10 @@
 #include "LaneViewer.hpp"
 
 LaneViewer::LaneViewer() {
+	musicFile = new ofFile();
+
+	musicFile->open(ofToDataPath("sus.sus"));
+
 	for (int i = 0; i < 3; i++)
 		normalNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Normal_0" + to_string(i + 1) + ".png");
 
@@ -27,7 +31,7 @@ LaneViewer::LaneViewer() {
 	for ( int i = 0; i < 8; i++)
 		texturePtr[i].loadImage("Scene/Ingame/LaneViewer/airNote" + to_string(i) + ".png");
 
-	note = new Note(NOTE_TYPE(NORMAL_NOTE));
+	note = new ofNote(NOTE_TYPE(NORMAL_NOTE));
 	note->setNoteImage(normalNote);
 	note->setNoteLength(1);
 }
@@ -85,12 +89,25 @@ void LaneViewer::draw() {
 
 		ofSetColor(255, 255, 255, 255);
 		note->setPosition(0);
+		note->setNoteLength(4);
 		note->draw(x, y);
-		note->setPosition(2);
+
+		note->setPosition(4);
+		note->setNoteLength(4);
 		note->draw(x, y - 50);
 		
-		note->setPosition(4);
+		note->setPosition(8);
+		note->setNoteLength(4);
+		note->draw(x, y - 120);
+
+		note->setPosition(12);
+		note->setNoteLength(4);
 		note->draw(x, y - 90);
+
+		note->setPosition(8);
+		note->setNoteLength(4);
+		note->draw(x, y - 90);
+
 		//ofDrawRectangle(x, y, w, -700);
 
 		ofRotateX(rX - (rX*2));

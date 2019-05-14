@@ -10,8 +10,10 @@
 
 #include <iostream>
 #include "../ofMain.h"
+
 #include "ofxGui.h"
-#include "Note.hpp"
+#include "note.hpp"
+#include "ofNote.hpp"
 
 class LaneViewer {
 public:
@@ -23,6 +25,10 @@ public:
 
 private:
 	ofxPanel gui;
+
+	ofFile *musicFile;
+
+	vector<note> noteVector;
 
 	ofxFloatSlider rX;
 	ofxFloatSlider rY;
@@ -46,7 +52,7 @@ private:
 
 	ofImage normalNote[3];
 
-	Note *note;
+	ofNote *note;
 };
 
 #endif // __LANE_VIEWER_HPP_

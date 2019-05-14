@@ -88,7 +88,7 @@ void ScrollableTextBlock::draw() {
 		
 	glPopMatrix();
 
-	gui.draw();
+	//gui.draw();
 
 	// string  strToDraw;
 	// int     currentWordID;

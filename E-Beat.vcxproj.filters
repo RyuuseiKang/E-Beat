@@ -91,7 +91,10 @@
     <ClCompile Include="src\Extension\ScrollableTextBlock.cpp">
       <Filter>src\Extension</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scene\Ingame\Extension\Note.cpp">
+    <ClCompile Include="src\Scene\Ingame\Extension\ofNote.cpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="note.cpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
     </ClCompile>
   </ItemGroup>
@@ -230,7 +233,10 @@
     <ClInclude Include="src\Extension\ScrollableTextBlock.hpp">
       <Filter>src\Extension</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scene\Ingame\Extension\Note.hpp">
+    <ClInclude Include="src\Scene\Ingame\Extension\ofNote.hpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="note.hpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
     </ClInclude>
   </ItemGroup>

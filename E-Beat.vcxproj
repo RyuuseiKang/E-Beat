@@ -180,6 +180,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="note.cpp" />
     <ClCompile Include="src\Extension\ScrollableTextBlock.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -190,7 +191,7 @@
     <ClCompile Include="src\Scene\EntryScene.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\DataViewer.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\LaneViewer.cpp" />
-    <ClCompile Include="src\Scene\Ingame\Extension\Note.cpp" />
+    <ClCompile Include="src\Scene\Ingame\Extension\ofNote.cpp" />
     <ClCompile Include="src\Scene\Ingame\Ingame.cpp" />
     <ClCompile Include="src\Scene\Initialize\InitializeScene.cpp" />
     <ClCompile Include="src\Scene\MusicSelect\Extension\KeyBeam.cpp" />
@@ -211,6 +212,7 @@
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="note.hpp" />
     <ClInclude Include="src\Extension\ScrollableTextBlock.hpp" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\configuration.hpp" />
@@ -222,7 +224,7 @@
     <ClInclude Include="src\Scene\EntryScene.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\DataViewer.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\LaneViewer.hpp" />
-    <ClInclude Include="src\Scene\Ingame\Extension\Note.hpp" />
+    <ClInclude Include="src\Scene\Ingame\Extension\ofNote.hpp" />
     <ClInclude Include="src\Scene\Ingame\Ingame.hpp" />
     <ClInclude Include="src\Scene\Initialize\InitializeScene.hpp" />
     <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.hpp" />
