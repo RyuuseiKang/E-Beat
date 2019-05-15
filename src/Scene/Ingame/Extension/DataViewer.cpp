@@ -28,7 +28,7 @@ DataViewer::DataViewer(FileSystem* _file) {
 	judgeTextBlock[3].setText("0");
 	albumArt.loadImage("MusicData/Yes or Yes/album.jpg");
 
-	musicNameLabel.setText("MUSIC NAME");
+	//musicNameLabel.setText("MUSIC NAME");
 	//artistNameLabel.setText("ARTIST NAME");
 }
 
@@ -37,7 +37,7 @@ DataViewer::~DataViewer() {
 }
 
 void DataViewer::update() {
-	musicNameLabel.update();
+	//musicNameLabel.update();
 }
 
 void DataViewer::draw() {
@@ -100,7 +100,7 @@ void DataViewer::draw() {
 	// judgeTextBlock[2].draw(0, 0);
 	// judgeTextBlock[3].draw(0, 0);
 	
-	musicNameLabel.draw();
+	//musicNameLabel.draw();
 	//artistNameLabel.draw();
 }
 
@@ -133,16 +133,17 @@ void DataViewer::setDesign() {
 	judgeDetailHalfInBoxVector = changeVectorIntType(dataParse("judgeDetailHalfInBox"));
 	judgeDetailBoxVector = changeVectorIntType(dataParse("judgeDetailBox"));
 
-	musicNameLabelVector = changeVectorIntType(dataParse("musicNameLabel"));
-	musicNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", musicNameLabelVector[2]);
-	musicNameLabel.setWidth(musicNameLabelVector[4]);
-	musicNameLabel.setTracking(musicNameLabelVector[3]);
-	musicNameLabel.setPosition(musicNameLabelVector[0], musicNameLabelVector[1]);
-	artistNameLabelVector = changeVectorIntType(dataParse("artistNameLabel"));
-	artistNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", artistNameLabelVector[2]);
-	artistNameLabel.setWidth(artistNameLabelVector[4]);
-	artistNameLabel.setTracking(artistNameLabelVector[3]);
-	artistNameLabel.setPosition(artistNameLabelVector[0], artistNameLabelVector[1]);
+    // 곡 제목, 아티스트명 부분
+	//musicNameLabelVector = changeVectorIntType(dataParse("musicNameLabel"));
+	//musicNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", musicNameLabelVector[2]);
+	//musicNameLabel.setWidth(musicNameLabelVector[4]);
+	//musicNameLabel.setTracking(musicNameLabelVector[3]);
+	//musicNameLabel.setPosition(musicNameLabelVector[0], musicNameLabelVector[1]);
+	//artistNameLabelVector = changeVectorIntType(dataParse("artistNameLabel"));
+	//artistNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", artistNameLabelVector[2]);
+	//artistNameLabel.setWidth(artistNameLabelVector[4]);
+	//artistNameLabel.setTracking(artistNameLabelVector[3]);
+	//artistNameLabel.setPosition(artistNameLabelVector[0], artistNameLabelVector[1]);
 
 	albumArtVector = changeVectorIntType(dataParse("albumArt"));
 	albumArtBoxVector = changeVectorIntType(dataParse("albumArtBox"));

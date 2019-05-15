@@ -37,9 +37,9 @@ private:
 	void setDesign();
 	void DrawBoxRect(float x, float y, float w, float h);
 
-	ScrollableTextBlock musicNameLabel;
+	//ScrollableTextBlock musicNameLabel;
 	vector<int> musicNameLabelVector;
-	ScrollableTextBlock artistNameLabel;
+	//ScrollableTextBlock artistNameLabel;
 	vector<int> artistNameLabelVector;
 
 	ofImage albumArt;

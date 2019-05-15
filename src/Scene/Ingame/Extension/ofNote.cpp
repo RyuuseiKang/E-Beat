@@ -1,4 +1,4 @@
-﻿//
+//
 //  ofNote.cpp
 //  E-Beat
 //

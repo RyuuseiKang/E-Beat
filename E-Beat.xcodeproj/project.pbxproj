@@ -10,6 +10,8 @@
 		04F1DF8E794564DEE1341BE2 /* MusicCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8918AD63101D4CDF121C031F /* MusicCard.cpp */; };
 		0FF9EF3E36371076CC79F2FD /* MusicList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3444214EA3F83A172EBFF6B /* MusicList.cpp */; };
 		1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 907C5B5E104864A2D3A25745 /* ofxToggle.cpp */; };
+		2315C8A8228CD0A1003EF748 /* ofNote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2315C8A6228CD0A1003EF748 /* ofNote.cpp */; };
+		2315C8AB228CD103003EF748 /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2315C8A9228CD103003EF748 /* Parser.cpp */; };
 		23BEC34A227A80E1004F379A /* LaneViewer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23BEC348227A80E1004F379A /* LaneViewer.cpp */; };
 		2681BD7EA9F225DF4F15CB9A /* ofxBlurShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D040D9D9627E1EF15E88266 /* ofxBlurShader.cpp */; };
 		483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D67A00EB899FAC09430597 /* ofxLabel.cpp */; };
@@ -56,6 +58,10 @@
 		17E65988300FBD9AAA2CD0CA /* ofxGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxGui.h; path = ../../../addons/ofxGui/src/ofxGui.h; sourceTree = SOURCE_ROOT; };
 		181D363B6DD54D1FA6309C43 /* ofxColorPicker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxColorPicker.cpp; path = ../../../addons/ofxGui/src/ofxColorPicker.cpp; sourceTree = SOURCE_ROOT; };
 		1C0DA2561397A7DE0246858B /* ofxGuiGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxGuiGroup.h; path = ../../../addons/ofxGui/src/ofxGuiGroup.h; sourceTree = SOURCE_ROOT; };
+		2315C8A6228CD0A1003EF748 /* ofNote.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofNote.cpp; path = Scene/Ingame/Extension/ofNote.cpp; sourceTree = "<group>"; };
+		2315C8A7228CD0A1003EF748 /* ofNote.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ofNote.hpp; path = Scene/Ingame/Extension/ofNote.hpp; sourceTree = "<group>"; };
+		2315C8A9228CD103003EF748 /* Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Parser.cpp; path = Extension/Parser.cpp; sourceTree = "<group>"; };
+		2315C8AA228CD103003EF748 /* Parser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Parser.hpp; path = Extension/Parser.hpp; sourceTree = "<group>"; };
 		23BEC348227A80E1004F379A /* LaneViewer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LaneViewer.cpp; path = Scene/Ingame/Extension/LaneViewer.cpp; sourceTree = "<group>"; };
 		23BEC349227A80E1004F379A /* LaneViewer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LaneViewer.hpp; path = Scene/Ingame/Extension/LaneViewer.hpp; sourceTree = "<group>"; };
 		24A18128D2DECC51ED1A296D /* ofxTextBlock.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxTextBlock.cpp; path = src/Extension/ofxTextBlock.cpp; sourceTree = SOURCE_ROOT; };
@@ -300,13 +306,15 @@
 		0E5F640AA3F3BC7A8DFC1045 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				70134E599F9DE4E5AD45E52E /* ofxTextSuite.h */,
-				B2B812845E61FAAA231F8771 /* ofxBlurShader.h */,
+				2315C8A9228CD103003EF748 /* Parser.cpp */,
+				2315C8AA228CD103003EF748 /* Parser.hpp */,
+				9C18AEDE26A982DD16C7E05F /* FileSystem.cpp */,
 				76132E6749933AD211282335 /* FileSystem.hpp */,
 				24A18128D2DECC51ED1A296D /* ofxTextBlock.cpp */,
-				9C18AEDE26A982DD16C7E05F /* FileSystem.cpp */,
-				9D040D9D9627E1EF15E88266 /* ofxBlurShader.cpp */,
 				2F8F3E12BED42A3037703E70 /* ofxTextBlock.h */,
+				70134E599F9DE4E5AD45E52E /* ofxTextSuite.h */,
+				9D040D9D9627E1EF15E88266 /* ofxBlurShader.cpp */,
+				B2B812845E61FAAA231F8771 /* ofxBlurShader.h */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -341,10 +349,12 @@
 		4BD1990D1176169218FB69E6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				23BEC348227A80E1004F379A /* LaneViewer.cpp */,
-				23BEC349227A80E1004F379A /* LaneViewer.hpp */,
 				534C7B7EA26A1A3EA0ACCC7C /* DataViewer.cpp */,
 				BB050CBB2EF84294933126C0 /* DataViewer.hpp */,
+				23BEC348227A80E1004F379A /* LaneViewer.cpp */,
+				23BEC349227A80E1004F379A /* LaneViewer.hpp */,
+				2315C8A6228CD0A1003EF748 /* ofNote.cpp */,
+				2315C8A7228CD0A1003EF748 /* ofNote.hpp */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -865,7 +875,9 @@
 				888867DD362EA1DA8517018B /* ofBackgroundPlayer.cpp in Sources */,
 				BD0441EDA625F1E95FE787B3 /* MusicSelect.cpp in Sources */,
 				0FF9EF3E36371076CC79F2FD /* MusicList.cpp in Sources */,
+				2315C8AB228CD103003EF748 /* Parser.cpp in Sources */,
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
+				2315C8A8228CD0A1003EF748 /* ofNote.cpp in Sources */,
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
 				853E0BA2F448076739446874 /* ofxColorPicker.cpp in Sources */,
 				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,
