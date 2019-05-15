@@ -180,7 +180,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="note.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="src\Extension\ScrollableTextBlock.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -212,7 +212,7 @@
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="note.hpp" />
+    <ClInclude Include="Parser.hpp" />
     <ClInclude Include="src\Extension\ScrollableTextBlock.hpp" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\configuration.hpp" />

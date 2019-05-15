@@ -12,7 +12,6 @@
 #include "../ofMain.h"
 
 #include "ofxGui.h"
-#include "note.hpp"
 #include "ofNote.hpp"
 
 class LaneViewer {
@@ -28,7 +27,7 @@ private:
 
 	ofFile *musicFile;
 
-	vector<note> noteVector;
+	Parser *parser;
 
 	ofxFloatSlider rX;
 	ofxFloatSlider rY;
@@ -52,7 +51,7 @@ private:
 
 	ofImage normalNote[3];
 
-	ofNote *note;
+	ofNote *_ofNote;
 };
 
 #endif // __LANE_VIEWER_HPP_

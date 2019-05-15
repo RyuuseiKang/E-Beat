@@ -94,7 +94,7 @@
     <ClCompile Include="src\Scene\Ingame\Extension\ofNote.cpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
     </ClCompile>
-    <ClCompile Include="note.cpp">
+    <ClCompile Include="Parser.cpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
     </ClCompile>
   </ItemGroup>
@@ -236,7 +236,7 @@
     <ClInclude Include="src\Scene\Ingame\Extension\ofNote.hpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
     </ClInclude>
-    <ClInclude Include="note.hpp">
+    <ClInclude Include="Parser.hpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
     </ClInclude>
   </ItemGroup>
