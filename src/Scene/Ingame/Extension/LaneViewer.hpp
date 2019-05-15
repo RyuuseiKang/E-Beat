@@ -12,6 +12,7 @@
 #include "../ofMain.h"
 
 #include "ofxGui.h"
+#include "Extension/Parser.hpp"
 #include "ofNote.hpp"
 
 class LaneViewer {
