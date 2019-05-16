@@ -50,7 +50,7 @@ private:
 #aaa3bc 슬라이드 노트
 		
 
-#aaa4bc 롱노트
+#aaa4bc 에어 액션
 		
 		
 #aaa5b  에어 노트
