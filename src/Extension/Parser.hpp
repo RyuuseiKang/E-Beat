@@ -11,10 +11,12 @@
 #include <iostream>
 #include "../ofMain.h"
 
-typedef vector<tuple<int, string, string>> note;
+typedef vector<tuple<int, string, string>> tapNote;
+typedef vector<tuple<int, string, string>> slideNote[36];
 
 struct note_data {
-	note notes;
+	tapNote tapNotes;
+	slideNote slideNotes;
 	vector<float> bpms;
 };
 
@@ -35,3 +37,24 @@ private:
 };
 
 #endif // __PARSER_HPP_
+
+
+/* 
+
+#aaa1b  노트
+		
+
+#aaa2bc 롱노트
+		
+
+#aaa3bc 슬라이드 노트
+		
+
+#aaa4bc 롱노트
+		
+		
+#aaa5b  에어 노트
+		
+
+
+*/
