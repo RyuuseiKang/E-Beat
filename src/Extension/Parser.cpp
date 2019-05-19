@@ -33,6 +33,16 @@ Parser::~Parser() {
 
 }
 
+vector<string> Parser::ParseNoteToVectorString(string str) {
+	vector<string> parseData;
+
+	for (int i = 0; i < str.length() / 2; i++) {
+		parseData.push_back(str.substr(i * 2, 2));
+	}
+
+	return parseData;
+}
+
 void Parser::Parse() {
 	ofBuffer buff = noteFile.readToBuffer();
 
@@ -56,10 +66,10 @@ void Parser::Parse() {
 
 				// #aaa1~ 처리
 				else if (_noteType == '1') {
-					data.tapNotes.push_back(tuple<int, string, string>(
+					data.tapNotes.push_back(tuple<int, string, vector<string>>(
 						atoi(v.at(0).substr(1, 3).c_str()),
 						v.at(0).substr(4, 3),
-						v.at(1)
+						ParseNoteToVectorString(v.at(1))
 						));
 				}
 
@@ -79,10 +89,10 @@ void Parser::Parse() {
 					else
 						_notePos = preventDuplication - 48;
 
-					data.slideNotes[_notePos].push_back(tuple<int, string, string>(
+					data.slideNotes[_notePos].push_back(tuple<int, string, vector<string>>(
 						atoi(v.at(0).substr(1, 3).c_str()),
 						v.at(0).substr(5, 1),
-						v.at(1)
+						ParseNoteToVectorString(v.at(1))
 						));
 				}
 
@@ -99,7 +109,10 @@ void Parser::Parse() {
 	cout << "NOTES ---------------------------------------" << endl;
 
 	for (int i = 0; i < data.tapNotes.size(); i++) {
-		cout << get<0>(data.tapNotes.at(i)) << "," << get<1>(data.tapNotes.at(i)) << ":" << get<2>(data.tapNotes.at(i)) << endl;
+		for(int j = 0; j < get<2>(data.tapNotes.at(i)).size(); j++)
+			cout << get<0>(data.tapNotes.at(i)) << "," << get<1>(data.tapNotes.at(i)) << ":" << get<2>(data.tapNotes.at(i)).at(j) << endl;
+
+		cout << endl;
 	}
 
 	cout << "BPMS ----------------------------------------" << endl;
@@ -112,9 +125,12 @@ void Parser::Parse() {
 
 	for (int i = 0; i < 36; i++){
 		for (int j = 0; j < data.slideNotes[i].size(); j++) {
-			cout << i << "," << j << ": " << get<0>(data.slideNotes[i].at(j)) << "," << get<1>(data.slideNotes[i].at(j)) << "," << get<2>(data.slideNotes[i].at(j)) << endl;
+			for (int k = 0; k < get<2>(data.slideNotes[i].at(j)).size(); k++)
+				cout << i << "," << j << ": " << get<0>(data.slideNotes[i].at(j)) << "," << get<1>(data.slideNotes[i].at(j)) << "," << get<2>(data.slideNotes[i].at(j)).at(k) << endl;
+
+			cout << endl;
 		}
-		cout << endl;
+		
 	}
 }
 

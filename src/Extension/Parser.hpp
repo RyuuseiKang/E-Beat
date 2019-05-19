@@ -11,8 +11,8 @@
 #include <iostream>
 #include "../ofMain.h"
 
-typedef vector<tuple<int, string, string>> tapNote;
-typedef vector<tuple<int, string, string>> slideNote[36];
+typedef vector<tuple<int, string, vector<string>>> tapNote;
+typedef vector<tuple<int, string, vector<string>>> slideNote[36];
 
 struct note_data {
 	tapNote tapNotes;
@@ -32,8 +32,9 @@ private:
 	
 	note_data data;
 	
-
+	vector<string> ParseNoteToVectorString(string str);
 	void Parse();
+
 };
 
 #endif // __PARSER_HPP_
