@@ -24,11 +24,14 @@ public:
 	void draw();
 
 private:
+	void genrateNote();
+
 	ofxPanel gui;
 
 	ofFile *musicFile;
 
 	Parser *parser;
+	tapNote tapNotes;
 
 	ofxFloatSlider rX;
 	ofxFloatSlider rY;
@@ -52,7 +55,7 @@ private:
 
 	ofImage normalNote[3];
 
-	ofNote *_ofNote;
+	vector<ofNote> *notes;
 };
 
 #endif // __LANE_VIEWER_HPP_

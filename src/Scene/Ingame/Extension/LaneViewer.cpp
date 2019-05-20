@@ -8,6 +8,7 @@
 #include "LaneViewer.hpp"
 
 LaneViewer::LaneViewer() {
+	// 파서 여기잇음
 	parser = new Parser();
 
 	for (int i = 0; i < 3; i++)
@@ -28,14 +29,14 @@ LaneViewer::LaneViewer() {
 
 	for ( int i = 0; i < 8; i++)
 		texturePtr[i].loadImage("Scene/Ingame/LaneViewer/airNote" + to_string(i) + ".png");
+	
+	// 여기서부터 노트 생성
+	genrateNote();
 
-	_ofNote = new ofNote(NOTE_TYPE(NORMAL_NOTE));
-	_ofNote->setNoteImage(normalNote);
-	_ofNote->setNoteLength(1);
 }
 
 LaneViewer::~LaneViewer() {
-
+	delete parser;
 }
 
 void LaneViewer::update() {
@@ -73,6 +74,7 @@ void LaneViewer::update() {
 	// airNote.addVertex(ofPoint(x, y, 0));
 	// airNote.addTexCoord(ofVec2f(0, 0));
 	
+	
 }	
 
 int slider = 0;
@@ -86,6 +88,14 @@ void LaneViewer::draw() {
 		
 
 		ofSetColor(255, 255, 255, 255);
+
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < notes[i].size(); j++) {
+				notes[i].at(j).draw();
+			}
+		}
+
+		/*
 		_ofNote->setPosition(0);
 		_ofNote->setNoteLength(4);
 		_ofNote->draw(x, y);
@@ -105,6 +115,7 @@ void LaneViewer::draw() {
 		_ofNote->setPosition(8);
 		_ofNote->setNoteLength(4);
 		_ofNote->draw(x, y - 90);
+		*/
 
 		//ofDrawRectangle(x, y, w, -700);
 
@@ -117,4 +128,38 @@ void LaneViewer::draw() {
 	ofPopMatrix();
 
 	gui.draw();
+}
+
+void LaneViewer::genrateNote() {
+	
+	// 파서한테 노트정보 받아옴
+	tapNotes = parser->getTapNote();
+	notes = new vector<ofNote>[tapNotes.size()];
+
+	long presentPosition = 300;
+	for (int i = 0; i < tapNotes.size(); i++) {
+		int splitNoteCount = get<2>(tapNotes.at(i)).size();
+		for (int j = 0; j < splitNoteCount; j++) {
+			//cout << get<0>(tapNotes.at(i)) << "," << get<1>(tapNotes.at(i)) << "," << get<2>(tapNotes.at(i)).at(j) << endl;
+
+			string _noteData = get<2>(tapNotes.at(i)).at(j);
+			
+			if (_noteData != "00") {
+				ofNote _note;
+
+				int notePos = strtol(get<1>(tapNotes.at(i)).substr(1, 1).c_str(), 0, 16);
+
+				// cout << presentPosition + (500.0 / splitNoteCount * j) << ", " << notePos << ", ";
+				_note.setNoteImage(normalNote);
+				_note.setPosition(notePos);
+				_note.setOriginData(_noteData);
+				_note.setYPosition(presentPosition - (100.0 / splitNoteCount * j));
+
+				cout << ", Y-Position: " << presentPosition - ((100.0 / splitNoteCount) * j) << endl;
+				notes[i].push_back(_note);
+			}
+		}
+		
+	}
+
 }

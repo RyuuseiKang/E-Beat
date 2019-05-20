@@ -33,6 +33,10 @@ Parser::~Parser() {
 
 }
 
+tapNote Parser::getTapNote() {
+	return data.tapNotes;
+}
+
 vector<string> Parser::ParseNoteToVectorString(string str) {
 	vector<string> parseData;
 
@@ -106,6 +110,8 @@ void Parser::Parse() {
 
 	sort(data.tapNotes.begin(), data.tapNotes.end());
 
+	/*
+
 	cout << "NOTES ---------------------------------------" << endl;
 
 	for (int i = 0; i < data.tapNotes.size(); i++) {
@@ -132,6 +138,7 @@ void Parser::Parse() {
 		}
 		
 	}
+	*/
 }
 
 bool isExist(string _str) {

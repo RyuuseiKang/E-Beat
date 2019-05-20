@@ -25,12 +25,14 @@ public:
 	~ofNote();
 
 	void update();
-	void draw(float x, float y);
+	void draw();
 
 	void setNoteImage(ofImage *img);
+	void setOriginData(string noteData);
 	void setNoteLength(int _length);
 	void setNoteOption(NOTE_TYPE _type);
 	void setPosition(int _pos);
+	void setYPosition(int _y);
 
 	void hide();
 
@@ -39,6 +41,7 @@ private:
 	ofImage *noteImage[3];
 	int length;
 	int pos;
+	long y;
 
 	const float noteHeight = 20;
 	const float noteWidth = 14.25;

@@ -25,6 +25,7 @@ public:
 	Parser();
 	~Parser();
 
+	tapNote getTapNote();
 
 private:
 	ofFile noteFile;
@@ -35,6 +36,7 @@ private:
 	vector<string> ParseNoteToVectorString(string str);
 	void Parse();
 
+	
 };
 
 #endif // __PARSER_HPP_
