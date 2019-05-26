@@ -85,8 +85,6 @@ void LaneViewer::draw() {
 
 		slider += 2;
 		
-		
-
 		ofSetColor(255, 255, 255, 255);
 
 		for (int i = 0; i < 4; i++) {
@@ -133,33 +131,37 @@ void LaneViewer::draw() {
 void LaneViewer::genrateNote() {
 	
 	// 파서한테 노트정보 받아옴
-	tapNotes = parser->getTapNote();
-	notes = new vector<ofNote>[tapNotes.size()];
-
-	long presentPosition = 300;
-	for (int i = 0; i < tapNotes.size(); i++) {
-		int splitNoteCount = get<2>(tapNotes.at(i)).size();
-		for (int j = 0; j < splitNoteCount; j++) {
-			//cout << get<0>(tapNotes.at(i)) << "," << get<1>(tapNotes.at(i)) << "," << get<2>(tapNotes.at(i)).at(j) << endl;
-
-			string _noteData = get<2>(tapNotes.at(i)).at(j);
-			
-			if (_noteData != "00") {
-				ofNote _note;
-
-				int notePos = strtol(get<1>(tapNotes.at(i)).substr(1, 1).c_str(), 0, 16);
-
-				// cout << presentPosition + (500.0 / splitNoteCount * j) << ", " << notePos << ", ";
-				_note.setNoteImage(normalNote);
-				_note.setPosition(notePos);
-				_note.setOriginData(_noteData);
-				_note.setYPosition(presentPosition - (100.0 / splitNoteCount * j));
-
-				cout << ", Y-Position: " << presentPosition - ((100.0 / splitNoteCount) * j) << endl;
-				notes[i].push_back(_note);
-			}
-		}
-		
-	}
+	//tapNotes = parser->getTapNote();
+	//notes = new vector<ofNote>[tapNotes.size()];
+	//
+	//long presentPosition = 300;
+	//int beatPos = 0;
+	//for (int i = 0; i < tapNotes.size(); i++) {
+	//	int splitNoteCount = get<2>(tapNotes.at(i)).size();
+	//	for (int j = 0; j < splitNoteCount; j++) {
+	//		//cout << get<0>(tapNotes.at(i)) << "," << get<1>(tapNotes.at(i)) << "," << get<2>(tapNotes.at(i)).at(j) << endl;
+	//
+	//		string _noteData = get<2>(tapNotes.at(i)).at(j);
+	//		
+	//		if (_noteData != "00") {
+	//			ofNote _note;
+	//
+	//			int notePos = strtol(get<1>(tapNotes.at(i)).substr(1, 1).c_str(), 0, 16);
+	//
+	//			if(beatPos != get<0>(tapNotes.at(i)))
+	//
+	//			cout << get<0>(tapNotes.at(i)) << ", ";
+	//			// cout << presentPosition + (500.0 / splitNoteCount * j) << ", " << notePos << ", ";
+	//			_note.setNoteImage(normalNote);
+	//			_note.setPosition(notePos);
+	//			_note.setOriginData(_noteData);
+	//			_note.setYPosition(presentPosition - (100.0 / splitNoteCount * j));
+	//
+	//			cout << ", Y-Position: " << presentPosition - ((100.0 / splitNoteCount) * j) << endl;
+	//			notes[i].push_back(_note);
+	//		}
+	//	}
+	//	
+	//}
 
 }

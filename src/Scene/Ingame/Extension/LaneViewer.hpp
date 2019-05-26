@@ -31,7 +31,7 @@ private:
 	ofFile *musicFile;
 
 	Parser *parser;
-	tapNote tapNotes;
+	//tapNote tapNotes;
 
 	ofxFloatSlider rX;
 	ofxFloatSlider rY;

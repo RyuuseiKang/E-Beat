@@ -11,38 +11,71 @@
 #include <iostream>
 #include "../ofMain.h"
 
-typedef vector<tuple<int, string, vector<string>>> tapNote;
-typedef vector<tuple<int, string, vector<string>>> slideNote[36];
+// typedef vector<tuple<int, string, vector<string>>> tapNote;
+// typedef vector<tuple<int, string, vector<string>>> slideNote[36];
 
-struct note_data {
-	tapNote tapNotes;
-	slideNote slideNotes;
-	vector<float> bpms;
-};
+typedef map<int, vector<tuple<string, string>>> note;
+
+typedef struct note_data {
+	// tapNote tapNotes;
+	// slideNote slideNotes;
+
+	note notes;
+	map<int, float> bpms;
+}note_data;
+
+typedef struct meta_data {
+	string TITLE;
+	string ARTIST;
+	string DESIGNER;
+	int DIFFICULTY;
+	string PLAYLEVEL;
+	string SONGID;
+	string WAVE;
+	float WAVEOFFSET;
+	string JACKET;
+	int MEASUREBS;
+	int HISPEED;
+	int MEASUREHS;
+
+}meta_data;
 
 class Parser {
 public:
 	Parser();
 	~Parser();
-
-	tapNote getTapNote();
-
+	
 private:
 	ofFile noteFile;
 
-	
-	note_data data;
-	
+	note_data noteData;
+	meta_data metaData;
+
 	vector<string> ParseNoteToVectorString(string str);
 	void Parse();
 
-	
+	void ParseMetaData(string _str);
+	void ParseData(string _str);
+
 };
 
 #endif // __PARSER_HPP_
 
 
 /* 
+
+// 메타 데이터 부
+
+#MEASUREBS 소절 오프셋
+
+
+
+// 데이터 부
+
+#AAABB:CCDDEEFF
+AAA: Bar
+BB: Channel
+CCDDEEFF: Data
 
 #aaa1b  노트
 		
