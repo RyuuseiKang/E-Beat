@@ -1,4 +1,4 @@
-﻿//
+//
 //  Parser.cpp
 //  E-Beat
 //
@@ -174,12 +174,16 @@ void Parser::ParseMetaData(string _str) {
 	
 	string command = v.at(0);
 
-	if (command.substr(0, 1) != "#")
-		return;
-
 	command = command.substr(1, command.length() - 1);
 
-	string val = ReplaceAll(v.at(1), """", "");
+    string val;
+    try{
+        val = v.at(1);
+    }
+    catch(int expn){
+        val = "";
+    }
+	//string val = ReplaceAll(v.at(1), """", "");
 
 	if (command == "TITLE")
 		metaData.TITLE = val;

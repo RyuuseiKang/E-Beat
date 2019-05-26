@@ -1,4 +1,4 @@
-﻿//
+//
 //  LaneViewer.cpp
 //  E-Beat
 //
@@ -87,11 +87,11 @@ void LaneViewer::draw() {
 		
 		ofSetColor(255, 255, 255, 255);
 
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < notes[i].size(); j++) {
-				notes[i].at(j).draw();
-			}
-		}
+		//for (int i = 0; i < 4; i++) {
+		//	for (int j = 0; j < notes[i].size(); j++) {
+		//		notes[i].at(j).draw();
+		//	}
+		//}
 
 		/*
 		_ofNote->setPosition(0);
