@@ -70,6 +70,8 @@ void Parser::Parse() {
 		}
 	}
 
+	noteData;
+	metaData;
 
 
 	// ofBuffer buff = noteFile.readToBuffer();
@@ -183,7 +185,8 @@ void Parser::ParseMetaData(string _str) {
     catch(int expn){
         val = "";
     }
-	//string val = ReplaceAll(v.at(1), """", "");
+	
+	val = ReplaceAll(v.at(1), "\"", "");
 
 	if (command == "TITLE")
 		metaData.TITLE = val;

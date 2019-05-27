@@ -40,26 +40,26 @@ LaneViewer::~LaneViewer() {
 }
 
 void LaneViewer::update() {
-	n++;
-
-	if (n < 0)
-		n = 0;
-
-	k = n % 24 / 3;
-	texturePtr[k].resize(w, h / 2);
-
-	airNotePath.clear();
-	airNotePath.lineTo(x - tilt, y, 0);
-	airNotePath.lineTo(x + w, y, 0);
-	airNotePath.lineTo(x + w , y + (h / 2), 0);
-	airNotePath.lineTo(x - tilt, y + (h / 2), 0);
-
-	fbo.allocate(w, h, GL_RGBA); //or GL_RED if you are using the programmable renderer
-	fbo.begin();
-	ofClear(255, 255, 255, 0);
-	airNotePath.draw();
-	fbo.end();
-	texturePtr[k].getTexture().setAlphaMask(fbo.getTexture());
+	// n++;
+	// 
+	// if (n < 0)
+	// 	n = 0;
+	// 
+	// k = n % 24 / 3;
+	// texturePtr[k].resize(w, h / 2);
+	// 
+	// airNotePath.clear();
+	// airNotePath.lineTo(x - tilt, y, 0);
+	// airNotePath.lineTo(x + w, y, 0);
+	// airNotePath.lineTo(x + w , y + (h / 2), 0);
+	// airNotePath.lineTo(x - tilt, y + (h / 2), 0);
+	// 
+	// fbo.allocate(w, h, GL_RGBA); //or GL_RED if you are using the programmable renderer
+	// fbo.begin();
+	// ofClear(255, 255, 255, 0);
+	// airNotePath.draw();
+	// fbo.end();
+	// texturePtr[k].getTexture().setAlphaMask(fbo.getTexture());
 
 	// airNote.clear();
 	// airNote.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
@@ -129,6 +129,10 @@ void LaneViewer::draw() {
 }
 
 void LaneViewer::genrateNote() {
+
+	// 파서로부터 노트 정보와 BPM, 속도 정보를 받아옴
+
+
 	
 	// 파서한테 노트정보 받아옴
 	//tapNotes = parser->getTapNote();

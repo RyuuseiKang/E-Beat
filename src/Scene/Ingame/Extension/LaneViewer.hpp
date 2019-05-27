@@ -56,6 +56,8 @@ private:
 	ofImage normalNote[3];
 
 	vector<ofNote> *notes;
+
+
 };
 
 #endif // __LANE_VIEWER_HPP_
