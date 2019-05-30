@@ -1,4 +1,4 @@
-﻿//
+//
 //  Parser.hpp
 //  E-Beat
 //
@@ -23,6 +23,7 @@ typedef struct note_data
 
 	note notes;
 	map<int, float> bpms;
+	map<int, float> speeds;
 } note_data;
 
 typedef struct meta_data
@@ -48,6 +49,11 @@ public:
 	Parser();
 	~Parser();
 
+	note_data getNoteData();
+	meta_data getMetaData();
+
+	int getMaxBar();
+
 private:
 	ofFile noteFile;
 
@@ -59,6 +65,8 @@ private:
 
 	void ParseMetaData(string _str);
 	void ParseData(string _str);
+
+	int maxBar = 0;
 };
 
 #endif // __PARSER_HPP_

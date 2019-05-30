@@ -7,8 +7,9 @@
 
 #include "Parser.hpp"
 
-template<typename Out>
-void split(const string &s, char delim, Out result) {
+template <typename Out>
+void split(const string &s, char delim, Out result)
+{
 	stringstream ss(s);
 	string item;
 
@@ -16,14 +17,16 @@ void split(const string &s, char delim, Out result) {
 		*(result++) = item;
 }
 
-vector<string> split(const string &s, const char delim) {
+vector<string> split(const string &s, const char delim)
+{
 	vector<string> elems;
 	split(s, delim, back_inserter(elems));
 
 	return elems;
 }
 
-std::string ReplaceAll(std::string &str, const std::string& from, const std::string& to) {
+std::string ReplaceAll(std::string &str, const std::string &from, const std::string &to)
+{
 	size_t start_pos = 0;
 	while ((start_pos = str.find(from, start_pos)) != std::string::npos)
 	{
@@ -33,39 +36,55 @@ std::string ReplaceAll(std::string &str, const std::string& from, const std::str
 	return str;
 }
 
-Parser::Parser() {
+Parser::Parser()
+{
 	noteFile.open(ofToDataPath("sus.sus"));
-	
+
 	Parse();
 }
 
-Parser::~Parser() {
-
+Parser::~Parser()
+{
 }
 
-vector<string> Parser::ParseNoteToVectorString(string str) {
+vector<string> Parser::ParseNoteToVectorString(string str)
+{
 	vector<string> parseData;
 
-	for (int i = 0; i < str.length() / 2; i++) {
+	for (int i = 0; i < str.length() / 2; i++)
+	{
 		parseData.push_back(str.substr(i * 2, 2));
 	}
 
 	return parseData;
 }
 
-void Parser::Parse() {
+note_data Parser::getNoteData()
+{
+	return noteData;
+}
+meta_data Parser::getMetaData()
+{
+	return metaData;
+}
+
+void Parser::Parse()
+{
 	ofBuffer buff = noteFile.readToBuffer();
 
-	for (const std::string& line : buff.getLines()) {
-		if (line.substr(0, 1).c_str()[0] == '#') {
-			try {
+	for (const std::string &line : buff.getLines())
+	{
+		if (line.substr(0, 1).c_str()[0] == '#')
+		{
+			try
+			{
 				if (line.find(":") != string::npos)
 					ParseData(line);
 				else
 					ParseMetaData(line);
-
-			} catch (int expn) {
-
+			}
+			catch (int expn)
+			{
 			}
 		}
 	}
@@ -73,27 +92,26 @@ void Parser::Parse() {
 	noteData;
 	metaData;
 
-
 	// ofBuffer buff = noteFile.readToBuffer();
-	// 
+	//
 	// for (const std::string& line : buff.getLines()) {
 	// 	// 여기서 한줄씩 처리
-	// 
-	// 
+	//
+	//
 	// 	if (line.substr(0, 1).c_str()[0] == '#') {
 	// 		try {
 	// 			// 여기가 데이터부분
 	// 			vector<string> v = split(line, ':');
 	// 			char _noteType = v.at(0).substr(4, 1).c_str()[0];
-	// 
+	//
 	// 			if (v.size() < 2) throw 0;
-	// 
+	//
 	// 			if (v.at(0).substr(1, 3) == "BPM")
 	// 				data.bpms.push_back(atoi(v.at(1).c_str()));
-	// 
+	//
 	// 			else if (v.at(0).substr(1, 3) == "TIL")
 	// 				NULL;
-	// 
+	//
 	// 			// #aaa1~ 처리
 	// 			else if (_noteType == '1') {
 	// 				data.tapNotes.push_back(tuple<int, string, vector<string>>(
@@ -102,38 +120,38 @@ void Parser::Parse() {
 	// 					ParseNoteToVectorString(v.at(1))
 	// 					));
 	// 			}
-	// 
+	//
 	// 			// #aaa5~ 처리
 	// 			else if (_noteType == '5') {
-	// 
+	//
 	// 			}
-	// 
+	//
 	// 			// #aaa3~ 처리
 	// 			else if (_noteType == '3') {
-	// 
+	//
 	// 				char preventDuplication = v.at(0).substr(6, 1).c_str()[0];
-	// 
+	//
 	// 				int _notePos;
 	// 				if (preventDuplication >= 'a')
 	// 					_notePos = preventDuplication - 87;
 	// 				else
 	// 					_notePos = preventDuplication - 48;
-	// 
+	//
 	// 				data.slideNotes[_notePos].push_back(tuple<int, string, vector<string>>(
 	// 					atoi(v.at(0).substr(1, 3).c_str()),
 	// 					v.at(0).substr(5, 1),
 	// 					ParseNoteToVectorString(v.at(1))
 	// 					));
 	// 			}
-	// 
+	//
 	// 		} catch (int expn) {
-	// 
+	//
 	// 		}
-	// 
+	//
 	// 		std::cout << "LINE: " << line << std::endl;
 	// 	}
 	// }
-	// 
+	//
 	// sort(data.tapNotes.begin(), data.tapNotes.end());
 
 	/*
@@ -167,25 +185,29 @@ void Parser::Parse() {
 	*/
 }
 
-bool isExist(string _str) {
+bool isExist(string _str)
+{
 	return 0;
 }
 
-void Parser::ParseMetaData(string _str) {
+void Parser::ParseMetaData(string _str)
+{
 	vector<string> v = split(_str, ' ');
-	
+
 	string command = v.at(0);
 
 	command = command.substr(1, command.length() - 1);
 
-    string val;
-    try{
-        val = v.at(1);
-    }
-    catch(int expn){
-        val = "";
-    }
-	
+	string val;
+	try
+	{
+		val = v.at(1);
+	}
+	catch (int expn)
+	{
+		val = "";
+	}
+
 	val = ReplaceAll(v.at(1), "\"", "");
 
 	if (command == "TITLE")
@@ -223,11 +245,10 @@ void Parser::ParseMetaData(string _str) {
 
 	else if (command == "MEASUREHS")
 		metaData.MEASUREBS = stoi(val);
-
-
 }
 
-void Parser::ParseData(string _str) {
+void Parser::ParseData(string _str)
+{
 	vector<string> v = split(_str, ':');
 
 	string remarks = v.at(0);
@@ -242,11 +263,12 @@ void Parser::ParseData(string _str) {
 	if (remarks.substr(0, 3) == "BPM")
 		noteData.bpms[atoi(remarks.substr(3, 2).c_str())] = stof(val);
 
-	else {
-		noteData.notes[atoi(remarks.substr(0, 3).c_str())].push_back(tuple<string, string>(
+	else
+	{
+		int nowBar = atoi(remarks.substr(0, 3).c_str());
+		(maxBar < nowBar) ? maxBar = nowBar;
+		noteData.notes[nowBar].push_back(tuple<string, string>(
 			remarks.substr(3, 3),
-			v.at(1)
-			));
+			v.at(1)));
 	}
-		
 }

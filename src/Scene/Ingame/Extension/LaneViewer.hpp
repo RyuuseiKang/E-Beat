@@ -55,7 +55,7 @@ private:
 
 	ofImage normalNote[3];
 
-	vector<ofNote> *notes;
+	note_data *notes;
 
 
 };

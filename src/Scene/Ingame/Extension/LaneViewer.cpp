@@ -7,7 +7,8 @@
 
 #include "LaneViewer.hpp"
 
-LaneViewer::LaneViewer() {
+LaneViewer::LaneViewer()
+{
 	// 파서 여기잇음
 	parser = new Parser();
 
@@ -27,33 +28,34 @@ LaneViewer::LaneViewer() {
 	gui.add(h.setup("height", 150, -500, 500));
 	gui.add(tilt.setup("tilt", 0, -100, 100));
 
-	for ( int i = 0; i < 8; i++)
+	for (int i = 0; i < 8; i++)
 		texturePtr[i].loadImage("Scene/Ingame/LaneViewer/airNote" + to_string(i) + ".png");
-	
+
 	// 여기서부터 노트 생성
 	genrateNote();
-
 }
 
-LaneViewer::~LaneViewer() {
+LaneViewer::~LaneViewer()
+{
 	delete parser;
 }
 
-void LaneViewer::update() {
+void LaneViewer::update()
+{
 	// n++;
-	// 
+	//
 	// if (n < 0)
 	// 	n = 0;
-	// 
+	//
 	// k = n % 24 / 3;
 	// texturePtr[k].resize(w, h / 2);
-	// 
+	//
 	// airNotePath.clear();
 	// airNotePath.lineTo(x - tilt, y, 0);
 	// airNotePath.lineTo(x + w, y, 0);
 	// airNotePath.lineTo(x + w , y + (h / 2), 0);
 	// airNotePath.lineTo(x - tilt, y + (h / 2), 0);
-	// 
+	//
 	// fbo.allocate(w, h, GL_RGBA); //or GL_RED if you are using the programmable renderer
 	// fbo.begin();
 	// ofClear(255, 255, 255, 0);
@@ -73,27 +75,26 @@ void LaneViewer::update() {
 	// airNote.addTexCoord(ofVec2f(0, h / 2));
 	// airNote.addVertex(ofPoint(x, y, 0));
 	// airNote.addTexCoord(ofVec2f(0, 0));
-	
-	
-}	
+}
 
 int slider = 0;
-void LaneViewer::draw() {
+void LaneViewer::draw()
+{
 	ofPushMatrix();
-		ofRotateX(rX);
-		ofTranslate(tX, tY, tZ);
+	ofRotateX(rX);
+	ofTranslate(tX, tY, tZ);
 
-		slider += 2;
-		
-		ofSetColor(255, 255, 255, 255);
+	slider += 2;
 
-		//for (int i = 0; i < 4; i++) {
-		//	for (int j = 0; j < notes[i].size(); j++) {
-		//		notes[i].at(j).draw();
-		//	}
-		//}
+	ofSetColor(255, 255, 255, 255);
 
-		/*
+	//for (int i = 0; i < 4; i++) {
+	//	for (int j = 0; j < notes[i].size(); j++) {
+	//		notes[i].at(j).draw();
+	//	}
+	//}
+
+	/*
 		_ofNote->setPosition(0);
 		_ofNote->setNoteLength(4);
 		_ofNote->draw(x, y);
@@ -115,25 +116,37 @@ void LaneViewer::draw() {
 		_ofNote->draw(x, y - 90);
 		*/
 
-		//ofDrawRectangle(x, y, w, -700);
+	//ofDrawRectangle(x, y, w, -700);
 
-		ofRotateX(rX - (rX*2));
-		ofRotateY(rY);
-		ofRotateX(rZ);
-		
-		
-		//texturePtr[k].draw(0, 0);
+	ofRotateX(rX - (rX * 2));
+	ofRotateY(rY);
+	ofRotateX(rZ);
+
+	//texturePtr[k].draw(0, 0);
 	ofPopMatrix();
 
 	gui.draw();
 }
 
-void LaneViewer::genrateNote() {
+void LaneViewer::genrateNote()
+{
 
 	// 파서로부터 노트 정보와 BPM, 속도 정보를 받아옴
+	notes = parser->noteData.notes;
 
+	for (int i = 0; i <= parser->getMaxBar(); i++)
+	{
+		for (int j = 0; j < notes[i].size(); j++)
+		{
+			string pos = get<0> notes[i].at(j);
+			string data = get<1> notes[i].at(j);
 
-	
+			// 여기서부터 쪼갠 데이터를 그려주면 됨
+			// TODO: pos를 자리수로 잘라줘서 롱노트인지 아닌지를 구분해주면 될 듯
+			// TODO: 노트를 draw할 때에 배속을 주면 될 듯 (배속을 주나 지나간 노트에는 배속을 무조건 양수로 적용해줄 것)
+		}
+	}
+
 	// 파서한테 노트정보 받아옴
 	//tapNotes = parser->getTapNote();
 	//notes = new vector<ofNote>[tapNotes.size()];
@@ -146,7 +159,7 @@ void LaneViewer::genrateNote() {
 	//		//cout << get<0>(tapNotes.at(i)) << "," << get<1>(tapNotes.at(i)) << "," << get<2>(tapNotes.at(i)).at(j) << endl;
 	//
 	//		string _noteData = get<2>(tapNotes.at(i)).at(j);
-	//		
+	//
 	//		if (_noteData != "00") {
 	//			ofNote _note;
 	//
@@ -165,7 +178,6 @@ void LaneViewer::genrateNote() {
 	//			notes[i].push_back(_note);
 	//		}
 	//	}
-	//	
+	//
 	//}
-
 }
