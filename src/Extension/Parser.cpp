@@ -68,6 +68,10 @@ meta_data Parser::getMetaData()
 	return metaData;
 }
 
+int Parser::getMaxBar() {
+	return maxBar;
+}
+
 void Parser::Parse()
 {
 	ofBuffer buff = noteFile.readToBuffer();

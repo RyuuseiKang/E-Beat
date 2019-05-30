@@ -132,14 +132,14 @@ void LaneViewer::genrateNote()
 {
 
 	// 파서로부터 노트 정보와 BPM, 속도 정보를 받아옴
-	notes = parser->noteData.notes;
+	notes = &parser->getNoteData();
 
 	for (int i = 0; i <= parser->getMaxBar(); i++)
 	{
-		for (int j = 0; j < notes[i].size(); j++)
+		for (int j = 0; j < notes->notes[i].size(); j++)
 		{
-			string pos = get<0> notes[i].at(j);
-			string data = get<1> notes[i].at(j);
+			string pos = get<0>(notes->notes[i].at(j));
+			string data = get<1>(notes->notes[i].at(j));
 
 			// 여기서부터 쪼갠 데이터를 그려주면 됨
 			// TODO: pos를 자리수로 잘라줘서 롱노트인지 아닌지를 구분해주면 될 듯
