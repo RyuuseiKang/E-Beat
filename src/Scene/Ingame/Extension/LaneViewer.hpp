@@ -55,9 +55,10 @@ private:
 
 	ofImage normalNote[3];
 
-	note_data *notes;
+	note_data notes;
+	meta_data metas;
 
-
+	vector<ofNote> *noteObj;
 };
 
 #endif // __LANE_VIEWER_HPP_

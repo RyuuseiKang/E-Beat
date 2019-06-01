@@ -14,7 +14,9 @@
 // typedef vector<tuple<int, string, vector<string>>> tapNote;
 // typedef vector<tuple<int, string, vector<string>>> slideNote[36];
 
-typedef map<int, vector<tuple<string, string>>> note;
+typedef map<int, map<string, string>> note;
+typedef map<int, map<int, float>> speed;
+
 
 typedef struct note_data
 {
@@ -23,7 +25,8 @@ typedef struct note_data
 
 	note notes;
 	map<int, float> bpms;
-	map<int, float> speeds;
+	speed speeds;
+	
 } note_data;
 
 typedef struct meta_data
@@ -37,10 +40,12 @@ typedef struct meta_data
 	string WAVE;
 	float WAVEOFFSET;
 	string JACKET;
+	map<string, string> REQUEST;
 	int MEASUREBS;
 	int HISPEED;
 	int MEASUREHS;
 
+	
 } meta_data;
 
 class Parser
@@ -90,6 +95,10 @@ private:
 #AAABCD:EEFFGGHH
 AAA 마디(BAR)
 BCD 채널
+	02 박자:분자 * (4 / 분모)
+
+	08 BPM:값
+
 	B 타입
 		0 속성
 		1 탭(Tap)
@@ -99,6 +108,7 @@ BCD 채널
 		5 에어 노트
 	C 롱노트 동일 그룹 명시자
 	D 실제 노트위치
+
 EEFFGGHH 데이터(VALUE)
 
 

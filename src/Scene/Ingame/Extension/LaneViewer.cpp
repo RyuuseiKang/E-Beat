@@ -7,8 +7,7 @@
 
 #include "LaneViewer.hpp"
 
-LaneViewer::LaneViewer()
-{
+LaneViewer::LaneViewer() {
 	// 파서 여기잇음
 	parser = new Parser();
 
@@ -35,13 +34,11 @@ LaneViewer::LaneViewer()
 	genrateNote();
 }
 
-LaneViewer::~LaneViewer()
-{
+LaneViewer::~LaneViewer() {
 	delete parser;
 }
 
-void LaneViewer::update()
-{
+void LaneViewer::update() {
 	// n++;
 	//
 	// if (n < 0)
@@ -78,8 +75,7 @@ void LaneViewer::update()
 }
 
 int slider = 0;
-void LaneViewer::draw()
-{
+void LaneViewer::draw() {
 	ofPushMatrix();
 	ofRotateX(rX);
 	ofTranslate(tX, tY, tZ);
@@ -128,22 +124,94 @@ void LaneViewer::draw()
 	gui.draw();
 }
 
-void LaneViewer::genrateNote()
-{
+void LaneViewer::genrateNote() {
 
 	// 파서로부터 노트 정보와 BPM, 속도 정보를 받아옴
-	notes = &parser->getNoteData();
+	notes = parser->getNoteData();
+	metas = parser->getMetaData();
 
-	for (int i = 0; i <= parser->getMaxBar(); i++)
-	{
-		for (int j = 0; j < notes->notes[i].size(); j++)
-		{
-			string pos = get<0>(notes->notes[i].at(j));
-			string data = get<1>(notes->notes[i].at(j));
+	int tempo;			// 박자
+	float hiSpeed = 1;	// 속도	
+	int tpb = 480;		// 4분음표 한개 길이
+	float bpm;
 
+	tpb = stoi(metas.REQUEST["ticks_per_beat"]);
+
+	int nPos = 0;
+
+	cout << notes.notes.size() << endl;
+
+	noteObj = new vector<ofNote>;
+
+	for (note::iterator i = notes.notes.begin(); i != notes.notes.end(); i++) {
+		
+		vector<float> nBpm;
+		for (map<string, string>::iterator j = i->second.begin(); j != i->second.end(); j++) {
+			
+			cout << i->first << ", " << j->first << ", " << j->second << endl;
+
+			// tempo
+			if(j->first == "02"){
+				tempo = stoi(j->second);
+				continue;
+			}
+
+			// bpm
+			if (j->first == "08") {
+				for (int l = 0; j->second.length() / 2; l++)
+					nBpm.push_back(notes.bpms[stoi(j->second.substr(l, 2))]);
+				continue;
+			}
+			
+			// 이외의 일반노트
+			if (j->first.length() == 2) {
+				int XPos = (j->first.substr(1, 1).c_str()[0] >= 97) ? j->first.substr(1, 1).c_str()[0] - 87 : j->first.substr(1, 1).c_str()[0] - 48;
+
+				int nodeHeight = ((tpb * tempo) / j->second.length());
+				float prevPos = 0;
+				for (int l = 0; l < j->second.length() / 2; l++) {
+					string nNoteStr = j->second.substr(l, 2);
+
+
+
+					if (nNoteStr == "") continue;
+
+					
+
+					j->second.substr(l, 2);
+				}
+
+					
+
+					
+
+				for (map<int, float>::iterator k = (notes.speeds[i->first]).begin(); k != (notes.speeds[i->first]).end(); k++) {
+					(k->first / tpb) 
+				}
+
+				ofNote _note;
+				_note.setNoteImage(normalNote);
+				_note.setPosition(XPos);
+
+				continue;
+			}
+
+			// 어차피 3자리
+
+			
+
+			// ofNote _note;
+			// _note.setNoteImage(normalNote);
+			// _note.setPosition(notePos);
+			// _note.setYPosition(presentPosition - (100.0 / splitNoteCount * j));
+			// noteObj[i].push_back(_note);
+			
+			
 			// 여기서부터 쪼갠 데이터를 그려주면 됨
 			// TODO: pos를 자리수로 잘라줘서 롱노트인지 아닌지를 구분해주면 될 듯
 			// TODO: 노트를 draw할 때에 배속을 주면 될 듯 (배속을 주나 지나간 노트에는 배속을 무조건 양수로 적용해줄 것)
+
+
 		}
 	}
 
