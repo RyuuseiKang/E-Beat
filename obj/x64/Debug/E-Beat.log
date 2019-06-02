@@ -25,8 +25,7 @@ x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\ext
   x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1033): note: 'ofRotateY' 선언을 참조하십시오.
 x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\laneviewer.cpp(128): warning C4996: 'ofRotateX': Use ofRotateXDeg or ofRotateXRad
   x:\development\of_v0.10.1_vs2017_release\libs\openframeworks\graphics\ofgraphics.h(1022): note: 'ofRotateX' 선언을 참조하십시오.
-x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\laneviewer.cpp(202): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-     bin\E-Beat_debug.lib 라이브러리 및 bin\E-Beat_debug.exp 개체를 생성하고 있습니다.
+x:\development\of_v0.10.1_vs2017_release\apps\myapps\e-beat\src\scene\ingame\extension\laneviewer.cpp(203): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   E-Beat.vcxproj -> X:\Development\of_v0.10.1_vs2017_release\apps\myApps\E-Beat\bin\E-Beat_debug.exe
   
   	                   2	X:\Development\of_v0.10.1_vs2017_release\libs\fmodex\lib\vs\x64\

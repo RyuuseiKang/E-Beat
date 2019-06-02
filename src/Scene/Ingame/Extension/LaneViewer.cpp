@@ -148,9 +148,9 @@ void LaneViewer::genrateNote() {
 
 	int nYPos = -965;	// 노트 시작위치가 Y: -965
 		
-	bool isFirstNote = false;
+	int prevYPos = -1;
 
-	for (note::iterator i = notes.notes.begin(); i != notes.notes.end(); i++) {
+	for (note::iterator i = notes.notes.begin(); i != notes.notes.end();) {
 		
 		vector<float> nBpm;
 
@@ -180,8 +180,9 @@ void LaneViewer::genrateNote() {
 				nBpm.push_back(notes.bpms[stoi(j->second.substr(0, 2))]);
 				//for (int l = 0; l < j->second.length() / 2; l++)
 					//nBpm.push_back(notes.bpms[stoi(j->second.substr(l, 2))]);
-				cout << "Changed BPM: " << notes.bpms[stoi(j->second.substr(0, 2))] << endl;
+				
 				bpm = notes.bpms[stoi(j->second.substr(0, 2))];
+				
 				nodeHeight = ((bpm * hiSpeed * (tempo / 2)));
 				cout << "Changed nodeHeight: " << nodeHeight << endl;
 				continue;
@@ -207,18 +208,15 @@ void LaneViewer::genrateNote() {
 
 					//cout << "xPos: " << xPos << ", yPos: " << yPos << endl;
 
-					 ofNote _note;
-					 if (isFirstNote != true) {
-						 _note.setNoteImage(bonusNote);
-						 isFirstNote = true;
-					 }else{
-						 _note.setNoteImage(normalNote);
-					 }
+					ofNote _note;
+					
+					_note.setNoteImage(normalNote);
+
 						
 
-					 _note.setPosition(xPos);
-					 _note.setYPosition(-yPos);
-					 _note.setNoteLength(4);
+					_note.setPosition(xPos);
+					_note.setYPosition(-yPos);
+					_note.setNoteLength(4);
 					noteMap[i->first]->push_back(_note);
 				}
 
@@ -247,9 +245,21 @@ void LaneViewer::genrateNote() {
 
 
 		}
-		isFirstNote = false;
 		cout << "endYPos: " << nYPos << endl;
-		nYPos += nodeHeight;
+		int nMeasure = i->first;
+		int nextMesure = nMeasure + 1;
+		i++;
+		if (i != notes.notes.end())
+			nextMesure = i->first;
+		else
+			break;
+
+
+		cout << "i->first - prevY: " << nextMesure << " - " << nMeasure << endl;
+		nYPos += nodeHeight * (nextMesure - nMeasure);
+		prevYPos = i->first;
+
+
 		if(nBpm.size() >= 1)
 			bpm = nBpm[(nBpm.size() - 1 < 0)];
 
