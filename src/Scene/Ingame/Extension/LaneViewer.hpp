@@ -54,11 +54,12 @@ private:
 	int k;
 
 	ofImage normalNote[3];
+	ofImage bonusNote[3];
 
 	note_data notes;
 	meta_data metas;
 
-	vector<ofNote> *noteObj;
+	map<int, vector<ofNote>* > noteMap;
 };
 
 #endif // __LANE_VIEWER_HPP_

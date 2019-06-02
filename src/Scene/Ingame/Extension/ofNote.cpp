@@ -72,7 +72,7 @@ void ofNote::setNoteOption(NOTE_TYPE _type) {
 }
 
 void ofNote::setPosition(int _pos) {
-	cout << " Position: " << _pos << ", ";
+	//cout << " Position: " << _pos << ", ";
 	pos = _pos;
 }
 

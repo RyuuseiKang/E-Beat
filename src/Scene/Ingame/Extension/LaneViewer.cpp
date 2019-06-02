@@ -14,12 +14,15 @@ LaneViewer::LaneViewer() {
 	for (int i = 0; i < 3; i++)
 		normalNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Normal_0" + to_string(i + 1) + ".png");
 
+	for (int i = 0; i < 3; i++)
+		bonusNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Bonus_0" + to_string(i + 1) + ".png");
+
 	gui.setup();
 	gui.add(rX.setup("Rotate X", 56.6, -100, 100));
 	gui.add(rY.setup("Rotate Y", 0, -100, 100));
 	gui.add(rZ.setup("Rotate Z", 165, -360, 360));
 	gui.add(tX.setup("Translate X", 846, 500, 1200));
-	gui.add(tY.setup("Translate Y", 634.125, -500, 2400));
+	gui.add(tY.setup("Translate Y", 0, 0, 8400));
 	gui.add(tZ.setup("Translate Z", -110, -300, 200));
 	gui.add(x.setup("x", 0, -3000, 3000));
 	gui.add(y.setup("y", 0, -3000, 3000));
@@ -90,6 +93,12 @@ void LaneViewer::draw() {
 	//	}
 	//}
 
+	for (note::iterator i = notes.notes.begin(); i != notes.notes.end(); i++) 
+		for (int j = 0; j < noteMap[i->first]->size(); j++) {
+			noteMap[i->first]->at(j).draw();
+		}
+	
+
 	/*
 		_ofNote->setPosition(0);
 		_ofNote->setNoteLength(4);
@@ -130,68 +139,97 @@ void LaneViewer::genrateNote() {
 	notes = parser->getNoteData();
 	metas = parser->getMetaData();
 
-	int tempo;			// 박자
+	int tempo = 4;		// 박자
 	float hiSpeed = 1;	// 속도	
 	int tpb = 480;		// 4분음표 한개 길이
-	float bpm;
+	float bpm = 120;
 
 	tpb = stoi(metas.REQUEST["ticks_per_beat"]);
 
-	int nPos = 0;
-
-	cout << notes.notes.size() << endl;
-
-	noteObj = new vector<ofNote>;
+	int nYPos = -965;	// 노트 시작위치가 Y: -965
+		
+	bool isFirstNote = false;
 
 	for (note::iterator i = notes.notes.begin(); i != notes.notes.end(); i++) {
 		
 		vector<float> nBpm;
+
+		vector<ofNote>* BarVector = new vector<ofNote>();
+		noteMap[i->first] = BarVector;
+
+		if (notes.speeds[i->first].size() == 0)
+			hiSpeed = hiSpeed;
+		else
+			hiSpeed = notes.speeds[i->first][0];
+		cout << "Changed hiSpeed: " << hiSpeed << endl;
+
+		int nodeHeight = ((bpm * hiSpeed * (tempo / 2)));
+		cout << "Now nodeHeight: " << nodeHeight << endl;
 		for (map<string, string>::iterator j = i->second.begin(); j != i->second.end(); j++) {
 			
-			cout << i->first << ", " << j->first << ", " << j->second << endl;
-
 			// tempo
 			if(j->first == "02"){
 				tempo = stoi(j->second);
+
+				cout << "Changed Tempo: " << tempo << endl;
 				continue;
 			}
 
 			// bpm
 			if (j->first == "08") {
-				for (int l = 0; j->second.length() / 2; l++)
-					nBpm.push_back(notes.bpms[stoi(j->second.substr(l, 2))]);
+				nBpm.push_back(notes.bpms[stoi(j->second.substr(0, 2))]);
+				//for (int l = 0; l < j->second.length() / 2; l++)
+					//nBpm.push_back(notes.bpms[stoi(j->second.substr(l, 2))]);
+				cout << "Changed BPM: " << notes.bpms[stoi(j->second.substr(0, 2))] << endl;
+				bpm = notes.bpms[stoi(j->second.substr(0, 2))];
+				nodeHeight = ((bpm * hiSpeed * (tempo / 2)));
+				cout << "Changed nodeHeight: " << nodeHeight << endl;
 				continue;
 			}
 			
 			// 이외의 일반노트
 			if (j->first.length() == 2) {
-				int XPos = (j->first.substr(1, 1).c_str()[0] >= 97) ? j->first.substr(1, 1).c_str()[0] - 87 : j->first.substr(1, 1).c_str()[0] - 48;
+				// 현재 노트의 가로포지션
+				char x = j->first.substr(1, 1).c_str()[0];
+				int xPos = (x >= 97) ? x - 87 : x - 48;
 
-				int nodeHeight = ((tpb * tempo) / j->second.length());
-				float prevPos = 0;
+				// float prevPos = 0;
 				for (int l = 0; l < j->second.length() / 2; l++) {
-					string nNoteStr = j->second.substr(l, 2);
+				 	string nNoteStr = j->second.substr(l * 2, 2);
 
+					if (nNoteStr == "00") continue;
+				 
+					int yPos = nYPos + ((nodeHeight / (j->second.length() / 2)) * l);
 
+				 	// int yPos = nYPos + ((l + 1) * nodeHeight);
+				 
+				 	j->second.substr(l * 2, 2);
 
-					if (nNoteStr == "") continue;
+					//cout << "xPos: " << xPos << ", yPos: " << yPos << endl;
 
-					
+					 ofNote _note;
+					 if (isFirstNote != true) {
+						 _note.setNoteImage(bonusNote);
+						 isFirstNote = true;
+					 }else{
+						 _note.setNoteImage(normalNote);
+					 }
+						
 
-					j->second.substr(l, 2);
+					 _note.setPosition(xPos);
+					 _note.setYPosition(-yPos);
+					 _note.setNoteLength(4);
+					noteMap[i->first]->push_back(_note);
 				}
 
-					
 
-					
+				// for (map<int, float>::iterator k = (notes.speeds[i->first]).begin(); k != (notes.speeds[i->first]).end(); k++) {
+				// 	(k->first / tpb);
+				// }
 
-				for (map<int, float>::iterator k = (notes.speeds[i->first]).begin(); k != (notes.speeds[i->first]).end(); k++) {
-					(k->first / tpb) 
-				}
-
-				ofNote _note;
-				_note.setNoteImage(normalNote);
-				_note.setPosition(XPos);
+				// ofNote _note;
+				// _note.setNoteImage(normalNote);
+				// _note.setPosition(XPos);
 
 				continue;
 			}
@@ -200,11 +238,7 @@ void LaneViewer::genrateNote() {
 
 			
 
-			// ofNote _note;
-			// _note.setNoteImage(normalNote);
-			// _note.setPosition(notePos);
-			// _note.setYPosition(presentPosition - (100.0 / splitNoteCount * j));
-			// noteObj[i].push_back(_note);
+			
 			
 			
 			// 여기서부터 쪼갠 데이터를 그려주면 됨
@@ -213,6 +247,12 @@ void LaneViewer::genrateNote() {
 
 
 		}
+		isFirstNote = false;
+		cout << "endYPos: " << nYPos << endl;
+		nYPos += nodeHeight;
+		if(nBpm.size() >= 1)
+			bpm = nBpm[(nBpm.size() - 1 < 0)];
+
 	}
 
 	// 파서한테 노트정보 받아옴
