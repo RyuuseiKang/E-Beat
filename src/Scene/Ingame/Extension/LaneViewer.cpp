@@ -139,7 +139,7 @@ void LaneViewer::genrateNote() {
 	notes = parser->getNoteData();
 	metas = parser->getMetaData();
 
-	int tempo = 4;		// 박자
+	float tempo = 4;	// 박자
 	float hiSpeed = 1;	// 속도	
 	int tpb = 480;		// 4분음표 한개 길이
 	float bpm = 120;
@@ -169,7 +169,7 @@ void LaneViewer::genrateNote() {
 			
 			// tempo
 			if(j->first == "02"){
-				tempo = stoi(j->second);
+				tempo = stof(j->second);
 
 				cout << "Changed Tempo: " << tempo << endl;
 				continue;
