@@ -23,6 +23,8 @@ public:
 	void update();
 	void draw();
 
+	void play();
+
 private:
 	void genrateNote();
 
@@ -60,6 +62,7 @@ private:
 	meta_data metas;
 
 	map<int, vector<ofNote>* > noteMap;
+	map<int, long> position;
 };
 
 #endif // __LANE_VIEWER_HPP_

@@ -3,7 +3,6 @@
 
 using namespace std;
 bool keys[256];
-ofSoundPlayer player;
 
 // Scenes
 InitializeScene *initializeScene;
@@ -18,9 +17,6 @@ Scene scene;
 void ofApp::setup(){
 	ofSetFrameRate(120);
 	ofSetVerticalSync(false);
-
-    player.setMultiPlay(true);
-    player.load("Rooftop.mp3");
 
 	initializeScene = new InitializeScene();
     entryScene = new EntryScene();

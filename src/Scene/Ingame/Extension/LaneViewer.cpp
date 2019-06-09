@@ -133,6 +133,10 @@ void LaneViewer::draw() {
 	gui.draw();
 }
 
+void LaneViewer::play() {
+
+}
+
 void LaneViewer::genrateNote() {
 
 	// 파서로부터 노트 정보와 BPM, 속도 정보를 받아옴
@@ -147,7 +151,9 @@ void LaneViewer::genrateNote() {
 	tpb = stoi(metas.REQUEST["ticks_per_beat"]);
 
 	int nYPos = -965;	// 노트 시작위치가 Y: -965
-		
+
+	position[0] = nYPos;
+
 	int prevYPos = -1;
 
 	for (note::iterator i = notes.notes.begin(); i != notes.notes.end();) {
@@ -163,15 +169,17 @@ void LaneViewer::genrateNote() {
 			hiSpeed = notes.speeds[i->first][0];
 		cout << "Changed hiSpeed: " << hiSpeed << endl;
 
-		int nodeHeight = ((bpm * hiSpeed * (tempo / 2)));
-		cout << "Now nodeHeight: " << nodeHeight << endl;
+		long nodeHeight = ((bpm * hiSpeed * (tempo / 2)));
+		//cout << "Now nodeHeight: " << nodeHeight << endl;
 		for (map<string, string>::iterator j = i->second.begin(); j != i->second.end(); j++) {
 			
 			// tempo
 			if(j->first == "02"){
 				tempo = stof(j->second);
 
-				cout << "Changed Tempo: " << tempo << endl;
+				nodeHeight = ((bpm * hiSpeed * (tempo / 2)));
+
+				cout << "Changed Tempo: " << tempo << ", Changed nodeHeight: " << nodeHeight << endl;
 				continue;
 			}
 
@@ -184,7 +192,8 @@ void LaneViewer::genrateNote() {
 				bpm = notes.bpms[stoi(j->second.substr(0, 2))];
 				
 				nodeHeight = ((bpm * hiSpeed * (tempo / 2)));
-				cout << "Changed nodeHeight: " << nodeHeight << endl;
+
+				cout << "Changed BPM: " << bpm << ", Changed nodeHeight: " << nodeHeight << endl;
 				continue;
 			}
 			
@@ -245,7 +254,7 @@ void LaneViewer::genrateNote() {
 
 
 		}
-		cout << "endYPos: " << nYPos << endl;
+		//cout << "endYPos: " << nYPos << endl;
 		int nMeasure = i->first;
 		int nextMesure = nMeasure + 1;
 		i++;
@@ -254,9 +263,11 @@ void LaneViewer::genrateNote() {
 		else
 			break;
 
+		
 
-		cout << "i->first - prevY: " << nextMesure << " - " << nMeasure << endl;
+		//cout << "i->first - prevY: " << nextMesure << " - " << nMeasure << endl;
 		nYPos += nodeHeight * (nextMesure - nMeasure);
+		position[i->first] = nYPos;
 		prevYPos = i->first;
 
 
@@ -264,6 +275,8 @@ void LaneViewer::genrateNote() {
 			bpm = nBpm[(nBpm.size() - 1 < 0)];
 
 	}
+
+
 
 	// 파서한테 노트정보 받아옴
 	//tapNotes = parser->getTapNote();

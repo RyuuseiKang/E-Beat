@@ -48,8 +48,7 @@ typedef struct meta_data
 	
 } meta_data;
 
-class Parser
-{
+class Parser {
 public:
 	Parser();
 	~Parser();

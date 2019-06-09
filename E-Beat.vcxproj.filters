@@ -97,6 +97,9 @@
     <ClCompile Include="src\Extension\Parser.cpp">
       <Filter>src\Extension</Filter>
     </ClCompile>
+    <ClCompile Include="ofBar.cpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -238,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="src\Extension\Parser.hpp">
       <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="ofBar.hpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
