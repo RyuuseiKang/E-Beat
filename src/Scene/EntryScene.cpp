@@ -30,3 +30,7 @@ void EntryScene::keyPressed(int key) {
 void EntryScene::keyReleased(int key) {
 
 }
+
+bool EntryScene::isReady() {
+	return true;
+}

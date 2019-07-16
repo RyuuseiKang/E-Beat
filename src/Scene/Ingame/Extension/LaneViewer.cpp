@@ -8,6 +8,10 @@
 #include "LaneViewer.hpp"
 
 LaneViewer::LaneViewer() {
+
+}
+
+LaneViewer::LaneViewer(FileSystem* _file) {
 	// 파서 여기잇음
 	parser = new Parser();
 
@@ -35,6 +39,8 @@ LaneViewer::LaneViewer() {
 
 	// 여기서부터 노트 생성
 	genrateNote();
+
+	player.load(_file->getNowMusicData());
 }
 
 LaneViewer::~LaneViewer() {

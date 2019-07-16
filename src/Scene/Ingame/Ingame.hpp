@@ -26,6 +26,8 @@ public:
 	void keyPressed(int key);
 	void keyRelease(int key);
 
+	void readyMusic();
+	
 private:
 	FileSystem* file;
 
@@ -33,6 +35,8 @@ private:
 	LaneViewer *laneViewer;
 	
 	ofImage backLane;
+	
+	
 };
 
 #endif /* __INGAME_HPP_ */

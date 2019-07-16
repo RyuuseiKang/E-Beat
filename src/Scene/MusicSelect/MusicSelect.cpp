@@ -134,6 +134,8 @@ void MusicSelect::keyPressed(int key) {
 	
 	if (key == 'k') {
 		// 게임 시작 처리
+		file->setNowMusicNumber(pos);
+		isSelectedMusic = true;
 	}
 
 }
@@ -141,6 +143,11 @@ void MusicSelect::keyPressed(int key) {
 void MusicSelect::keyReleased(int key) {
 
 }
+
+bool MusicSelect::isReady() {
+	return isSelectedMusic;
+}
+
 
 void MusicSelect::updateMusic() {
 	static int p_pos = -1;

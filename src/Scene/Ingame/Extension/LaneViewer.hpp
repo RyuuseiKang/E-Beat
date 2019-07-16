@@ -12,12 +12,14 @@
 #include "../ofMain.h"
 
 #include "ofxGui.h"
+#include "../Extension/FileSystem.hpp"
 #include "Extension/Parser.hpp"
 #include "ofNote.hpp"
 
 class LaneViewer {
 public:
 	LaneViewer();
+	LaneViewer(FileSystem* _file);
 	~LaneViewer();
 
 	void update();
@@ -63,6 +65,8 @@ private:
 
 	map<int, vector<ofNote>* > noteMap;
 	map<int, long> position;
+
+	ofSoundPlayer player;
 };
 
 #endif // __LANE_VIEWER_HPP_

@@ -28,6 +28,7 @@ public:
 	void keyPressed(int key);
 	void keyReleased(int key);
 	
+	bool isReady();
 private:
 	FileSystem* file;
 	MusicList musicList;
@@ -53,6 +54,8 @@ private:
 	
 	bool isLoadCue = true;
 	int LoadCueCounter = 15;
+
+	bool isSelectedMusic = false;
 	};
 
 #endif /* __MUSIC_SELECT_HPP_ */

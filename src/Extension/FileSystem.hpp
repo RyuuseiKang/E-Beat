@@ -18,7 +18,10 @@ public:
     
     int getMusicCount();
 	string getMusicData(int num);
+
+	string getNowMusicData();
     
+	void setNowMusicNumber(int _num);
 private:    
 	ofDirectory *dir;
 
@@ -28,6 +31,8 @@ private:
 	string *musicData;
 
     size_t musicDataSize;
+
+	int nowMusicNumber = 0;
 };
 
 #endif /* FileSystem_hpp */

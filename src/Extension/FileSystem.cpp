@@ -44,3 +44,11 @@ int FileSystem::getMusicCount(){
 string FileSystem::getMusicData(int num) {
 	return musicData[num];
 }
+
+string FileSystem::getNowMusicData() {
+	return musicData[nowMusicNumber];
+}
+
+void FileSystem::setNowMusicNumber(int _num) {
+	nowMusicNumber = _num;
+}

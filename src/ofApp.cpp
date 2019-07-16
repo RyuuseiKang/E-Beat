@@ -23,7 +23,7 @@ void ofApp::setup(){
     musicSelect = new MusicSelect(&file);
 	ingame = new Ingame(&file);
 
-	scene = INGAME;
+	scene = MUSIC_SELECT;
 }
 
 //--------------------------------------------------------------
@@ -36,10 +36,18 @@ void ofApp::update(){
 
 	case ENTRY:
         entryScene->update(keys);
+		if (entryScene->isReady()) {
+			scene = MUSIC_SELECT;
+			ingame->readyMusic();
+		}
 		break;
 
 	case MUSIC_SELECT:
         musicSelect->update(keys);
+		if (musicSelect->isReady()) {
+			scene = INGAME;
+			ingame->readyMusic();
+		}
 		break;
 
 	case INGAME:

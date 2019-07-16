@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include "../ofMain.h"
+#include "../Extension/ofxTextSuite.h"
 
 class MusicCard {
 public:

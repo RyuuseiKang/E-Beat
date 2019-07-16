@@ -18,7 +18,7 @@ Ingame::Ingame(FileSystem* _file) {
 	backLane.resize(1920, 1080);
 
 	dataViewer = new DataViewer(file);
-	laneViewer = new LaneViewer();
+	laneViewer = new LaneViewer(file);
 }
 
 Ingame::~Ingame() {
@@ -69,4 +69,12 @@ void Ingame::keyPressed(int key) {
 
 void Ingame::keyRelease(int key) {
 
+}
+
+void Ingame::readyMusic() {
+	delete dataViewer;
+	delete laneViewer;
+
+	dataViewer = new DataViewer(file);
+	laneViewer = new LaneViewer(file);
 }
