@@ -10,22 +10,11 @@
 FileSystem::FileSystem(){
 	dir = new ofDirectory();
 
-    // 파일 데이터 패스
+    
     dataPath = dir->path();
     
-    // 이외 패스들 주소 기록
-	musicDataPath = dataPath + "MusicData";
-
-	dir->close();
-}
-
-FileSystem::~FileSystem(){
-	dir->close();
-
-	delete dir;
-}
-
-int FileSystem::getMusicCount(){
+	musicDataPath = dataPath + "/MusicData";
+	
 	dir->open(musicDataPath);
 	dir->listDir();
 
@@ -37,7 +26,15 @@ int FileSystem::getMusicCount(){
 	}
 
 	dir->close();
-	
+}
+
+FileSystem::~FileSystem(){
+	dir->close();
+
+	delete dir;
+}
+
+int FileSystem::getMusicCount(){
     return musicDataSize;
 }
 
@@ -49,6 +46,14 @@ string FileSystem::getNowMusicData() {
 	return musicData[nowMusicNumber];
 }
 
+string FileSystem::getNowMusicDifficulty() {
+	return to_string(nowMusicDifficulty);
+}
+
 void FileSystem::setNowMusicNumber(int _num) {
 	nowMusicNumber = _num;
+}
+
+void FileSystem::setNowMusicDifficulty(int _diff) {
+	nowMusicDifficulty = _diff;
 }

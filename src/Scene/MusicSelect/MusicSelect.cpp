@@ -148,6 +148,11 @@ bool MusicSelect::isReady() {
 	return isSelectedMusic;
 }
 
+void MusicSelect::readyIngame() {
+	bgaPlayer->videoStop();
+	isSelectedMusic = false;
+}
+
 
 void MusicSelect::updateMusic() {
 	static int p_pos = -1;

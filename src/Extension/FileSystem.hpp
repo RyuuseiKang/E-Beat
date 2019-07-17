@@ -8,20 +8,31 @@
 #ifndef FileSystem_hpp
 #define FileSystem_hpp
 
+#include <iostream>
 #include "ofMain.h"
-#include <stdio.h>
+
+typedef struct musicMeta {
+	string title;
+	string artist;
+	string jacket;
+
+	int bgaStartPos = 0;
+	int bgaEndPos = 0;
+} musicMeta;
 
 class FileSystem{
 public:
     FileSystem();
     ~FileSystem();
-    
+	    
     int getMusicCount();
 	string getMusicData(int num);
 
 	string getNowMusicData();
+	string getNowMusicDifficulty();
     
 	void setNowMusicNumber(int _num);
+	void setNowMusicDifficulty(int _diff);
 private:    
 	ofDirectory *dir;
 
@@ -33,6 +44,9 @@ private:
     size_t musicDataSize;
 
 	int nowMusicNumber = 0;
+	int nowMusicDifficulty = 0;
+
+	vector<musicMeta> meta;
 };
 
 #endif /* FileSystem_hpp */

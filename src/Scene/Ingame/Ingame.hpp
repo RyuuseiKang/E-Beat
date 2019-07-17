@@ -36,7 +36,7 @@ private:
 	
 	ofImage backLane;
 	
-	
+	bool isAliveViewer = false;
 };
 
 #endif /* __INGAME_HPP_ */

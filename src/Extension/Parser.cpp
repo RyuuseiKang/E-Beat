@@ -33,7 +33,11 @@ std::string ReplaceAll(std::string &str, const std::string &from, const std::str
 }
 
 Parser::Parser() {
-	noteFile.open(ofToDataPath("what is love.sus"));
+
+}
+
+Parser::Parser(string filePath) {
+	noteFile.open(ofToDataPath(filePath));
 
 	Parse();
 }

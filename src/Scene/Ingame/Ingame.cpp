@@ -17,8 +17,8 @@ Ingame::Ingame(FileSystem* _file) {
 	backLane.loadImage("Scene/Ingame/BackLane.png");
 	backLane.resize(1920, 1080);
 
-	dataViewer = new DataViewer(file);
-	laneViewer = new LaneViewer(file);
+	//dataViewer = new DataViewer(file);
+	//laneViewer = new LaneViewer(file);
 }
 
 Ingame::~Ingame() {
@@ -72,9 +72,14 @@ void Ingame::keyRelease(int key) {
 }
 
 void Ingame::readyMusic() {
-	delete dataViewer;
-	delete laneViewer;
+
+	if (isAliveViewer) {
+		delete dataViewer;
+		delete laneViewer;
+	}
 
 	dataViewer = new DataViewer(file);
 	laneViewer = new LaneViewer(file);
+
+	isAliveViewer = true;
 }

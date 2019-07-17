@@ -27,8 +27,10 @@ public:
 	void draw();
 	void keyPressed(int key);
 	void keyReleased(int key);
-	
+
 	bool isReady();
+	void readyIngame();
+
 private:
 	FileSystem* file;
 	MusicList musicList;

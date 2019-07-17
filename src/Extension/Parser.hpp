@@ -51,6 +51,7 @@ typedef struct meta_data
 class Parser {
 public:
 	Parser();
+	Parser(string filePath);
 	~Parser();
 
 	note_data getNoteData();

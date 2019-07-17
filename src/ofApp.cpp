@@ -38,7 +38,7 @@ void ofApp::update(){
         entryScene->update(keys);
 		if (entryScene->isReady()) {
 			scene = MUSIC_SELECT;
-			ingame->readyMusic();
+			//ingame->readyMusic();
 		}
 		break;
 
@@ -46,6 +46,7 @@ void ofApp::update(){
         musicSelect->update(keys);
 		if (musicSelect->isReady()) {
 			scene = INGAME;
+			musicSelect->readyIngame();
 			ingame->readyMusic();
 		}
 		break;

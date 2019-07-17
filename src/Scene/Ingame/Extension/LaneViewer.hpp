@@ -67,6 +67,8 @@ private:
 	map<int, long> position;
 
 	ofSoundPlayer player;
+
+	string filePath;
 };
 
 #endif // __LANE_VIEWER_HPP_

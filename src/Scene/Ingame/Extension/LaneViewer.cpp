@@ -12,8 +12,13 @@ LaneViewer::LaneViewer() {
 }
 
 LaneViewer::LaneViewer(FileSystem* _file) {
-	// 파서 여기잇음
-	parser = new Parser();
+
+	// 파일 주소 취득 및 노래 대기
+	filePath = _file->getNowMusicData();
+	player.load(filePath + "\music.mp3");
+
+	// 파서 생성
+	parser = new Parser(filePath + "\"" + _file->getNowMusicDifficulty() + ".sus");
 
 	for (int i = 0; i < 3; i++)
 		normalNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Normal_0" + to_string(i + 1) + ".png");
@@ -40,7 +45,7 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 	// 여기서부터 노트 생성
 	genrateNote();
 
-	player.load(_file->getNowMusicData());
+
 }
 
 LaneViewer::~LaneViewer() {
