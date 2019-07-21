@@ -10,15 +10,8 @@
 
 #include <iostream>
 #include "ofMain.h"
-
-typedef struct musicMeta {
-	string title;
-	string artist;
-	string jacket;
-
-	int bgaStartPos = 0;
-	int bgaEndPos = 0;
-} musicMeta;
+#include "Parser.hpp"
+#include "MusicMetaData.hpp"
 
 class FileSystem{
 public:
@@ -26,10 +19,10 @@ public:
     ~FileSystem();
 
 	void Initialize();
-	//void ParseMetaData(string _str, musicMeta& _metaData);
+	void ParseMetaData(string _str, musicMeta& _metaData, string _filePath);
 	    
     int getMusicCount();
-	string getMusicData(int num);
+	musicMeta getMusicData(int num);
 
 	string getNowMusicData();
 	string getNowMusicDifficulty();
@@ -50,6 +43,8 @@ private:
 	int nowMusicDifficulty = 0;
 
 	vector<musicMeta> meta;
+
+	Parser p;
 };
 
 #endif /* FileSystem_hpp */

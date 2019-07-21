@@ -11,6 +11,7 @@
 #include <iostream>
 #include "../ofMain.h"
 #include "../Extension/ofxTextSuite.h"
+#include "../Extension/MusicMetaData.hpp"
 
 class MusicCard {
 public:
@@ -23,13 +24,10 @@ public:
 	void Select(bool direction);
 	void Deselect(bool direction);
 
-	void setMusicData(string _musicName);
+	void setMetaData(musicMeta _metaData);
 	
 private:
-	string musicPath;
-
-	string musicName;
-	string artistName;
+	musicMeta metaData;
 	double maxScore;
 
 	ofImage patternOverlay;

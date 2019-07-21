@@ -81,7 +81,8 @@ void MusicSelect::update(bool keys[256]) {
 	if(!musicList.isMoving())
 		if (isLoadCue) {
 			if (LoadCueCounter-- < 0) {
-				bgaPlayer->loadAsync(file->getMusicData(pos));
+				bgaPlayer->loadAsync(file->getMusicData(pos).bga);
+				bgaPlayer->SetLoopFrame(file->getMusicData(pos).bgaStartPos, file->getMusicData(pos).bgaEndPos);
 				bgaPlayer->videoPlay();
 				isLoadCue = false;
 			}

@@ -59,6 +59,11 @@ public:
 
 	int getMaxBar();
 
+	template <typename Out>
+	void split(const string &s, char delim, Out result);
+	vector<string> split(const string &s, const char delim);
+	std::string ReplaceAll(std::string &str, const std::string &from, const std::string &to);
+
 private:
 	ofFile noteFile;
 

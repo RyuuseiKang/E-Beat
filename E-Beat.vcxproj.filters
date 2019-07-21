@@ -245,6 +245,9 @@
     <ClInclude Include="ofBar.hpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
     </ClInclude>
+    <ClInclude Include="src\Extension\MusicMetaData.hpp">
+      <Filter>src\Extension</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

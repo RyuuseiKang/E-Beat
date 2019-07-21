@@ -23,34 +23,34 @@ void FileSystem::Initialize() {
 
 	musicDataSize = dir->size();
 
-	musicData = new string[musicDataSize];
+	//musicData = new string[musicDataSize];
 	for (int i = 0; i < musicDataSize; i++) {
 		musicMeta _data;
 
 		ofFile _file;
-		string filePath = musicDataPath + "/" + dir->getFile(i).getFileName() + "/metadata.meta";
-		_file.open(ofToDataPath(filePath));
+		string filePath = musicDataPath + "/" + dir->getFile(i).getFileName() + "/";
+		_file.open(ofToDataPath(filePath + "metadata.meta"));
 		ofBuffer buff = _file.readToBuffer();
 
 		for (const std::string &line : buff.getLines()) {
 			if (line.substr(0, 1).c_str()[0] == '#') {
 				try {
-						//ParseMetaData(line, _data);
+						ParseMetaData(line, _data, filePath);
 				}
 				catch (int expn) {
 				}
 			}
 		}
 
-
+		meta.push_back(_data);
 
 	}
 
 }
 
-/*
-void FileSystem::ParseMetaData(string _str, musicMeta& _metaData) {
-	vector<string> v = split(_str, ' ');
+
+void FileSystem::ParseMetaData(string _str, musicMeta& _metaData, string _filePath) {
+	vector<string> v = p.split(_str, ' ');
 
 	string command = v.at(0);
 
@@ -64,7 +64,7 @@ void FileSystem::ParseMetaData(string _str, musicMeta& _metaData) {
 		val = "";
 	}
 
-	val = ReplaceAll(v.at(1), "\"", "");
+	val = p.ReplaceAll(v.at(1), "\"", "");
 
 	if (command == "TITLE")
 		_metaData.title = val;
@@ -73,15 +73,18 @@ void FileSystem::ParseMetaData(string _str, musicMeta& _metaData) {
 		_metaData.artist = val;
 
 	else if (command == "JACKET")
-		_metaData.jacket = val;
+		_metaData.jacket = _filePath + val;
 
-	else if (command == "#BGASTARTPOS")
+	else if (command == "BGA")
+		_metaData.bga = _filePath + val;
+
+	else if (command == "BGASTARTPOS")
 		_metaData.bgaStartPos = stoi(val);
 
-	else if (command == "PLAYLEVEL")
+	else if (command == "BGAENDPOS")
 		_metaData.bgaEndPos = stoi(val);
 }
-*/
+
 
 FileSystem::~FileSystem(){
 	dir->close();
@@ -93,8 +96,8 @@ int FileSystem::getMusicCount(){
     return musicDataSize;
 }
 
-string FileSystem::getMusicData(int num) {
-	return musicData[num];
+musicMeta FileSystem::getMusicData(int num) {
+	return meta.at(num);
 }
 
 string FileSystem::getNowMusicData() {

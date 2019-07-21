@@ -15,9 +15,9 @@ MusicList::MusicList() {
 	//	card[i - 1].setImage(to_string(i));
 }
 
-void MusicList::addItem(string musicName) {
+void MusicList::addItem(musicMeta _metaData) {
 	static int i = 0;
-	card[i].setMusicData(musicName);
+	card[i].setMetaData(_metaData);
 	i++;
 }
 

@@ -36,7 +36,7 @@ void ofBackgroundPlayer::update() {
 }
 
 void ofBackgroundPlayer::loadAsync(string _fileName) {
-	filePath = "MusicData/" + _fileName + "/BGA.mp4";
+	filePath = _fileName;
 
 #ifdef TARGET_OS_MAC
 	ofVideoPlayer::loadAsync(filePath);
