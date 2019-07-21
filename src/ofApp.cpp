@@ -18,6 +18,8 @@ void ofApp::setup(){
 	ofSetFrameRate(120);
 	ofSetVerticalSync(false);
 
+	file.Initialize();
+
 	initializeScene = new InitializeScene();
     entryScene = new EntryScene();
     musicSelect = new MusicSelect(&file);

@@ -24,6 +24,9 @@ class FileSystem{
 public:
     FileSystem();
     ~FileSystem();
+
+	void Initialize();
+	//void ParseMetaData(string _str, musicMeta& _metaData);
 	    
     int getMusicCount();
 	string getMusicData(int num);
