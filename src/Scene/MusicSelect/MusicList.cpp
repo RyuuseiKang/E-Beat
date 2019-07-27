@@ -43,9 +43,11 @@ void MusicList::update() {
 	//cout << selectedPosition << endl;
 }
 
-void MusicList::draw() {
+void MusicList::draw(int _x, int _y, int _z) {
 	ofPushMatrix();
 	
+	ofTranslate(_x, _y, _z);
+
 	// 초기 포지션 잡는 부분
 	double pos = 363 - ((selectedPosition) * 311);
 	ofTranslate(pos, 0, 0);

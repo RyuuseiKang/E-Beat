@@ -12,6 +12,7 @@
 #include "../ofMain.h"
 #include "../Extension/FileSystem.hpp"
 #include "MusicList.hpp"
+#include "OptionList.hpp"
 #include "Extension/ofBackgroundPlayer.hpp"
 #include "Extension/ofSelectSlider.hpp"
 #include "Extension/KeyBeam.hpp"
@@ -34,6 +35,7 @@ public:
 private:
 	FileSystem* file;
 	MusicList musicList;
+	OptionList optionList;
 
 	ofImage musicLinerBackRect;
 	ofImage bottombuttonsRect;
@@ -45,6 +47,8 @@ private:
 	float bgaEndPosition = 0.43;
 
 	int pos = 0;
+	bool isOptionMode = false;
+	bool isOptionModeAnimation = false;
 
 	int x = 1;
 

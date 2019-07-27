@@ -18,7 +18,7 @@ public:
 	~MusicList();
 
 	void update();
-	void draw();
+	void draw(int _x, int _y, int _z);
 
 	void addItem(musicMeta _metaData);
 	void move(bool direction);

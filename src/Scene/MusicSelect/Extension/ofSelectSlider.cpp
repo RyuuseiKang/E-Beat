@@ -26,7 +26,11 @@ void ofSelectSlider::update() {
 
 }
 
-void ofSelectSlider::draw() {
+void ofSelectSlider::draw(int _x, int _y, int _z) {
+	ofPushMatrix();
+
+	ofTranslate(_x, _y, _z);
+
 	// 슬라이더 전체
 	ofSetColor(0, 0, 0, 255);
 	ofDrawRectangle(620, 958, 680, 4);
@@ -48,6 +52,7 @@ void ofSelectSlider::draw() {
 	positionText.drawRight(960, 956);
 	//positionText.drawString(to_string(position + 1), 946 - realWidth, 992);
 
+	ofPopMatrix();
 }
 
 void ofSelectSlider::setMaxCount(int _maxCount) {

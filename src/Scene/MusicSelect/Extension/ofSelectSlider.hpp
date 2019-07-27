@@ -18,7 +18,7 @@ public:
 	~ofSelectSlider();
 
 	void update();
-	void draw();
+	void draw(int _x, int _y, int _z);
 
 	void setMaxCount(int _maxCount);
 	void setPosition(int _position);

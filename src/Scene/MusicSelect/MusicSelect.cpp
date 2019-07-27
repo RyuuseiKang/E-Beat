@@ -8,6 +8,7 @@
 #include "MusicSelect.hpp"
 
 MusicSelect::MusicSelect() {
+
 }
 
 MusicSelect::MusicSelect(FileSystem* _file){
@@ -87,6 +88,10 @@ void MusicSelect::update(bool keys[256]) {
 				isLoadCue = false;
 			}
 		}
+
+	// 옵션 갱신
+	optionList.update();
+
 }
 
 void MusicSelect::draw(){
@@ -101,7 +106,7 @@ void MusicSelect::draw(){
 	button[3].draw();
 
 	// 백그라운드 Rect
-	musicLinerBackRect.draw(0, 0);
+	musicLinerBackRect.draw(0, -50);
 
 
 	// 하단 버튼 인디케이터
@@ -109,10 +114,13 @@ void MusicSelect::draw(){
 
 	
 	// 하단 슬라이더
-	slider.draw();
+	slider.draw(0, -50, 0);
 	
-	// 카드 카메라 이동
-	musicList.draw();
+	// 카드 리스트
+	musicList.draw(0, -50, 0);
+
+	// 옵션 리스트
+	optionList.draw(0, 0, 0);
 
 	// 상태 표시
 	ofDrawBitmapStringHighlight("MusicSelect Scene", 20, 20);
@@ -126,17 +134,32 @@ void MusicSelect::draw(){
 
 void MusicSelect::keyPressed(int key) {
 	if (key == 'd') {
-		--pos;
+		if (!isOptionMode)
+			--pos;
+		else
+			optionList.keyPressed('d');
 	}
 		
 	if (key == 'f') {
-		++pos;	
+		if(!isOptionMode)
+			++pos;	
+		else
+			optionList.keyPressed('f');
 	}
 	
+	if (key == 'j') {
+		isOptionMode = !isOptionMode;
+		optionList.animationStart(isOptionMode);
+		cout << "isOptionMode: " << isOptionMode << endl;
+	}
+
 	if (key == 'k') {
-		// 게임 시작 처리
-		file->setNowMusicNumber(pos);
-		isSelectedMusic = true;
+		if (!isOptionMode) {
+			// 게임 시작 처리
+			file->setNowMusicNumber(pos);
+			isSelectedMusic = true;
+		} else
+			optionList.keyPressed('k');
 	}
 
 }

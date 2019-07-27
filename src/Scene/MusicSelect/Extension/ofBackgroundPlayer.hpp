@@ -44,8 +44,8 @@ private:
 	int blurAmount = 2;
 	int blurIterations = 5;
 
-	int bgaStartFrame = 2005;
-	int bgaEndFrame = 3072;
+	int bgaStartFrame = 1000;
+	int bgaEndFrame = 2000;
 
 	int fadeFrame = 15;
 };
