@@ -16,9 +16,6 @@ Ingame::Ingame(FileSystem* _file) {
 
 	backLane.loadImage("Scene/Ingame/BackLane.png");
 	backLane.resize(1920, 1080);
-
-	//dataViewer = new DataViewer(file);
-	//laneViewer = new LaneViewer(file);
 }
 
 Ingame::~Ingame() {
@@ -26,6 +23,8 @@ Ingame::~Ingame() {
 }
 
 void Ingame::update(bool keys[256]) {
+	laneViewer->setMusicPosition(musicPlayer.getPositionMS());
+
 	laneViewer->update();
 	dataViewer->update();
 }
@@ -80,6 +79,11 @@ void Ingame::readyMusic() {
 
 	dataViewer = new DataViewer(file);
 	laneViewer = new LaneViewer(file);
+
+	musicPlayer.load(file->getNowMusicData());
+
+	musicPlayer.play();
+	cout << "Play" << endl;
 
 	isAliveViewer = true;
 }

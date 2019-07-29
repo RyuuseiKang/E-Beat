@@ -13,6 +13,7 @@
 #include "../Extension/FileSystem.hpp"
 #include "Extension/DataViewer.hpp"
 #include "Extension/LaneViewer.hpp"
+#include "Extension/MusicPlayer.hpp"
 
 class Ingame {
 public:
@@ -33,6 +34,7 @@ private:
 
 	DataViewer *dataViewer;
 	LaneViewer *laneViewer;
+	MusicPlayer musicPlayer;
 	
 	ofImage backLane;
 	

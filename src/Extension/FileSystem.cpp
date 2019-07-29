@@ -30,6 +30,7 @@ void FileSystem::Initialize() {
 		ofFile _file;
 		string filePath = musicDataPath + "/" + dir->getFile(i).getFileName() + "/";
 		_file.open(ofToDataPath(filePath + "metadata.meta"));
+		_data.path = filePath;
 		ofBuffer buff = _file.readToBuffer();
 
 		for (const std::string &line : buff.getLines()) {
@@ -78,6 +79,9 @@ void FileSystem::ParseMetaData(string _str, musicMeta& _metaData, string _filePa
 	else if (command == "BGA")
 		_metaData.bga = _filePath + val;
 
+	else if (command == "MUSIC")
+		_metaData.musicPath = _filePath + val;
+
 	else if (command == "BGASTARTPOS")
 		_metaData.bgaStartPos = stoi(val);
 
@@ -100,12 +104,20 @@ musicMeta FileSystem::getMusicData(int num) {
 	return meta.at(num);
 }
 
+string FileSystem::getNowMusicPath() {
+	return meta[nowMusicNumber].path;
+}
+
 string FileSystem::getNowMusicData() {
-	return musicData[nowMusicNumber];
+	return meta[nowMusicNumber].musicPath;
 }
 
 string FileSystem::getNowMusicDifficulty() {
 	return to_string(nowMusicDifficulty);
+}
+
+int FileSystem::getNowMusicSpeed() {
+	return nowMusicSpeed;
 }
 
 void FileSystem::setNowMusicNumber(int _num) {
@@ -114,4 +126,8 @@ void FileSystem::setNowMusicNumber(int _num) {
 
 void FileSystem::setNowMusicDifficulty(int _diff) {
 	nowMusicDifficulty = _diff;
+}
+
+void FileSystem::setNowMusicSpeed(int _speed) {
+	nowMusicSpeed = _speed;
 }

@@ -23,6 +23,9 @@ public:
 
 	void animationStart(bool _option);
 
+	int getSpeed();
+	int getDifficulty();
+
 private:
 
 	int speed = 10;

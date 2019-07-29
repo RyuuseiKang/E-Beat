@@ -60,3 +60,11 @@ void OptionList::animationStart(bool _direction) {
 	isMove = true;
 	moveCounter = 15;
 }
+
+int OptionList::getSpeed() {
+	return speed;
+}
+
+int OptionList::getDifficulty() {
+	return difficulty;
+}

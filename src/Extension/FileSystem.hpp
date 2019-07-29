@@ -24,11 +24,14 @@ public:
     int getMusicCount();
 	musicMeta getMusicData(int num);
 
+	string getNowMusicPath();
 	string getNowMusicData();
 	string getNowMusicDifficulty();
+	int getNowMusicSpeed();
     
 	void setNowMusicNumber(int _num);
 	void setNowMusicDifficulty(int _diff);
+	void setNowMusicSpeed(int _speed);
 private:    
 	ofDirectory *dir;
 
@@ -41,6 +44,7 @@ private:
 
 	int nowMusicNumber = 0;
 	int nowMusicDifficulty = 0;
+	int nowMusicSpeed = 10;
 
 	vector<musicMeta> meta;
 

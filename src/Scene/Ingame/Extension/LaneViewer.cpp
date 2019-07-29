@@ -14,11 +14,11 @@ LaneViewer::LaneViewer() {
 LaneViewer::LaneViewer(FileSystem* _file) {
 
 	// 파일 주소 취득 및 노래 대기
-	filePath = _file->getNowMusicData();
-	player.load(filePath + "\music.mp3");
+	filePath = _file->getNowMusicPath();
+	
 
 	// 파서 생성
-	parser = new Parser(filePath + "\"" + _file->getNowMusicDifficulty() + ".sus");
+	parser = new Parser(filePath + _file->getNowMusicDifficulty() + ".sus");
 
 	for (int i = 0; i < 3; i++)
 		normalNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Normal_0" + to_string(i + 1) + ".png");
@@ -53,39 +53,7 @@ LaneViewer::~LaneViewer() {
 }
 
 void LaneViewer::update() {
-	// n++;
-	//
-	// if (n < 0)
-	// 	n = 0;
-	//
-	// k = n % 24 / 3;
-	// texturePtr[k].resize(w, h / 2);
-	//
-	// airNotePath.clear();
-	// airNotePath.lineTo(x - tilt, y, 0);
-	// airNotePath.lineTo(x + w, y, 0);
-	// airNotePath.lineTo(x + w , y + (h / 2), 0);
-	// airNotePath.lineTo(x - tilt, y + (h / 2), 0);
-	//
-	// fbo.allocate(w, h, GL_RGBA); //or GL_RED if you are using the programmable renderer
-	// fbo.begin();
-	// ofClear(255, 255, 255, 0);
-	// airNotePath.draw();
-	// fbo.end();
-	// texturePtr[k].getTexture().setAlphaMask(fbo.getTexture());
 
-	// airNote.clear();
-	// airNote.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-	// airNote.addVertex(ofPoint(x, y, 0));
-	// airNote.addTexCoord(ofVec2f(0, 0));
-	// airNote.addVertex(ofPoint(x + w, y, 0));
-	// airNote.addTexCoord(ofVec2f(w, 0));
-	// airNote.addVertex(ofPoint(x + w - tilt, y + (h / 2), 0));
-	// airNote.addTexCoord(ofVec2f(w, h / 2));
-	// airNote.addVertex(ofPoint(x - tilt, y + (h / 2), 0));
-	// airNote.addTexCoord(ofVec2f(0, h / 2));
-	// airNote.addVertex(ofPoint(x, y, 0));
-	// airNote.addTexCoord(ofVec2f(0, 0));
 }
 
 int slider = 0;
@@ -144,9 +112,19 @@ void LaneViewer::draw() {
 	gui.draw();
 }
 
+void LaneViewer::setMusicPosition(int _musicPos) {
+	tY = CalcYPosition(_musicPos);
+}
+
 void LaneViewer::play() {
 
 }
+
+int LaneViewer::CalcYPosition(int _musicPos) {
+	return 1;
+}
+
+
 
 void LaneViewer::genrateNote() {
 
@@ -162,7 +140,7 @@ void LaneViewer::genrateNote() {
 	tpb = stoi(metas.REQUEST["ticks_per_beat"]);
 
 	int nYPos = -965;	// 노트 시작위치가 Y: -965
-
+	 
 	position[0] = nYPos;
 
 	int prevYPos = -1;

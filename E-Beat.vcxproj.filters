@@ -103,6 +103,9 @@
     <ClCompile Include="src\Scene\MusicSelect\OptionList.cpp">
       <Filter>src\Scene\MusicSelect</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\Ingame\Extension\MusicPlayer.cpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -253,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="src\Scene\MusicSelect\OptionList.hpp">
       <Filter>src\Scene\MusicSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Ingame\Extension\MusicPlayer.hpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

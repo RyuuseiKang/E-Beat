@@ -4,6 +4,9 @@
 #include "ofMain.h"
 
 typedef struct musicMeta {
+	string path;
+	string musicPath;
+
 	string title;
 	string artist;
 	string jacket;

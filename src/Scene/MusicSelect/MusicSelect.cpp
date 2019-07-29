@@ -156,6 +156,8 @@ void MusicSelect::keyPressed(int key) {
 	if (key == 'k') {
 		if (!isOptionMode) {
 			// 게임 시작 처리
+			file->setNowMusicSpeed(optionList.getSpeed());
+			file->setNowMusicDifficulty(optionList.getDifficulty());
 			file->setNowMusicNumber(pos);
 			isSelectedMusic = true;
 		} else

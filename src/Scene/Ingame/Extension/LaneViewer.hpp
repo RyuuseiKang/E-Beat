@@ -25,9 +25,11 @@ public:
 	void update();
 	void draw();
 
+	void setMusicPosition(int _musicPos);
 	void play();
 
 private:
+	int CalcYPosition(int _musicPos);
 	void genrateNote();
 
 	ofxPanel gui;
