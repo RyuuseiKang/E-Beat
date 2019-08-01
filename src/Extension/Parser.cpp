@@ -222,43 +222,4 @@ void Parser::ParseData(string _str) {
 	else if (channel.substr(0, 1) == "3") {
 		laneData->AddSlideNote(bar, channel.substr(1, 1), channel.substr(2, 1), val);
 	}
-
-
-	// 파서 레거시
-	/*
-	vector<string> v = split(_str, ':');
-
-	string remarks = v.at(0);
-
-	if (remarks.substr(0, 1) != "#")
-		return;
-
-	remarks = remarks.substr(1, remarks.length() - 1);
-
-	string val = ReplaceAll(v.at(1), " ", "");
-	val = ReplaceAll(val, "\"", "");
-
-	if (remarks.substr(0, 3) == "BPM")
-		noteData.bpms[atoi(remarks.substr(3, 2).c_str())] = stof(val);
-
-	else if (remarks.substr(0, 3) == "TIL") {
-		string _value = ReplaceAll(split(_str, '"')[1]," ", "");
-		vector<string> value = split(_value, ',');
-		for (int i = 0; i < split(_value, ',').size(); i++) {
-			if (value[i] == "") continue;
-			int first = stoi(split(value[i], '\'')[0]);
-			int second = stoi(split(split(value[i], '\'')[1], ':')[0]);
-			int third = stof(split(value[i], ':')[1]);
-			noteData.speeds[first][second] = third;
-		}
-		
-	}
-		
-
-	else {
-		int nowBar = atoi(remarks.substr(0, 3).c_str());
-		(maxBar < nowBar) ? maxBar = nowBar : NULL;
-		noteData.notes[nowBar][remarks.substr(3, 3)] = v.at(1);
-	}
-	*/
 }

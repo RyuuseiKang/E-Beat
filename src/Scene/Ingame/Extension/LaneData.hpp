@@ -27,7 +27,7 @@ typedef struct NoteBar {
 } NoteBar;
 
 typedef struct NoteLane {
-	vector<vector<NoteBar>> lane;
+	map<string, map<int, NoteBar>> lane;
 } NoteLane;
 
 typedef struct Marker {
@@ -60,10 +60,10 @@ private:
 	// @NoteLane slideLane: slideLane.lane[구분번호][마디번호].note[값순서]
 	NoteLane slideLane;
 
-	vector<float> bpms;
+	map<int, float> bpms;
 
 	// 타임라인 값 참조: optionTimeLine.at(마디번호);
-	vector<Marker> optionTimeLine;
+	map<int, Marker> optionTimeLine;
 
 };
 
