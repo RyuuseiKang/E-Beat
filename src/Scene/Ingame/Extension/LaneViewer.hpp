@@ -14,6 +14,7 @@
 #include "ofxGui.h"
 #include "../Extension/FileSystem.hpp"
 #include "Extension/Parser.hpp"
+#include "Extension/LaneData.hpp"
 #include "ofNote.hpp"
 
 class LaneViewer {
@@ -37,6 +38,7 @@ private:
 	ofFile *musicFile;
 
 	Parser *parser;
+	LaneData *laneData;
 	//tapNote tapNotes;
 
 	ofxFloatSlider rX;

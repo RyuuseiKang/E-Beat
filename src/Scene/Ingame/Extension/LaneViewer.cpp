@@ -16,9 +16,11 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 	// 파일 주소 취득 및 노래 대기
 	filePath = _file->getNowMusicPath();
 	
+	// 레인 데이터 생성
+	laneData = new LaneData();
 
 	// 파서 생성
-	parser = new Parser(filePath + _file->getNowMusicDifficulty() + ".sus");
+	parser = new Parser(filePath + _file->getNowMusicDifficulty() + ".sus", laneData);
 
 	for (int i = 0; i < 3; i++)
 		normalNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Normal_0" + to_string(i + 1) + ".png");
@@ -50,6 +52,7 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 
 LaneViewer::~LaneViewer() {
 	delete parser;
+	delete laneData;
 }
 
 void LaneViewer::update() {

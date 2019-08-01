@@ -191,6 +191,7 @@
     <ClCompile Include="src\GameSetting\AppSetting.cpp" />
     <ClCompile Include="src\Scene\EntryScene.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\DataViewer.cpp" />
+    <ClCompile Include="src\Scene\Ingame\Extension\LaneData.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\LaneViewer.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\MusicPlayer.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\ofNote.cpp" />
@@ -228,6 +229,7 @@
     <ClInclude Include="src\GameSetting\AppSetting.hpp" />
     <ClInclude Include="src\Scene\EntryScene.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\DataViewer.hpp" />
+    <ClInclude Include="src\Scene\Ingame\Extension\LaneData.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\LaneViewer.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\MusicPlayer.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\ofNote.hpp" />

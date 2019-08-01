@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include "../ofMain.h"
+#include "../Scene/Ingame/Extension/LaneData.hpp"
 
 // typedef vector<tuple<int, string, vector<string>>> tapNote;
 // typedef vector<tuple<int, string, vector<string>>> slideNote[36];
@@ -51,7 +52,7 @@ typedef struct meta_data
 class Parser {
 public:
 	Parser();
-	Parser(string filePath);
+	Parser(string filePath, LaneData *_laneData);
 	~Parser();
 
 	note_data getNoteData();
@@ -66,6 +67,8 @@ public:
 
 private:
 	ofFile noteFile;
+
+	LaneData* laneData;
 
 	note_data noteData;
 	meta_data metaData;

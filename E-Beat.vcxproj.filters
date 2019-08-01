@@ -106,6 +106,9 @@
     <ClCompile Include="src\Scene\Ingame\Extension\MusicPlayer.cpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\Ingame\Extension\LaneData.cpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -258,6 +261,9 @@
       <Filter>src\Scene\MusicSelect</Filter>
     </ClInclude>
     <ClInclude Include="src\Scene\Ingame\Extension\MusicPlayer.hpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Ingame\Extension\LaneData.hpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
     </ClInclude>
   </ItemGroup>

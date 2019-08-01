@@ -36,8 +36,10 @@ Parser::Parser() {
 
 }
 
-Parser::Parser(string filePath) {
+Parser::Parser(string filePath, LaneData *_lanedata) {
 	noteFile.open(ofToDataPath(filePath));
+
+	laneData = _lanedata;
 
 	Parse();
 }
@@ -82,8 +84,8 @@ void Parser::Parse() {
 		}
 	}
 
-	noteData;
-	metaData;
+	//noteData;
+	//metaData;
 
 }
 
@@ -91,6 +93,7 @@ bool isExist(string _str) {
 	return 0;
 }
 
+// 메타 데이터 한줄 분류
 void Parser::ParseMetaData(string _str) {
 	vector<string> v = split(_str, ' ');
 
@@ -149,7 +152,80 @@ void Parser::ParseMetaData(string _str) {
 		
 }
 
+// 일반 데이터 한줄 분류
 void Parser::ParseData(string _str) {
+	vector<string> line = split(_str, ':');
+
+	// remarks: 마디와 채널
+	string remarks = line.at(0);
+
+	// 명령인지 재확인, 명령태그 제거
+	if (remarks.substr(0, 1) != "#")
+		return;
+	remarks = remarks.substr(1, remarks.length() - 1);
+	
+
+	// bar: 마디 값
+	int bar = atoi(remarks.substr(0, 3).c_str());
+
+	// channel: 채널 값
+	string channel = remarks.substr(3, 3).c_str();
+
+	// val: 값
+	string val = ReplaceAll(line.at(1), " ", "");
+	val = ReplaceAll(val, "\"", "");
+
+
+	// BPM은 리스트에 추가
+	if (remarks.substr(0, 3) == "BPM")
+		laneData->AddBPMList(atoi(remarks.substr(3, 2).c_str()), stof(val));
+
+	// 480은 4/4박자의 4분음표 한개 길이
+	// 배속은 리스트에 추가
+	else if (remarks.substr(0, 3) == "TIL") {
+		string _value = ReplaceAll(split(_str, '"')[1], " ", "");
+		vector<string> value = split(_value, ',');
+		for (int i = 0; i < split(_value, ',').size(); i++) {
+			if (value[i] == "") continue;
+			int first = stoi(split(value[i], '\'')[0]);
+			int second = stoi(split(split(value[i], '\'')[1], ':')[0]);
+			int third = stof(split(value[i], ':')[1]);
+			laneData->AddSpeed(first, second, third);
+		}
+	}
+		
+		
+	// 특수 노트 추가
+
+	// 마디 박자 수정
+	if (channel == "02")
+		laneData->AddBarBeat(bar, atof(val.c_str()));
+
+	// 마디 BPM 수정
+	else if (channel == "08")
+		laneData->AddBPM(bar, atoi(val.c_str()));
+
+
+	// 아래부터는 노트 추가
+
+	// 일반노트
+	else if (channel.substr(0, 1) == "1") {
+		laneData->AddNote(bar, channel.substr(1, 1), val);
+	}
+	
+	// 롱노트
+	else if (channel.substr(0, 1) == "2") {
+		laneData->AddLongNote(bar, channel.substr(1, 1), channel.substr(2, 1), val);
+	}
+	
+	// 슬라이드 노트
+	else if (channel.substr(0, 1) == "3") {
+		laneData->AddSlideNote(bar, channel.substr(1, 1), channel.substr(2, 1), val);
+	}
+
+
+	// 파서 레거시
+	/*
 	vector<string> v = split(_str, ':');
 
 	string remarks = v.at(0);
@@ -184,4 +260,5 @@ void Parser::ParseData(string _str) {
 		(maxBar < nowBar) ? maxBar = nowBar : NULL;
 		noteData.notes[nowBar][remarks.substr(3, 3)] = v.at(1);
 	}
+	*/
 }
