@@ -84,6 +84,11 @@ void Parser::Parse() {
 		}
 	}
 
+	// 데이터 파싱 마지막 작업
+	laneData->Process();
+
+	// 여기서 파싱 끝
+
 	//noteData;
 	//metaData;
 

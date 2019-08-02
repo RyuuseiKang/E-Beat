@@ -50,6 +50,8 @@ public:
 	void AddLongNote(int _bar, string _key, string _group, string _value);
 	void AddSlideNote(int _bar, string _key, string _group, string _value);
 
+	void Process();
+
 private:
 	// @NoteLane noteLane: noteLane.lane[레인번호][마디번호].note[값순서] 
 	NoteLane noteLane;

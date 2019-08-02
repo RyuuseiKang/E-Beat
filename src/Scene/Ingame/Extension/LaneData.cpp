@@ -80,3 +80,7 @@ void LaneData::AddSlideNote(int _bar, string _key, string _group, string _value)
 	}
 	slideLane.lane[_group][_bar].note = note;
 }
+
+void LaneData::Process() {
+	// 여기서 노트 데이터 시간을 계산해서 추가
+}
