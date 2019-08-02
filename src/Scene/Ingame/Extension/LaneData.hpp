@@ -22,6 +22,7 @@ typedef struct Note {
 	int syncTime; // 실제 처리 타이밍
 } Note;
 
+
 typedef struct NoteBar {
 	vector<Note> note;
 } NoteBar;
@@ -31,20 +32,20 @@ typedef struct NoteLane {
 } NoteLane;
 
 typedef struct Marker {
-	float bpm;
-	float speed;
-	float barBeat;
-	int syncTime;
+	double bpm = 0;
+	double speed = 0;
+	double barBeat = 0;
+	int syncTime = 0;
 } Marker;
 
 class LaneData {
 public: 
 
-	void AddBPMList(int _num, float _value);
+	void AddBPMList(int _num, double _value);
 
 	void AddBPM(int _bar, int _key);
-	void AddSpeed(int _bar, int _position, float _value);
-	void AddBarBeat(int _bar, float _value);
+	void AddSpeed(int _bar, int _position, double _value);
+	void AddBarBeat(int _bar, double _value);
 
 	void AddNote(int _bar, string _key, string _value);
 	void AddLongNote(int _bar, string _key, string _group, string _value);
@@ -62,10 +63,10 @@ private:
 	// @NoteLane slideLane: slideLane.lane[구분번호][마디번호].note[값순서]
 	NoteLane slideLane;
 
-	map<int, float> bpms;
+	map<int, double> bpms;
 
 	// 타임라인 값 참조: optionTimeLine.at(마디번호);
-	map<int, Marker> optionTimeLine;
+	map<int, Marker*> optionTimeLine;
 
 };
 

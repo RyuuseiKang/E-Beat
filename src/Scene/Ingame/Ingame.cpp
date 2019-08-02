@@ -72,10 +72,11 @@ void Ingame::keyRelease(int key) {
 
 void Ingame::readyMusic() {
 
-	if (isAliveViewer) {
-		delete dataViewer;
-		delete laneViewer;
-	}
+	// Release때에는 제거해줄 것
+	// if (isAliveViewer) {
+	// 	delete dataViewer;
+	// 	delete laneViewer;
+	// }
 
 	dataViewer = new DataViewer(file);
 	laneViewer = new LaneViewer(file);

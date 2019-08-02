@@ -7,29 +7,45 @@
 
 #include "LaneData.hpp"
 
-void LaneData::AddBPMList(int _key, float _value) {
+void LaneData::AddBPMList(int _key, double _value) {
 	bpms.insert(make_pair(_key, _value));
 }
 
 void LaneData::AddBPM(int _bar, int _key) {
-	Marker m = optionTimeLine[_bar];
-	m.bpm = bpms[_key];
+	Marker *m;
+	if (optionTimeLine[_bar] != NULL)
+		m = optionTimeLine[_bar];
+	else
+		m = new Marker;
 
-	optionTimeLine.insert(make_pair(_bar, m));
+
+	m->bpm = bpms[_key];
+	
+	optionTimeLine[_bar] = m;
 }
 
-void LaneData::AddSpeed(int _bar, int _position, float _value) {
-	Marker m = optionTimeLine[_bar];
-	m.speed = _value;
+void LaneData::AddSpeed(int _bar, int _position, double _value) {
+	Marker *m;
+	if (optionTimeLine[_bar] != NULL)
+		m = optionTimeLine[_bar];
+	else
+		m = new Marker;
 
-	optionTimeLine.insert(make_pair(_bar, m));
+	m->speed = _value;
+	
+	optionTimeLine[_bar] = m;
 }
 
-void LaneData::AddBarBeat(int _bar, float _value) {
-	Marker m = optionTimeLine[_bar];
-	m.barBeat = _value;
+void LaneData::AddBarBeat(int _bar, double _value) {
+	Marker *m;
+	if (optionTimeLine[_bar] != NULL)
+		m = optionTimeLine[_bar];
+	else
+		m = new Marker;
 
-	optionTimeLine.insert(make_pair(_bar, m));
+	m->barBeat = _value;
+
+	optionTimeLine[_bar] = m;
 }
 
 void LaneData::AddNote(int _bar, string _key, string _value) {
@@ -83,4 +99,5 @@ void LaneData::AddSlideNote(int _bar, string _key, string _group, string _value)
 
 void LaneData::Process() {
 	// 여기서 노트 데이터 시간을 계산해서 추가
+
 }

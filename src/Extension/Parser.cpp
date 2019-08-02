@@ -45,6 +45,7 @@ Parser::Parser(string filePath, LaneData *_lanedata) {
 }
 
 Parser::~Parser() {
+
 }
 
 vector<string> Parser::ParseNoteToVectorString(string str) {
@@ -137,7 +138,7 @@ void Parser::ParseMetaData(string _str) {
 		metaData.WAVE = val;
 
 	else if (command == "WAVEOFFSET")
-		metaData.WAVEOFFSET = stof(val);
+		metaData.WAVEOFFSET = stod(val);
 
 	else if (command == "JACKET")
 		metaData.JACKET = val;
@@ -183,7 +184,7 @@ void Parser::ParseData(string _str) {
 
 	// BPM은 리스트에 추가
 	if (remarks.substr(0, 3) == "BPM")
-		laneData->AddBPMList(atoi(remarks.substr(3, 2).c_str()), stof(val));
+		laneData->AddBPMList(atoi(remarks.substr(3, 2).c_str()), stod(val));
 
 	// 480은 4/4박자의 4분음표 한개 길이
 	// 배속은 리스트에 추가
@@ -194,21 +195,22 @@ void Parser::ParseData(string _str) {
 			if (value[i] == "") continue;
 			int first = stoi(split(value[i], '\'')[0]);
 			int second = stoi(split(split(value[i], '\'')[1], ':')[0]);
-			int third = stof(split(value[i], ':')[1]);
+			int third = stod(split(value[i], ':')[1]);
 			laneData->AddSpeed(first, second, third);
 		}
 	}
 		
 		
-	// 특수 노트 추가
+	// 특수 노트
+	else if (channel.substr(0, 1) == "0") {
+		// 마디 박자 수정
+		if (channel == "02")
+			laneData->AddBarBeat(bar, stod(val));
 
-	// 마디 박자 수정
-	if (channel == "02")
-		laneData->AddBarBeat(bar, atof(val.c_str()));
-
-	// 마디 BPM 수정
-	else if (channel == "08")
-		laneData->AddBPM(bar, atoi(val.c_str()));
+		// 마디 BPM 수정
+		else if (channel == "08")
+			laneData->AddBPM(bar, atoi(val.c_str()));
+	}
 
 
 	// 아래부터는 노트 추가

@@ -39,7 +39,7 @@ typedef struct meta_data
 	string PLAYLEVEL;
 	string SONGID;
 	string WAVE;
-	float WAVEOFFSET;
+	double WAVEOFFSET;
 	string JACKET;
 	map<string, string> REQUEST;
 	int MEASUREBS;
