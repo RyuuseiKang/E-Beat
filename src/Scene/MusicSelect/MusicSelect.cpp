@@ -79,15 +79,24 @@ void MusicSelect::update(bool keys[256]) {
 	
 	//여러가지 갱신
 	updateMusic();
-	if(!musicList.isMoving())
-		if (isLoadCue) {
-			if (LoadCueCounter-- < 0) {
-				bgaPlayer->loadAsync(file->getMusicData(pos).bga);
-				bgaPlayer->SetLoopFrame(file->getMusicData(pos).bgaStartPos, file->getMusicData(pos).bgaEndPos);
-				bgaPlayer->videoPlay();
-				isLoadCue = false;
-			}
+	if (musicList.isMoving()) {
+		isLoadCue = true;
+		LoadCueCounter = 35;
+		
+	}
+	else {
+		LoadCueCounter--;
+		if (isLoadCue && !LoadCueCounter) {
+			bgaPlayer->ThreadStart();
+			isLoadCue = false;
 		}
+	}
+
+	// BGA가 정상변경되었는지 확인
+	// if (file->getMusicData(pos).bga != bgaPlayer->getNowMovie()) {
+	// 	bgaPlayer->loadAsync(file->getMusicData(pos).bga);
+	// 	bgaPlayer->SetLoopFrame(file->getMusicData(pos).bgaStartPos, file->getMusicData(pos).bgaEndPos);
+	// }
 
 	// 옵션 갱신
 	optionList.update();
@@ -199,11 +208,15 @@ void MusicSelect::updateMusic() {
 	musicList.setPosition(pos);
 	slider.setPosition(pos);
 
-	bgaPlayer->SetLoopFrame(2005, 3072);
+	bgaPlayer->videoStop();
+	bgaPlayer->SetLoopFrame(file->getMusicData(pos).bgaStartPos, file->getMusicData(pos).bgaEndPos);
+	bgaPlayer->loadAsync(file->getMusicData(pos).bga);
+	
+	//bgaPlayer->SetLoopFrame(2005, 3072);
 	
 	//bgaPlayer->setMusic(pos);
 
-	isLoadCue = true;
-	LoadCueCounter = 15;
-	bgaPlayer->videoStop();
+	//isLoadCue = true;
+	//LoadCueCounter = 15;
+	//bgaPlayer->videoStop();
 }

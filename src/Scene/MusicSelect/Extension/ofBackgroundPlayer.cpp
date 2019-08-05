@@ -43,8 +43,8 @@ void ofBackgroundPlayer::loadAsync(string _fileName) {
 	videoPlay();
 #else
 
-	ThreadStart();
-	videoPlay();
+	//ThreadStart();
+	//videoPlay();
 #endif
 }
 
@@ -90,6 +90,10 @@ void ofBackgroundPlayer::ThreadStart() {
 
 void ofBackgroundPlayer::ThreadStop() {
 	ofThread::stopThread();
+}
+
+string ofBackgroundPlayer::getNowMovie() {
+	return filePath;
 }
 
 void ofBackgroundPlayer::threadedFunction() {

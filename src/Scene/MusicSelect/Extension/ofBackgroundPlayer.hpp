@@ -33,6 +33,8 @@ public:
 
 	void threadedFunction();
 
+	string getNowMovie();
+
 private:
 	ofxBlurShader BGAblur;
 

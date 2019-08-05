@@ -45,7 +45,7 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 		texturePtr[i].loadImage("Scene/Ingame/LaneViewer/airNote" + to_string(i) + ".png");
 
 	// 여기서부터 노트 생성
-	genrateNote();
+	//genrateNote();
 
 
 }
@@ -130,6 +130,7 @@ int LaneViewer::CalcYPosition(int _musicPos) {
 
 
 void LaneViewer::genrateNote() {
+	cout << "noteGen" << endl;
 
 	// 파서로부터 노트 정보와 BPM, 속도 정보를 받아옴
 	notes = parser->getNoteData();

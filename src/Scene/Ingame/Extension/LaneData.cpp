@@ -252,7 +252,7 @@ void LaneData::Process() {
 			
 		}
 
-		markerIterator = optionTimeLine.end();
+		break;
 	}
 
 }
