@@ -19,23 +19,29 @@ typedef struct Note {
 	string type; // 값
 	string position; // 레인번호
 	ofNote *note; // 노트 삭제의 상황을 위하여 액세스 하기 위해 가지는 값
-	int syncTime; // 실제 처리 타이밍
+	double syncTime; // 실제 처리 타이밍
 } Note;
 
 
 typedef struct NoteBar {
-	vector<Note> note;
+	vector<Note*> note;
 } NoteBar;
 
 typedef struct NoteLane {
 	map<string, map<int, NoteBar>> lane;
 } NoteLane;
 
+typedef struct SlideNoteLane {
+	map<string, map<int, map<string, NoteBar>>> lane;
+} SlideNoteLane;
+
+
 typedef struct Marker {
-	double bpm = 0;
-	double speed = 0;
-	double barBeat = 0;
-	int syncTime = 0;
+	double bpm = 0; // 옵션 1 증감
+	double speed = 1; // 옵션 2 증감
+	double barBeat = 0; // 옵션 4 증감
+	double syncTime = 0;
+	unsigned char option = 0;
 } Marker;
 
 class LaneData {
@@ -60,12 +66,12 @@ private:
 	// @NoteLane longNoteLane: longNoteLane.lane[구분번호][마디번호].note[값순서]
 	NoteLane longNoteLane;
 
-	// @NoteLane slideLane: slideLane.lane[구분번호][마디번호].note[값순서]
-	NoteLane slideLane;
+	// @NoteLane slideLane: slideLane.lane[구분번호][마디번호][레인번호].note[값순서]
+	SlideNoteLane slideLane;
 
 	map<int, double> bpms;
 
-	// 타임라인 값 참조: optionTimeLine.at(마디번호);
+	// 타임라인 값 참조: optionTimeLine[마디번호];
 	map<int, Marker*> optionTimeLine;
 
 };
