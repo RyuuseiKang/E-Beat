@@ -90,6 +90,9 @@ void Parser::Parse() {
 
 	// 여기서 파싱 끝
 
+	// 레인에 작성될 노트 생성
+	laneData->GenerateNote();
+
 	//noteData;
 	//metaData;
 
@@ -154,6 +157,9 @@ void Parser::ParseMetaData(string _str) {
 
 	else if (command == "REQUEST") {
 		metaData.REQUEST.insert(pair<string, string>(v.at(1), v.at(2)));
+		if (v.at(1) == "ticks_per_beat") {
+			laneData->SetTBP(stoi(v.at(2)));
+		}
 	}
 		
 }

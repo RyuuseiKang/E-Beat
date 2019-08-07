@@ -15,6 +15,7 @@
 #include "../Extension/FileSystem.hpp"
 #include "Extension/Parser.hpp"
 #include "Extension/LaneData.hpp"
+#include "MusicPlayer.hpp"
 #include "ofNote.hpp"
 
 class LaneViewer {
@@ -26,13 +27,15 @@ public:
 	void update();
 	void draw();
 
-	void setMusicPosition(int _musicPos);
 	void play();
 
-private:
-	int CalcYPosition(int _musicPos);
-	void genrateNote();
+	void setMusicPlayer(MusicPlayer* _musicPlayer);
 
+private:
+	void GenerateNote();
+
+	double GetCurrentScrollPosition(Marker _marker, double _nowSyncTime, double _hiSpeed);
+	
 	ofxPanel gui;
 
 	ofFile *musicFile;
@@ -67,10 +70,10 @@ private:
 	note_data notes;
 	meta_data metas;
 
-	map<int, vector<ofNote>* > noteMap;
+	// map<int, vector<ofNote>* > noteMap;
 	map<int, long> position;
 
-	ofSoundPlayer player;
+	MusicPlayer* player;
 
 	string filePath;
 };

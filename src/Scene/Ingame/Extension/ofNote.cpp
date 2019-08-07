@@ -63,8 +63,19 @@ void ofNote::setOriginData(string noteData) {
 	//setNoteOption(_noteType);
 }
 
-void ofNote::setNoteLength(int _length) {
-	length = _length;
+void ofNote::setNoteLength(char _length) {
+	if (_length >= 'a') length = 10 + 97 - _length;
+	else length = atoi(&_length);
+}
+
+void ofNote::setEndNoteLength(char _length) {
+	if (_length >= 'a') endLength = 10 + 97 - _length;
+	else endLength = atoi(&_length);
+}
+
+void ofNote::addNoteLength(char _length) {
+	if (_length >= 'a') middleLength.push_back(10 + 97 - _length);
+	else middleLength.push_back(atoi(&_length));
 }
 
 void ofNote::setNoteOption(NOTE_TYPE _type) {
@@ -76,8 +87,24 @@ void ofNote::setPosition(int _pos) {
 	pos = _pos;
 }
 
+void ofNote::addPosition(int _pos) {
+	middlePos.push_back(_pos);
+}
+
+void ofNote::setEndPosition(int _pos) {
+	endPos = _pos;
+}
+
 void ofNote::setYPosition(int _y) {
 	y = _y;
+}
+
+void ofNote::addYPosition(int _y) {
+	middleY.push_back(_y);
+}
+
+void ofNote::setEndYPosition(int _endY) {
+	endY = _endY;
 }
 
 void ofNote::hide() {

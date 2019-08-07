@@ -110,6 +110,14 @@ void LaneData::AddSlideNote(int _bar, string _key, string _group, string _value)
 	slideLane.lane[_group][_bar][_key].note = note;
 }
 
+void LaneData::SetTBP(int _tbp) {
+	tbp = _tbp;
+}
+
+void LaneData::SetHiSpeed(double _hiSpeed) {
+	hiSpeed = _hiSpeed;
+}
+
 void LaneData::Process() {
 	// 여기서 노트 데이터 시간을 계산해서 추가
 
@@ -118,8 +126,10 @@ void LaneData::Process() {
 
 	int lastBar = 0;
 	int lastTime = 0;
+	int lastPosition = 0;
 	double lastBarBeat = 4;
 	double lastBpm = 120;
+	double lastSpeed = 1;
 
 	for (markerOutmap markerIterator = optionTimeLine.begin(); markerIterator != optionTimeLine.end(); markerIterator++) {
 		int bar = markerIterator->first;
@@ -155,14 +165,26 @@ void LaneData::Process() {
 
 		double bpm = markerIterator->second->bpm;
 		double barBeat = markerIterator->second->barBeat;
+		double speed = markerIterator->second->speed;
 		
-		markerIterator->second->syncTime = ((60 / lastBpm) * 1000 * lastBarBeat * (bar - lastBar)) + lastTime;
+		// 마디 첫 실제시간
+		markerIterator->second->syncTime = ((60000 / lastBpm) * lastBarBeat * (bar - lastBar)) + lastTime;
+		// 마디 첫 위치
+		markerIterator->second->position = tbp * lastBarBeat * lastSpeed * (bar - lastBar) + lastPosition;
+
+		// 한 마디 높이
+		markerIterator->second->height = tbp * barBeat * speed;
 
 		lastBpm = bpm;
 		lastBarBeat = barBeat;
 		lastBar = bar;
+		lastSpeed = speed;
 
+		// 마커의 첫 시간
 		lastTime = markerIterator->second->syncTime;
+		// 마커의 첫 위치
+		lastPosition = markerIterator->second->position;
+
 	}
 	
 	// 레인 싱크타임 잡는 작업 끝
@@ -194,17 +216,70 @@ void LaneData::Process() {
 					markerIterator--;
 
 					// 마디 한개 시간
-					double fullyBarTime = (60 / markerIterator->second->bpm) * 1000 * markerIterator->second->barBeat;
+					double fullyBarTime = (60000 / markerIterator->second->bpm) * markerIterator->second->barBeat;
 
-					// 현재 마디 최초지점
-					double firstSyncTime = ((60 / markerIterator->second->bpm) * 1000 * markerIterator->second->barBeat * (noteBarIterator->first - markerIterator->first)) + markerIterator->second->syncTime;
+					// 현재 마디 최초 시각
+					double firstSyncTime = ((60000 / markerIterator->second->bpm) * markerIterator->second->barBeat * (noteBarIterator->first - markerIterator->first)) + markerIterator->second->syncTime;
+
+					// 현재 마디 최초 포지션
+					double firstPosition = (noteBarIterator->first - markerIterator->first) * markerIterator->second->height + markerIterator->second->position;
 
 					// 노트들의 실제 시간 측정
 					NoteBar noteBar = noteBarIterator->second;
 					int noteSize = noteBar.note.size();
 					for (noteOutVector noteIterator = noteBar.note.begin(); noteIterator != noteBar.note.end(); noteIterator++) {
+						const char *noteType = (*noteIterator)->type.c_str();
+						int dist = distance(noteBar.note.begin(), noteIterator);
+
+						double YPos = (markerIterator->second->height / noteSize) * dist + firstPosition;
+						ofNote *note;
+						switch (noteType[0]) {
+							// 노트 시작점
+							case '1':
+								note = new ofNote();
+								noteMap.push_back(note);
+								(*noteIterator)->note = note;
+
+								// 노트 가로넓이
+								(*noteIterator)->note->setNoteLength((*noteIterator)->type.c_str()[1]);
+								// X포지션
+								(*noteIterator)->note->setPosition(strtol(noteLaneIterator->first.c_str(), 0, 16));
+								// Y포지션
+								(*noteIterator)->note->setYPosition(YPos);
+								break;
+
+							// 노트 끝점
+							case '2':
+								noteIterator--;
+								note = (*noteIterator)->note;
+								noteIterator++;
+								(*noteIterator)->note = note;
+
+								// 노트 가로넓이
+								(*noteIterator)->note->setEndNoteLength((*noteIterator)->type.c_str()[1]);
+								// X포지션
+								(*noteIterator)->note->setEndPosition(strtol(noteLaneIterator->first.c_str(), 0, 16));
+								// Y포지션
+								(*noteIterator)->note->setEndYPosition(YPos);
+								break;
+
+							// 노트 중간점
+							case '3':
+								noteIterator--;
+								note = (*noteIterator)->note;
+								noteIterator++;
+								(*noteIterator)->note = note;
+
+								// 노트 가로넓이
+								(*noteIterator)->note->addNoteLength((*noteIterator)->type.c_str()[1]);
+								// X포지션
+								(*noteIterator)->note->addPosition(strtol(noteLaneIterator->first.c_str(), 0, 16));
+								// Y포지션
+								(*noteIterator)->note->addYPosition(YPos);
+								break;
+						}
+
 						if ((*noteIterator)->type != "00") {
-							int dist = distance(noteBar.note.begin(), noteIterator);
 							double syncTime = (fullyBarTime / noteSize) * dist + firstSyncTime;
 							(*noteIterator)->syncTime = syncTime;
 						}
@@ -231,17 +306,71 @@ void LaneData::Process() {
 					markerIterator--;
 
 					// 마디 한개 시간
-					double fullyBarTime = (60 / markerIterator->second->bpm) * 1000 * markerIterator->second->barBeat;
+					double fullyBarTime = (60000 / markerIterator->second->bpm) * markerIterator->second->barBeat;
 
-					// 현재 마디 최초지점
-					double firstSyncTime = ((60 / markerIterator->second->bpm) * 1000 * markerIterator->second->barBeat * (laneIterator->first - markerIterator->first)) + markerIterator->second->syncTime;
+					// 현재 마디 최초 시각
+					double firstSyncTime = ((60000 / markerIterator->second->bpm) * markerIterator->second->barBeat * (laneIterator->first - markerIterator->first)) + markerIterator->second->syncTime;
+
+					// 현재 마디 최초 포지션
+					double firstPosition = (laneIterator->first - markerIterator->first) * markerIterator->second->height + markerIterator->second->position;
 
 					// 노트들의 실제 시간 측정
 					NoteBar noteBar = noteBarIterator->second;
 					int noteSize = noteBar.note.size();
 					for (noteOutVector noteIterator = noteBar.note.begin(); noteIterator != noteBar.note.end(); noteIterator++) {
+						const char *noteType = (*noteIterator)->type.c_str();
+						int dist = distance(noteBar.note.begin(), noteIterator);
+
+						double YPos = (markerIterator->second->height / noteSize) * dist + firstPosition;
+						ofNote *note;
+
+						switch (noteType[0]) {
+							// 노트 시작점
+						case '1':
+							note = new ofNote();
+							noteMap.push_back(note);
+							(*noteIterator)->note = note;
+
+							// 노트 가로넓이
+							(*noteIterator)->note->setNoteLength((*noteIterator)->type.c_str()[1]);
+							// X포지션
+							(*noteIterator)->note->setPosition(strtol((*noteIterator)->position.c_str(), 0, 16));
+							// Y포지션
+							(*noteIterator)->note->setYPosition(YPos);
+							break;
+
+							// 노트 끝점
+						case '2':
+							noteIterator--;
+							note = (*noteIterator)->note;
+							noteIterator++;
+							(*noteIterator)->note = note;
+
+							// 노트 가로넓이
+							(*noteIterator)->note->setEndNoteLength((*noteIterator)->type.c_str()[1]);
+							// X포지션
+							(*noteIterator)->note->setEndPosition(strtol((*noteIterator)->position.c_str(), 0, 16));
+							// Y포지션
+							(*noteIterator)->note->setEndYPosition(YPos);
+							break;
+
+							// 노트 중간점
+						case '3':
+							noteIterator--;
+							note = (*noteIterator)->note;
+							noteIterator++;
+							(*noteIterator)->note = note;
+
+							// 노트 가로넓이
+							(*noteIterator)->note->addNoteLength((*noteIterator)->type.c_str()[1]);
+							// X포지션
+							(*noteIterator)->note->addPosition(strtol((*noteIterator)->position.c_str(), 0, 16));
+							// Y포지션
+							(*noteIterator)->note->addYPosition(YPos);
+							break;
+						}
+
 						if ((*noteIterator)->type != "00") {
-							int dist = distance(noteBar.note.begin(), noteIterator);
 							double syncTime = (fullyBarTime / noteSize) * dist + firstSyncTime;
 							(*noteIterator)->syncTime = syncTime;
 						}
@@ -255,4 +384,22 @@ void LaneData::Process() {
 		break;
 	}
 
+}
+
+void LaneData::GenerateNote() {
+	typedef map<int, Marker*>::iterator markerOutmap;
+	typedef map<string, map<int, NoteBar>>::iterator noteLaneOutmap;
+	typedef map<string, map<int, map<string, NoteBar>>>::iterator slideNoteLaneOutmap;
+	typedef map<int, NoteBar>::iterator noteBarOutmap;
+	typedef vector<Note*>::iterator noteOutVector;
+
+	for (markerOutmap markerIterator = optionTimeLine.begin(); markerIterator != optionTimeLine.end(); markerIterator++) {
+		for (noteLaneOutmap noteLaneIterator = noteLane.lane.begin(); noteLaneIterator != noteLane.lane.end(); noteLaneIterator++) {
+			markerIterator->first; // 마커의 마디번호
+			noteLaneIterator->first; // 노트의 구분번호
+
+
+		}
+
+	}
 }

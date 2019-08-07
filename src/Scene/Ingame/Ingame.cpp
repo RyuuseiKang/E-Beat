@@ -23,7 +23,6 @@ Ingame::~Ingame() {
 }
 
 void Ingame::update(bool keys[256]) {
-	laneViewer->setMusicPosition(musicPlayer.getPositionMS());
 
 	laneViewer->update();
 	dataViewer->update();

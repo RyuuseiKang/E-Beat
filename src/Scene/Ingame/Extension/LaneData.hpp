@@ -20,6 +20,7 @@ typedef struct Note {
 	string position; // 레인번호
 	ofNote *note; // 노트 삭제의 상황을 위하여 액세스 하기 위해 가지는 값
 	double syncTime; // 실제 처리 타이밍
+	double notePosition; // 마디부터 노트의 거리
 } Note;
 
 
@@ -40,7 +41,9 @@ typedef struct Marker {
 	double bpm = 0; // 옵션 1 증감
 	double speed = 1; // 옵션 2 증감
 	double barBeat = 0; // 옵션 4 증감
-	double syncTime = 0;
+	double syncTime = 0; // 마디 첫 실제시간
+	double position = 0; // 마디 첫 위치
+	double height = 0; // 한 마디 높이
 	unsigned char option = 0;
 } Marker;
 
@@ -57,7 +60,12 @@ public:
 	void AddLongNote(int _bar, string _key, string _group, string _value);
 	void AddSlideNote(int _bar, string _key, string _group, string _value);
 
+	void SetTBP(int _tbp);
+	void SetHiSpeed(double _hiSpeed);
+
 	void Process();
+
+	void GenerateNote();
 
 private:
 	// @NoteLane noteLane: noteLane.lane[레인번호][마디번호].note[값순서] 
@@ -74,6 +82,11 @@ private:
 	// 타임라인 값 참조: optionTimeLine[마디번호];
 	map<int, Marker*> optionTimeLine;
 
+	int tbp = 480; // ticks_per_beat
+	double hiSpeed = 1.0; // 유저 하이스피드
+
+	// 노트들의 벡터맵
+	vector<ofNote*> noteMap;
 };
 
 #endif  /*  __LANE_DATA_HPP_ */

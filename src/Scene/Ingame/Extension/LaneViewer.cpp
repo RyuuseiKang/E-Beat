@@ -45,7 +45,7 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 		texturePtr[i].loadImage("Scene/Ingame/LaneViewer/airNote" + to_string(i) + ".png");
 
 	// 여기서부터 노트 생성
-	//genrateNote();
+	GenerateNote();
 
 
 }
@@ -56,7 +56,7 @@ LaneViewer::~LaneViewer() {
 }
 
 void LaneViewer::update() {
-
+	// 여기서 레인 갱신
 }
 
 int slider = 0;
@@ -75,13 +75,16 @@ void LaneViewer::draw() {
 	//	}
 	//}
 
+	// 노트들 draw
+
+
+	/*
 	for (note::iterator i = notes.notes.begin(); i != notes.notes.end(); i++) 
 		for (int j = 0; j < noteMap[i->first]->size(); j++) {
 			noteMap[i->first]->at(j).draw();
 		}
 	
 
-	/*
 		_ofNote->setPosition(0);
 		_ofNote->setNoteLength(4);
 		_ofNote->draw(x, y);
@@ -115,20 +118,36 @@ void LaneViewer::draw() {
 	gui.draw();
 }
 
-void LaneViewer::setMusicPosition(int _musicPos) {
-	tY = CalcYPosition(_musicPos);
+void LaneViewer::setMusicPlayer(MusicPlayer* _musicPlayer) {
+	player = _musicPlayer;
 }
 
 void LaneViewer::play() {
 
 }
 
-int LaneViewer::CalcYPosition(int _musicPos) {
-	return 1;
+void LaneViewer::GenerateNote() {
+	// 메타데이터 얻어옴
+	metas = parser->getMetaData();
+
+	double hiSpeed = 1; // 사용자 설정 속도 받아서 입력 필요
+	// 하이스피드 설정
+	laneData->SetHiSpeed(hiSpeed);
+
 }
 
+// 노래	의 현재 시각과 현재 읽어들이는 Marker로 레인의 포지션 구하는 함수
+double LaneViewer::GetCurrentScrollPosition(Marker _marker, double _nowSyncTime, double _hiSpeed) {
+	Marker m = _marker;
 
+	// 마디 한개의 총 시간
+	double barTime = 60000 / m.bpm * m.barBeat;
+	double nowPosition = ((_nowSyncTime - m.syncTime) / barTime * m.height + m.position) * _hiSpeed;
 
+	return nowPosition;
+}
+
+/*
 void LaneViewer::genrateNote() {
 	cout << "noteGen" << endl;
 
@@ -305,3 +324,4 @@ void LaneViewer::genrateNote() {
 	//
 	//}
 }
+*/

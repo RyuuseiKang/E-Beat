@@ -29,25 +29,46 @@ public:
 
 	void setNoteImage(ofImage *img);
 	void setOriginData(string noteData);
-	void setNoteLength(int _length);
+
 	void setNoteOption(NOTE_TYPE _type);
+
+	void setNoteLength(char _length);
+	void setEndNoteLength(char _length);
+	void addNoteLength(char _length);
+
 	void setPosition(int _pos);
+	void addPosition(int _pos);
+	void setEndPosition(int _pos);
+
 	void setYPosition(int _y);
+	void addYPosition(int _y);
+	void setEndYPosition(int _endY);
 
 	void hide();
 
 private:
 	NOTE_TYPE type;
 	ofImage *noteImage[3];
+
 	int length;
+	int endLength;
+	vector<int> middleLength;
+
 	int pos;
-	long y;
+	int endPos;
+	vector<int> middlePos;
+
+	double y;
+	double endY;
+	vector<double> middleY;
 
 	const float noteHeight = 20;
 	const float noteWidth = 14.25;
 	const float noteBorder = 0.35;
 
 	bool isVisible = true;
+
+	int noteType;
 };
 
 #endif // __OF_NOTE_HPP_
