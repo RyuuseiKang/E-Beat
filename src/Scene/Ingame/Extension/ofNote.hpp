@@ -31,10 +31,11 @@ public:
 	void setOriginData(string noteData);
 
 	void setNoteOption(NOTE_TYPE _type);
+	void setType(int _type);
 
-	void setNoteLength(char _length);
-	void setEndNoteLength(char _length);
-	void addNoteLength(char _length);
+	void setNoteLength(const char *_length);
+	void setEndNoteLength(const char *_length);
+	void addNoteLength(const char *_length);
 
 	void setPosition(int _pos);
 	void addPosition(int _pos);
@@ -45,6 +46,8 @@ public:
 	void setEndYPosition(int _endY);
 
 	void hide();
+
+	void Make();
 
 private:
 	NOTE_TYPE type;
@@ -62,13 +65,20 @@ private:
 	double endY;
 	vector<double> middleY;
 
-	const float noteHeight = 20;
-	const float noteWidth = 14.25;
-	const float noteBorder = 0.35;
+	const double noteHeight = 20;
+	const double noteWidth = 14.25;
+	const double noteBorder = 0.35;
 
 	bool isVisible = true;
 
-	int noteType;
+	int noteType = 1;
+
+	vector<pair<ofMesh, ofMesh>> meshVector;
+
+	ofColor colorType[2][2];
+
+	void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<int, int> _noteLength);
+
 };
 
 #endif // __OF_NOTE_HPP_

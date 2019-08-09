@@ -25,6 +25,26 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 	for (int i = 0; i < 3; i++)
 		normalNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Normal_0" + to_string(i + 1) + ".png");
 
+	// 노트 임시 설정
+	note = new ofNote;
+	note->setNoteImage(normalNote);
+
+	note->setType(2);
+
+	char *length = new char('4 ');
+	note->setNoteLength(length);
+	note->setEndNoteLength(length);
+
+	note->setPosition(0);
+	note->setEndPosition(0);
+
+	note->setYPosition(1500);
+	note->setEndYPosition(1800);
+
+	note->Make();
+
+	// 여기까지 노트 테스트
+
 	for (int i = 0; i < 3; i++)
 		bonusNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Bonus_0" + to_string(i + 1) + ".png");
 
@@ -33,7 +53,7 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 	gui.add(rY.setup("Rotate Y", 0, -100, 100));
 	gui.add(rZ.setup("Rotate Z", 165, -360, 360));
 	gui.add(tX.setup("Translate X", 846, 500, 1200));
-	gui.add(tY.setup("Translate Y", 0, 0, 8400));
+	gui.add(tY.setup("Translate Y", -1380, -2000, 8400));
 	gui.add(tZ.setup("Translate Z", -110, -300, 200));
 	gui.add(x.setup("x", 0, -3000, 3000));
 	gui.add(y.setup("y", 0, -3000, 3000));
@@ -76,7 +96,7 @@ void LaneViewer::draw() {
 	//}
 
 	// 노트들 draw
-
+	note->draw();
 
 	/*
 	for (note::iterator i = notes.notes.begin(); i != notes.notes.end(); i++) 

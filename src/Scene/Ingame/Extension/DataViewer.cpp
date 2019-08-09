@@ -28,6 +28,8 @@ DataViewer::DataViewer(FileSystem* _file) {
 	judgeTextBlock[3].setText("0");
 	albumArt.loadImage("MusicData/Yes or Yes/album.jpg");
 
+	LoadBoxRect();
+
 	//musicNameLabel.setText("MUSIC NAME");
 	//artistNameLabel.setText("ARTIST NAME");
 }
@@ -218,9 +220,7 @@ void DataViewer::setDesign() {
 	levelColorBackgroundMesh.addColor(levelColor[difficult]);
 }
 
-void DataViewer::DrawBoxRect(float x, float y, float w, float h) {
-	ofImage boxLeft, boxRight, boxTop, boxBottom, boxLeftTop, boxRightTop, boxLeftBottom, boxRightBottom;
-
+void DataViewer::LoadBoxRect() {
 	boxLeft.loadImage("Scene/Ingame/DataViewer/boxLeft.png");
 	boxRight.loadImage("Scene/Ingame/DataViewer/boxRight.png");
 	boxTop.loadImage("Scene/Ingame/DataViewer/boxTop.png");
@@ -229,7 +229,9 @@ void DataViewer::DrawBoxRect(float x, float y, float w, float h) {
 	boxRightTop.loadImage("Scene/Ingame/DataViewer/boxRightTop.png");
 	boxLeftBottom.loadImage("Scene/Ingame/DataViewer/boxLeftBottom.png");
 	boxRightBottom.loadImage("Scene/Ingame/DataViewer/boxRightBottom.png");
+}
 
+void DataViewer::DrawBoxRect(float x, float y, float w, float h) {
 	// 색상 덧씌워짐을 방지
 	ofSetColor(255, 255, 255, 255);
 

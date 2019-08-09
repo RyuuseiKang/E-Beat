@@ -35,6 +35,7 @@ public:
 
 private:
 	void setDesign();
+	void LoadBoxRect();
 	void DrawBoxRect(float x, float y, float w, float h);
 
 	//ScrollableTextBlock musicNameLabel;
@@ -101,6 +102,8 @@ private:
 
 	vector<int> albumArtVector;
 	vector<int> albumArtBoxVector;
+
+	ofImage boxLeft, boxRight, boxTop, boxBottom, boxLeftTop, boxRightTop, boxLeftBottom, boxRightBottom;
 };
 
 #endif // __DATA_VIEWER_HPP_

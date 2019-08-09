@@ -67,6 +67,8 @@ private:
 	ofImage normalNote[3];
 	ofImage bonusNote[3];
 
+	ofNote *note;
+
 	note_data notes;
 	meta_data metas;
 
