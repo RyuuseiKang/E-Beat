@@ -108,8 +108,8 @@ void ofNote::setNoteOption(NOTE_TYPE _type) {
 void ofNote::setType(int _type) {
 	noteType = _type;
 
-	colorType[0][0] = ofColor(255, 0, 255, 255);
-	colorType[0][1] = ofColor(255, 255, 0, 255);
+	colorType[0][0] = ofColor(169, 85, 236, 204);
+	colorType[0][1] = ofColor(240, 244, 8, 204);
 	colorType[1][0] = ofColor(0, 0, 0, 255);
 	colorType[1][1] = ofColor(0, 0, 0, 0);
 }
