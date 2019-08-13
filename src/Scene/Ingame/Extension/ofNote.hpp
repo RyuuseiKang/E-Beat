@@ -33,9 +33,9 @@ public:
 	void setNoteOption(NOTE_TYPE _type);
 	void setType(int _type);
 
-	void setNoteLength(const char *_length);
-	void setEndNoteLength(const char *_length);
-	void addNoteLength(const char *_length);
+	void setNoteLength(string _length);
+	void setEndNoteLength(string _length);
+	void addNoteLength(string _length);
 
 	void setPosition(int _pos);
 	void addPosition(int _pos);
@@ -54,6 +54,11 @@ public:
 private:
 	NOTE_TYPE type;
 	ofImage *noteImage[3];
+
+	ofImage *normalNoteImage[3];
+	ofImage *longNoteImage[3];
+	ofImage *slideNoteImage[3];
+
 
 	int length;
 	int endLength;

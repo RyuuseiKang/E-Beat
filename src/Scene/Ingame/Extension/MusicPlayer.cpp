@@ -18,3 +18,7 @@ void MusicPlayer::play() {
 int MusicPlayer::getPositionMS() {
 	return ofSoundPlayer::getPositionMS();
 }
+
+void MusicPlayer::setPositionMS(int _time) {
+	ofSoundPlayer::setPositionMS(_time);
+}

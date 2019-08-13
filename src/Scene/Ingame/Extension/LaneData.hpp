@@ -33,7 +33,7 @@ typedef struct NoteLane {
 } NoteLane;
 
 typedef struct SlideNoteLane {
-	map<string, map<int, map<string, NoteBar>>> lane;
+	map<string, map<int, vector<NoteBar>>> lane;
 } SlideNoteLane;
 
 
@@ -50,6 +50,9 @@ typedef struct Marker {
 class LaneData {
 public: 
 
+	LaneData();
+	~LaneData();
+	
 	void AddBPMList(int _num, double _value);
 
 	void AddBPM(int _bar, int _key);
@@ -63,14 +66,14 @@ public:
 	void SetTBP(int _tbp);
 	void SetHiSpeed(double _hiSpeed);
 
-	void SetNoteImage(ofImage * _image, int type);
-
 	void Process();
 
 	void GenerateNote();
 	vector<ofNote*> GetNoteMap();
 
 	void draw();
+
+	Marker* GetNowMarker(double _syncTime);
 
 private:
 	// @NoteLane noteLane: noteLane.lane[레인번호][마디번호].note[값순서] 
@@ -79,7 +82,7 @@ private:
 	// @NoteLane longNoteLane: longNoteLane.lane[구분번호][마디번호].note[값순서]
 	NoteLane longNoteLane;
 
-	// @NoteLane slideLane: slideLane.lane[구분번호][마디번호][레인번호].note[값순서]
+	// @NoteLane slideLane: slideLane.lane[구분번호][마디번호].at(순번).note[값순서]
 	SlideNoteLane slideLane;
 
 	map<int, double> bpms;
@@ -94,9 +97,10 @@ private:
 	vector<ofNote*> noteMap;
 
 	// 노트 이미지 주소
-	ofImage *normalNoteImage;
-	ofImage *longNoteImage;
-	ofImage *slideNoteImage;
+	ofImage normalNote[3];
+	ofImage bonusNote[3];
+	ofImage longNote[3];
+	ofImage slideNote[3];
 };
 
 #endif  /*  __LANE_DATA_HPP_ */

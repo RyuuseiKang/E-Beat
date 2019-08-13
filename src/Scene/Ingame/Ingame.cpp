@@ -63,6 +63,10 @@ void Ingame::keyPressed(int key) {
 		dataViewer->setDifficult(4); dataViewer->readDesigner();
 	}
 
+	if (key == 'e') {
+		musicPlayer.setPositionMS(0);
+	}
+
 }
 
 void Ingame::keyRelease(int key) {
@@ -81,6 +85,8 @@ void Ingame::readyMusic() {
 	laneViewer = new LaneViewer(file);
 
 	musicPlayer.load(file->getNowMusicData());
+
+	laneViewer->setMusicPlayer(&musicPlayer);
 
 	musicPlayer.play();
 	cout << "Play" << endl;

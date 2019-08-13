@@ -7,6 +7,25 @@
 
 #include "LaneData.hpp"
 
+LaneData::LaneData() {
+	// 일반 노트 이미지
+	for (int i = 0; i < 3; i++)
+		normalNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Normal_0" + to_string(i + 1) + ".png");
+	// 롱 노트 이미지
+	for (int i = 0; i < 3; i++)
+		longNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Long_0" + to_string(i + 1) + ".png");
+	// 슬라이드 노트 이미지
+	for (int i = 0; i < 3; i++)
+		slideNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Slide_0" + to_string(i + 1) + ".png");
+	// 보너스 노트 이미지
+	for (int i = 0; i < 3; i++)
+		bonusNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Bonus_0" + to_string(i + 1) + ".png");
+}
+
+LaneData::~LaneData() {
+
+}
+
 void LaneData::AddBPMList(int _key, double _value) {
 	bpms.insert(make_pair(_key, _value));
 }
@@ -107,7 +126,10 @@ void LaneData::AddSlideNote(int _bar, string _key, string _group, string _value)
 
 		note.push_back(n);
 	}
-	slideLane.lane[_group][_bar][_key].note = note;
+	NoteBar n;
+	n.note = note;
+
+	slideLane.lane[_group][_bar].push_back(n);
 }
 
 void LaneData::SetTBP(int _tbp) {
@@ -116,20 +138,6 @@ void LaneData::SetTBP(int _tbp) {
 
 void LaneData::SetHiSpeed(double _hiSpeed) {
 	hiSpeed = _hiSpeed;
-}
-
-void LaneData::SetNoteImage(ofImage *_image, int type) {
-	switch (type) {
-		case 0:
-			normalNoteImage = _image;
-			break;
-		case 1:
-			longNoteImage = _image;
-			break;
-		case 2:
-			slideNoteImage = _image;
-			break;
-	}
 }
 
 void LaneData::Process() {
@@ -205,7 +213,7 @@ void LaneData::Process() {
 	
 	// 노트 싱크 잡는 작업
 	typedef map<string, map<int, NoteBar>>::iterator noteLaneOutmap;
-	typedef map<string, map<int, map<string, NoteBar>>>::iterator slideNoteLaneOutmap;
+	typedef map<string, map<int, vector<NoteBar>>>::iterator slideLaneOutmap;
 	typedef map<int, NoteBar>::iterator noteBarOutmap;
 	typedef vector<Note*>::iterator noteOutVector;
 
@@ -252,18 +260,20 @@ void LaneData::Process() {
 							// 노트 시작점
 							case '1':
 								note = new ofNote();
-								note->setNoteImage(normalNoteImage, 0);
-								note->setNoteImage(longNoteImage, 1);
-								note->setNoteImage(slideNoteImage, 2);
+								note->setNoteImage(normalNote, 1);
+								note->setNoteImage(longNote, 2);
+								note->setNoteImage(slideNote, 3);
 								noteMap.push_back(note);
 								(*noteIterator)->note = note;
 
 								// 노트 가로넓이
 								(*noteIterator)->note->setNoteLength((*noteIterator)->type.c_str());
 								// X포지션
-								(*noteIterator)->note->setPosition(strtol(noteLaneIterator->first.c_str(), 0, 16));
+								(*noteIterator)->note->setPosition(strtol((*noteIterator)->position.c_str(), 0, 16));
 								// Y포지션
 								(*noteIterator)->note->setYPosition(YPos);
+
+								(*noteIterator)->note->setType(1);
 								break;
 
 							// 노트 끝점
@@ -273,7 +283,7 @@ void LaneData::Process() {
 								// 노트 가로넓이
 								(*noteIterator)->note->setEndNoteLength((*noteIterator)->type.c_str());
 								// X포지션
-								(*noteIterator)->note->setEndPosition(strtol(noteLaneIterator->first.c_str(), 0, 16));
+								(*noteIterator)->note->setEndPosition(strtol((*noteIterator)->position.c_str(), 0, 16));
 								// Y포지션
 								(*noteIterator)->note->setEndYPosition(YPos);
 
@@ -287,7 +297,7 @@ void LaneData::Process() {
 								// 노트 가로넓이
 								(*noteIterator)->note->addNoteLength((*noteIterator)->type.c_str());
 								// X포지션
-								(*noteIterator)->note->addPosition(strtol(noteLaneIterator->first.c_str(), 0, 16));
+								(*noteIterator)->note->addPosition(strtol((*noteIterator)->position.c_str(), 0, 16));
 								// Y포지션
 								(*noteIterator)->note->addYPosition(YPos);
 								break;
@@ -305,13 +315,13 @@ void LaneData::Process() {
 		}
 
 		// 슬라이드 레인 처리
-		for (slideNoteLaneOutmap noteLaneIterator = slideLane.lane.begin(); noteLaneIterator != slideLane.lane.end(); noteLaneIterator++) {
+		for (slideLaneOutmap noteLaneIterator = slideLane.lane.begin(); noteLaneIterator != slideLane.lane.end(); noteLaneIterator++) {
 			markerIterator->first; // 마커의 마디번호
 			noteLaneIterator->first; // 노트의 구분번호
-			for (map<int, map<string, NoteBar>>::iterator laneIterator = noteLaneIterator->second.begin(); laneIterator != noteLaneIterator->second.end(); laneIterator++) {
-				for (map<string, NoteBar>::iterator noteBarIterator = laneIterator->second.begin(); noteBarIterator != laneIterator->second.end(); noteBarIterator++) {
+			for (map<int, vector<NoteBar>>::iterator laneIterator = noteLaneIterator->second.begin(); laneIterator != noteLaneIterator->second.end(); laneIterator++) {
+				for (vector<NoteBar>::iterator slideVectorIterator = laneIterator->second.begin(); slideVectorIterator != laneIterator->second.end(); slideVectorIterator++) {
 					laneIterator->first; // 노트의 마디번호
-					noteBarIterator->second; // note값
+					slideVectorIterator->note; // note값
 
 					// 노트의 마디번호가 더 크면 현재 마커의 마디번호를 갱신
 					while (markerIterator != optionTimeLine.end() && markerIterator->first <= laneIterator->first) {
@@ -329,7 +339,7 @@ void LaneData::Process() {
 					double firstPosition = (laneIterator->first - markerIterator->first) * markerIterator->second->height + markerIterator->second->position;
 
 					// 노트들의 실제 시간 측정
-					NoteBar noteBar = noteBarIterator->second;
+					NoteBar noteBar = *slideVectorIterator;
 					int noteSize = noteBar.note.size();
 					for (noteOutVector noteIterator = noteBar.note.begin(); noteIterator != noteBar.note.end(); noteIterator++) {
 						const char *noteType = (*noteIterator)->type.c_str();
@@ -342,9 +352,9 @@ void LaneData::Process() {
 							// 노트 시작점
 						case '1':
 							note = new ofNote();
-							note->setNoteImage(normalNoteImage, 0);
-							note->setNoteImage(longNoteImage, 1);
-							note->setNoteImage(slideNoteImage, 2);
+							note->setNoteImage(normalNote, 1);
+							note->setNoteImage(longNote, 2);
+							note->setNoteImage(slideNote, 3);
 							noteMap.push_back(note);
 							(*noteIterator)->note = note;
 
@@ -371,6 +381,16 @@ void LaneData::Process() {
 							break;
 
 							// 노트 중간점
+						case '5':
+							(*noteIterator)->note = noteMap.back();
+
+							// 노트 가로넓이
+							(*noteIterator)->note->addNoteLength((*noteIterator)->type.c_str());
+							// X포지션
+							(*noteIterator)->note->addPosition(strtol((*noteIterator)->position.c_str(), 0, 16));
+							// Y포지션
+							(*noteIterator)->note->addYPosition(YPos);
+							break;
 						case '3':
 							(*noteIterator)->note = noteMap.back();
 
@@ -388,7 +408,6 @@ void LaneData::Process() {
 							(*noteIterator)->syncTime = syncTime;
 						}
 					}
-
 				}
 			}
 			
@@ -417,4 +436,19 @@ void LaneData::draw() {
 	for (vector<ofNote*>::iterator noteMapIterator = noteMap.begin(); noteMapIterator != noteMap.end(); noteMapIterator++) {
 		(*noteMapIterator)->draw();
 	}
+}
+
+Marker* LaneData::GetNowMarker(double _syncTime) {
+	Marker* m;
+	typedef map<int, Marker*>::iterator markerOutmap;
+	for (markerOutmap markerIterator = optionTimeLine.begin(); markerIterator != optionTimeLine.end(); markerIterator++) {
+		if (markerIterator->second->syncTime <= _syncTime) {
+			m = markerIterator->second;
+		}
+		else {
+			break;
+		}
+	}
+	
+	return m;
 }

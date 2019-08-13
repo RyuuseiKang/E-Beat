@@ -17,6 +17,7 @@ public:
 	void load(string _path);
 	void play();
 	int getPositionMS();
+	void setPositionMS(int _time);
 	
 private:
 	

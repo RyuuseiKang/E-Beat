@@ -90,11 +90,6 @@ void Parser::Parse() {
 
 	// 여기서 파싱 끝
 
-	// 레인에 작성될 노트 생성
-	laneData->GenerateNote();
-
-	//noteData;
-	//metaData;
 
 }
 

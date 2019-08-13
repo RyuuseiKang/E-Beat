@@ -34,7 +34,9 @@ public:
 private:
 	void GenerateNote();
 
-	double GetCurrentScrollPosition(Marker _marker, double _nowSyncTime, double _hiSpeed);
+	double GetCurrentScrollPosition(Marker* _marker, double _nowSyncTime, double _hiSpeed);
+
+	Marker* GetNowMarker();
 	
 	ofxPanel gui;
 
@@ -56,6 +58,9 @@ private:
 	ofxFloatSlider h;
 	ofxFloatSlider tilt;
 
+	const double yPosition = 880;
+	double laneY = 0;
+
 	ofMesh airNote;
 	ofPath airNotePath;
 	ofFbo fbo;
@@ -63,11 +68,6 @@ private:
 
 	int n;
 	int k;
-
-	ofImage normalNote[3];
-	ofImage bonusNote[3];
-	ofImage longNote[3];
-	ofImage slideNote[3];
 
 	ofNote *note;
 
@@ -81,7 +81,7 @@ private:
 
 	string filePath;
 
-	double hiSpeed = 1; // 사용자 설정 속도 받아서 입력 필요
+	double hiSpeed = 0.3; // 사용자 설정 속도 받아서 입력 필요
 	vector<ofNote*> noteMap; // 노트맵
 };
 

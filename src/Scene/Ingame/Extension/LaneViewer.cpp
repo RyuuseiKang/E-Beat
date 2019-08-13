@@ -19,24 +19,6 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 	// 레인 데이터 생성
 	laneData = new LaneData();
 
-
-	// 일반 노트 이미지
-	for (int i = 0; i < 3; i++)
-		normalNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Normal_0" + to_string(i + 1) + ".png");
-	// 롱 노트 이미지
-	// for (int i = 0; i < 3; i++)
-	// 	longNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Long_0" + to_string(i + 1) + ".png");
-	// // 슬라이드 노트 이미지
-	// for (int i = 0; i < 3; i++)
-	// 	slideNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Slide_0" + to_string(i + 1) + ".png");
-	// // 보너스 노트 이미지
-	// for (int i = 0; i < 3; i++)
-	// 	bonusNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Bonus_0" + to_string(i + 1) + ".png");
-
-	laneData->SetNoteImage(normalNote, 0);
-	//laneData->SetNoteImage(longNote, 1);
-	//laneData->SetNoteImage(slideNote, 2);
-
 	// 파서 생성
 	parser = new Parser(filePath + _file->getNowMusicDifficulty() + ".sus", laneData);
 
@@ -45,7 +27,7 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 	gui.add(rY.setup("Rotate Y", 0, -100, 100));
 	gui.add(rZ.setup("Rotate Z", 165, -360, 360));
 	gui.add(tX.setup("Translate X", 846, 500, 1200));
-	gui.add(tY.setup("Translate Y", -1380, -2000, 8400));
+	gui.add(tY.setup("Translate Y", 966, -10000, 18400));
 	gui.add(tZ.setup("Translate Z", -110, -300, 200));
 	gui.add(x.setup("x", 0, -3000, 3000));
 	gui.add(y.setup("y", 0, -3000, 3000));
@@ -67,14 +49,15 @@ LaneViewer::~LaneViewer() {
 
 void LaneViewer::update() {
 	// 여기서 레인 갱신
-	//tY = GetCurrentScrollPosition(NULL, player->getPositionMS(), hiSpeed);
+	laneY = GetCurrentScrollPosition(GetNowMarker(), player->getPositionMS(), hiSpeed) + yPosition;
+	cout << "nowLaneY: " << laneY << endl;
 }
 
 int slider = 0;
 void LaneViewer::draw() {
 	ofPushMatrix();
 	ofRotateX(rX);
-	ofTranslate(tX, tY, tZ);
+	ofTranslate(tX, laneY, tZ);
 
 	slider += 2;
 
@@ -83,7 +66,7 @@ void LaneViewer::draw() {
 	// 여기서 키프레스 표시
 
 	// 노트 그리는 곳
-	//laneData->draw();
+	laneData->draw();
 	
 	ofRotateX(rX - (rX * 2));
 	ofRotateY(rY);
@@ -92,7 +75,7 @@ void LaneViewer::draw() {
 	//texturePtr[k].draw(0, 0);
 	ofPopMatrix();
 
-	gui.draw();
+	//gui.draw();
 }
 
 void LaneViewer::setMusicPlayer(MusicPlayer* _musicPlayer) {
@@ -116,14 +99,18 @@ void LaneViewer::GenerateNote() {
 }
 
 // 노래의 현재 시각과 현재 읽어들이는 Marker로 레인의 포지션 구하는 함수
-double LaneViewer::GetCurrentScrollPosition(Marker _marker, double _nowSyncTime, double _hiSpeed) {
-	Marker m = _marker;
+double LaneViewer::GetCurrentScrollPosition(Marker* _marker, double _nowSyncTime, double _hiSpeed) {
+	Marker* m = _marker;
 
 	// 마디 한개의 총 시간
-	double barTime = 60000 / m.bpm * m.barBeat;
-	double nowPosition = ((_nowSyncTime - m.syncTime) / barTime * m.height + m.position) * _hiSpeed;
+	double barTime = 60000 / m->bpm * m->barBeat;
+	double nowPosition = ((_nowSyncTime - m->syncTime) / barTime * m->height + m->position) * _hiSpeed;
 
 	return nowPosition;
+}
+
+Marker* LaneViewer::GetNowMarker() {
+	return laneData->GetNowMarker(player->getPositionMS());
 }
 
 /*
