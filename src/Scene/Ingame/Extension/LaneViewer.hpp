@@ -66,6 +66,8 @@ private:
 
 	ofImage normalNote[3];
 	ofImage bonusNote[3];
+	ofImage longNote[3];
+	ofImage slideNote[3];
 
 	ofNote *note;
 
@@ -78,6 +80,9 @@ private:
 	MusicPlayer* player;
 
 	string filePath;
+
+	double hiSpeed = 1; // 사용자 설정 속도 받아서 입력 필요
+	vector<ofNote*> noteMap; // 노트맵
 };
 
 #endif // __LANE_VIEWER_HPP_

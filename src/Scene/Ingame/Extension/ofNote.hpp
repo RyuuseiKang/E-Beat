@@ -27,7 +27,7 @@ public:
 	void update();
 	void draw();
 
-	void setNoteImage(ofImage *img);
+	void setNoteImage(ofImage *img, int _type);
 	void setOriginData(string noteData);
 
 	void setNoteOption(NOTE_TYPE _type);
@@ -44,6 +44,8 @@ public:
 	void setYPosition(int _y);
 	void addYPosition(int _y);
 	void setEndYPosition(int _endY);
+
+	void setHiSpeed(double _hiSpeed);
 
 	void hide();
 
@@ -73,11 +75,13 @@ private:
 
 	int noteType = 1;
 
+	double hiSpeed = 1.0;
+
 	vector<pair<ofMesh, ofMesh>> meshVector;
 
 	ofColor colorType[2][2];
 
-	void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<int, int> _noteLength);
+	void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<int, int> _noteLength, int _noteType);
 
 };
 

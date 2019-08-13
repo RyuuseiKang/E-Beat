@@ -59,7 +59,7 @@ void ofNote::draw() {
 	//cout << "x: " << notePos << ", y: " << y << endl;
 }
 
-void ofNote::setNoteImage(ofImage *img) {
+void ofNote::setNoteImage(ofImage *img, int _type) {
 	noteImage[0] = &img[0];
 	noteImage[1] = &img[1];
 	noteImage[2] = &img[2];
@@ -98,7 +98,9 @@ void ofNote::setEndNoteLength(const char *_length) {
 
 void ofNote::addNoteLength(const char *_length) {
 	if (_length[1] >= 'a') middleLength.push_back(10 + 97 - _length[1]);
-	else middleLength.push_back(atoi(&_length[1]));
+	//else middleLength.push_back(atoi(&_length[1]));
+
+	middleLength.push_back(4);
 }
 
 void ofNote::setNoteOption(NOTE_TYPE _type) {
@@ -108,10 +110,10 @@ void ofNote::setNoteOption(NOTE_TYPE _type) {
 void ofNote::setType(int _type) {
 	noteType = _type;
 
-	colorType[0][0] = ofColor(169, 85, 236, 204);
-	colorType[0][1] = ofColor(240, 244, 8, 204);
-	colorType[1][0] = ofColor(0, 0, 0, 255);
-	colorType[1][1] = ofColor(0, 0, 0, 0);
+	colorType[0][0] = ofColor(169, 85, 236, 216);
+	colorType[0][1] = ofColor(240, 244, 8, 216);
+	colorType[1][0] = ofColor(169, 85, 236, 216);
+	colorType[1][1] = ofColor(14, 228, 245, 216);
 }
 
 void ofNote::setPosition(int _pos) {
@@ -139,6 +141,13 @@ void ofNote::setEndYPosition(int _endY) {
 	endY = _endY;
 }
 
+void ofNote::setHiSpeed(double _hiSpeed) {
+	hiSpeed = _hiSpeed;
+
+	y = y * hiSpeed;
+	endY = y * hiSpeed;
+}
+
 void ofNote::hide() {
 	isVisible = false;
 }
@@ -157,43 +166,46 @@ void ofNote::Make() {
 			position = make_pair(make_pair(position.first.first, middlePos[i]), make_pair(position.second.first, middleY[i]));
 			noteLength = make_pair(noteLength.first, middleLength[i]);
 
-			addMesh(position, noteLength);
+			addMesh(position, noteLength, noteType);
+
+			position = make_pair(make_pair(position.first.second, NULL), make_pair(position.second.second, NULL));
+			noteLength = make_pair(noteLength.second, NULL);
 		}
 
 		position = make_pair(make_pair(position.first.first, endPos), make_pair(position.second.first, endY));
 		noteLength = make_pair(noteLength.first, endLength);
 
-		addMesh(position, noteLength);
+		addMesh(position, noteLength, noteType);
 	}
 }
 
-void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<int, int> _noteLength) {
+void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<int, int> _noteLength, int _noteType) {
 	// x, y to x, y
-	pair<pair<double, double>, pair<double, double>> firstPosition = make_pair(make_pair((_position.first.first * noteWidth), _position.second.first + (noteHeight / 2)), make_pair((_position.first.first * noteWidth) + (noteWidth * _noteLength.first), _position.second.first + (noteHeight / 2)));
-	pair<pair<double, double>, pair<double, double>> endPosition = make_pair(make_pair((_position.first.second * noteWidth), _position.second.second + (noteHeight / 2)), make_pair((_position.first.second * noteWidth) + (noteWidth * _noteLength.second), _position.second.second + (noteHeight / 2)));
+	pair<pair<double, double>, pair<double, double>> firstPosition = make_pair(make_pair((_position.first.first * noteWidth), (_position.second.first + (noteHeight / 2)) * hiSpeed), make_pair((_position.first.first * noteWidth) + (noteWidth * _noteLength.first), (_position.second.first + (noteHeight / 2)) * hiSpeed));
+	pair<pair<double, double>, pair<double, double>> endPosition = make_pair(make_pair((_position.first.second * noteWidth), (_position.second.second + (noteHeight / 2)) * hiSpeed), make_pair((_position.first.second * noteWidth) + (noteWidth * _noteLength.second), (_position.second.second + (noteHeight / 2)) * hiSpeed));
 	
 	pair<pair<double, double>, pair<double, double>> middlePosition = make_pair(make_pair((firstPosition.first.first + endPosition.first.first) / 2, (firstPosition.first.second + endPosition.first.second) / 2), make_pair((firstPosition.second.first + endPosition.second.first) / 2, (firstPosition.second.second + endPosition.second.second) / 2));
 	
 	ofMesh mesh[2];
 	mesh[0].setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
 	mesh[0].addVertex(ofPoint(firstPosition.first.first, firstPosition.first.second));
-	mesh[0].addColor(colorType[0][0]);
+	mesh[0].addColor(colorType[_noteType - 2][0]);
 	mesh[0].addVertex(ofPoint(firstPosition.second.first, firstPosition.second.second));
-	mesh[0].addColor(colorType[0][0]);
+	mesh[0].addColor(colorType[_noteType - 1][0]);
 	mesh[0].addVertex(ofPoint(middlePosition.first.first, middlePosition.first.second));
-	mesh[0].addColor(colorType[0][1]);
+	mesh[0].addColor(colorType[_noteType - 1][1]);
 	mesh[0].addVertex(ofPoint(middlePosition.second.first, middlePosition.second.second));
-	mesh[0].addColor(colorType[0][1]);
+	mesh[0].addColor(colorType[_noteType - 1][1]);
 
 	mesh[1].setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
 	mesh[1].addVertex(ofPoint(endPosition.first.first, endPosition.first.second));
-	mesh[1].addColor(colorType[0][0]);
+	mesh[1].addColor(colorType[_noteType - 1][0]);
 	mesh[1].addVertex(ofPoint(endPosition.second.first, endPosition.second.second));
-	mesh[1].addColor(colorType[0][0]);
+	mesh[1].addColor(colorType[_noteType - 1][0]);
 	mesh[1].addVertex(ofPoint(middlePosition.first.first, middlePosition.first.second));
-	mesh[1].addColor(colorType[0][1]);
+	mesh[1].addColor(colorType[_noteType - 1][1]);
 	mesh[1].addVertex(ofPoint(middlePosition.second.first, middlePosition.second.second));
-	mesh[1].addColor(colorType[0][1]);
+	mesh[1].addColor(colorType[_noteType - 1][1]);
 
 	meshVector.push_back(make_pair(mesh[0], mesh[1]));
 }

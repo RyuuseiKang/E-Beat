@@ -63,9 +63,14 @@ public:
 	void SetTBP(int _tbp);
 	void SetHiSpeed(double _hiSpeed);
 
+	void SetNoteImage(ofImage * _image, int type);
+
 	void Process();
 
 	void GenerateNote();
+	vector<ofNote*> GetNoteMap();
+
+	void draw();
 
 private:
 	// @NoteLane noteLane: noteLane.lane[레인번호][마디번호].note[값순서] 
@@ -87,6 +92,11 @@ private:
 
 	// 노트들의 벡터맵
 	vector<ofNote*> noteMap;
+
+	// 노트 이미지 주소
+	ofImage *normalNoteImage;
+	ofImage *longNoteImage;
+	ofImage *slideNoteImage;
 };
 
 #endif  /*  __LANE_DATA_HPP_ */

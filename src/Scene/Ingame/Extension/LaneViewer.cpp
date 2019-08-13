@@ -19,34 +19,26 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 	// 레인 데이터 생성
 	laneData = new LaneData();
 
-	// 파서 생성
-	parser = new Parser(filePath + _file->getNowMusicDifficulty() + ".sus", laneData);
 
+	// 일반 노트 이미지
 	for (int i = 0; i < 3; i++)
 		normalNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Normal_0" + to_string(i + 1) + ".png");
+	// 롱 노트 이미지
+	// for (int i = 0; i < 3; i++)
+	// 	longNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Long_0" + to_string(i + 1) + ".png");
+	// // 슬라이드 노트 이미지
+	// for (int i = 0; i < 3; i++)
+	// 	slideNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Slide_0" + to_string(i + 1) + ".png");
+	// // 보너스 노트 이미지
+	// for (int i = 0; i < 3; i++)
+	// 	bonusNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Bonus_0" + to_string(i + 1) + ".png");
 
-	// 노트 임시 설정
-	note = new ofNote;
-	note->setNoteImage(normalNote);
+	laneData->SetNoteImage(normalNote, 0);
+	//laneData->SetNoteImage(longNote, 1);
+	//laneData->SetNoteImage(slideNote, 2);
 
-	note->setType(2);
-
-	char *length = new char('4 ');
-	note->setNoteLength(length);
-	note->setEndNoteLength(length);
-
-	note->setPosition(0);
-	note->setEndPosition(0);
-
-	note->setYPosition(1500);
-	note->setEndYPosition(1800);
-
-	note->Make();
-
-	// 여기까지 노트 테스트
-
-	for (int i = 0; i < 3; i++)
-		bonusNote[i].loadImage("Scene/Ingame/LaneViewer/Note/Bonus_0" + to_string(i + 1) + ".png");
+	// 파서 생성
+	parser = new Parser(filePath + _file->getNowMusicDifficulty() + ".sus", laneData);
 
 	gui.setup();
 	gui.add(rX.setup("Rotate X", 56.6, -100, 100));
@@ -66,8 +58,6 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 
 	// 여기서부터 노트 생성
 	GenerateNote();
-
-
 }
 
 LaneViewer::~LaneViewer() {
@@ -77,6 +67,7 @@ LaneViewer::~LaneViewer() {
 
 void LaneViewer::update() {
 	// 여기서 레인 갱신
+	//tY = GetCurrentScrollPosition(NULL, player->getPositionMS(), hiSpeed);
 }
 
 int slider = 0;
@@ -89,45 +80,11 @@ void LaneViewer::draw() {
 
 	ofSetColor(255, 255, 255, 255);
 
-	//for (int i = 0; i < 4; i++) {
-	//	for (int j = 0; j < notes[i].size(); j++) {
-	//		notes[i].at(j).draw();
-	//	}
-	//}
+	// 여기서 키프레스 표시
 
-	// 노트들 draw
-	note->draw();
-
-	/*
-	for (note::iterator i = notes.notes.begin(); i != notes.notes.end(); i++) 
-		for (int j = 0; j < noteMap[i->first]->size(); j++) {
-			noteMap[i->first]->at(j).draw();
-		}
+	// 노트 그리는 곳
+	//laneData->draw();
 	
-
-		_ofNote->setPosition(0);
-		_ofNote->setNoteLength(4);
-		_ofNote->draw(x, y);
-
-		_ofNote->setPosition(4);
-		_ofNote->setNoteLength(4);
-		_ofNote->draw(x, y - 50);
-
-		_ofNote->setPosition(8);
-		_ofNote->setNoteLength(4);
-		_ofNote->draw(x, y - 120);
-
-		_ofNote->setPosition(12);
-		_ofNote->setNoteLength(4);
-		_ofNote->draw(x, y - 90);
-
-		_ofNote->setPosition(8);
-		_ofNote->setNoteLength(4);
-		_ofNote->draw(x, y - 90);
-		*/
-
-	//ofDrawRectangle(x, y, w, -700);
-
 	ofRotateX(rX - (rX * 2));
 	ofRotateY(rY);
 	ofRotateX(rZ);
@@ -150,13 +107,15 @@ void LaneViewer::GenerateNote() {
 	// 메타데이터 얻어옴
 	metas = parser->getMetaData();
 
-	double hiSpeed = 1; // 사용자 설정 속도 받아서 입력 필요
 	// 하이스피드 설정
 	laneData->SetHiSpeed(hiSpeed);
+	laneData->GenerateNote();
+
+	noteMap = laneData->GetNoteMap();
 
 }
 
-// 노래	의 현재 시각과 현재 읽어들이는 Marker로 레인의 포지션 구하는 함수
+// 노래의 현재 시각과 현재 읽어들이는 Marker로 레인의 포지션 구하는 함수
 double LaneViewer::GetCurrentScrollPosition(Marker _marker, double _nowSyncTime, double _hiSpeed) {
 	Marker m = _marker;
 

@@ -118,6 +118,20 @@ void LaneData::SetHiSpeed(double _hiSpeed) {
 	hiSpeed = _hiSpeed;
 }
 
+void LaneData::SetNoteImage(ofImage *_image, int type) {
+	switch (type) {
+		case 0:
+			normalNoteImage = _image;
+			break;
+		case 1:
+			longNoteImage = _image;
+			break;
+		case 2:
+			slideNoteImage = _image;
+			break;
+	}
+}
+
 void LaneData::Process() {
 	// 여기서 노트 데이터 시간을 계산해서 추가
 
@@ -238,6 +252,9 @@ void LaneData::Process() {
 							// 노트 시작점
 							case '1':
 								note = new ofNote();
+								note->setNoteImage(normalNoteImage, 0);
+								note->setNoteImage(longNoteImage, 1);
+								note->setNoteImage(slideNoteImage, 2);
 								noteMap.push_back(note);
 								(*noteIterator)->note = note;
 
@@ -325,6 +342,9 @@ void LaneData::Process() {
 							// 노트 시작점
 						case '1':
 							note = new ofNote();
+							note->setNoteImage(normalNoteImage, 0);
+							note->setNoteImage(longNoteImage, 1);
+							note->setNoteImage(slideNoteImage, 2);
 							noteMap.push_back(note);
 							(*noteIterator)->note = note;
 
@@ -377,28 +397,24 @@ void LaneData::Process() {
 		break;
 	}
 
-	// ofNote 마지막 작업
-	typedef vector<ofNote*>::iterator noteMapOutMap;
-	for (vector<ofNote*>::iterator noteMapIterator = noteMap.begin(); noteMapIterator != noteMap.end(); noteMapIterator++) {
-		//(*noteMapIterator)->Make();
-	}
-
 }
 
 void LaneData::GenerateNote() {
-	typedef map<int, Marker*>::iterator markerOutmap;
-	typedef map<string, map<int, NoteBar>>::iterator noteLaneOutmap;
-	typedef map<string, map<int, map<string, NoteBar>>>::iterator slideNoteLaneOutmap;
-	typedef map<int, NoteBar>::iterator noteBarOutmap;
-	typedef vector<Note*>::iterator noteOutVector;
+	// ofNote 마지막 작업
+	typedef vector<ofNote*>::iterator noteMapOutMap;
+	for (vector<ofNote*>::iterator noteMapIterator = noteMap.begin(); noteMapIterator != noteMap.end(); noteMapIterator++) {
+		(*noteMapIterator)->setHiSpeed(hiSpeed);
+		(*noteMapIterator)->Make();
+	}
+}
 
-	for (markerOutmap markerIterator = optionTimeLine.begin(); markerIterator != optionTimeLine.end(); ++markerIterator) {
-		for (noteLaneOutmap noteLaneIterator = noteLane.lane.begin(); noteLaneIterator != noteLane.lane.end(); ++noteLaneIterator) {
-			markerIterator->first; // 마커의 마디번호
-			noteLaneIterator->first; // 노트의 구분번호
+vector<ofNote*> LaneData::GetNoteMap() {
+	return noteMap;
+}
 
-
-		}
-
+void LaneData::draw() {
+	typedef vector<ofNote*>::iterator noteMapOutMap;
+	for (vector<ofNote*>::iterator noteMapIterator = noteMap.begin(); noteMapIterator != noteMap.end(); noteMapIterator++) {
+		(*noteMapIterator)->draw();
 	}
 }
