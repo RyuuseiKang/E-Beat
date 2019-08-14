@@ -186,19 +186,27 @@ void ofNote::Make() {
 	position = make_pair(make_pair(pos, NULL), make_pair(y, NULL));
 	noteLength = make_pair(length, NULL);
 
+	// Y, Pos, Length
+	map<double, tuple<int, int>, std::greater<double>> middleTuple;
+	// 튜플 만들기
+	for (int i = 0; i < middleLength.size(); i++) {
+		//  middleY[i] * hiSpeed, middlePos[i], middleLength[i]
+		middleTuple[middleY[i] * hiSpeed] = make_pair(middlePos[i], middleLength[i]);
+	}
+
 	// 첫 y포지션: y
 	// 첫 x포지션: pos * noteWidth
 	if (noteType >= 2) {
-		for (int i = 0; i < middleLength.size(); i++) {
-			position = make_pair(make_pair(position.first.first, middlePos[i]), make_pair(position.second.first, middleY[i] * hiSpeed));
-			noteLength = make_pair(noteLength.first, middleLength[i]);
+		for (auto const& mid : middleTuple) {
+			position = make_pair(make_pair(position.first.first, get<0>(mid.second)), make_pair(position.second.first, mid.first));
+			noteLength = make_pair(noteLength.first, get<1>(mid.second));
 
 			addMesh(position, noteLength, noteType);
 
-			position = make_pair(make_pair(middlePos[i], NULL), make_pair(middleY[i] * hiSpeed, NULL));
-			noteLength = make_pair(middleLength[i], NULL);
+			position = make_pair(make_pair(get<0>(mid.second), NULL), make_pair(mid.first, NULL));
+			noteLength = make_pair(get<1>(mid.second), NULL);
 		}
-
+		
 		position = make_pair(make_pair(position.first.first, endPos), make_pair(position.second.first, endY));
 		noteLength = make_pair(noteLength.first, endLength);
 
