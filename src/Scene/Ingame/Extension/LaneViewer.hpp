@@ -58,8 +58,9 @@ private:
 	ofxFloatSlider h;
 	ofxFloatSlider tilt;
 
-	const double yPosition = 880;
+	const double yPosition = 965;
 	double laneY = 0;
+	double wavOffset = 0;
 
 	ofMesh airNote;
 	ofPath airNotePath;

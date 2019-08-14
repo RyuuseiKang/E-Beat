@@ -49,7 +49,7 @@ LaneViewer::~LaneViewer() {
 
 void LaneViewer::update() {
 	// 여기서 레인 갱신
-	laneY = GetCurrentScrollPosition(GetNowMarker(), player->getPositionMS(), hiSpeed) + yPosition;
+	laneY = GetCurrentScrollPosition(GetNowMarker(), player->getPositionMS() - wavOffset, hiSpeed) + yPosition;
 	cout << "nowLaneY: " << laneY << endl;
 }
 
@@ -90,6 +90,9 @@ void LaneViewer::GenerateNote() {
 	// 메타데이터 얻어옴
 	metas = parser->getMetaData();
 
+	wavOffset = metas.WAVEOFFSET * 1000;
+	cout << "wavOffset: " << wavOffset << endl;
+
 	// 하이스피드 설정
 	laneData->SetHiSpeed(hiSpeed);
 	laneData->GenerateNote();
@@ -110,7 +113,7 @@ double LaneViewer::GetCurrentScrollPosition(Marker* _marker, double _nowSyncTime
 }
 
 Marker* LaneViewer::GetNowMarker() {
-	return laneData->GetNowMarker(player->getPositionMS());
+	return laneData->GetNowMarker(player->getPositionMS() - wavOffset);
 }
 
 /*
