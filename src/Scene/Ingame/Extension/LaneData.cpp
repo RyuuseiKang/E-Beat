@@ -450,5 +450,8 @@ Marker* LaneData::GetNowMarker(double _syncTime) {
 		}
 	}
 	
-	return m;
+	if (m != NULL)
+		return m;
+	else
+		return NULL;
 }
