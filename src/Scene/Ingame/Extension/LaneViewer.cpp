@@ -53,17 +53,17 @@ void LaneViewer::update() {
 	cout << "nowLaneY: " << laneY << endl;
 }
 
-int slider = 0;
 void LaneViewer::draw() {
 	ofPushMatrix();
 	ofRotateX(rX);
-	ofTranslate(tX, laneY, tZ);
-
-	slider += 2;
-
+	ofTranslate(tX, 0, tZ);
+	
 	ofSetColor(255, 255, 255, 255);
 
 	// 여기서 키프레스 표시
+
+
+	ofTranslate(0, laneY, 0);
 
 	// 노트 그리는 곳
 	laneData->draw();
@@ -104,6 +104,9 @@ void LaneViewer::GenerateNote() {
 // 노래의 현재 시각과 현재 읽어들이는 Marker로 레인의 포지션 구하는 함수
 double LaneViewer::GetCurrentScrollPosition(Marker* _marker, double _nowSyncTime, double _hiSpeed) {
 	Marker* m = _marker;
+
+	if (_nowSyncTime <= 0)
+		return 0;
 
 	// 마디 한개의 총 시간
 	double barTime = 60000 / m->bpm * m->barBeat;

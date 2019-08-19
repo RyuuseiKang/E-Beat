@@ -86,7 +86,7 @@ private:
 
 	ofColor colorType[2][2];
 
-	void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<int, int> _noteLength, int _noteType);
+	void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<int, int> _noteLength, int _noteType, bool _isStart, bool _isEnd);
 
 };
 

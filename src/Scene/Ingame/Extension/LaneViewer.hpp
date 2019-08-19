@@ -15,6 +15,7 @@
 #include "../Extension/FileSystem.hpp"
 #include "Extension/Parser.hpp"
 #include "Extension/LaneData.hpp"
+#include "LaneKeyBeam.hpp"
 #include "MusicPlayer.hpp"
 #include "ofNote.hpp"
 

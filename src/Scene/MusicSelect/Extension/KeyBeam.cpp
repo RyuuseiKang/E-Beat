@@ -28,7 +28,7 @@ void KeyBeam::update() {
 
 void KeyBeam::draw() {
 	//ofEnableAlphaBlending();
-	if(isActive) {
+	if (isActive) {
 		ofSetColor(255, 255, 255, alpha);
 		ofImage::draw(x, y);
 	}
@@ -43,7 +43,7 @@ void KeyBeam::setPosition(float _x, float _y) {
 }
 
 void KeyBeam::setCount(int num) {
-	this->setPosition((1920 / 2 - 319 - 319) + (319 * num) , 1080 - 136);
+	this->setPosition((1920 / 2 - 319 - 319) + (319 * num), 1080 - 136);
 }
 
 bool KeyBeam::setColor(string color) {

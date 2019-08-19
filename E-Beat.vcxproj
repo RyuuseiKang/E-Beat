@@ -180,7 +180,6 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ofBar.cpp" />
     <ClCompile Include="src\Extension\Parser.cpp" />
     <ClCompile Include="src\Extension\ScrollableTextBlock.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -192,6 +191,7 @@
     <ClCompile Include="src\Scene\EntryScene.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\DataViewer.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\LaneData.cpp" />
+    <ClCompile Include="src\Scene\Ingame\Extension\LaneKeyBeam.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\LaneViewer.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\MusicPlayer.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\ofNote.cpp" />
@@ -216,7 +216,6 @@
     <ClCompile Include="src\Scene\MusicSelect\OptionList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ofBar.hpp" />
     <ClInclude Include="src\Extension\MusicMetaData.hpp" />
     <ClInclude Include="src\Extension\Parser.hpp" />
     <ClInclude Include="src\Extension\ScrollableTextBlock.hpp" />
@@ -230,6 +229,7 @@
     <ClInclude Include="src\Scene\EntryScene.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\DataViewer.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\LaneData.hpp" />
+    <ClInclude Include="src\Scene\Ingame\Extension\LaneKeyBeam.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\LaneViewer.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\MusicPlayer.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\ofNote.hpp" />

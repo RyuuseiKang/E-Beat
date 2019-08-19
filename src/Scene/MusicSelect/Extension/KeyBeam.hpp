@@ -18,7 +18,7 @@ public:
 
 	void update();
 	void draw();
-	
+
 	void setCount(int num);
 	bool setColor(string color);
 	void Active();

@@ -138,9 +138,9 @@ void ofNote::setType(int _type) {
 
 	}
 
-	colorType[0][0] = ofColor(169, 85, 236, 216);
+	colorType[0][0] = ofColor(169, 85, 236, 216); // 끝 또는 시작
 	colorType[0][1] = ofColor(240, 244, 8, 216);
-	colorType[1][0] = ofColor(169, 85, 236, 216);
+	colorType[1][0] = ofColor(169, 85, 236, 216); // 끝 또는 시작
 	colorType[1][1] = ofColor(14, 228, 245, 216);
 }
 
@@ -186,6 +186,8 @@ void ofNote::Make() {
 	position = make_pair(make_pair(pos, NULL), make_pair(y, NULL));
 	noteLength = make_pair(length, NULL);
 
+	bool isStart = true;
+
 	// Y, Pos, Length
 	map<double, tuple<int, int>, std::greater<double>> middleTuple;
 	// 튜플 만들기
@@ -201,7 +203,8 @@ void ofNote::Make() {
 			position = make_pair(make_pair(position.first.first, get<0>(mid.second)), make_pair(position.second.first, mid.first));
 			noteLength = make_pair(noteLength.first, get<1>(mid.second));
 
-			addMesh(position, noteLength, noteType);
+			addMesh(position, noteLength, noteType, isStart, false);
+			isStart = false;
 
 			position = make_pair(make_pair(get<0>(mid.second), NULL), make_pair(mid.first, NULL));
 			noteLength = make_pair(get<1>(mid.second), NULL);
@@ -210,11 +213,11 @@ void ofNote::Make() {
 		position = make_pair(make_pair(position.first.first, endPos), make_pair(position.second.first, endY));
 		noteLength = make_pair(noteLength.first, endLength);
 
-		addMesh(position, noteLength, noteType);
+		addMesh(position, noteLength, noteType, isStart, true);
 	}
 }
 
-void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<int, int> _noteLength, int _noteType) {
+void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<int, int> _noteLength, int _noteType, bool _isStart, bool _isEnd) {
 	// x, y to x, y
 	pair<pair<double, double>, pair<double, double>> firstPosition = make_pair(make_pair((_position.first.first * noteWidth), _position.second.first + (noteHeight / 2)), make_pair((_position.first.first * noteWidth) + (noteWidth * _noteLength.first), _position.second.first + (noteHeight / 2)));
 	pair<pair<double, double>, pair<double, double>> endPosition = make_pair(make_pair((_position.first.second * noteWidth), _position.second.second + (noteHeight / 2)), make_pair((_position.first.second * noteWidth) + (noteWidth * _noteLength.second), _position.second.second + (noteHeight / 2)));
@@ -224,9 +227,9 @@ void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<
 	ofMesh mesh[2];
 	mesh[0].setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
 	mesh[0].addVertex(ofPoint(firstPosition.first.first, firstPosition.first.second));
-	mesh[0].addColor(colorType[_noteType - 2][0]);
+	mesh[0].addColor(colorType[_noteType - 2][(_isStart) ? 0 : 1]);
 	mesh[0].addVertex(ofPoint(firstPosition.second.first, firstPosition.second.second));
-	mesh[0].addColor(colorType[_noteType - 2][0]);
+	mesh[0].addColor(colorType[_noteType - 2][(_isStart) ? 0 : 1]);
 	mesh[0].addVertex(ofPoint(middlePosition.first.first, middlePosition.first.second));
 	mesh[0].addColor(colorType[_noteType - 2][1]);
 	mesh[0].addVertex(ofPoint(middlePosition.second.first, middlePosition.second.second));
@@ -234,9 +237,9 @@ void ofNote::addMesh(pair<pair<int, int>, pair<double, double>> _position, pair<
 
 	mesh[1].setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
 	mesh[1].addVertex(ofPoint(endPosition.first.first, endPosition.first.second));
-	mesh[1].addColor(colorType[_noteType - 2][0]);
+	mesh[1].addColor(colorType[_noteType - 2][(_isEnd) ? 0 : 1]);
 	mesh[1].addVertex(ofPoint(endPosition.second.first, endPosition.second.second));
-	mesh[1].addColor(colorType[_noteType - 2][0]);
+	mesh[1].addColor(colorType[_noteType - 2][(_isEnd) ? 0 : 1]);
 	mesh[1].addVertex(ofPoint(middlePosition.first.first, middlePosition.first.second));
 	mesh[1].addColor(colorType[_noteType - 2][1]);
 	mesh[1].addVertex(ofPoint(middlePosition.second.first, middlePosition.second.second));

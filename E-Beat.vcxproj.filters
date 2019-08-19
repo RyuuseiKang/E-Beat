@@ -40,9 +40,6 @@
     <ClCompile Include="src\Scene\Initialize\InitializeScene.cpp">
       <Filter>src\Scene\Initialize</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scene\MusicSelect\Extension\KeyBeam.cpp">
-      <Filter>src\Scene\MusicSelect\Extension</Filter>
-    </ClCompile>
     <ClCompile Include="src\Scene\MusicSelect\Extension\MusicCard.cpp">
       <Filter>src\Scene\MusicSelect\Extension</Filter>
     </ClCompile>
@@ -97,9 +94,6 @@
     <ClCompile Include="src\Extension\Parser.cpp">
       <Filter>src\Extension</Filter>
     </ClCompile>
-    <ClCompile Include="ofBar.cpp">
-      <Filter>src\Scene\Ingame\Extension</Filter>
-    </ClCompile>
     <ClCompile Include="src\Scene\MusicSelect\OptionList.cpp">
       <Filter>src\Scene\MusicSelect</Filter>
     </ClCompile>
@@ -108,6 +102,12 @@
     </ClCompile>
     <ClCompile Include="src\Scene\Ingame\Extension\LaneData.cpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Ingame\Extension\LaneKeyBeam.cpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\MusicSelect\Extension\KeyBeam.cpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,9 +188,6 @@
     <ClInclude Include="src\Scene\Initialize\InitializeScene.hpp">
       <Filter>src\Scene\Initialize</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.hpp">
-      <Filter>src\Scene\MusicSelect\Extension</Filter>
-    </ClInclude>
     <ClInclude Include="src\Scene\MusicSelect\Extension\MusicCard.hpp">
       <Filter>src\Scene\MusicSelect\Extension</Filter>
     </ClInclude>
@@ -251,9 +248,6 @@
     <ClInclude Include="src\Extension\Parser.hpp">
       <Filter>src\Extension</Filter>
     </ClInclude>
-    <ClInclude Include="ofBar.hpp">
-      <Filter>src\Scene\Ingame\Extension</Filter>
-    </ClInclude>
     <ClInclude Include="src\Extension\MusicMetaData.hpp">
       <Filter>src\Extension</Filter>
     </ClInclude>
@@ -265,6 +259,12 @@
     </ClInclude>
     <ClInclude Include="src\Scene\Ingame\Extension\LaneData.hpp">
       <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Ingame\Extension\LaneKeyBeam.hpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.hpp">
+      <Filter>src\Scene\MusicSelect\Extension</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
