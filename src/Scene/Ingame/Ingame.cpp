@@ -24,7 +24,7 @@ Ingame::~Ingame() {
 
 void Ingame::update(bool keys[256]) {
 
-	laneViewer->update();
+	laneViewer->update(keys);
 	dataViewer->update();
 }
 

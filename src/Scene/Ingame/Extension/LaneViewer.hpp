@@ -25,7 +25,7 @@ public:
 	LaneViewer(FileSystem* _file);
 	~LaneViewer();
 
-	void update();
+	void update(bool keys[256]);
 	void draw();
 
 	void play();
@@ -46,6 +46,7 @@ private:
 	Parser *parser;
 	LaneData *laneData;
 	//tapNote tapNotes;
+	LaneKeyBeam *laneKeyBeam;
 
 	ofxFloatSlider rX;
 	ofxFloatSlider rY;

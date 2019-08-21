@@ -15,7 +15,19 @@ public:
 	LaneKeyBeam();
 	~LaneKeyBeam();
 
+	void SetKey(short _key);
 	void draw();
+
+private:
+	const double width = 14.25;
+	const double y = 677;
+
+	void SetAnimation(short _keyNum);
+
+	bool keyPressed[16];
+	char keyAnimation[16];
+
+	ofMesh mesh[16];
 };
 
 #endif // __LANE_KEY_BEAM_HPP_

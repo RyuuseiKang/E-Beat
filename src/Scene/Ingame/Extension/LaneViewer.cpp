@@ -38,6 +38,9 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 	for (int i = 0; i < 8; i++)
 		texturePtr[i].loadImage("Scene/Ingame/LaneViewer/airNote" + to_string(i) + ".png");
 
+	// 키빔
+	laneKeyBeam = new LaneKeyBeam();
+
 	// 여기서부터 노트 생성
 	GenerateNote();
 }
@@ -45,12 +48,29 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 LaneViewer::~LaneViewer() {
 	delete parser;
 	delete laneData;
+
+	delete laneKeyBeam;
 }
 
-void LaneViewer::update() {
+void LaneViewer::update(bool keys[256]) {
 	// 여기서 레인 갱신
 	laneY = GetCurrentScrollPosition(GetNowMarker(), player->getPositionMS() - wavOffset, hiSpeed) + yPosition;
-	cout << "nowLaneY: " << laneY << endl;
+	//cout << "nowLaneY: " << laneY << endl;
+
+	short key = 0;
+	if (keys['d'])
+		key += 15;
+
+	if (keys['f'])
+		key += 240;
+
+	if (keys['j'])
+		key += 3840;
+
+	if (keys['k'])
+		key += 61440;
+
+	laneKeyBeam->SetKey(key);
 }
 
 void LaneViewer::draw() {
@@ -61,7 +81,7 @@ void LaneViewer::draw() {
 	ofSetColor(255, 255, 255, 255);
 
 	// 여기서 키프레스 표시
-
+	laneKeyBeam->draw();
 
 	ofTranslate(0, laneY, 0);
 
