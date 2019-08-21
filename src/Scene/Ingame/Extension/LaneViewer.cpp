@@ -23,12 +23,12 @@ LaneViewer::LaneViewer(FileSystem* _file) {
 	parser = new Parser(filePath + _file->getNowMusicDifficulty() + ".sus", laneData);
 
 	gui.setup();
-	gui.add(rX.setup("Rotate X", 56.6, -100, 100));
+	gui.add(rX.setup("Rotate X", 56.25, 55.5, 57.5));
 	gui.add(rY.setup("Rotate Y", 0, -100, 100));
 	gui.add(rZ.setup("Rotate Z", 165, -360, 360));
-	gui.add(tX.setup("Translate X", 846, 500, 1200));
+	gui.add(tX.setup("Translate X", 846.1, 845.0, 847.0));
 	gui.add(tY.setup("Translate Y", 966, -10000, 18400));
-	gui.add(tZ.setup("Translate Z", -110, -300, 200));
+	gui.add(tZ.setup("Translate Z", -104.503, -95.0, -105.5));
 	gui.add(x.setup("x", 0, -3000, 3000));
 	gui.add(y.setup("y", 0, -3000, 3000));
 	gui.add(w.setup("width", 114, -500, 500));
@@ -95,7 +95,7 @@ void LaneViewer::draw() {
 	//texturePtr[k].draw(0, 0);
 	ofPopMatrix();
 
-	//gui.draw();
+	// gui.draw();
 }
 
 void LaneViewer::setMusicPlayer(MusicPlayer* _musicPlayer) {

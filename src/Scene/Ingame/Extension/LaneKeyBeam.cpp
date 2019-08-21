@@ -62,13 +62,11 @@ void LaneKeyBeam::draw() {
 				double opacity = (255.0 / keyAnimation[i]);
 				// cout << opacity << endl;
 
-				// ofSetColor(0, 0, 0, 20);
-
-				// mesh[i][0].draw();
-				// mesh[i][1].draw();
+				//mesh[i].setColor(mesh[i].getVertices().size(), ofColor(255, 255, 255, opacity));
+				//mesh[i].draw();
 
 				keyAnimation[i]--;
-
+				ofSetColor(255, 255, 255, 255);
 			}
 	}
 }
