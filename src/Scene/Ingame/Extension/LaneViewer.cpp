@@ -54,6 +54,7 @@ LaneViewer::~LaneViewer() {
 
 void LaneViewer::update(bool keys[256]) {
 	// 여기서 레인 갱신
+	double nowMS = player->getPositionMS() - wavOffset; // 현재 ms 위치
 	laneY = GetCurrentScrollPosition(GetNowMarker(), player->getPositionMS() - wavOffset, hiSpeed) + yPosition;
 	//cout << "nowLaneY: " << laneY << endl;
 
