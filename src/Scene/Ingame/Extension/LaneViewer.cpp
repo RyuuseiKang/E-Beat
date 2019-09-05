@@ -140,6 +140,9 @@ Marker* LaneViewer::GetNowMarker() {
 	return laneData->GetNowMarker(player->getPositionMS() - wavOffset);
 }
 
+// 노래 재생 시각 기준 +-500ms의 노트를 모두 읽어와야 함
+// LaneData의 noteMap을 ms단위의 시간을 가지고 정렬시키면 쉽게 판정을 처리할 수 있음
+
 /*
 void LaneViewer::genrateNote() {
 	cout << "noteGen" << endl;
