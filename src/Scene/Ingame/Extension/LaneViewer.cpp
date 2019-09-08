@@ -72,6 +72,9 @@ void LaneViewer::update(bool keys[256]) {
 		key += 61440;
 
 	laneKeyBeam->SetKey(key);
+
+	// 여기서 지나간 노트 맵 삭제
+	// vector 비었으면 맵을 erase(key)로 삭제
 }
 
 void LaneViewer::draw() {
@@ -118,8 +121,8 @@ void LaneViewer::GenerateNote() {
 	laneData->SetHiSpeed(hiSpeed);
 	laneData->GenerateNote();
 
-	noteMap = laneData->GetNoteMap();
-
+	// 노트맵 복사
+	sortedNoteMap = laneData->GetSortedNoteMap();
 }
 
 // 노래의 현재 시각과 현재 읽어들이는 Marker로 레인의 포지션 구하는 함수

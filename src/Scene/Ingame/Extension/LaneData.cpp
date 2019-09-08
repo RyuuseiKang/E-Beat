@@ -306,6 +306,7 @@ void LaneData::Process() {
 						if ((*noteIterator)->type != "00") {
 							double syncTime = (fullyBarTime / noteSize) * dist + firstSyncTime;
 							(*noteIterator)->syncTime = syncTime;
+							(*noteIterator)->note->addSyncTime(syncTime);
 						}
 					}
 
@@ -406,6 +407,9 @@ void LaneData::Process() {
 						if ((*noteIterator)->type != "00") {
 							double syncTime = (fullyBarTime / noteSize) * dist + firstSyncTime;
 							(*noteIterator)->syncTime = syncTime;
+
+							if (noteType[0] == '1')
+								sortedNoteMap[syncTime].push_back((*noteIterator)->note);
 						}
 					}
 				}
@@ -425,10 +429,15 @@ void LaneData::GenerateNote() {
 		(*noteMapIterator)->setHiSpeed(hiSpeed);
 		(*noteMapIterator)->Make();
 	}
+
 }
 
 vector<ofNote*> LaneData::GetNoteMap() {
 	return noteMap;
+}
+
+map<double, vector<ofNote*>> LaneData::GetSortedNoteMap() {
+	return sortedNoteMap;
 }
 
 void LaneData::draw() {

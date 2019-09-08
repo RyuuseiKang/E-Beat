@@ -85,7 +85,8 @@ private:
 	string filePath;
 
 	double hiSpeed = 0.3; // 사용자 설정 속도 받아서 입력 필요
-	vector<ofNote*> noteMap; // 노트맵
+	// vector<ofNote*> noteMap; // 노트맵
+	map<double, vector<ofNote*>> sortedNoteMap;
 };
 
 #endif // __LANE_VIEWER_HPP_

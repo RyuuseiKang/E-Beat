@@ -175,6 +175,10 @@ void ofNote::setHiSpeed(double _hiSpeed) {
 	endY = endY * hiSpeed;
 }
 
+void ofNote::addSyncTime(double _syncTime) {
+	syncTime.push_back(_syncTime);
+}
+
 void ofNote::hide() {
 	isVisible = false;
 }

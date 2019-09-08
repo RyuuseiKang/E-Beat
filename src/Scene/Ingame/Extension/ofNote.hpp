@@ -47,6 +47,8 @@ public:
 
 	void setHiSpeed(double _hiSpeed);
 
+	void addSyncTime(double _syncTime);
+
 	void hide();
 
 	void Make();
@@ -81,6 +83,8 @@ private:
 	int noteType = 1;
 
 	double hiSpeed = 1.0;
+
+	vector<double> syncTime;
 
 	vector<pair<ofMesh, ofMesh>> meshVector;
 
