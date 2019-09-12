@@ -74,6 +74,11 @@ void LaneViewer::update(bool keys[256]) {
 	laneKeyBeam->SetKey(key);
 
 	// 여기서 지나간 노트 맵 삭제
+	if (sortedNoteMap.size() && sortedNoteMap.begin()->first < nowMS - 500) {
+		cout << nowMS << ": Deleted " << sortedNoteMap.begin()->first << "ms" << endl;
+		sortedNoteMap.erase(sortedNoteMap.begin()->first);
+	}
+
 	// vector 비었으면 맵을 erase(key)로 삭제
 }
 
