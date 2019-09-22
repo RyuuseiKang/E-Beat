@@ -70,7 +70,7 @@ public:
 
 	void GenerateNote();
 	vector<ofNote*> GetNoteMap();
-	map<double, vector<ofNote*>> GetSortedNoteMap();
+	map<string, map<long, ofNote*>> GetSortedNoteMap();
 
 	void draw();
 
@@ -98,7 +98,7 @@ private:
 	vector<ofNote*> noteMap;
 
 	// 시간순으로 정렬된 노트맵
-	map<double, vector<ofNote*>> sortedNoteMap;
+	map<string, map<long, ofNote*>> sortedNoteMap;
 
 	// 노트 이미지 주소
 	ofImage normalNote[3];

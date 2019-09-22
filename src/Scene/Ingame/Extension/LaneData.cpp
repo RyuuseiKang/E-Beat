@@ -309,7 +309,7 @@ void LaneData::Process() {
 							(*noteIterator)->note->addSyncTime(syncTime);
 
 							if (noteType[0] == '1')
-								sortedNoteMap[syncTime].push_back((*noteIterator)->note);
+								sortedNoteMap[(*noteIterator)->position][syncTime] = (*noteIterator)->note;
 						}
 					}
 
@@ -412,7 +412,7 @@ void LaneData::Process() {
 							(*noteIterator)->syncTime = syncTime;
 
 							if (noteType[0] == '1')
-								sortedNoteMap[syncTime].push_back((*noteIterator)->note);
+								sortedNoteMap[(*noteIterator)->position][syncTime] = (*noteIterator)->note;
 						}
 					}
 				}
@@ -439,7 +439,7 @@ vector<ofNote*> LaneData::GetNoteMap() {
 	return noteMap;
 }
 
-map<double, vector<ofNote*>> LaneData::GetSortedNoteMap() {
+map<string, map<long, ofNote*>> LaneData::GetSortedNoteMap() {
 	return sortedNoteMap;
 }
 

@@ -44,6 +44,8 @@ void Ingame::draw() {
 }
 
 void Ingame::keyPressed(int key) {
+	laneViewer->keyPressed(key);
+
 	if (key == 'r')
 		dataViewer->readDesigner();
 
@@ -66,11 +68,11 @@ void Ingame::keyPressed(int key) {
 	if (key == 'e') {
 		musicPlayer.setPositionMS(0);
 	}
-
+	
 }
 
 void Ingame::keyRelease(int key) {
-
+	laneViewer->keyReleased(key);
 }
 
 void Ingame::readyMusic() {

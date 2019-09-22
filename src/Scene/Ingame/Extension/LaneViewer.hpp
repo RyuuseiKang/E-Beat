@@ -28,6 +28,9 @@ public:
 	void update(bool keys[256]);
 	void draw();
 
+	void keyPressed(int key);
+	void keyReleased(int key);
+
 	void play();
 
 	void setMusicPlayer(MusicPlayer* _musicPlayer);
@@ -86,7 +89,11 @@ private:
 
 	double hiSpeed = 0.3; // 사용자 설정 속도 받아서 입력 필요
 	// vector<ofNote*> noteMap; // 노트맵
-	map<double, vector<ofNote*>> sortedNoteMap;
+	map<string, map<long, ofNote*>> sortedNoteMap;
+
+	// 키 프레스 맵
+	map<char, map<long, bool>> keyMap;
+	bool instanceKeyMap[256];
 };
 
 #endif // __LANE_VIEWER_HPP_

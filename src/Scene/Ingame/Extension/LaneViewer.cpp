@@ -58,6 +58,48 @@ void LaneViewer::update(bool keys[256]) {
 	laneY = GetCurrentScrollPosition(GetNowMarker(), player->getPositionMS() - wavOffset, hiSpeed) + yPosition;
 	//cout << "nowLaneY: " << laneY << endl;
 
+	// 키 처리
+	for(map<char, map<long, bool>>::iterator iterator = keyMap.begin(); iterator != keyMap.end(); iterator++)
+		while (!iterator->second.empty()) {
+			
+			string key;
+			switch (iterator->first) {
+			case 'd':
+				key = "0";
+				break;
+
+			case 'f':
+				key = "4";
+				break;
+		
+			case 'j':
+				key = "8";
+				break;
+
+			case 'k':
+				key = "c";
+				break;
+			}
+		
+
+			if (!sortedNoteMap[key].empty() && iterator->second.begin()->first > sortedNoteMap[key].begin()->first - 500 &&  iterator->second.begin()->second) {
+				// sortedNoteMap[key].begin();
+
+				short judgeTime = (sortedNoteMap[key].begin()->first - iterator->second.begin()->first);
+
+				cout << "gap " << judgeTime << "ms" << endl;
+
+				cout << "Deleted " << sortedNoteMap[key].begin()->first << "ms, Pressed " << iterator->second.begin()->first << "ms" << endl;
+			
+				// 키 맵 삭제
+				sortedNoteMap[key].erase(sortedNoteMap[key].begin()->first);
+			}
+			// 키 프레스 맵 삭제
+			iterator->second.erase(iterator->second.begin());
+		}
+
+	
+
 	short key = 0;
 	if (keys['d'])
 		key += 15;
@@ -72,12 +114,32 @@ void LaneViewer::update(bool keys[256]) {
 		key += 61440;
 
 	laneKeyBeam->SetKey(key);
+		
 
 	// 여기서 지나간 노트 맵 삭제
-	if (sortedNoteMap.size() && sortedNoteMap.begin()->first < nowMS - 500) {
-		cout << nowMS << ": Deleted " << sortedNoteMap.begin()->first << "ms" << endl;
-		sortedNoteMap.erase(sortedNoteMap.begin()->first);
+	for (map<string, map<long, ofNote*>>::iterator iterator = sortedNoteMap.begin(); iterator != sortedNoteMap.end(); iterator++) {
+
+		bool isEnd = false;
+		
+		while (!isEnd) {
+
+			if (iterator->second.size() && iterator->second.begin()->first < nowMS - 500) {
+
+				cout << nowMS << ": Deleted " << iterator->second.begin()->first << "ms" << endl;
+
+				iterator->second.erase(iterator->second.begin()->first);
+			}
+			else
+				isEnd = true;
+				
+		}
 	}
+		
+
+	// if (sortedNoteMap.size() && sortedNoteMap.begin()->second. first < nowMS - 500) {
+	// 	cout << nowMS << ": Deleted " << sortedNoteMap.begin()->first.first << "ms" << endl;
+	// 	sortedNoteMap.erase(sortedNoteMap.begin()->first);
+	// }
 
 	// vector 비었으면 맵을 erase(key)로 삭제
 }
@@ -105,6 +167,28 @@ void LaneViewer::draw() {
 	ofPopMatrix();
 
 	// gui.draw();
+}
+
+void LaneViewer::keyPressed(int key) {
+	double nowMS = player->getPositionMS() - wavOffset; // 현재 ms 위치
+
+	if (!instanceKeyMap[key]){
+		keyMap[key][nowMS] = true;
+
+		// cout << nowMS << "ms::keyPressed " << key << endl;
+	}
+
+	instanceKeyMap[key] = true;
+}
+
+void LaneViewer::keyReleased(int key) {
+	double nowMS = player->getPositionMS() - wavOffset; // 현재 ms 위치
+
+	instanceKeyMap[key] = false;
+
+	keyMap[key][nowMS] = false;
+	
+	// cout << nowMS << "ms::keyReleased " << key << endl;
 }
 
 void LaneViewer::setMusicPlayer(MusicPlayer* _musicPlayer) {
