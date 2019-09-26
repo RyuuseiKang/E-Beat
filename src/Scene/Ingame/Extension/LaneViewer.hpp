@@ -18,6 +18,7 @@
 #include "LaneKeyBeam.hpp"
 #include "MusicPlayer.hpp"
 #include "ofNote.hpp"
+#include "JudgeView.hpp"
 
 class LaneViewer {
 public:
@@ -94,6 +95,8 @@ private:
 	// 키 프레스 맵
 	map<char, map<long, bool>> keyMap;
 	bool instanceKeyMap[256];
+
+	JudgeView judgeView;
 };
 
 #endif // __LANE_VIEWER_HPP_

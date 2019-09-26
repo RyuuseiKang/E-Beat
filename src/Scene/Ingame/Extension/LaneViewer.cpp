@@ -87,6 +87,8 @@ void LaneViewer::update(bool keys[256]) {
 
 				short judgeTime = (sortedNoteMap[key].begin()->first - iterator->second.begin()->first);
 
+				// 판정
+				judgeView.AddJugde(judgeTime);
 				cout << "gap " << judgeTime << "ms" << endl;
 
 				cout << "Deleted " << sortedNoteMap[key].begin()->first << "ms, Pressed " << iterator->second.begin()->first << "ms" << endl;
@@ -96,6 +98,7 @@ void LaneViewer::update(bool keys[256]) {
 			}
 			// 키 프레스 맵 삭제
 			iterator->second.erase(iterator->second.begin());
+
 		}
 
 	
@@ -126,6 +129,8 @@ void LaneViewer::update(bool keys[256]) {
 			if (iterator->second.size() && iterator->second.begin()->first < nowMS - 500) {
 
 				cout << nowMS << ": Deleted " << iterator->second.begin()->first << "ms" << endl;
+				// 미스
+				judgeView.AddJugde(500);
 
 				iterator->second.erase(iterator->second.begin()->first);
 			}
@@ -135,6 +140,7 @@ void LaneViewer::update(bool keys[256]) {
 		}
 	}
 		
+	judgeView.update();
 
 	// if (sortedNoteMap.size() && sortedNoteMap.begin()->second. first < nowMS - 500) {
 	// 	cout << nowMS << ": Deleted " << sortedNoteMap.begin()->first.first << "ms" << endl;
@@ -165,6 +171,8 @@ void LaneViewer::draw() {
 
 	//texturePtr[k].draw(0, 0);
 	ofPopMatrix();
+
+	judgeView.draw();
 
 	// gui.draw();
 }

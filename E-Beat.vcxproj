@@ -180,6 +180,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Extension\easing.cpp" />
     <ClCompile Include="src\Extension\Parser.cpp" />
     <ClCompile Include="src\Extension\ScrollableTextBlock.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -190,6 +191,8 @@
     <ClCompile Include="src\GameSetting\AppSetting.cpp" />
     <ClCompile Include="src\Scene\EntryScene.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\DataViewer.cpp" />
+    <ClCompile Include="src\Scene\Ingame\Extension\JudgeImage.cpp" />
+    <ClCompile Include="src\Scene\Ingame\Extension\JudgeView.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\LaneData.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\LaneKeyBeam.cpp" />
     <ClCompile Include="src\Scene\Ingame\Extension\LaneViewer.cpp" />
@@ -216,6 +219,7 @@
     <ClCompile Include="src\Scene\MusicSelect\OptionList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Extension\easing.h" />
     <ClInclude Include="src\Extension\MusicMetaData.hpp" />
     <ClInclude Include="src\Extension\Parser.hpp" />
     <ClInclude Include="src\Extension\ScrollableTextBlock.hpp" />
@@ -228,6 +232,8 @@
     <ClInclude Include="src\GameSetting\AppSetting.hpp" />
     <ClInclude Include="src\Scene\EntryScene.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\DataViewer.hpp" />
+    <ClInclude Include="src\Scene\Ingame\Extension\JudgeImage.hpp" />
+    <ClInclude Include="src\Scene\Ingame\Extension\JudgeView.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\LaneData.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\LaneKeyBeam.hpp" />
     <ClInclude Include="src\Scene\Ingame\Extension\LaneViewer.hpp" />

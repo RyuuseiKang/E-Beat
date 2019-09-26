@@ -109,6 +109,15 @@
     <ClCompile Include="src\Scene\MusicSelect\Extension\KeyBeam.cpp">
       <Filter>src\Scene\MusicSelect\Extension</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\Ingame\Extension\JudgeView.cpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Ingame\Extension\JudgeImage.cpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Extension\easing.cpp">
+      <Filter>src\Extension</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -265,6 +274,15 @@
     </ClInclude>
     <ClInclude Include="src\Scene\MusicSelect\Extension\KeyBeam.hpp">
       <Filter>src\Scene\MusicSelect\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Ingame\Extension\JudgeView.hpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Ingame\Extension\JudgeImage.hpp">
+      <Filter>src\Scene\Ingame\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Extension\easing.h">
+      <Filter>src\Extension</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
