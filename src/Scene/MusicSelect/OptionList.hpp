@@ -11,6 +11,9 @@
 #include <iostream>
 #include "../ofMain.h"
 
+// https://github.com/nicolausYes/easing-functions
+#include "../Extension/easing.h"
+
 class OptionList {
 public:
 	OptionList();
@@ -25,15 +28,26 @@ public:
 
 	int getSpeed();
 	int getDifficulty();
+	void setDifficulty(bool _isUpper);
 
 private:
+	ofImage difficultyLagel;
+
+	ofImage levelLabel[3];
+
+	// 옵션 순번
+	// 0: 난이도
+	// 1: 속도
+	int option = 0;
 
 	int speed = 10;
 	int difficulty = 0;
 
-	bool isMove = false;
-	bool moveDirection = false;
-	int moveCounter = 15;
+	bool isDifficultyMove = false;
+	
+	double leastTime = 20;
+	double difficultyAnimationTime = 0;
+	int difficultyAnimationDirection = 1;
 
 	int distance = 300;
 	

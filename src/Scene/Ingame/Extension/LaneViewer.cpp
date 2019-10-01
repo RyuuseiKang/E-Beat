@@ -101,7 +101,6 @@ void LaneViewer::update(bool keys[256]) {
 
 		}
 
-	
 
 	short key = 0;
 	if (keys['d'])
