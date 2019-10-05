@@ -11,13 +11,14 @@ LaneViewer::LaneViewer() {
 
 }
 
-LaneViewer::LaneViewer(FileSystem* _file) {
+LaneViewer::LaneViewer(FileSystem* _file, DataViewer * _dataViewer) {
 
 	// 파일 주소 취득 및 노래 대기
 	filePath = _file->getNowMusicPath();
 	
 	// 레인 데이터 생성
 	laneData = new LaneData();
+	dataViewer = _dataViewer;
 
 	// 파서 생성
 	parser = new Parser(filePath + _file->getNowMusicDifficulty() + ".sus", laneData);
@@ -88,8 +89,30 @@ void LaneViewer::update(bool keys[256]) {
 				short judgeTime = (sortedNoteMap[key].begin()->first - iterator->second.begin()->first);
 
 				// 판정
-				judgeView.AddJugde(judgeTime);
+				if (abs(judgeTime) <= 55) {
+					judgeView.AddJugde(0);
+					dataViewer->upPerfect();
+					
+				}
+				else if (abs(judgeTime) <= 150) {
+					judgeView.AddJugde(1);
+					dataViewer->upGreat();
+
+				}
+				else if (abs(judgeTime) <= 350) {
+					judgeView.AddJugde(2);
+					dataViewer->upGood();
+
+				}
+				else {
+					judgeView.AddJugde(3);
+					dataViewer->upMiss();
+
+				}
+
 				cout << "gap " << judgeTime << "ms" << endl;
+				// 여기서 콤보 증가
+				dataViewer->upCombo();
 
 				cout << "Deleted " << sortedNoteMap[key].begin()->first << "ms, Pressed " << iterator->second.begin()->first << "ms" << endl;
 			
@@ -129,7 +152,10 @@ void LaneViewer::update(bool keys[256]) {
 
 				cout << nowMS << ": Deleted " << iterator->second.begin()->first << "ms" << endl;
 				// 미스
-				judgeView.AddJugde(500);
+				judgeView.AddJugde(3);
+				// 여기서 콤보 깨기
+				dataViewer->upMiss();
+				dataViewer->breakCombo();
 
 				iterator->second.erase(iterator->second.begin()->first);
 			}
@@ -202,6 +228,10 @@ void LaneViewer::setMusicPlayer(MusicPlayer* _musicPlayer) {
 	player = _musicPlayer;
 }
 
+void LaneViewer::setDataViewer(DataViewer * _dataViewer) {
+	dataViewer = _dataViewer;
+}
+
 void LaneViewer::play() {
 
 }
@@ -209,6 +239,9 @@ void LaneViewer::play() {
 void LaneViewer::GenerateNote() {
 	// 메타데이터 얻어옴
 	metas = parser->getMetaData();
+
+	// 데이터뷰어에 메타데이터 연결
+	dataViewer->setMetaData(metas);
 
 	wavOffset = metas.WAVEOFFSET * 1000;
 	cout << "wavOffset: " << wavOffset << endl;

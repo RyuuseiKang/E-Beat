@@ -100,6 +100,7 @@ bool isExist(string _str) {
 // 메타 데이터 한줄 분류
 void Parser::ParseMetaData(string _str) {
 	vector<string> v = split(_str, ' ');
+	vector<string> data = split(_str, '"');
 
 	string command = v.at(0);
 
@@ -115,13 +116,13 @@ void Parser::ParseMetaData(string _str) {
 	val = ReplaceAll(v.at(1), "\"", "");
 
 	if (command == "TITLE")
-		metaData.TITLE = val;
+		metaData.TITLE = data.at(1);
 
 	else if (command == "ARTIST")
-		metaData.ARTIST = val;
+		metaData.ARTIST = data.at(1);
 
 	else if (command == "DESIGNER")
-		metaData.DESIGNER = val;
+		metaData.DESIGNER = data.at(1);
 
 	else if (command == "DIFFICULTY")
 		metaData.DIFFICULTY = stoi(val);
@@ -130,16 +131,16 @@ void Parser::ParseMetaData(string _str) {
 		metaData.PLAYLEVEL = val;
 
 	else if (command == "SONGID")
-		metaData.SONGID = val;
+		metaData.SONGID = data.at(1);
 
 	else if (command == "WAVE")
-		metaData.WAVE = val;
+		metaData.WAVE = data.at(1);
 
 	else if (command == "WAVEOFFSET")
 		metaData.WAVEOFFSET = stod(val);
 
 	else if (command == "JACKET")
-		metaData.JACKET = val;
+		metaData.JACKET = data.at(1);
 
 	else if (command == "MEASUREBS")
 		metaData.MEASUREBS = stoi(val);

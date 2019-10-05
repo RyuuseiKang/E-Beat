@@ -15,23 +15,19 @@ DataViewer::DataViewer(FileSystem* _file) {
 	readDesigner();
 
 	LevelBackgroundRect.load("Scene/Ingame/DataViewer/LevelBackground.png");
+	JudgeBackground.load("Scene/Ingame/DataViewer/JudgeBackground.png");
 
-	string judgeFontPath = "Fonts/ITCAvantGardeStd-Bold.ttf";
-	int judgeFontSize = 22;
-	judgeTextBlock[0].init(judgeFontPath, judgeFontSize);
-	judgeTextBlock[1].init(judgeFontPath, judgeFontSize);
-	judgeTextBlock[2].init(judgeFontPath, judgeFontSize);
-	judgeTextBlock[3].init(judgeFontPath, judgeFontSize);
 	judgeTextBlock[0].setText("0");
 	judgeTextBlock[1].setText("0");
 	judgeTextBlock[2].setText("0");
 	judgeTextBlock[3].setText("0");
-	albumArt.loadImage("MusicData/Yes or Yes/album.jpg");
 
+	cout << _file->getNowMusicData() << endl;
+
+	albumArt.loadImage(_file->getNowMusicPath() + "album.jpg");
+	
 	LoadBoxRect();
-
-	//musicNameLabel.setText("MUSIC NAME");
-	//artistNameLabel.setText("ARTIST NAME");
+	
 }
 
 DataViewer::~DataViewer() {
@@ -39,13 +35,12 @@ DataViewer::~DataViewer() {
 }
 
 void DataViewer::update() {
-	//musicNameLabel.update();
+	musicNameLabel.update();
+	artistNameLabel.update();
 }
 
 void DataViewer::draw() {
 	// 화면 상단처리
-	// 난이도별 상단 색상처리 안햇음
-	// 색상은 그라데이션으로 주고 있음, 리팩토링 끝
 	levelColorBackgroundMesh.draw();
 
 	// 옵션들 상자표시
@@ -80,34 +75,55 @@ void DataViewer::draw() {
 	// 난이도 표시
 	difficultyLabel.setColor(difficultyLabelColorVector[0], difficultyLabelColorVector[1], difficultyLabelColorVector[2], difficultyLabelColorVector[3]);
 	difficultyLabel.drawJustified(difficultyLabelVector[0], difficultyLabelVector[1], difficultyLabelVector[3]);
-
-	// 레벨표시
-	ofSetColor(255, 255, 255, 255);
-	LevelBackgroundRect.draw(LevelBackgroundRectVector[0], LevelBackgroundRectVector[1], LevelBackgroundRectVector[2], LevelBackgroundRectVector[3]);
-	// 여기에 레벨 텍스트
-	levelLabel.setColor(levelLabelColorVector[0], levelLabelColorVector[1], levelLabelColorVector[2], levelLabelColorVector[3]);
-	levelLabel.drawCenter(levelLabelVector[0], levelLabelVector[1]);
-
-	// 판정 후면 검은색
-	ofSetColor(0, 0, 0, 255);
-	ofDrawRectangle(580, 0, 762, 35);
-
-	// 옵션 후면 검은색
-	ofDrawRectangle(1367, 0, 487, 35);
-
-	// 판정 처리
-	// TODO :: 임의로 위치값 (0, 0)으로 지정했음, 나중에 수정 요망
-	// judgeTextBlock[0].draw(0, 0);
-	// judgeTextBlock[1].draw(0, 0);
-	// judgeTextBlock[2].draw(0, 0);
-	// judgeTextBlock[3].draw(0, 0);
 	
-	//musicNameLabel.draw();
-	//artistNameLabel.draw();
+	// 레벨표시
+ 	ofSetColor(255, 255, 255, 255);
+ 	LevelBackgroundRect.draw(LevelBackgroundRectVector[0], LevelBackgroundRectVector[1], LevelBackgroundRectVector[2], LevelBackgroundRectVector[3]);
+	// 여기에 레벨 텍스트
+ 	levelLabel.setColor(levelLabelColorVector[0], levelLabelColorVector[1], levelLabelColorVector[2], levelLabelColorVector[3]);
+ 	levelLabel.drawCenter(levelLabelVector[0], levelLabelVector[1]);
+	
+	// 판정 후면 검은색
+ 	ofSetColor(0, 0, 0, 255);
+ 	ofDrawRectangle(580, 0, 762, 35);
+ 
+ 	// 옵션 후면 검은색
+ 	ofDrawRectangle(1367, 0, 487, 35);
+	
+	// 판정 처리
+	ofSetColor(255, 255, 255, 255);
+	JudgeBackground.draw(JudgeBackgroundVector[0], JudgeBackgroundVector[1]);
+	judgeTextBlock[0].setColor(255, 255, 255, 255);
+	judgeTextBlock[0].drawCenter(JudgeTextBlock0Vector[0], JudgeTextBlock0Vector[1]);
+	judgeTextBlock[1].setColor(255, 255, 255, 255);
+	judgeTextBlock[1].drawCenter(JudgeTextBlock1Vector[0], JudgeTextBlock1Vector[1]);
+	judgeTextBlock[2].setColor(255, 255, 255, 255);
+	judgeTextBlock[2].drawCenter(JudgeTextBlock2Vector[0], JudgeTextBlock2Vector[1]);
+	judgeTextBlock[3].setColor(255, 255, 255, 255);
+	judgeTextBlock[3].drawCenter(JudgeTextBlock3Vector[0], JudgeTextBlock3Vector[1]);
+	
+	musicNameLabel.draw();
+	artistNameLabel.draw();
 }
 
 void DataViewer::setScore(double _score) {
 	score = _score;
+}
+
+void DataViewer::upPerfect() {
+	judgeTextBlock[0].setText(to_string(++judge[0]));
+}
+
+void DataViewer::upGreat() {
+	judgeTextBlock[1].setText(to_string(++judge[1]));
+}
+
+void DataViewer::upGood() {
+	judgeTextBlock[2].setText(to_string(++judge[2]));
+}
+
+void DataViewer::upMiss() {
+	judgeTextBlock[3].setText(to_string(++judge[3]));
 }
 
 void DataViewer::upCombo() {
@@ -134,19 +150,38 @@ void DataViewer::setDesign() {
 	judgeDetailHalfBoxVector = changeVectorIntType(dataParse("judgeDetailHalfBox"));
 	judgeDetailHalfInBoxVector = changeVectorIntType(dataParse("judgeDetailHalfInBox"));
 	judgeDetailBoxVector = changeVectorIntType(dataParse("judgeDetailBox"));
+	
+	JudgeBackgroundVector = changeVectorIntType(dataParse("judgeBackgroundImage"));
+	JudgeTextBlock0Vector = changeVectorIntType(dataParse("judgeTextBlock0"));
+	JudgeTextBlock1Vector = changeVectorIntType(dataParse("judgeTextBlock1"));
+	JudgeTextBlock2Vector = changeVectorIntType(dataParse("judgeTextBlock2"));
+	JudgeTextBlock3Vector = changeVectorIntType(dataParse("judgeTextBlock3"));
+	
+	judgeTextBlock[0].init("Fonts/ITCAvantGardeStd-Bold.ttf", JudgeTextBlock0Vector[2]);
+	judgeTextBlock[1].init("Fonts/ITCAvantGardeStd-Bold.ttf", JudgeTextBlock1Vector[2]);
+	judgeTextBlock[2].init("Fonts/ITCAvantGardeStd-Bold.ttf", JudgeTextBlock2Vector[2]);
+	judgeTextBlock[3].init("Fonts/ITCAvantGardeStd-Bold.ttf", JudgeTextBlock3Vector[2]);
+	judgeTextBlock[0].setTracking(JudgeTextBlock0Vector[3]);
+	judgeTextBlock[1].setTracking(JudgeTextBlock1Vector[3]);
+	judgeTextBlock[2].setTracking(JudgeTextBlock2Vector[3]);
+	judgeTextBlock[3].setTracking(JudgeTextBlock3Vector[3]);
+	judgeTextBlock[0].setColor(255, 255, 255, 255);
+	judgeTextBlock[1].setColor(255, 255, 255, 255);
+	judgeTextBlock[2].setColor(255, 255, 255, 255);
+	judgeTextBlock[3].setColor(255, 255, 255, 255);
 
     // 곡 제목, 아티스트명 부분
-	//musicNameLabelVector = changeVectorIntType(dataParse("musicNameLabel"));
-	//musicNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", musicNameLabelVector[2]);
-	//musicNameLabel.setWidth(musicNameLabelVector[4]);
-	//musicNameLabel.setTracking(musicNameLabelVector[3]);
-	//musicNameLabel.setPosition(musicNameLabelVector[0], musicNameLabelVector[1]);
-	//artistNameLabelVector = changeVectorIntType(dataParse("artistNameLabel"));
-	//artistNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", artistNameLabelVector[2]);
-	//artistNameLabel.setWidth(artistNameLabelVector[4]);
-	//artistNameLabel.setTracking(artistNameLabelVector[3]);
-	//artistNameLabel.setPosition(artistNameLabelVector[0], artistNameLabelVector[1]);
-
+	musicNameLabelVector = changeVectorIntType(dataParse("musicNameLabel"));
+	musicNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", musicNameLabelVector[2]);
+	musicNameLabel.setWidth(musicNameLabelVector[4]);
+	musicNameLabel.setTracking(musicNameLabelVector[3]);
+	musicNameLabel.setPosition(musicNameLabelVector[0], musicNameLabelVector[1]);
+	artistNameLabelVector = changeVectorIntType(dataParse("artistNameLabel"));
+	artistNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", artistNameLabelVector[2]);
+	artistNameLabel.setWidth(artistNameLabelVector[4]);
+	artistNameLabel.setTracking(artistNameLabelVector[3]);
+	artistNameLabel.setPosition(artistNameLabelVector[0], artistNameLabelVector[1]);
+	 
 	albumArtVector = changeVectorIntType(dataParse("albumArt"));
 	albumArtBoxVector = changeVectorIntType(dataParse("albumArtBox"));
 
@@ -174,7 +209,7 @@ void DataViewer::setDesign() {
 	difficultyFontSize = difficultyLabelVector[2];
 	difficultyLabel.init("Fonts/ITCAvantGardeStd-Bold.ttf", difficultyFontSize);
 	difficultyLabel.setText(difficulty);
-
+	
 	levelLabelVector = changeVectorDoubleType(dataParse("levelLabel"));
 	levelLabelColorVector = changeVectorIntType(dataParse("levelLabelColor"));
 	levelLabel.init("Fonts/ITCAvantGardeStd-Demi.ttf", levelLabelVector[2]);
@@ -209,6 +244,7 @@ void DataViewer::setDesign() {
 	levelColor[4] = ofColor(levelColorVector[4][0], levelColorVector[4][1], levelColorVector[4][2], levelColorVector[4][3]);
 
 	levelColorBackgroundMeshVector = changeVectorDoubleType(dataParse("levelColorBackgroundMesh"));
+	levelColorBackgroundMesh.clear();
 	levelColorBackgroundMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
 	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0], levelColorBackgroundMeshVector[1]));
 	levelColorBackgroundMesh.addColor(levelColor[0]);
@@ -218,6 +254,7 @@ void DataViewer::setDesign() {
 	levelColorBackgroundMesh.addColor(levelColor[difficult]);
 	levelColorBackgroundMesh.addVertex(ofPoint(levelColorBackgroundMeshVector[0] + levelColorBackgroundMeshVector[2], levelColorBackgroundMeshVector[3]));
 	levelColorBackgroundMesh.addColor(levelColor[difficult]);
+	
 }
 
 void DataViewer::LoadBoxRect() {
@@ -250,23 +287,44 @@ void DataViewer::DrawBoxRect(float x, float y, float w, float h) {
 void DataViewer::readDesigner() {
 	// 디자이너 파일 내용 읽어오기
 	ofBuffer designerBuffer = ofBufferFromFile("Scene/Ingame/DataViewer/Designer.des");
-
-	designerVector.clear();
+	
+	vector<string> _designerVector;
 	int countLines = 0;
 	for (auto line : designerBuffer.getLines()) {
-		designerVector.push_back(line);
+		_designerVector.push_back(line);
 		countLines++;
 	}
 
+	designerVector.clear();
+	designerVector = _designerVector;
+	
 	setDesign();
 }
 
 void DataViewer::setDifficult(int _difficult) {
 	difficult = _difficult;
+	
+	setDesign();
 }
 
 void DataViewer::setLevel(int _level) {
 	level = _level;
+
+	setDesign();
+}
+
+void DataViewer::setMusicName(string _musicName) {
+	musicNameLabel.setText(_musicName);
+}
+
+void DataViewer::setArtistName(string _artistName) {
+	artistNameLabel.setText(_artistName);
+}
+
+void DataViewer::setMetaData(meta_data _metas) {
+	musicNameLabel.setText(_metas.TITLE);
+	artistNameLabel.setText(_metas.ARTIST);
+	setLevel(stoi(_metas.PLAYLEVEL));
 }
 
 vector<string> DataViewer::dataParse(string itemName) {

@@ -50,19 +50,19 @@ void Ingame::keyPressed(int key) {
 		dataViewer->readDesigner();
 
 	if (key == '1') {
-		dataViewer->setDifficult(1); dataViewer->readDesigner();
+		dataViewer->setDifficult(1);
 	}
 			
 	if (key == '2') {
-		dataViewer->setDifficult(2); dataViewer->readDesigner();
+		dataViewer->setDifficult(2);
 	}
 
 	if (key == '3') {
-		dataViewer->setDifficult(3); dataViewer->readDesigner();
+		dataViewer->setDifficult(3);
 	}
 	
 	if (key == '4') {
-		dataViewer->setDifficult(4); dataViewer->readDesigner();
+		dataViewer->setDifficult(4);
 	}
 
 	if (key == 'e') {
@@ -84,11 +84,14 @@ void Ingame::readyMusic() {
 	// }
 
 	dataViewer = new DataViewer(file);
-	laneViewer = new LaneViewer(file);
+	laneViewer = new LaneViewer(file, dataViewer);
 
 	musicPlayer.load(file->getNowMusicData());
 
+	dataViewer->setDifficult(stoi(file->getNowMusicDifficulty()) + 1);
+	
 	laneViewer->setMusicPlayer(&musicPlayer);
+	
 
 	musicPlayer.play();
 	cout << "Play" << endl;

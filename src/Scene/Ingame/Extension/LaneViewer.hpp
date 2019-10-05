@@ -15,6 +15,7 @@
 #include "../Extension/FileSystem.hpp"
 #include "Extension/Parser.hpp"
 #include "Extension/LaneData.hpp"
+#include "DataViewer.hpp"
 #include "LaneKeyBeam.hpp"
 #include "MusicPlayer.hpp"
 #include "ofNote.hpp"
@@ -23,7 +24,7 @@
 class LaneViewer {
 public:
 	LaneViewer();
-	LaneViewer(FileSystem* _file);
+	LaneViewer(FileSystem* _file, DataViewer * _dataViewer);
 	~LaneViewer();
 
 	void update(bool keys[256]);
@@ -35,6 +36,7 @@ public:
 	void play();
 
 	void setMusicPlayer(MusicPlayer* _musicPlayer);
+	void setDataViewer(DataViewer* _dataViewer);
 
 private:
 	void GenerateNote();
@@ -49,6 +51,7 @@ private:
 
 	Parser *parser;
 	LaneData *laneData;
+	DataViewer *dataViewer;
 	//tapNote tapNotes;
 	LaneKeyBeam *laneKeyBeam;
 

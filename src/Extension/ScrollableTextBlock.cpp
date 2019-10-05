@@ -13,6 +13,7 @@ ScrollableTextBlock::ScrollableTextBlock() {
 	gui.add(tX.setup("transform X", 0, -1000, 1000));
 	gui.add(tY.setup("transform Y", 0, -1000, 1000));
 
+	setText("");
 }
 
 ScrollableTextBlock::~ScrollableTextBlock() {
@@ -67,17 +68,25 @@ void ScrollableTextBlock::draw() {
 	
 	glPushMatrix();
 
+	int textWidth = width;
+
 	ofSetColor(words[0].color);
 	for (int i = 0; i < text.size(); i++) {
 		string tmpStr(1, text.at(i));
 
 		ofTexture mask;
+		ofTexture textMask;
 		ofTrueTypeFont *dF = &defaultFont;
-		
-		mask.allocate(defaultFont.stringWidth(tmpStr), defaultFont.stringHeight(tmpStr), GL_LUMINANCE); // or GL_RED in opengl 3+
-		mask.setAlphaMask(dF->getStringTexture(tmpStr));
 
-		mask.draw(drawX, drawY);
+		textWidth -= defaultFont.stringWidth(tmpStr);
+
+		if (textWidth > 0) {
+			mask.allocate((textWidth < defaultFont.stringWidth(tmpStr))?textWidth:defaultFont.stringWidth(tmpStr), defaultFont.stringHeight(tmpStr) * 1.3, GL_LUMINANCE); // or GL_RED in opengl 3+
+			// mask.allocate(defaultFont.stringWidth(tmpStr), defaultFont.stringHeight(tmpStr) * 1.3, GL_LUMINANCE); // or GL_RED in opengl 3+
+			mask.setAlphaMask(dF->getStringTexture(tmpStr, false));
+
+			mask.draw(drawX, drawY);
+		}
 
 		glTranslatef(tracking, 0, 0.0f);
 		if(tmpStr != " ")
@@ -88,7 +97,7 @@ void ScrollableTextBlock::draw() {
 		
 	glPopMatrix();
 
-	//gui.draw();
+	// gui.draw();
 
 	// string  strToDraw;
 	// int     currentWordID;

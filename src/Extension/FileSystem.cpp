@@ -25,7 +25,7 @@ void FileSystem::Initialize() {
 
 	//musicData = new string[musicDataSize];
 	for (int i = 0; i < musicDataSize; i++) {
-		musicMeta _data;
+		MusicMeta _data;
 
 		ofFile _file;
 		string filePath = musicDataPath + "/" + dir->getFile(i).getFileName() + "/";
@@ -50,7 +50,7 @@ void FileSystem::Initialize() {
 }
 
 
-void FileSystem::ParseMetaData(string _str, musicMeta& _metaData, string _filePath) {
+void FileSystem::ParseMetaData(string _str, MusicMeta& _metaData, string _filePath) {
 	vector<string> v = p.split(_str, ' ');
 
 	string command = v.at(0);
@@ -100,7 +100,7 @@ int FileSystem::getMusicCount(){
     return musicDataSize;
 }
 
-musicMeta FileSystem::getMusicData(int num) {
+MusicMeta FileSystem::getMusicData(int num) {
 	return meta.at(num);
 }
 

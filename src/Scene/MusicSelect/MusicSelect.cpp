@@ -21,7 +21,6 @@ MusicSelect::MusicSelect(FileSystem* _file){
 	// 하단 버튼
 	bottombuttonsRect.loadImage("Scene/MusicSelect/BottomButtons.png");
 	bottombuttonsRect.resize(1920, 1080);
-
 	// 하단 키빔
 	button[0].setCount(0);
 	button[0].setColor("Green");
@@ -158,7 +157,7 @@ void MusicSelect::keyPressed(int key) {
 	
 	if (key == 'j') {
 		isOptionMode = !isOptionMode;
-		optionList.animationStart(isOptionMode);
+		optionList.optionAvailable(isOptionMode);
 		cout << "isOptionMode: " << isOptionMode << endl;
 	}
 

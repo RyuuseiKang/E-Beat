@@ -24,7 +24,7 @@ public:
 	void keyPressed(int key);
 	void keyReleased(int key);
 
-	void animationStart(bool _option);
+	void optionAvailable(bool _isOptionAvailable);
 
 	int getSpeed();
 	int getDifficulty();
@@ -39,6 +39,7 @@ private:
 	// 0: 난이도
 	// 1: 속도
 	int option = 0;
+	bool isOptionAvailable = false;
 
 	int speed = 10;
 	int difficulty = 0;

@@ -25,6 +25,10 @@ public:
 	void draw();
 
 	void setScore(double _score);
+	void upPerfect();
+	void upGreat();
+	void upGood();
+	void upMiss();
 	void upCombo();
 	void breakCombo();
 
@@ -33,14 +37,18 @@ public:
 	void setDifficult(int _difficult);
 	void setLevel(int _level);
 
+	void setMusicName(string _musicName);
+	void setArtistName(string _artistName);
+	void setMetaData(meta_data _metas);
+
 private:
 	void setDesign();
 	void LoadBoxRect();
 	void DrawBoxRect(float x, float y, float w, float h);
 
-	//ScrollableTextBlock musicNameLabel;
+	ScrollableTextBlock musicNameLabel;
 	vector<int> musicNameLabelVector;
-	//ScrollableTextBlock artistNameLabel;
+	ScrollableTextBlock artistNameLabel;
 	vector<int> artistNameLabelVector;
 
 	ofImage albumArt;
@@ -99,6 +107,14 @@ private:
 	vector<int> judgeDetailHalfBoxVector;
 	vector<int> judgeDetailHalfInBoxVector;
 	vector<int> judgeDetailBoxVector;
+
+	ofImage JudgeBackground;
+	vector<int> JudgeBackgroundVector;
+	vector<int> JudgeTextBlock0Vector;
+	vector<int> JudgeTextBlock1Vector;
+	vector<int> JudgeTextBlock2Vector;
+	vector<int> JudgeTextBlock3Vector;
+
 
 	vector<int> albumArtVector;
 	vector<int> albumArtBoxVector;

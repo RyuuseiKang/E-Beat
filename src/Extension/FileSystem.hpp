@@ -19,10 +19,10 @@ public:
     ~FileSystem();
 
 	void Initialize();
-	void ParseMetaData(string _str, musicMeta& _metaData, string _filePath);
+	void ParseMetaData(string _str, MusicMeta& _metaData, string _filePath);
 	    
     int getMusicCount();
-	musicMeta getMusicData(int num);
+	MusicMeta getMusicData(int num);
 
 	string getNowMusicPath();
 	string getNowMusicData();
@@ -46,7 +46,7 @@ private:
 	int nowMusicDifficulty = 0;
 	int nowMusicSpeed = 10;
 
-	vector<musicMeta> meta;
+	vector<MusicMeta> meta;
 
 	Parser p;
 };

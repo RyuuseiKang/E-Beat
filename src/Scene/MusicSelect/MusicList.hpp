@@ -20,7 +20,7 @@ public:
 	void update();
 	void draw(int _x, int _y, int _z);
 
-	void addItem(musicMeta _metaData);
+	void addItem(MusicMeta _metaData);
 	void move(bool direction);
 	void setPosition(int selectedKey);
 

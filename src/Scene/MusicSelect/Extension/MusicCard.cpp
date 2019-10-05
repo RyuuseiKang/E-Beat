@@ -92,10 +92,17 @@ void MusicCard::Deselect(bool direction) {
 	sizeChange(false, direction);
 }
 
-void MusicCard::setMetaData(musicMeta _metaData) {
-	metaData = _metaData;
-
-	albumImage.loadImage(metaData.jacket);
+void MusicCard::setMetaData(MusicMeta _metaData) {
+	bga = _metaData.bga;
+	bgaEndPos = _metaData.bgaEndPos;
+	bgaStartPos = _metaData.bgaStartPos;
+	jacket = _metaData.jacket;
+	musicPath = _metaData.musicPath;
+	path = _metaData.path;
+	title = _metaData.title;
+	artist = _metaData.artist;
+	
+	albumImage.loadImage(jacket);
 	albumImage.resize(normalAlbumSize, normalAlbumSize);
 }
 

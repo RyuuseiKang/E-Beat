@@ -24,10 +24,21 @@ public:
 	void Select(bool direction);
 	void Deselect(bool direction);
 
-	void setMetaData(musicMeta _metaData);
+	void setMetaData(MusicMeta _metaData);
 	
 private:
-	musicMeta metaData;
+	// 메타데이터 부
+	string path;
+	string musicPath;
+	string title;
+	string artist;
+	string jacket;
+	string bga;
+	int bgaStartPos;
+	int bgaEndPos;
+	
+
+
 	double maxScore;
 
 	ofImage patternOverlay;

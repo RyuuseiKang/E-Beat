@@ -41,9 +41,9 @@
 #judgeDetailBoxBorder 578 0 766 175
 
 *musicNameLabel(x, y, pt, tracking, w)
-#musicNameLabel 1507 140 19 2 340
+#musicNameLabel 1507 117 19 2 295
 *artistNameLabel(x, y, pt, tracking, w)
-#artistNameLabel 1507 167 11 2 340
+#artistNameLabel 1507 155 11 2 270
 
 *albumArt(x, y, w or h)
 #albumArt 1376 49 115
@@ -65,3 +65,14 @@
 #levelLabel 1798 41 36 -12.2
 *levelLabelColor(r, g, b, a)
 #levelLabelColor 77 97 77 255
+
+*judgeBackgroundImage(x, y)
+#judgeBackgroundImage 580 0
+*judgeTextBlock0(x, y, pt, tracking)
+#judgeTextBlock0 765 0 17 2
+*judgeTextBlock1(x, y, pt, tracking)
+#judgeTextBlock1 945 0 17 2
+*judgeTextBlock2(x, y, pt, tracking)
+#judgeTextBlock2 1120 0 17 2
+*judgeTextBlock3(x, y, pt, tracking)
+#judgeTextBlock3 1286 0 17 2

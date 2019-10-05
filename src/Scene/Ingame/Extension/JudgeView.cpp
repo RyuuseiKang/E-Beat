@@ -24,17 +24,7 @@ JudgeView::~JudgeView() {
 }
 
 void JudgeView::AddJugde(short _judgeTime) {
-	int key;
-	if (abs(_judgeTime) <= 55)
-		key = 0;
-	else if (abs(_judgeTime) <= 150)
-		key = 1;
-	else if (abs(_judgeTime) <= 350)
-		key = 2;
-	else
-		key = 3;
-
-	imageVector.push_back(new JudgeImage(judgeImage[key]));
+	imageVector.push_back(new JudgeImage(judgeImage[_judgeTime]));
 }
 
 void JudgeView::update() {

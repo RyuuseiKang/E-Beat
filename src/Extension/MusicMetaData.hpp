@@ -3,7 +3,8 @@
 
 #include "ofMain.h"
 
-typedef struct musicMeta {
+class MusicMeta {
+public:
 	string path;
 	string musicPath;
 
@@ -14,6 +15,6 @@ typedef struct musicMeta {
 
 	int bgaStartPos = 0;
 	int bgaEndPos = 0;
-} musicMeta;
+};
 
 #endif //__MUSIC_META_DATA_HPP_

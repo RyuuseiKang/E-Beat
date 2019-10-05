@@ -34,10 +34,23 @@ void OptionList::draw(int _x, int _y, int _z) {
 
 	// 레벨 1598, 230 표시 위치, 높이 67
 
+	if ((isOptionAvailable && option == 0) || difficulty == 2)
+		ofSetColor(255, 255, 255, 255 - ((double)abs(230 - (96 + (67 * difficulty) - diffYPos)) / 100 * 255));
+	else
+		ofSetColor(255, 255, 255, 0);
 	levelLabel[2].draw(1598, 96 + (67 * difficulty) - diffYPos);
-	levelLabel[1].draw(1598, 163 + (67 * difficulty) - diffYPos);
-	levelLabel[0].draw(1598, 230 + (67 * difficulty) - diffYPos);
 
+	if ((isOptionAvailable && option == 0) || difficulty == 1)
+		ofSetColor(255, 255, 255, 255 - ((double)abs(230 - (163 + (67 * difficulty) - diffYPos)) / 100 * 255));
+	else
+		ofSetColor(255, 255, 255, 0);
+	levelLabel[1].draw(1598, 163 + (67 * difficulty) - diffYPos);
+
+	if ((isOptionAvailable && option == 0) || difficulty == 0)
+		ofSetColor(255, 255, 255, 255 - ((double)abs(230 - (230 + (67 * difficulty) - diffYPos)) / 100 * 255));
+	else
+		ofSetColor(255, 255, 255, 0);
+	levelLabel[0].draw(1598, 230 + (67 * difficulty) - diffYPos);
 
 	ofPushMatrix();
 
@@ -94,9 +107,8 @@ void OptionList::keyReleased(int key) {
 
 }
 
-void OptionList::animationStart(bool _direction) {
-	//moveDirection = _direction;
-	//difficultyAnimationTime = 0;
+void OptionList::optionAvailable(bool _isOptionAvailable) {
+	isOptionAvailable = _isOptionAvailable;
 }
 
 int OptionList::getSpeed() {
