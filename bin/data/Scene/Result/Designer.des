@@ -1,0 +1,5 @@
+*ScoreBackgroundRect(x, y, w, h, r, g, b, a)
+#ScoreBackgroundRect 697, 244, 622, 592 235 255 235 255
+
+*RankBackgroundRect(x, y, w, h, r, g, b, a)
+#RankBackgroundRect 1339, 244, 510, 592 235 255 235 255

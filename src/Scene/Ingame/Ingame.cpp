@@ -71,7 +71,11 @@ void Ingame::keyPressed(int key) {
 	}
 
 	if (key == 'e') {
-		musicPlayer.setPositionMS(0);
+		musicPlayer.setPositionMS(musicPlayer.getPositionMS() + 1000);
+	}
+
+	if (key == 'w') {
+		musicPlayer.setPositionMS(musicPlayer.getPositionMS() + 10000);
 	}
 	
 }
