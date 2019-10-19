@@ -9,6 +9,7 @@ InitializeScene *initializeScene;
 EntryScene *entryScene;
 MusicSelect *musicSelect;
 Ingame *ingame;
+Result *result;
 FileSystem file;
 
 Scene scene;
@@ -24,6 +25,7 @@ void ofApp::setup(){
     entryScene = new EntryScene();
     musicSelect = new MusicSelect(&file);
 	ingame = new Ingame(&file);
+	result = new Result();
 
 	scene = MUSIC_SELECT;
 }
@@ -55,6 +57,15 @@ void ofApp::update(){
 
 	case INGAME:
 		ingame->update(keys);
+		if (ingame->isReady()) {
+			scene = RESULT;
+			ingame->readyResult();
+			result->setDataViewer(ingame->getDataViewer());
+		}
+		break;
+
+	case RESULT:
+		result->update(keys);
 		break;
 
 	default:
@@ -110,6 +121,10 @@ void ofApp::draw(){
 		ingame->draw();
 		break;
 
+	case RESULT:
+		result->draw();
+		break;
+
 	default:
 		break;
 	}
@@ -141,6 +156,10 @@ void ofApp::keyPressed(int key){
 		ingame->keyPressed(key);
 		break;
 
+	case RESULT:
+		result->keyPressed(key);
+		break;
+
 	default:
 		break;
 	}
@@ -167,7 +186,11 @@ void ofApp::keyReleased(int key){
 		break;
 
 	case INGAME:
-		ingame->keyRelease(key);
+		ingame->keyReleased(key);
+		break;
+
+	case RESULT:
+		result->keyReleased(key);
 		break;
 
 	default:

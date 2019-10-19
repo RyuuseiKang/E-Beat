@@ -1,8 +1,8 @@
 //
-//  MusicSelect.hpp
+//  Ingame.hpp
 //  E-Beat
 //
-//  Created by 一ノ瀬琉聖 on 20/03/2019.
+//  Created by 一ノ瀬琉聖 on 15/04/2019.
 //
 
 #ifndef __INGAME_HPP_
@@ -25,10 +25,14 @@ public:
 	void draw();
 
 	void keyPressed(int key);
-	void keyRelease(int key);
+	void keyReleased(int key);
 
 	void readyMusic();
+	void readyResult();
+	bool isReady();
 	
+	DataViewer* getDataViewer();
+
 private:
 	FileSystem* file;
 
@@ -39,6 +43,7 @@ private:
 	ofImage backLane;
 	
 	bool isAliveViewer = false;
+	bool isIngameEnd = false;
 };
 
 #endif /* __INGAME_HPP_ */

@@ -26,6 +26,11 @@ void Ingame::update(bool keys[256]) {
 
 	laneViewer->update(keys);
 	dataViewer->update();
+
+	if (!musicPlayer.getIsPlaying()) {
+		// 여기서 노래 종료
+		isIngameEnd = true;
+	}
 }
 
 void Ingame::draw() {
@@ -71,7 +76,7 @@ void Ingame::keyPressed(int key) {
 	
 }
 
-void Ingame::keyRelease(int key) {
+void Ingame::keyReleased(int key) {
 	laneViewer->keyReleased(key);
 }
 
@@ -92,9 +97,20 @@ void Ingame::readyMusic() {
 	
 	laneViewer->setMusicPlayer(&musicPlayer);
 	
-
 	musicPlayer.play();
 	cout << "Play" << endl;
 
 	isAliveViewer = true;
+}
+
+void Ingame::readyResult() {
+	delete laneViewer;
+}
+
+bool Ingame::isReady() {
+	return isIngameEnd;
+}
+
+DataViewer * Ingame::getDataViewer() {
+	return dataViewer;
 }

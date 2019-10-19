@@ -22,3 +22,7 @@ int MusicPlayer::getPositionMS() {
 void MusicPlayer::setPositionMS(int _time) {
 	ofSoundPlayer::setPositionMS(_time);
 }
+
+bool MusicPlayer::getIsPlaying() {
+	return ofSoundPlayer::getIsPlaying();
+}

@@ -118,6 +118,9 @@
     <ClCompile Include="src\Extension\easing.cpp">
       <Filter>src\Extension</Filter>
     </ClCompile>
+    <ClCompile Include="src\Scene\Result\Result.cpp">
+      <Filter>src\Scene\Result</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -286,6 +289,9 @@
     </ClInclude>
     <ClInclude Include="src\Extension\easing.h">
       <Filter>src\Extension</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Result\Result.hpp">
+      <Filter>src\Scene\Result</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

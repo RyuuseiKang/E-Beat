@@ -217,6 +217,7 @@
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
     <ClCompile Include="src\Scene\MusicSelect\OptionList.cpp" />
+    <ClCompile Include="src\Scene\Result\Result.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Extension\easing.h" />
@@ -260,6 +261,7 @@
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h" />
     <ClInclude Include="src\Scene\MusicSelect\OptionList.hpp" />
+    <ClInclude Include="src\Scene\Result\Result.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

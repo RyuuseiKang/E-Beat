@@ -19,6 +19,8 @@ public:
 	int getPositionMS();
 	void setPositionMS(int _time);
 	
+	bool getIsPlaying();
+
 private:
 	
 };

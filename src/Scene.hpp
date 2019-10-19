@@ -7,12 +7,14 @@
 #include "Scene/EntryScene.hpp"
 #include "Scene/MusicSelect/MusicSelect.hpp"
 #include "Scene/Ingame/Ingame.hpp"
+#include "Scene/Result/Result.hpp"
 
 enum Scene {
 	INITIALIZE,
 	ENTRY,
 	MUSIC_SELECT,
-	INGAME
+	INGAME,
+	RESULT,
 };
 
 #endif /* __SCENE_HPP_ */
