@@ -9,8 +9,12 @@
 
 Result::Result() {
 	readDesigner();
+	
+	registrationUserNameLabel.load("Scene/Result/registrationUserNameLabel.png");
 
 	LoadBoxRect();
+	
+	registrationToServer();
 }
 
 Result::~Result() {
@@ -28,6 +32,14 @@ void Result::draw() {
 	DrawBoxRect(RankBackgroundRect[0], RankBackgroundRect[1], RankBackgroundRect[2], RankBackgroundRect[3]);
 	ofSetColor(RankBackgroundRect[4], RankBackgroundRect[5], RankBackgroundRect[6], RankBackgroundRect[7]);
 	ofDrawRectangle(RankBackgroundRect[0], RankBackgroundRect[1], RankBackgroundRect[2], RankBackgroundRect[3]);
+
+	ofSetColor(nicknameRegisterBackgroundRectVector[4], nicknameRegisterBackgroundRectVector[5], nicknameRegisterBackgroundRectVector[6], nicknameRegisterBackgroundRectVector[7]);
+	ofDrawRectangle(nicknameRegisterBackgroundRectVector[0], nicknameRegisterBackgroundRectVector[1], nicknameRegisterBackgroundRectVector[2], nicknameRegisterBackgroundRectVector[3]);
+	DrawBoxRect(nicknameRegisterBackgroundRectVector[0], nicknameRegisterBackgroundRectVector[1], nicknameRegisterBackgroundRectVector[2], nicknameRegisterBackgroundRectVector[3]);
+	nicknameRegisterQR.draw(nicknameRegisterQRVector[0], nicknameRegisterQRVector[1], nicknameRegisterQRVector[2]);
+
+	ofSetColor(255, 255, 255, 255);
+	registrationUserNameLabel.draw(registrationUserNameLabelVector[0], registrationUserNameLabelVector[1], registrationUserNameLabelVector[2], registrationUserNameLabelVector[3]);
 
 	dataViewer->draw();
 
@@ -48,6 +60,13 @@ void Result::keyReleased(int key) {
 void Result::setDesign() {
 	ScoreBackgroundRect = changeVectorIntType(dataParse("ScoreBackgroundRect"));
 	RankBackgroundRect = changeVectorIntType(dataParse("RankBackgroundRect"));
+
+	nicknameRegisterQRVector = changeVectorDoubleType(dataParse("nicknameRegisterQR"));
+	nicknameRegisterQR.setColor(nicknameRegisterQRVector[3], nicknameRegisterQRVector[4], nicknameRegisterQRVector[5], nicknameRegisterQRVector[6]);
+	nicknameRegisterBackgroundRectVector = changeVectorIntType(dataParse("nicknameRegisterBackgroundRect"));
+
+	registrationUserNameLabelVector = changeVectorIntType(dataParse("registrationUserNameLabel"));
+
 }
 
 void Result::LoadBoxRect() {
@@ -100,6 +119,11 @@ void Result::setDataViewer(DataViewer * _dataViewer) {
 
 bool Result::isReady() {
 	return isResultEnd;
+}
+
+void Result::registrationToServer() {
+	nicknameRegisterQR.generate("http://ec2-15-164-163-252.ap-northeast-2.compute.amazonaws.com:3000/registration?key=" + dataKey);
+	//nicknameRegisterQR.generate(dataKey);
 }
 
 vector<string> Result::dataParse(string itemName) {

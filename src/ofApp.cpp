@@ -61,6 +61,7 @@ void ofApp::update(){
 			scene = RESULT;
 			ingame->readyResult();
 			result->setDataViewer(ingame->getDataViewer());
+			//result->setData();
 		}
 		break;
 

@@ -181,7 +181,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Extension\easing.cpp" />
+    <ClCompile Include="src\Extension\ofxQRCodeGenerator.cpp" />
     <ClCompile Include="src\Extension\Parser.cpp" />
+    <ClCompile Include="src\Extension\qrencode\include\BitBuffer.cpp" />
+    <ClCompile Include="src\Extension\qrencode\include\QrCode.cpp" />
+    <ClCompile Include="src\Extension\qrencode\include\QrSegment.cpp" />
     <ClCompile Include="src\Extension\ScrollableTextBlock.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -222,7 +226,11 @@
   <ItemGroup>
     <ClInclude Include="src\Extension\easing.h" />
     <ClInclude Include="src\Extension\MusicMetaData.hpp" />
+    <ClInclude Include="src\Extension\ofxQRCodeGenerator.h" />
     <ClInclude Include="src\Extension\Parser.hpp" />
+    <ClInclude Include="src\Extension\qrencode\include\BitBuffer.hpp" />
+    <ClInclude Include="src\Extension\qrencode\include\QrCode.hpp" />
+    <ClInclude Include="src\Extension\qrencode\include\QrSegment.hpp" />
     <ClInclude Include="src\Extension\ScrollableTextBlock.hpp" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\configuration.hpp" />

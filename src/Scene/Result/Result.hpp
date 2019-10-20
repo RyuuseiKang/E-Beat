@@ -11,8 +11,9 @@
 #include <iostream>
 #include "../ofMain.h"
 
-
 #include "../Ingame/Extension/DataViewer.hpp"
+
+#include "../Extension/ofxQRCodeGenerator.h"
 
 class Result {
 public:
@@ -32,6 +33,7 @@ public:
 	void readDesigner();
 
 	void setDataViewer(DataViewer *_dataViewer);
+	//void setData();
 
 	bool isReady();
 
@@ -45,7 +47,25 @@ private:
 	vector<int> ScoreBackgroundRect;
 	vector<int> RankBackgroundRect;
 
+	ofxTextBlock ScoreLabel;
+	vector<double> ScoreLabelVector;
+	vector<int> ScoreLabelColorVector;
+	ofxTextBlock JudgeLabel[4];
+	vector<int> JudgeTextBlock0Vector;
+	vector<int> JudgeTextBlock1Vector;
+	vector<int> JudgeTextBlock2Vector;
+	vector<int> JudgeTextBlock3Vector;
+	ofxQRCodeGenerator nicknameRegisterQR;
+	vector<double> nicknameRegisterQRVector;
+	vector<int> nicknameRegisterBackgroundRectVector;
+	ofImage registrationUserNameLabel;
+	vector<int> registrationUserNameLabelVector;
+
+
 	bool isResultEnd = false;
+
+	void registrationToServer();
+	string dataKey = "7kJKg1qGB5fO27r9T76n";
 
 	vector<string> dataParse(string itemName);
 	vector<string> split(string str, char delimiter);
