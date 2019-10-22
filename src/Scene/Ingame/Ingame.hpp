@@ -30,6 +30,10 @@ public:
 	void readyMusic();
 	void readyResult();
 	bool isReady();
+
+	int getScore();
+	string getMusicName();
+	int getDifficult();
 	
 	DataViewer* getDataViewer();
 

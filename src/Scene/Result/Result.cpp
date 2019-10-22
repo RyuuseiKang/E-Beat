@@ -14,7 +14,6 @@ Result::Result() {
 
 	LoadBoxRect();
 	
-	registrationToServer();
 }
 
 Result::~Result() {
@@ -115,6 +114,12 @@ void Result::readDesigner() {
 
 void Result::setDataViewer(DataViewer * _dataViewer) {
 	dataViewer = _dataViewer;
+
+	musicName = dataViewer->getMusicName();
+	difficult = dataViewer->getDifficult();
+	score = dataViewer->getScore();
+
+	registrationToServer();
 }
 
 bool Result::isReady() {
@@ -122,8 +127,26 @@ bool Result::isReady() {
 }
 
 void Result::registrationToServer() {
-	nicknameRegisterQR.generate("http://ec2-15-164-163-252.ap-northeast-2.compute.amazonaws.com:3000/registration?key=" + dataKey);
+	dataKey = random_string(20);
+
+	cout << "hash: " << dataKey << endl;
+
+	nicknameRegisterQR.generate("http://seoulmet.ro/registration?key=" + dataKey);
 	//nicknameRegisterQR.generate(dataKey);
+}
+
+string Result::random_string(size_t length) {
+	auto randchar = []() -> char {
+		const char charset[] =
+			"0123456789"
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+			"abcdefghijklmnopqrstuvwxyz";
+		const size_t max_index = (sizeof(charset) - 1);
+		return charset[rand() % max_index];
+	};
+	std::string str(length, 0);
+	std::generate_n(str.begin(), length, randchar);
+	return str;
 }
 
 vector<string> Result::dataParse(string itemName) {

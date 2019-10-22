@@ -17,10 +17,19 @@ DataViewer::DataViewer(FileSystem* _file) {
 	LevelBackgroundRect.load("Scene/Ingame/DataViewer/LevelBackground.png");
 	JudgeBackground.load("Scene/Ingame/DataViewer/JudgeBackground.png");
 
+	scoreLabel.load("Scene/Ingame/DataViewer/ScoreLabel.png");
+	comboLabel.load("Scene/Ingame/DataViewer/ComboLabel.png");
+	maxComboLabel.load("Scene/Ingame/DataViewer/MaxComboLabel.png");
+
 	judgeTextBlock[0].setText("0");
 	judgeTextBlock[1].setText("0");
 	judgeTextBlock[2].setText("0");
 	judgeTextBlock[3].setText("0");
+
+	scoreTextBlock.setText(to_string(int(score)));
+	comboTextBlock.setText(to_string(combo));
+	maxComboTextBlock.setText(to_string(maxCombo));
+
 
 	cout << _file->getNowMusicData() << endl;
 
@@ -37,6 +46,7 @@ DataViewer::~DataViewer() {
 void DataViewer::update() {
 	musicNameLabel.update();
 	artistNameLabel.update();
+	
 }
 
 void DataViewer::draw() {
@@ -101,7 +111,21 @@ void DataViewer::draw() {
 	judgeTextBlock[2].drawCenter(JudgeTextBlock2Vector[0], JudgeTextBlock2Vector[1]);
 	judgeTextBlock[3].setColor(255, 255, 255, 255);
 	judgeTextBlock[3].drawCenter(JudgeTextBlock3Vector[0], JudgeTextBlock3Vector[1]);
-	
+
+	// 점수, 콤보 처리
+	ofSetColor(255, 255, 255, 255);
+	scoreTextBlock.setColor(255, 255, 255, 255);
+	scoreTextBlock.drawRight(scoreTextBlockVector[0], scoreTextBlockVector[1]);
+	comboTextBlock.setColor(0, 0, 0, 255);
+	comboTextBlock.drawRight(comboTextBlockVector[0], comboTextBlockVector[1]);
+	maxComboTextBlock.setColor(0, 0, 0, 255);
+	maxComboTextBlock.drawRight(maxComboTextBlockVector[0], maxComboTextBlockVector[1]);
+
+	ofSetColor(255, 255, 255, 255);
+	scoreLabel.draw(scoreLabelVector[0], scoreLabelVector[1], scoreLabelVector[2], scoreLabelVector[3]);
+	comboLabel.draw(comboLabelVector[0], comboLabelVector[1], comboLabelVector[2], comboLabelVector[3]);
+	maxComboLabel.draw(maxComboLabelVector[0], maxComboLabelVector[1], maxComboLabelVector[2], maxComboLabelVector[3]);
+
 	musicNameLabel.draw();
 	artistNameLabel.draw();
 }
@@ -110,16 +134,29 @@ void DataViewer::setScore(double _score) {
 	score = _score;
 }
 
+double DataViewer::getScore() {
+	return score;
+}
+
 void DataViewer::upPerfect() {
 	judgeTextBlock[0].setText(to_string(++judge[0]));
+	score += 500;
+
+	scoreTextBlock.setText(to_string(int(score)));
 }
 
 void DataViewer::upGreat() {
 	judgeTextBlock[1].setText(to_string(++judge[1]));
+	score += 250;
+
+	scoreTextBlock.setText(to_string(int(score)));
 }
 
 void DataViewer::upGood() {
 	judgeTextBlock[2].setText(to_string(++judge[2]));
+	score += 125;
+
+	scoreTextBlock.setText(to_string(int(score)));
 }
 
 void DataViewer::upMiss() {
@@ -128,10 +165,18 @@ void DataViewer::upMiss() {
 
 void DataViewer::upCombo() {
 	combo++;
+	if (maxCombo < combo)
+		maxCombo = combo;
+
+	comboTextBlock.setText(to_string(combo));
+	maxComboTextBlock.setText(to_string(maxCombo));
 }
 
 void DataViewer::breakCombo() {
 	combo = 0;
+
+	comboTextBlock.setText(to_string(combo));
+	maxComboTextBlock.setText(to_string(maxCombo));
 }
 
 void DataViewer::setDesign() {
@@ -170,6 +215,23 @@ void DataViewer::setDesign() {
 	judgeTextBlock[2].setColor(255, 255, 255, 255);
 	judgeTextBlock[3].setColor(255, 255, 255, 255);
 
+	scoreTextBlockVector = changeVectorIntType(dataParse("scoreTextBlock"));
+	comboTextBlockVector = changeVectorIntType(dataParse("comboTextBlock"));
+	maxComboTextBlockVector = changeVectorIntType(dataParse("maxComboTextBlock"));
+	scoreTextBlock.init("Fonts/ITCAvantGardeStd-Bold.ttf", scoreTextBlockVector[2]);
+	comboTextBlock.init("Fonts/ITCAvantGardeStd-Bold.ttf", comboTextBlockVector[2]);
+	maxComboTextBlock.init("Fonts/ITCAvantGardeStd-Bold.ttf", maxComboTextBlockVector[2]);
+	scoreTextBlock.setTracking(scoreTextBlockVector[3]);
+	comboTextBlock.setTracking(comboTextBlockVector[3]);
+	maxComboTextBlock.setTracking(maxComboTextBlockVector[3]);
+	scoreTextBlock.setColor(255, 255, 255, 255);
+	comboTextBlock.setColor(255, 255, 255, 255);
+	maxComboTextBlock.setColor(255, 255, 255, 255);
+
+	scoreLabelVector = changeVectorIntType(dataParse("scoreLabel"));
+	comboLabelVector = changeVectorIntType(dataParse("comboLabel"));
+	maxComboLabelVector = changeVectorIntType(dataParse("maxComboLabel"));
+	
     // 곡 제목, 아티스트명 부분
 	musicNameLabelVector = changeVectorIntType(dataParse("musicNameLabel"));
 	musicNameLabel.init("Fonts/ITCAvantGardeStd-Md.ttf", musicNameLabelVector[2]);
@@ -307,6 +369,10 @@ void DataViewer::setDifficult(int _difficult) {
 	setDesign();
 }
 
+int DataViewer::getDifficult() {
+	return difficult;
+}
+
 void DataViewer::setLevel(int _level) {
 	level = _level;
 
@@ -314,7 +380,12 @@ void DataViewer::setLevel(int _level) {
 }
 
 void DataViewer::setMusicName(string _musicName) {
-	musicNameLabel.setText(_musicName);
+	musicName = _musicName;
+	musicNameLabel.setText(musicName);
+}
+
+string DataViewer::getMusicName() {
+	return musicName;
 }
 
 void DataViewer::setArtistName(string _artistName) {

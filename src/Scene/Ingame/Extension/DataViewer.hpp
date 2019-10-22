@@ -25,6 +25,7 @@ public:
 	void draw();
 
 	void setScore(double _score);
+	double getScore();
 	void upPerfect();
 	void upGreat();
 	void upGood();
@@ -35,9 +36,11 @@ public:
 	void readDesigner();
 
 	void setDifficult(int _difficult);
+	int getDifficult();
 	void setLevel(int _level);
 
 	void setMusicName(string _musicName);
+	string getMusicName();
 	void setArtistName(string _artistName);
 	void setMetaData(meta_data _metas);
 
@@ -59,10 +62,22 @@ private:
 	vector<int> changeVectorIntType(vector<string> str);
 	vector<double> changeVectorDoubleType(vector<string> str);
 
-	double score;
-	ofxTextBlock scoreLabel;
+	double score = 0;
+	ofxTextBlock scoreTextBlock;
+	vector<int> scoreTextBlockVector;
+	ofImage scoreLabel;
 	vector<int> scoreLabelVector;
-	unsigned int combo;
+	unsigned int combo = 0;
+	ofxTextBlock comboTextBlock;
+	vector<int> comboTextBlockVector;
+	ofImage comboLabel;
+	vector<int> comboLabelVector;
+	unsigned int maxCombo = 0;
+	ofxTextBlock maxComboTextBlock;
+	vector<int> maxComboTextBlockVector;
+	ofImage maxComboLabel;
+	vector<int> maxComboLabelVector;
+
 
 	// 판정 예
 	// JUSTICE_CRITICAL
@@ -71,11 +86,11 @@ private:
 	// MISS
 	unsigned int judge[4];
 	ofxTextBlock judgeTextBlock[4];
-
-	unsigned int maxCombo;
-
+	
 	int difficult = 1;
 	int level = 10;
+	string musicName = "";
+
 	ofxTextBlock difficultyLabel;
 	vector<double> difficultyLabelVector;
 	int difficultyLabelWidth;

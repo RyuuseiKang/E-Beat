@@ -33,7 +33,6 @@ public:
 	void readDesigner();
 
 	void setDataViewer(DataViewer *_dataViewer);
-	//void setData();
 
 	bool isReady();
 
@@ -61,12 +60,17 @@ private:
 	ofImage registrationUserNameLabel;
 	vector<int> registrationUserNameLabelVector;
 
+	string musicName;
+	int difficult;
+	double score;
+
 
 	bool isResultEnd = false;
 
 	void registrationToServer();
 	string dataKey = "7kJKg1qGB5fO27r9T76n";
 
+	string Result::random_string(size_t length);
 	vector<string> dataParse(string itemName);
 	vector<string> split(string str, char delimiter);
 	vector<int> changeVectorIntType(vector<string> str);

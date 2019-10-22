@@ -76,3 +76,17 @@
 #judgeTextBlock2 1120 0 17 2
 *judgeTextBlock3(x, y, pt, tracking)
 #judgeTextBlock3 1286 0 17 2
+
+*scoreTextBlock(x, y, pt, tracking)
+#scoreTextBlock 1300 23 45 2
+*comboTextBlock(x, y, pt, tracking)
+#comboTextBlock 1300 110 30 2
+*maxComboTextBlock(x, y, pt, tracking)
+#maxComboTextBlock 950 110 30 2
+
+*scoreLabel(x, y, w, h)
+#scoreLabel 621 50 247 47
+*comboLabel(x, y, w, h)
+#comboLabel 1066 124 97 34
+*maxComboLabel(x, y, w, h)
+#maxComboLabel 622 124 186 35

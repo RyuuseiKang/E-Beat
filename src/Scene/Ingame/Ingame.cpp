@@ -115,6 +115,18 @@ bool Ingame::isReady() {
 	return isIngameEnd;
 }
 
+int Ingame::getScore() {
+	return dataViewer->getScore();
+}
+
+string Ingame::getMusicName() {
+	return dataViewer->getMusicName();
+}
+
+int Ingame::getDifficult() {
+	return dataViewer->getDifficult();
+}
+
 DataViewer * Ingame::getDataViewer() {
 	return dataViewer;
 }
