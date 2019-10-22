@@ -68,7 +68,10 @@ private:
 	bool isResultEnd = false;
 
 	void registrationToServer();
+	string removeSpace(string _str);
 	string dataKey = "7kJKg1qGB5fO27r9T76n";
+
+	ofHttpRequest server;
 
 	string Result::random_string(size_t length);
 	vector<string> dataParse(string itemName);

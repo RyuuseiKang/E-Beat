@@ -129,10 +129,27 @@ bool Result::isReady() {
 void Result::registrationToServer() {
 	dataKey = random_string(20);
 
-	cout << "hash: " << dataKey << endl;
+	ofHttpRequest request;
+	request.method = ofHttpRequest::GET;
+	request.url = "http://ec2-15-164-163-252.ap-northeast-2.compute.amazonaws.com:3000/ebeat/registration/key?key=" + dataKey + "&score=" + to_string(int(score)) + "&music=" + removeSpace(musicName) + "." + to_string(difficult);
+	ofURLFileLoader http;
+	auto response = http.handleRequest(request);
+
+	cout << request.url << endl;
+	cout << "http://seoulmet.ro/registration?key=" + dataKey << endl;
 
 	nicknameRegisterQR.generate("http://seoulmet.ro/registration?key=" + dataKey);
 	//nicknameRegisterQR.generate(dataKey);
+}
+
+string Result::removeSpace(string _str) {
+	auto pos = _str.find(" ");
+	auto len = 1;
+	if (pos != std::string::npos) {
+		_str.replace(pos, len, "_");
+	}
+
+	return _str;
 }
 
 string Result::random_string(size_t length) {

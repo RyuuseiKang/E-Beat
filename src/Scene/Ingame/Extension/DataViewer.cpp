@@ -393,8 +393,8 @@ void DataViewer::setArtistName(string _artistName) {
 }
 
 void DataViewer::setMetaData(meta_data _metas) {
-	musicNameLabel.setText(_metas.TITLE);
-	artistNameLabel.setText(_metas.ARTIST);
+	setMusicName(_metas.TITLE);
+	setArtistName(_metas.ARTIST);
 	setLevel(stoi(_metas.PLAYLEVEL));
 }
 
