@@ -46,9 +46,14 @@ private:
 	vector<int> ScoreBackgroundRect;
 	vector<int> RankBackgroundRect;
 
-	ofxTextBlock ScoreLabel;
-	vector<double> ScoreLabelVector;
-	vector<int> ScoreLabelColorVector;
+	ofImage ScoreLabel;
+	vector<int> ScoreLabelVector;
+	ofImage RankLabel;
+	vector<int> RankLabelVector;
+	ofImage *rankImage;
+	ofImage *RankTextImage;
+	vector<int> RankTextImageVector;
+
 	ofxTextBlock JudgeLabel[4];
 	vector<int> JudgeTextBlock0Vector;
 	vector<int> JudgeTextBlock1Vector;
@@ -63,6 +68,7 @@ private:
 	string musicName;
 	int difficult;
 	double score;
+	double rate;
 
 
 	bool isResultEnd = false;

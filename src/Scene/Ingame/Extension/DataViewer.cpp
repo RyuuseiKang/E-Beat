@@ -379,6 +379,13 @@ void DataViewer::setLevel(int _level) {
 	setDesign();
 }
 
+double DataViewer::getRate() {
+	double rate = (judge[0] * 1.1) + (judge[1] * 1.0) + (judge[2] * 0.7);
+	int maxCount = judge[0] + judge[1] + judge[2] + judge[3];
+		
+	return rate / maxCount * 100;
+}
+
 void DataViewer::setMusicName(string _musicName) {
 	musicName = _musicName;
 	musicNameLabel.setText(musicName);

@@ -12,6 +12,16 @@ Result::Result() {
 	
 	registrationUserNameLabel.load("Scene/Result/registrationUserNameLabel.png");
 
+	ScoreLabel.load("Scene/Result/ScoreLabel.png");
+	RankLabel.load("Scene/Result/RankLabel.png");
+
+	rankImage = new ofImage[5];
+	rankImage[0].load("Scene/Result/Rank/S+.png");
+	rankImage[1].load("Scene/Result/Rank/S.png");
+	rankImage[2].load("Scene/Result/Rank/A.png");
+	rankImage[3].load("Scene/Result/Rank/B.png");
+	rankImage[4].load("Scene/Result/Rank/C.png");
+
 	LoadBoxRect();
 	
 }
@@ -31,6 +41,11 @@ void Result::draw() {
 	DrawBoxRect(RankBackgroundRect[0], RankBackgroundRect[1], RankBackgroundRect[2], RankBackgroundRect[3]);
 	ofSetColor(RankBackgroundRect[4], RankBackgroundRect[5], RankBackgroundRect[6], RankBackgroundRect[7]);
 	ofDrawRectangle(RankBackgroundRect[0], RankBackgroundRect[1], RankBackgroundRect[2], RankBackgroundRect[3]);
+
+	ScoreLabel.draw(ScoreLabelVector[0], ScoreLabelVector[1], ScoreLabelVector[2], ScoreLabelVector[3]);
+	RankLabel.draw(RankLabelVector[0], RankLabelVector[1], RankLabelVector[2], RankLabelVector[3]);
+
+	RankTextImage->draw(RankTextImageVector[0], RankTextImageVector[1], RankTextImageVector[2], RankTextImageVector[3]);
 
 	ofSetColor(nicknameRegisterBackgroundRectVector[4], nicknameRegisterBackgroundRectVector[5], nicknameRegisterBackgroundRectVector[6], nicknameRegisterBackgroundRectVector[7]);
 	ofDrawRectangle(nicknameRegisterBackgroundRectVector[0], nicknameRegisterBackgroundRectVector[1], nicknameRegisterBackgroundRectVector[2], nicknameRegisterBackgroundRectVector[3]);
@@ -57,8 +72,11 @@ void Result::keyReleased(int key) {
 }
 
 void Result::setDesign() {
+	ScoreLabelVector = changeVectorIntType(dataParse("ScoreLabel"));
+	RankLabelVector = changeVectorIntType(dataParse("RankLabel"));
 	ScoreBackgroundRect = changeVectorIntType(dataParse("ScoreBackgroundRect"));
 	RankBackgroundRect = changeVectorIntType(dataParse("RankBackgroundRect"));
+	RankTextImageVector = changeVectorIntType(dataParse("RankTextImage"));
 
 	nicknameRegisterQRVector = changeVectorDoubleType(dataParse("nicknameRegisterQR"));
 	nicknameRegisterQR.setColor(nicknameRegisterQRVector[3], nicknameRegisterQRVector[4], nicknameRegisterQRVector[5], nicknameRegisterQRVector[6]);
@@ -118,6 +136,20 @@ void Result::setDataViewer(DataViewer * _dataViewer) {
 	musicName = dataViewer->getMusicName();
 	difficult = dataViewer->getDifficult();
 	score = dataViewer->getScore();
+	rate = dataViewer->getRate();
+
+	if (rate >= 100)
+		RankTextImage = &rankImage[0];
+	else if (rate >= 90)
+		RankTextImage = &rankImage[1];
+	else if (rate >= 70)
+		RankTextImage = &rankImage[2];
+	else if (rate >= 50)
+		RankTextImage = &rankImage[3];
+	else
+		RankTextImage = &rankImage[4];
+
+	// cout << rate << endl;
 
 	registrationToServer();
 }

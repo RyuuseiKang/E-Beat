@@ -1,15 +1,17 @@
 *ScoreBackgroundRect(x, y, w, h, r, g, b, a)
 #ScoreBackgroundRect 697 244 622 592 235 255 235 255
-*ScoreLabelBackgroundRect(x, y, w, h, r, g, b, a)
-#ScoreLabelBackgroundRect 697 256 622 46 0 0 0 200
+*ScoreLabel(x, y, w, h)
+#ScoreLabel 697 256 622 46
 
 *RankBackgroundRect(x, y, w, h, r, g, b, a)
 #RankBackgroundRect 1339 244 510 592 235 255 235 255
-*RankLabelBackgroundRect(x, y, w, h, r, g, b, a)
-#RankLabelBackgroundRect 1399 256 510 46 0 0 0 200
+*RankLabel(x, y, w, h)
+#RankLabel 1339 256 510 46
+*RankTextImage(x, y, w, h)
+#RankTextImage 1339 302 510 324
 
 *nicknameRegisterBackgroundRect(x, y, w, h, r, g, b, a)
-#nicknameRegisterBackgroundRect 50 244 600 592 235 255 235 255
+#nicknameRegisterBackgroundRect 50 244 600 592 255 255 255 255
 *nicknameRegisterQR(x, y, size, r, g, b, a)
 #nicknameRegisterQR 125 340 450 0 0 0 230
 *registrationUserNameLabel(x, y, w, h)

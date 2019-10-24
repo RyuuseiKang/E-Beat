@@ -39,6 +39,8 @@ public:
 	int getDifficult();
 	void setLevel(int _level);
 
+	double getRate();
+
 	void setMusicName(string _musicName);
 	string getMusicName();
 	void setArtistName(string _artistName);
