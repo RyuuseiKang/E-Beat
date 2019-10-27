@@ -255,8 +255,8 @@ void LaneViewer::GenerateNote() {
 }
 
 // 노래의 현재 시각과 현재 읽어들이는 Marker로 레인의 포지션 구하는 함수
-double LaneViewer::GetCurrentScrollPosition(Marker* _marker, double _nowSyncTime, double _hiSpeed) {
-	Marker* m = _marker;
+double LaneViewer::GetCurrentScrollPosition(Mark* _marker, double _nowSyncTime, double _hiSpeed) {
+	Mark* m = _marker;
 
 	if (_nowSyncTime <= 0)
 		return 0;
@@ -268,7 +268,7 @@ double LaneViewer::GetCurrentScrollPosition(Marker* _marker, double _nowSyncTime
 	return nowPosition;
 }
 
-Marker* LaneViewer::GetNowMarker() {
+Mark* LaneViewer::GetNowMarker() {
 	return laneData->GetNowMarker(player->getPositionMS() - wavOffset);
 }
 

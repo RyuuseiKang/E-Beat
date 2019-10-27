@@ -1,4 +1,4 @@
-﻿//
+//
 //  KeyBeam.cpp
 //  E-Beat
 //
@@ -45,7 +45,7 @@ void LaneKeyBeam::SetKey(short _key) {
 		bool isPressed = (binaryValue == (_key & binaryValue));
 
 		if (isPressed != keyPressed[i]) {
-			(isPressed == true) ? NULL : SetAnimation(i);
+			if (isPressed != true) SetAnimation(i);
 			
 			keyPressed[i] = isPressed;
 

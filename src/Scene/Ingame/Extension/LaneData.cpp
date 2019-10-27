@@ -1,4 +1,4 @@
-﻿//
+//
 //  LaneData.cpp
 //  E-Beat
 //
@@ -31,15 +31,15 @@ void LaneData::AddBPMList(int _key, double _value) {
 }
 
 void LaneData::AddBPM(int _bar, int _key) {
-	Marker *m;
+	Mark *m;
 	if (optionTimeLine.size()) {
 		if (optionTimeLine[_bar] != NULL)
 			m = optionTimeLine[_bar];
 		else
-			m = new Marker();
+			m = new Mark();
 	}
 	else
-		m = new Marker();
+		m = new Mark();
 
 	m->bpm = bpms[_key];
 	m->option += 1;
@@ -48,15 +48,15 @@ void LaneData::AddBPM(int _bar, int _key) {
 }
 
 void LaneData::AddSpeed(int _bar, int _position, double _value) {
-	Marker *m;
+	Mark *m;
 	if (optionTimeLine.size()) {
 		if (optionTimeLine[_bar] != NULL)
 			m = optionTimeLine[_bar];
 		else
-			m = new Marker();
+			m = new Mark();
 	}
 	else
-		m = new Marker();
+		m = new Mark();
 
 	m->speed = _value;
 	m->option += 2;
@@ -65,15 +65,15 @@ void LaneData::AddSpeed(int _bar, int _position, double _value) {
 }
 
 void LaneData::AddBarBeat(int _bar, double _value) {
-	Marker *m;
+	Mark *m;
 	if (optionTimeLine.size()) {
 		if (optionTimeLine[_bar] != NULL)
 			m = optionTimeLine[_bar];
 		else
-			m = new Marker();
+			m = new Mark();
 	}
 	else
-		m = new Marker();
+		m = new Mark();
 		
 	m->barBeat = _value;
 	m->option += 4;
@@ -144,7 +144,7 @@ void LaneData::Process() {
 	// 여기서 노트 데이터 시간을 계산해서 추가
 
 	// 레인 싱크타입 잡는 작업
-	typedef map<int, Marker*>::iterator markerOutmap;
+	typedef map<int, Mark*>::iterator markerOutmap;
 
 	int lastBar = 0;
 	int lastTime = 0;
@@ -450,9 +450,9 @@ void LaneData::draw() {
 	}
 }
 
-Marker* LaneData::GetNowMarker(double _syncTime) {
-	Marker* m;
-	typedef map<int, Marker*>::iterator markerOutmap;
+Mark* LaneData::GetNowMarker(double _syncTime) {
+	Mark* m;
+	typedef map<int, Mark*>::iterator markerOutmap;
 	for (markerOutmap markerIterator = optionTimeLine.begin(); markerIterator != optionTimeLine.end(); markerIterator++) {
 		if (markerIterator->second->syncTime <= _syncTime) {
 			m = markerIterator->second;

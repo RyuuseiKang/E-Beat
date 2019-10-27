@@ -1,4 +1,4 @@
-﻿//
+//
 //  Result.hpp
 //  E-Beat
 //
@@ -79,7 +79,7 @@ private:
 
 	ofHttpRequest server;
 
-	string Result::random_string(size_t length);
+	string random_string(size_t length);
 	vector<string> dataParse(string itemName);
 	vector<string> split(string str, char delimiter);
 	vector<int> changeVectorIntType(vector<string> str);

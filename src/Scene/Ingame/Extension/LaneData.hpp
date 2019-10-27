@@ -1,4 +1,4 @@
-﻿//
+//
 //  LaneData.hpp
 //  E-Beat
 //
@@ -37,7 +37,7 @@ typedef struct SlideNoteLane {
 } SlideNoteLane;
 
 
-typedef struct Marker {
+typedef struct Mark {
 	double bpm = 0; // 옵션 1 증감
 	double speed = 1; // 옵션 2 증감
 	double barBeat = 0; // 옵션 4 증감
@@ -45,7 +45,7 @@ typedef struct Marker {
 	double position = 0; // 마디 첫 위치
 	double height = 0; // 한 마디 높이
 	unsigned char option = 0;
-} Marker;
+} Mark;
 
 class LaneData {
 public: 
@@ -74,7 +74,7 @@ public:
 
 	void draw();
 
-	Marker* GetNowMarker(double _syncTime);
+	Mark* GetNowMarker(double _syncTime);
 
 private:
 	// @NoteLane noteLane: noteLane.lane[레인번호][마디번호].note[값순서] 
@@ -89,7 +89,7 @@ private:
 	map<int, double> bpms;
 
 	// 타임라인 값 참조: optionTimeLine[마디번호];
-	map<int, Marker*> optionTimeLine;
+	map<int, Mark*> optionTimeLine;
 
 	int tbp = 480; // ticks_per_beat
 	double hiSpeed = 1.0; // 유저 하이스피드

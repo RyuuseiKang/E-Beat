@@ -41,9 +41,9 @@ public:
 private:
 	void GenerateNote();
 
-	double GetCurrentScrollPosition(Marker* _marker, double _nowSyncTime, double _hiSpeed);
+	double GetCurrentScrollPosition(Mark* _marker, double _nowSyncTime, double _hiSpeed);
 
-	Marker* GetNowMarker();
+	Mark* GetNowMarker();
 	
 	ofxPanel gui;
 

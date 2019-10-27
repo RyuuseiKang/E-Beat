@@ -1,4 +1,4 @@
-﻿//
+//
 //  ScrollableTextBlock.cpp
 //  E-Beat
 //
@@ -83,7 +83,8 @@ void ScrollableTextBlock::draw() {
 		if (textWidth > 0) {
 			mask.allocate((textWidth < defaultFont.stringWidth(tmpStr))?textWidth:defaultFont.stringWidth(tmpStr), defaultFont.stringHeight(tmpStr) * 1.3, GL_LUMINANCE); // or GL_RED in opengl 3+
 			// mask.allocate(defaultFont.stringWidth(tmpStr), defaultFont.stringHeight(tmpStr) * 1.3, GL_LUMINANCE); // or GL_RED in opengl 3+
-			mask.setAlphaMask(dF->getStringTexture(tmpStr, false));
+            ofTexture tmpTexture = dF->getStringTexture(tmpStr);
+            mask.setAlphaMask(tmpTexture);
 
 			mask.draw(drawX, drawY);
 		}

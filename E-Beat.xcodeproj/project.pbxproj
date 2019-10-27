@@ -23,6 +23,19 @@
 		853E0BA2F448076739446874 /* ofxColorPicker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 181D363B6DD54D1FA6309C43 /* ofxColorPicker.cpp */; };
 		856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9604B925D32EE39065747725 /* ofxBaseGui.cpp */; };
 		888867DD362EA1DA8517018B /* ofBackgroundPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AF7AEE2890CC70A6E5E7CE /* ofBackgroundPlayer.cpp */; };
+		8AEF05162361903F003820DA /* Result.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF05142361903F003820DA /* Result.cpp */; };
+		8AEF05192361907E003820DA /* OptionList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF05172361907E003820DA /* OptionList.cpp */; };
+		8AEF0522236190B3003820DA /* JudgeImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF051A236190B2003820DA /* JudgeImage.cpp */; };
+		8AEF0523236190B3003820DA /* LaneKeyBeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF051B236190B2003820DA /* LaneKeyBeam.cpp */; };
+		8AEF0524236190B3003820DA /* JudgeView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF051D236190B3003820DA /* JudgeView.cpp */; };
+		8AEF0525236190B3003820DA /* LaneData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF0521236190B3003820DA /* LaneData.cpp */; };
+		8AEF0528236190BD003820DA /* MusicPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF0527236190BD003820DA /* MusicPlayer.cpp */; };
+		8AEF052B236190D0003820DA /* easing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF0529236190D0003820DA /* easing.cpp */; };
+		8AEF052F236190ED003820DA /* ofxQRCodeGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF052E236190EC003820DA /* ofxQRCodeGenerator.cpp */; };
+		8AEF0532236190F8003820DA /* ScrollableTextBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF0530236190F8003820DA /* ScrollableTextBlock.cpp */; };
+		8AEF053B23619110003820DA /* QrCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF053523619110003820DA /* QrCode.cpp */; };
+		8AEF053C23619110003820DA /* QrSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF053623619110003820DA /* QrSegment.cpp */; };
+		8AEF053D23619110003820DA /* BitBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF053923619110003820DA /* BitBuffer.cpp */; };
 		B127D4E23859DA49CB23F45B /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C18AEDE26A982DD16C7E05F /* FileSystem.cpp */; };
 		B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */; };
 		B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */; };
@@ -88,6 +101,33 @@
 		87F26B4B24CBD428AD9EEBAA /* ofxBaseGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxBaseGui.h; path = ../../../addons/ofxGui/src/ofxBaseGui.h; sourceTree = SOURCE_ROOT; };
 		8918AD63101D4CDF121C031F /* MusicCard.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = MusicCard.cpp; path = src/Scene/MusicSelect/Extension/MusicCard.cpp; sourceTree = SOURCE_ROOT; };
 		89449E3044D456F7DE7BEA14 /* ofxPanel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxPanel.h; path = ../../../addons/ofxGui/src/ofxPanel.h; sourceTree = SOURCE_ROOT; };
+		8AEF05142361903F003820DA /* Result.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Result.cpp; path = Scene/Result/Result.cpp; sourceTree = "<group>"; };
+		8AEF05152361903F003820DA /* Result.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Result.hpp; path = Scene/Result/Result.hpp; sourceTree = "<group>"; };
+		8AEF05172361907E003820DA /* OptionList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OptionList.cpp; path = Scene/MusicSelect/OptionList.cpp; sourceTree = "<group>"; };
+		8AEF05182361907E003820DA /* OptionList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = OptionList.hpp; path = Scene/MusicSelect/OptionList.hpp; sourceTree = "<group>"; };
+		8AEF051A236190B2003820DA /* JudgeImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JudgeImage.cpp; path = Scene/Ingame/Extension/JudgeImage.cpp; sourceTree = "<group>"; };
+		8AEF051B236190B2003820DA /* LaneKeyBeam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LaneKeyBeam.cpp; path = Scene/Ingame/Extension/LaneKeyBeam.cpp; sourceTree = "<group>"; };
+		8AEF051C236190B3003820DA /* LaneKeyBeam.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LaneKeyBeam.hpp; path = Scene/Ingame/Extension/LaneKeyBeam.hpp; sourceTree = "<group>"; };
+		8AEF051D236190B3003820DA /* JudgeView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JudgeView.cpp; path = Scene/Ingame/Extension/JudgeView.cpp; sourceTree = "<group>"; };
+		8AEF051E236190B3003820DA /* JudgeView.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = JudgeView.hpp; path = Scene/Ingame/Extension/JudgeView.hpp; sourceTree = "<group>"; };
+		8AEF051F236190B3003820DA /* LaneData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LaneData.hpp; path = Scene/Ingame/Extension/LaneData.hpp; sourceTree = "<group>"; };
+		8AEF0520236190B3003820DA /* JudgeImage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = JudgeImage.hpp; path = Scene/Ingame/Extension/JudgeImage.hpp; sourceTree = "<group>"; };
+		8AEF0521236190B3003820DA /* LaneData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LaneData.cpp; path = Scene/Ingame/Extension/LaneData.cpp; sourceTree = "<group>"; };
+		8AEF0526236190BD003820DA /* MusicPlayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MusicPlayer.hpp; path = Scene/Ingame/Extension/MusicPlayer.hpp; sourceTree = "<group>"; };
+		8AEF0527236190BD003820DA /* MusicPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MusicPlayer.cpp; path = Scene/Ingame/Extension/MusicPlayer.cpp; sourceTree = "<group>"; };
+		8AEF0529236190D0003820DA /* easing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = easing.cpp; path = Extension/easing.cpp; sourceTree = "<group>"; };
+		8AEF052A236190D0003820DA /* easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = easing.h; path = Extension/easing.h; sourceTree = "<group>"; };
+		8AEF052C236190DB003820DA /* MusicMetaData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MusicMetaData.hpp; path = Extension/MusicMetaData.hpp; sourceTree = "<group>"; };
+		8AEF052D236190EC003820DA /* ofxQRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxQRCodeGenerator.h; path = Extension/ofxQRCodeGenerator.h; sourceTree = "<group>"; };
+		8AEF052E236190EC003820DA /* ofxQRCodeGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxQRCodeGenerator.cpp; path = Extension/ofxQRCodeGenerator.cpp; sourceTree = "<group>"; };
+		8AEF0530236190F8003820DA /* ScrollableTextBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScrollableTextBlock.cpp; path = Extension/ScrollableTextBlock.cpp; sourceTree = "<group>"; };
+		8AEF0531236190F8003820DA /* ScrollableTextBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ScrollableTextBlock.hpp; path = Extension/ScrollableTextBlock.hpp; sourceTree = "<group>"; };
+		8AEF053523619110003820DA /* QrCode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = QrCode.cpp; path = Extension/qrencode/include/QrCode.cpp; sourceTree = "<group>"; };
+		8AEF053623619110003820DA /* QrSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = QrSegment.cpp; path = Extension/qrencode/include/QrSegment.cpp; sourceTree = "<group>"; };
+		8AEF053723619110003820DA /* QrSegment.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = QrSegment.hpp; path = Extension/qrencode/include/QrSegment.hpp; sourceTree = "<group>"; };
+		8AEF053823619110003820DA /* QrCode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = QrCode.hpp; path = Extension/qrencode/include/QrCode.hpp; sourceTree = "<group>"; };
+		8AEF053923619110003820DA /* BitBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BitBuffer.cpp; path = Extension/qrencode/include/BitBuffer.cpp; sourceTree = "<group>"; };
+		8AEF053A23619110003820DA /* BitBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = BitBuffer.hpp; path = Extension/qrencode/include/BitBuffer.hpp; sourceTree = "<group>"; };
 		907C5B5E104864A2D3A25745 /* ofxToggle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxToggle.cpp; path = ../../../addons/ofxGui/src/ofxToggle.cpp; sourceTree = SOURCE_ROOT; };
 		9604B925D32EE39065747725 /* ofxBaseGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxBaseGui.cpp; path = ../../../addons/ofxGui/src/ofxBaseGui.cpp; sourceTree = SOURCE_ROOT; };
 		9C18AEDE26A982DD16C7E05F /* FileSystem.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FileSystem.cpp; path = src/Extension/FileSystem.cpp; sourceTree = SOURCE_ROOT; };
@@ -306,13 +346,21 @@
 		0E5F640AA3F3BC7A8DFC1045 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				8AEF053323619101003820DA /* qrencode */,
+				8AEF0529236190D0003820DA /* easing.cpp */,
+				8AEF052A236190D0003820DA /* easing.h */,
+				8AEF052C236190DB003820DA /* MusicMetaData.hpp */,
 				2315C8A9228CD103003EF748 /* Parser.cpp */,
 				2315C8AA228CD103003EF748 /* Parser.hpp */,
 				9C18AEDE26A982DD16C7E05F /* FileSystem.cpp */,
 				76132E6749933AD211282335 /* FileSystem.hpp */,
+				8AEF052E236190EC003820DA /* ofxQRCodeGenerator.cpp */,
+				8AEF052D236190EC003820DA /* ofxQRCodeGenerator.h */,
 				24A18128D2DECC51ED1A296D /* ofxTextBlock.cpp */,
 				2F8F3E12BED42A3037703E70 /* ofxTextBlock.h */,
 				70134E599F9DE4E5AD45E52E /* ofxTextSuite.h */,
+				8AEF0530236190F8003820DA /* ScrollableTextBlock.cpp */,
+				8AEF0531236190F8003820DA /* ScrollableTextBlock.hpp */,
 				9D040D9D9627E1EF15E88266 /* ofxBlurShader.cpp */,
 				B2B812845E61FAAA231F8771 /* ofxBlurShader.h */,
 			);
@@ -349,10 +397,20 @@
 		4BD1990D1176169218FB69E6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				8AEF051A236190B2003820DA /* JudgeImage.cpp */,
+				8AEF0520236190B3003820DA /* JudgeImage.hpp */,
+				8AEF051D236190B3003820DA /* JudgeView.cpp */,
+				8AEF051E236190B3003820DA /* JudgeView.hpp */,
+				8AEF0521236190B3003820DA /* LaneData.cpp */,
+				8AEF051F236190B3003820DA /* LaneData.hpp */,
+				8AEF051B236190B2003820DA /* LaneKeyBeam.cpp */,
+				8AEF051C236190B3003820DA /* LaneKeyBeam.hpp */,
 				534C7B7EA26A1A3EA0ACCC7C /* DataViewer.cpp */,
 				BB050CBB2EF84294933126C0 /* DataViewer.hpp */,
 				23BEC348227A80E1004F379A /* LaneViewer.cpp */,
 				23BEC349227A80E1004F379A /* LaneViewer.hpp */,
+				8AEF0527236190BD003820DA /* MusicPlayer.cpp */,
+				8AEF0526236190BD003820DA /* MusicPlayer.hpp */,
 				2315C8A6228CD0A1003EF748 /* ofNote.cpp */,
 				2315C8A7228CD0A1003EF748 /* ofNote.hpp */,
 			);
@@ -379,6 +437,36 @@
 				C3AF7AEE2890CC70A6E5E7CE /* ofBackgroundPlayer.cpp */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		8AEF051323619032003820DA /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				8AEF05142361903F003820DA /* Result.cpp */,
+				8AEF05152361903F003820DA /* Result.hpp */,
+			);
+			name = Result;
+			sourceTree = "<group>";
+		};
+		8AEF053323619101003820DA /* qrencode */ = {
+			isa = PBXGroup;
+			children = (
+				8AEF053423619107003820DA /* include */,
+			);
+			name = qrencode;
+			sourceTree = "<group>";
+		};
+		8AEF053423619107003820DA /* include */ = {
+			isa = PBXGroup;
+			children = (
+				8AEF053923619110003820DA /* BitBuffer.cpp */,
+				8AEF053A23619110003820DA /* BitBuffer.hpp */,
+				8AEF053523619110003820DA /* QrCode.cpp */,
+				8AEF053823619110003820DA /* QrCode.hpp */,
+				8AEF053623619110003820DA /* QrSegment.cpp */,
+				8AEF053723619110003820DA /* QrSegment.hpp */,
+			);
+			name = include;
 			sourceTree = "<group>";
 		};
 		A763ED608B35AE3310251DEE /* src */ = {
@@ -412,10 +500,11 @@
 		B89229C0696BBC314DF43718 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				25E4006CB2111CF01F72E242 /* Initialize */,
+				8AEF051323619032003820DA /* Result */,
 				7B82D3E9752AC4C04F1DD0CB /* EntryScene.hpp */,
-				1F489AF15D19E3AE73C71B4D /* Ingame */,
 				765D0954F911177049AC8799 /* EntryScene.cpp */,
+				25E4006CB2111CF01F72E242 /* Initialize */,
+				1F489AF15D19E3AE73C71B4D /* Ingame */,
 				CFC9425AC1C74EFF78A6E4F3 /* MusicSelect */,
 			);
 			name = Scene;
@@ -433,6 +522,8 @@
 			isa = PBXGroup;
 			children = (
 				71A18F77DF043AC9E73ED855 /* Extension */,
+				8AEF05172361907E003820DA /* OptionList.cpp */,
+				8AEF05182361907E003820DA /* OptionList.hpp */,
 				6482E0CA6D471D243491FA94 /* MusicList.hpp */,
 				622AF60B7C2E081B52D4A10E /* MusicSelect.hpp */,
 				2E927D83A4A32574269F6E60 /* MusicSelect.cpp */,
@@ -790,6 +881,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
+				TargetAttributes = {
+					E4B69B5A0A3A1756003C02F2 = {
+						DevelopmentTeam = 3R9KGR8P9F;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "E-Beat" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -836,7 +933,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "xcodebuild -project \"$OF_PATH/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj\" -target openFrameworks -configuration \"${CONFIGURATION}\"";
+			shellScript = "xcodebuild -project \"$OF_PATH/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj\" -target openFrameworks -configuration \"${CONFIGURATION}\"\n";
 		};
 		E4B6FFFD0C3F9AB9008CF71C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -860,6 +957,7 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				8AEF05162361903F003820DA /* Result.cpp in Sources */,
 				F6843D895A126D5A5EBCB33C /* AppSetting.cpp in Sources */,
 				23BEC34A227A80E1004F379A /* LaneViewer.cpp in Sources */,
 				ED9188D83C35CB88B297EB16 /* ofxTextBlock.cpp in Sources */,
@@ -867,25 +965,37 @@
 				2681BD7EA9F225DF4F15CB9A /* ofxBlurShader.cpp in Sources */,
 				D5F01222A60E4B8F6DDBC22D /* InitializeScene.cpp in Sources */,
 				5DFEB45AE29EBA678FC33DD0 /* DataViewer.cpp in Sources */,
+				8AEF052B236190D0003820DA /* easing.cpp in Sources */,
 				C2525797623FAF46D6E93424 /* Ingame.cpp in Sources */,
+				8AEF05192361907E003820DA /* OptionList.cpp in Sources */,
 				D58EFCF04EFBF4FF04E62658 /* EntryScene.cpp in Sources */,
 				EAA0CEC29524E7368045ACC4 /* KeyBeam.cpp in Sources */,
 				7E35DEC3E5E749B611D04909 /* ofSelectSlider.cpp in Sources */,
 				04F1DF8E794564DEE1341BE2 /* MusicCard.cpp in Sources */,
 				888867DD362EA1DA8517018B /* ofBackgroundPlayer.cpp in Sources */,
+				8AEF0522236190B3003820DA /* JudgeImage.cpp in Sources */,
 				BD0441EDA625F1E95FE787B3 /* MusicSelect.cpp in Sources */,
+				8AEF053C23619110003820DA /* QrSegment.cpp in Sources */,
 				0FF9EF3E36371076CC79F2FD /* MusicList.cpp in Sources */,
 				2315C8AB228CD103003EF748 /* Parser.cpp in Sources */,
+				8AEF0532236190F8003820DA /* ScrollableTextBlock.cpp in Sources */,
 				856AA354D08AB4B323081444 /* ofxBaseGui.cpp in Sources */,
+				8AEF0528236190BD003820DA /* MusicPlayer.cpp in Sources */,
+				8AEF0525236190B3003820DA /* LaneData.cpp in Sources */,
 				2315C8A8228CD0A1003EF748 /* ofNote.cpp in Sources */,
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
 				853E0BA2F448076739446874 /* ofxColorPicker.cpp in Sources */,
+				8AEF0523236190B3003820DA /* LaneKeyBeam.cpp in Sources */,
+				8AEF053D23619110003820DA /* BitBuffer.cpp in Sources */,
 				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,
 				852E0891794923EE7583C621 /* ofxInputField.cpp in Sources */,
 				483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */,
+				8AEF053B23619110003820DA /* QrCode.cpp in Sources */,
 				F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */,
+				8AEF052F236190ED003820DA /* ofxQRCodeGenerator.cpp in Sources */,
 				837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */,
 				B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */,
+				8AEF0524236190B3003820DA /* JudgeView.cpp in Sources */,
 				1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -941,8 +1051,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 3R9KGR8P9F;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
@@ -971,7 +1085,9 @@
 					"$(OF_CORE_FRAMEWORKS)",
 					"$(LIB_OF)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.ryuusei.ebeat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
 			};
@@ -1067,8 +1183,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 3R9KGR8P9F;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -1097,7 +1217,9 @@
 					"$(OF_CORE_FRAMEWORKS)",
 					"$(LIB_OF_DEBUG)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.ryuusei.ebeat;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1106,8 +1228,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 3R9KGR8P9F;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
@@ -1135,7 +1261,9 @@
 					"$(OF_CORE_FRAMEWORKS)",
 					"$(LIB_OF)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.ryuusei.ebeat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
 			};
