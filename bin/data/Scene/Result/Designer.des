@@ -3,6 +3,9 @@
 *ScoreLabel(x, y, w, h)
 #ScoreLabel 697 256 622 46
 
+*ScoreText(x, y, pt, tracking, w)
+#ScoreText 697 300 19 2 295
+
 *RankBackgroundRect(x, y, w, h, r, g, b, a)
 #RankBackgroundRect 1339 244 510 592 235 255 235 255
 *RankLabel(x, y, w, h)

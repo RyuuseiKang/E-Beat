@@ -161,6 +161,10 @@ bool Result::isReady() {
 void Result::registrationToServer() {
 	dataKey = random_string(20);
 
+	ofHttpResponse resp = ofLoadURL("http://ec2-15-164-163-252.ap-northeast-2.compute.amazonaws.com:3000/ebeat/rank?music=" + removeSpace(musicName) + "." + to_string(difficult));
+	cout << resp.data << endl;
+	cout << "http://ec2-15-164-163-252.ap-northeast-2.compute.amazonaws.com:3000/ebeat/rank?music=" << removeSpace(musicName) << "." << to_string(difficult) << endl;
+
 	ofHttpRequest request;
 	request.method = ofHttpRequest::GET;
 	request.url = "http://ec2-15-164-163-252.ap-northeast-2.compute.amazonaws.com:3000/ebeat/registration/key?key=" + dataKey + "&score=" + to_string(int(score)) + "&music=" + removeSpace(musicName) + "." + to_string(difficult);
