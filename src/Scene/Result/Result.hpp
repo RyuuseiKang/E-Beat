@@ -35,6 +35,7 @@ public:
 	void setDataViewer(DataViewer *_dataViewer);
 
 	bool isReady();
+	void endResult();
 
 private:
 
@@ -48,6 +49,9 @@ private:
 
 	ofImage ScoreLabel;
 	vector<int> ScoreLabelVector;
+	ofxTextBlock ScoreText;
+	vector<int> ScoreTextVector;
+	vector<int> ScoreTextColorVector;
 	ofImage RankLabel;
 	vector<int> RankLabelVector;
 	ofImage *rankImage;

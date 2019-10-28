@@ -29,6 +29,7 @@ public:
 
 	void readyMusic();
 	void readyResult();
+	void endResult();
 	bool isReady();
 
 	int getScore();

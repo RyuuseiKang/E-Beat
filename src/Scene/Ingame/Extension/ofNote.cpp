@@ -78,7 +78,7 @@ void ofNote::setOriginData(string noteData) {
 	if (noteData.substr(1, 1).c_str()[0] >= 'a') length = _length - 87;
 	else length = atoi(&_length);
 
-	cout << " Length: " << length;
+	// cout << " Length: " << length;
 	
 	NOTE_TYPE _noteType;
 	switch (atoi(noteData.substr(0, 1).c_str())) {
@@ -94,6 +94,9 @@ void ofNote::setNoteLength(string _length) {
 
 	if (len >= 'a') length = len - 87;
 	else length = atoi(&len);
+
+	if (length > 16) length = 4;
+	// cout << " Length: " << length << endl;
 }
 
 void ofNote::setEndNoteLength(string _length) {

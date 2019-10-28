@@ -66,6 +66,11 @@ void ofApp::update(){
 
 	case RESULT:
 		result->update(keys);
+		if (result->isReady()) {
+			scene = ENTRY;
+			ingame->endResult();
+			result->endResult();
+		}
 		break;
 
 	default:

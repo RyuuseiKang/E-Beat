@@ -18,6 +18,8 @@ void ofxQRCodeGenerator::generate(string url) {
 	const qrcodegen::QrCode::Ecc &errCorLvl = qrcodegen::QrCode::Ecc::HIGH;  // Error correction level
 	const qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(text, errCorLvl);
 
+	qrCodeArr.clear();
+
 	for (int y = 0; y < qr.size; y++) {
 		for (int x = 0; x < qr.size; x++) {
 			qrCodeArr.push_back((qr.getModule(x, y) == 1 ? 1 : 0));

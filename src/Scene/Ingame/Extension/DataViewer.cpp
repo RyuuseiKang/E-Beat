@@ -21,10 +21,15 @@ DataViewer::DataViewer(FileSystem* _file) {
 	comboLabel.load("Scene/Ingame/DataViewer/ComboLabel.png");
 	maxComboLabel.load("Scene/Ingame/DataViewer/MaxComboLabel.png");
 
-	judgeTextBlock[0].setText("0");
-	judgeTextBlock[1].setText("0");
-	judgeTextBlock[2].setText("0");
-	judgeTextBlock[3].setText("0");
+	judge[0] = 0;
+	judge[1] = 0;
+	judge[2] = 0;
+	judge[3] = 0;
+
+	judgeTextBlock[0].setText(to_string(judge[0]));
+	judgeTextBlock[1].setText(to_string(judge[1]));
+	judgeTextBlock[2].setText(to_string(judge[2]));
+	judgeTextBlock[3].setText(to_string(judge[3]));
 
 	scoreTextBlock.setText(to_string(int(score)));
 	comboTextBlock.setText(to_string(combo));

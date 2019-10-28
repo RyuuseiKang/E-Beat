@@ -32,6 +32,8 @@ Result::~Result() {
 
 void Result::update(bool keys[256]) {
 	dataViewer->update();
+
+	ScoreText.setText(to_string(int(score)));
 }
 
 void Result::draw() {
@@ -47,11 +49,13 @@ void Result::draw() {
 
 	RankTextImage->draw(RankTextImageVector[0], RankTextImageVector[1], RankTextImageVector[2], RankTextImageVector[3]);
 
+	ScoreText.drawRight(ScoreTextVector[0], ScoreTextVector[1]);
+
 	ofSetColor(nicknameRegisterBackgroundRectVector[4], nicknameRegisterBackgroundRectVector[5], nicknameRegisterBackgroundRectVector[6], nicknameRegisterBackgroundRectVector[7]);
 	ofDrawRectangle(nicknameRegisterBackgroundRectVector[0], nicknameRegisterBackgroundRectVector[1], nicknameRegisterBackgroundRectVector[2], nicknameRegisterBackgroundRectVector[3]);
 	DrawBoxRect(nicknameRegisterBackgroundRectVector[0], nicknameRegisterBackgroundRectVector[1], nicknameRegisterBackgroundRectVector[2], nicknameRegisterBackgroundRectVector[3]);
 	nicknameRegisterQR.draw(nicknameRegisterQRVector[0], nicknameRegisterQRVector[1], nicknameRegisterQRVector[2]);
-
+	
 	ofSetColor(255, 255, 255, 255);
 	registrationUserNameLabel.draw(registrationUserNameLabelVector[0], registrationUserNameLabelVector[1], registrationUserNameLabelVector[2], registrationUserNameLabelVector[3]);
 
@@ -65,6 +69,18 @@ void Result::draw() {
 void Result::keyPressed(int key) {
 	if (key == 'r')
 		readDesigner();
+
+	if (key == 'd' || key == 'D')
+		isResultEnd = true;
+
+	if (key == 'f' || key == 'F')
+		isResultEnd = true;
+
+	if (key == 'j' || key == 'J')
+		isResultEnd = true;
+
+	if (key == 'k' || key == 'K')
+		isResultEnd = true;
 }
 
 void Result::keyReleased(int key) {
@@ -73,6 +89,12 @@ void Result::keyReleased(int key) {
 
 void Result::setDesign() {
 	ScoreLabelVector = changeVectorIntType(dataParse("ScoreLabel"));
+	ScoreTextVector = changeVectorIntType(dataParse("ScoreText"));
+	ScoreTextColorVector = changeVectorIntType(dataParse("ScoreTextColor"));
+	ScoreText.init("Fonts/ITCAvantGardeStd-Bold.ttf", ScoreTextVector[2]);
+	ScoreText.setTracking(ScoreTextVector[3]);
+	ScoreText.setColor(ScoreTextColorVector[0], ScoreTextColorVector[1], ScoreTextColorVector[2], ScoreTextColorVector[3]);
+
 	RankLabelVector = changeVectorIntType(dataParse("RankLabel"));
 	ScoreBackgroundRect = changeVectorIntType(dataParse("ScoreBackgroundRect"));
 	RankBackgroundRect = changeVectorIntType(dataParse("RankBackgroundRect"));
@@ -132,11 +154,15 @@ void Result::readDesigner() {
 
 void Result::setDataViewer(DataViewer * _dataViewer) {
 	dataViewer = _dataViewer;
+	
+	isResultEnd = false;
 
 	musicName = dataViewer->getMusicName();
 	difficult = dataViewer->getDifficult();
 	score = dataViewer->getScore();
 	rate = dataViewer->getRate();
+
+	ScoreText.setText(to_string(int(score)));
 
 	if (rate >= 100)
 		RankTextImage = &rankImage[0];
@@ -156,6 +182,10 @@ void Result::setDataViewer(DataViewer * _dataViewer) {
 
 bool Result::isReady() {
 	return isResultEnd;
+}
+
+void Result::endResult() {
+
 }
 
 void Result::registrationToServer() {
