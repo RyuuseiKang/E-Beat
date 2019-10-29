@@ -52,30 +52,30 @@ void Ingame::keyPressed(int key) {
 	laneViewer->keyPressed(key);
 
 	if (key == 'r')
-		dataViewer->readDesigner();
+		// dataViewer->readDesigner();
 
 	if (key == '1') {
-		dataViewer->setDifficult(1);
+		//dataViewer->setDifficult(1);
 	}
 			
 	if (key == '2') {
-		dataViewer->setDifficult(2);
+		// dataViewer->setDifficult(2);
 	}
 
 	if (key == '3') {
-		dataViewer->setDifficult(3);
+		// dataViewer->setDifficult(3);
 	}
 	
 	if (key == '4') {
-		dataViewer->setDifficult(4);
+		// dataViewer->setDifficult(4);
 	}
 
 	if (key == 'e') {
-		musicPlayer.setPositionMS(musicPlayer.getPositionMS() + 1000);
+		// musicPlayer.setPositionMS(musicPlayer.getPositionMS() + 1000);
 	}
 
 	if (key == 'w') {
-		musicPlayer.setPositionMS(musicPlayer.getPositionMS() + 10000);
+		// musicPlayer.setPositionMS(musicPlayer.getPositionMS() + 10000);
 	}
 	
 }

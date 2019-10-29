@@ -40,6 +40,10 @@ public:
 	void setLevel(int _level);
 
 	double getRate();
+	int getJudge0();
+	int getJudge1();
+	int getJudge2();
+	int getJudge3();
 
 	void setMusicName(string _musicName);
 	string getMusicName();

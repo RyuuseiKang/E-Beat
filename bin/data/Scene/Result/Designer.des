@@ -4,9 +4,9 @@
 #ScoreLabel 697 256 622 46
 
 *ScoreText(x, y, pt, tracking, w)
-#ScoreText 1290 295 60 2 295
+#ScoreText 1290 310 80 2 295
 *ScoreTextColor(r, g, b, a)
-#ScoreTextColor 33 33 33 255
+#ScoreTextColor 0 0 0 255
 
 *RankBackgroundRect(x, y, w, h, r, g, b, a)
 #RankBackgroundRect 1339 244 510 592 235 255 235 255
@@ -22,3 +22,21 @@
 *registrationUserNameLabel(x, y, w, h)
 #registrationUserNameLabel 108 270 492 35
 
+*JudgeBackgroundRect(x, y, w, h, r, g, b, a)
+#JudgeBackgroundRect 697 487 622 349 255 255 255 255
+*JudgeOuter(x, y, w, h)
+#JudgeOuter 697 487 622 349
+
+*JudgeText0(x, y, pt, tracking, w)
+#JudgeText0 1280 485 40 2 295
+*JudgeText1(x, y, pt, tracking, w)
+#JudgeText1 1280 570 40 2 295
+*JudgeText2(x, y, pt, tracking, w)
+#JudgeText2 1280 655 40 2 295
+*JudgeText3(x, y, pt, tracking, w)
+#JudgeText3 1280 740 40 2 295
+*JudgeTextColor(r, g, b, a)
+#JudgeTextColor 0 0 0 255
+
+*NewRecord(x, y, w, h)
+#NewRecord 697 302 622 47

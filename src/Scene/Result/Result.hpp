@@ -58,11 +58,19 @@ private:
 	ofImage *RankTextImage;
 	vector<int> RankTextImageVector;
 
-	ofxTextBlock JudgeLabel[4];
+	ofImage NewRecord;
+	vector<int> NewRecordVector;
+
+	ofImage BackToMusicSelect;
+	vector<int> JudgeBackgroundRect;
+	ofImage JudgeOuter;
+	vector<int> JudgeOuterVector;
+	ofxTextBlock JudgeText[4];
 	vector<int> JudgeTextBlock0Vector;
 	vector<int> JudgeTextBlock1Vector;
 	vector<int> JudgeTextBlock2Vector;
 	vector<int> JudgeTextBlock3Vector;
+	vector<int> JudgeTextColorVector;
 	ofxQRCodeGenerator nicknameRegisterQR;
 	vector<double> nicknameRegisterQRVector;
 	vector<int> nicknameRegisterBackgroundRectVector;
@@ -73,7 +81,9 @@ private:
 	int difficult;
 	double score;
 	double rate;
+	int judge[4];
 
+	bool isNewRecord = false;
 
 	bool isResultEnd = false;
 
@@ -88,6 +98,8 @@ private:
 	vector<string> split(string str, char delimiter);
 	vector<int> changeVectorIntType(vector<string> str);
 	vector<double> changeVectorDoubleType(vector<string> str);
+	string ToUFT8(const char* pszIn);
+	string ToAnsi(const char* pszIn);
 
 	ofImage boxLeft, boxRight, boxTop, boxBottom, boxLeftTop, boxRightTop, boxLeftBottom, boxRightBottom;
 };

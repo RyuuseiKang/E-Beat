@@ -42,6 +42,16 @@ LaneViewer::LaneViewer(FileSystem* _file, DataViewer * _dataViewer) {
 	// 키빔
 	laneKeyBeam = new LaneKeyBeam();
 
+	keyMap.clear();
+	instanceKeyMap['d'] = false;
+	instanceKeyMap['D'] = false;
+	instanceKeyMap['f'] = false;
+	instanceKeyMap['F'] = false;
+	instanceKeyMap['j'] = false;
+	instanceKeyMap['J'] = false;
+	instanceKeyMap['k'] = false;
+	instanceKeyMap['K'] = false;
+
 	// 여기서부터 노트 생성
 	GenerateNote();
 }
@@ -59,31 +69,74 @@ void LaneViewer::update(bool keys[256]) {
 	laneY = GetCurrentScrollPosition(GetNowMarker(), player->getPositionMS() - wavOffset, hiSpeed) + yPosition;
 	//cout << "nowLaneY: " << laneY << endl;
 
+	short key = 0;
+	if (keys['d'])
+		key += 15;
+
+	if (keys['D'])
+		key += 15;
+
+	if (keys['f'])
+		key += 240;
+
+	if (keys['F'])
+		key += 240;
+
+	if (keys['j'])
+		key += 3840;
+
+	if (keys['J'])
+		key += 3840;
+
+	if (keys['k'])
+		key += 61440;
+
+	if (keys['K'])
+		key += 61440;
+
+	laneKeyBeam->SetKey(key);
+
 	// 키 처리
-	for(map<char, map<long, bool>>::iterator iterator = keyMap.begin(); iterator != keyMap.end(); iterator++)
+	for (map<char, map<long, bool>>::iterator iterator = keyMap.begin(); iterator != keyMap.end(); iterator++) {
 		while (!iterator->second.empty()) {
-			
+
 			string key;
 			switch (iterator->first) {
 			case 'd':
 				key = "0";
 				break;
 
+			case 'D':
+				key = "0";
+				break;
+
 			case 'f':
 				key = "4";
 				break;
-		
+
+			case 'F':
+				key = "4";
+				break;
+
 			case 'j':
+				key = "8";
+				break;
+
+			case 'J':
 				key = "8";
 				break;
 
 			case 'k':
 				key = "c";
 				break;
-			}
-		
 
-			if (!sortedNoteMap[key].empty() && iterator->second.begin()->first > sortedNoteMap[key].begin()->first - 500 &&  iterator->second.begin()->second) {
+			case 'K':
+				key = "c";
+				break;
+			}
+
+
+			if (!sortedNoteMap[key].empty() && iterator->second.begin()->first > sortedNoteMap[key].begin()->first - 500 && iterator->second.begin()->second) {
 				// sortedNoteMap[key].begin();
 
 				short judgeTime = (sortedNoteMap[key].begin()->first - iterator->second.begin()->first);
@@ -92,7 +145,7 @@ void LaneViewer::update(bool keys[256]) {
 				if (abs(judgeTime) <= 55) {
 					judgeView.AddJugde(0);
 					dataViewer->upPerfect();
-					
+
 				}
 				else if (abs(judgeTime) <= 150) {
 					judgeView.AddJugde(1);
@@ -115,7 +168,7 @@ void LaneViewer::update(bool keys[256]) {
 				dataViewer->upCombo();
 
 				cout << "Deleted " << sortedNoteMap[key].begin()->first << "ms, Pressed " << iterator->second.begin()->first << "ms" << endl;
-			
+
 				// 키 맵 삭제
 				sortedNoteMap[key].erase(sortedNoteMap[key].begin()->first);
 			}
@@ -123,22 +176,7 @@ void LaneViewer::update(bool keys[256]) {
 			iterator->second.erase(iterator->second.begin());
 
 		}
-
-
-	short key = 0;
-	if (keys['d'])
-		key += 15;
-
-	if (keys['f'])
-		key += 240;
-
-	if (keys['j'])
-		key += 3840;
-
-	if (keys['k'])
-		key += 61440;
-
-	laneKeyBeam->SetKey(key);
+	}
 		
 
 	// 여기서 지나간 노트 맵 삭제

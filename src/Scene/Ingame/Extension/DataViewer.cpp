@@ -21,10 +21,7 @@ DataViewer::DataViewer(FileSystem* _file) {
 	comboLabel.load("Scene/Ingame/DataViewer/ComboLabel.png");
 	maxComboLabel.load("Scene/Ingame/DataViewer/MaxComboLabel.png");
 
-	judge[0] = 0;
-	judge[1] = 0;
-	judge[2] = 0;
-	judge[3] = 0;
+	
 
 	judgeTextBlock[0].setText(to_string(judge[0]));
 	judgeTextBlock[1].setText(to_string(judge[1]));
@@ -145,27 +142,29 @@ double DataViewer::getScore() {
 
 void DataViewer::upPerfect() {
 	judgeTextBlock[0].setText(to_string(++judge[0]));
-	score += 500;
+	score += 1000;
 
 	scoreTextBlock.setText(to_string(int(score)));
 }
 
 void DataViewer::upGreat() {
 	judgeTextBlock[1].setText(to_string(++judge[1]));
-	score += 250;
+	score += 750;
 
 	scoreTextBlock.setText(to_string(int(score)));
 }
 
 void DataViewer::upGood() {
 	judgeTextBlock[2].setText(to_string(++judge[2]));
-	score += 125;
+	score += 500;
 
 	scoreTextBlock.setText(to_string(int(score)));
 }
 
 void DataViewer::upMiss() {
 	judgeTextBlock[3].setText(to_string(++judge[3]));
+
+	breakCombo();
 }
 
 void DataViewer::upCombo() {
@@ -389,6 +388,22 @@ double DataViewer::getRate() {
 	int maxCount = judge[0] + judge[1] + judge[2] + judge[3];
 		
 	return rate / maxCount * 100;
+}
+
+int DataViewer::getJudge0() {
+	return judge[0];
+}
+
+int DataViewer::getJudge1() {
+	return judge[1];
+}
+
+int DataViewer::getJudge2() {
+	return judge[2];
+}
+
+int DataViewer::getJudge3() {
+	return judge[3];
 }
 
 void DataViewer::setMusicName(string _musicName) {

@@ -411,8 +411,9 @@ void LaneData::Process() {
 							double syncTime = (fullyBarTime / noteSize) * dist + firstSyncTime;
 							(*noteIterator)->syncTime = syncTime;
 
-							if (noteType[0] == '1')
-								sortedNoteMap[(*noteIterator)->position][syncTime] = (*noteIterator)->note;
+							if (noteType[0] == '1') {
+								// sortedNoteMap[(*noteIterator)->position][syncTime] = (*noteIterator)->note;
+							}
 						}
 					}
 				}
